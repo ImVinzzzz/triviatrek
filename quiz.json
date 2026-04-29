@@ -14,7 +14,7 @@
           "text": "Chi comanda la USS Enterprise NCC-1701-D nella serie The Next Generation?",
           "options": ["Jean-Luc Picard", "James T. Kirk", "Kathryn Janeway"],
           "correct": 0,
-          "image": img_quiz/d1a.jpg
+          "image": img_quiz/d1a.webp
         },
         {
           "id": "cmd_250",
