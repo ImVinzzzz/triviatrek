@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrivaTrek — Editor Domande</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       LOCK SCREEN (shown until password correct)
+  ═══════════════════════════════════════════ -->
+  <div class="editor-lock" id="editor-lock" role="dialog" aria-modal="true" aria-labelledby="lock-title">
+    <div class="lock-box">
+      <div class="lock-header">
+        <div class="lock-title" id="lock-title">
+          AUTORIZZAZIONE<br>DI COMANDO<br>RICHIESTA
+        </div>
+      </div>
+      <div class="lock-body">
+        <img src="img/delta.svg" alt="Starfleet Insignia" class="lock-starfleet-icon">
+        <div class="lock-label">ACCESSO RISTRETTO — SOLO UFFICIALI AUTORIZZATI<br>INSERIRE CODICE DI COMANDO</div>
+        <div class="lock-input-row">
+          <input
+            type="password"
+            class="lock-input"
+            id="lock-password"
+            placeholder="CODICE"
+            maxlength="12"
+            autocomplete="off"
+            aria-label="Codice di accesso"
+          >
+          <button class="btn-authorize" id="btn-authorize">INVIA</button>
+        </div>
+        <div class="lock-denied" id="lock-denied" role="alert" aria-live="assertive">
+          ⚠ ACCESSO NEGATO ⚠
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       FIXED LCARS HEADER (shared)
+  ═══════════════════════════════════════════ -->
+  <header class="lcars-header" role="banner">
+    <div class="lcars-header-left" aria-hidden="true">
+      <div class="header-pip-row">
+        <div class="header-pip pip-orange pip-tall">58712</div>
+        <div class="header-pip pip-orange pip-tall">33574</div>
+        <div class="header-pip pip-teal pip-tall">6674</div>
+        <div class="header-pip pip-orange pip-tall">95224</div>
+      </div>
+    </div>
+    <div class="lcars-header-right">
+      <img src="img/logo.svg" alt="TrivaTrek Logo" class="header-logo">
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       EDITOR INTERFACE (hidden until authorized)
+  ═══════════════════════════════════════════ -->
+  <div class="editor-interface" id="editor-interface" aria-hidden="true">
+
+    <!-- Top bar -->
+    <div class="editor-topbar">
+      <div class="editor-title">⬡ EDITOR DOMANDE — PANNELLO DI CONTROLLO</div>
+      <label class="btn-load-json" for="file-load-json" role="button" tabindex="0">
+        ▲ CARICA quiz.json
+      </label>
+      <input type="file" id="file-load-json" accept=".json" style="display:none" aria-label="Carica file quiz.json">
+    </div>
+
+    <!-- Category Tabs -->
+    <nav class="editor-tabs" id="editor-tabs" role="tablist" aria-label="Categorie">
+      <!-- Injected by editor.js -->
+    </nav>
+
+    <!-- Tab Panels -->
+    <div class="editor-content" id="editor-content">
+      <!-- Injected by editor.js -->
+    </div>
+
+    <!-- Export button -->
+    <button class="btn-export" id="btn-export">
+      ▼ ESPORTA DATI — SCARICA quiz.json
+    </button>
+
+  </div>
+
+  <!-- Audio elements -->
+  <audio id="sfx-ok"    src="sfx/ok.mp3"    preload="auto"></audio>
+  <audio id="sfx-wrong" src="sfx/wrong.mp3" preload="auto"></audio>
+
+  <script src="editor.js"></script>
+</body>
+</html>

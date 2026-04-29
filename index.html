@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrivaTrek — Quiz Star Trek</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       FIXED LCARS HEADER
+  ═══════════════════════════════════════════ -->
+  <header class="lcars-header" role="banner">
+    <div class="lcars-header-left" aria-hidden="true">
+      <div class="header-pip-row">
+        <div class="header-pip pip-orange pip-tall">58712</div>
+        <div class="header-pip pip-orange pip-tall">33574</div>
+        <div class="header-pip pip-teal pip-tall">6674</div>
+        <div class="header-pip pip-orange pip-tall">95224</div>
+      </div>
+    </div>
+    <div class="lcars-header-right">
+      <img src="img/logo.svg" alt="TrivaTrek Logo" class="header-logo">
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       PAGE LAYOUT
+  ═══════════════════════════════════════════ -->
+  <div class="page-layout">
+
+    <!-- ── LCARS Left Sidebar ── -->
+    <aside class="lcars-sidebar" id="lcars-sidebar" aria-label="LCARS pannello laterale">
+
+      <!-- Splash state: decorative LCARS bars -->
+      <div class="sidebar-splash" id="sidebar-splash" aria-hidden="true">
+        <div class="lcars-bar bar-teal bar-sm">288-6531</div>
+        <div class="lcars-bar bar-teal">258-6433</div>
+        <div class="lcars-bar bar-orange bar-tall">553-9282</div>
+        <div class="lcars-bar bar-lilac">123-5687</div>
+        <div class="lcars-bar bar-lilac bar-xl">553-9282</div>
+        <div class="lcars-bar bar-orange bar-sm">101-1102</div>
+        <div class="lcars-bar bar-teal">258-6433</div>
+        <div class="lcars-bar bar-orange bar-tall">221-7734</div>
+        <div class="lcars-bar bar-lilac">568-8389</div>
+        <div class="lcars-bar bar-teal bar-sm">119-4421</div>
+      </div>
+
+      <!-- Game state: player score cards -->
+      <div class="sidebar-players" id="sidebar-players" hidden></div>
+
+    </aside>
+
+    <!-- ── Main Content Area ── -->
+    <main class="lcars-main" role="main">
+
+      <!-- ── SPLASH SCREEN ── -->
+      <section id="screen-splash" role="button" tabindex="0" aria-label="Clicca per iniziare il gioco">
+        <div class="splash-inner">
+          <img src="img/logo.svg" alt="TrivaTrek" class="splash-logo">
+          <p class="splash-cta" aria-hidden="true">▶ CLICCA PER INIZIARE ▶</p>
+          <div class="splash-corner tl" aria-hidden="true">STARDATE 47634.4<br>LCARS v7.2</div>
+          <div class="splash-corner tr" aria-hidden="true">USS AFRODITE<br>NCC-2874-B</div>
+          <div class="splash-corner bl" aria-hidden="true">SYS-STATUS: NOMINAL<br>PWR: 98.7%</div>
+          <div class="splash-corner br" aria-hidden="true">TRIVIA MODULE<br>ONLINE</div>
+        </div>
+      </section>
+
+      <!-- ── GAME BOARD ── -->
+      <section id="screen-game" hidden aria-label="Tabellone di gioco">
+        <div class="turn-banner" id="turn-banner" role="status" aria-live="polite"></div>
+        <div class="grid-materie" id="grid-materie" role="grid"></div>
+      </section>
+
+      <!-- ── GAME OVER ── -->
+      <section id="screen-gameover" hidden aria-label="Classifica finale">
+        <p class="gameover-title">— CLASSIFICA FINALE —</p>
+        <div id="winner-card-container"></div>
+        <div class="runner-up-list" id="runner-up-list"></div>
+        <button class="btn-restart" id="btn-restart">↺ NUOVA PARTITA</button>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ── LCARS Footer Strip ── -->
+  <footer class="lcars-footer" aria-hidden="true">
+    <span class="footer-num">22477545</span>
+    <span class="footer-num">2385745</span>
+    <span class="footer-num">122375</span>
+    <span class="footer-num">15573-5</span>
+    <span class="footer-num">333712</span>
+    <span class="footer-num">57312</span>
+    <span class="footer-num">8841-22</span>
+    <span class="footer-num">996600</span>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       POPUP — PLAYER SETUP
+  ═══════════════════════════════════════════ -->
+  <div class="popup-overlay" id="popup-setup" hidden role="dialog" aria-modal="true" aria-labelledby="setup-title">
+    <div class="popup-box">
+      <div class="setup-popup-header">
+        <div class="setup-popup-title" id="setup-title">PROTOCOLLO DI MISSIONE<br>SELEZIONE EQUIPAGGIO</div>
+        <div class="setup-popup-subtitle">AUTORIZZAZIONE RICHIESTA — BRIDGE CREW</div>
+      </div>
+      <div class="setup-body">
+        <!-- Player count -->
+        <div>
+          <div class="setup-section-label">Numero di Giocatori</div>
+          <div class="player-count-row" id="player-count-row" role="group" aria-label="Numero giocatori">
+            <button class="btn-count" data-count="2" aria-pressed="false">2</button>
+            <button class="btn-count" data-count="3" aria-pressed="false">3</button>
+            <button class="btn-count" data-count="4" aria-pressed="false">4</button>
+          </div>
+        </div>
+        <!-- Player name inputs -->
+        <div>
+          <div class="setup-section-label">Nome Ufficiali</div>
+          <div class="player-inputs" id="player-inputs">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+        <!-- Engage button -->
+        <button class="btn-engage" id="btn-engage">⟩ ENGAGE ⟩</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       POPUP — QUESTION
+  ═══════════════════════════════════════════ -->
+  <div class="popup-overlay" id="popup-question" hidden role="dialog" aria-modal="true" aria-labelledby="question-text">
+    <div class="popup-box">
+      <!-- Question header (color injected by JS) -->
+      <div class="popup-header" id="popup-qheader">
+        <span class="popup-category-label" id="popup-category-label"></span>
+        <span class="popup-points-badge" id="popup-points-badge"></span>
+      </div>
+      <div class="popup-body">
+        <!-- Optional question image -->
+        <img class="popup-question-img" id="popup-question-img" alt="Immagine domanda" hidden>
+        <!-- Question text -->
+        <p class="popup-question-text" id="question-text"></p>
+        <!-- Answer options -->
+        <div class="popup-options" id="popup-options" role="group" aria-label="Opzioni di risposta"></div>
+        <!-- Result banner (shown after answer) -->
+        <div id="popup-result-banner" hidden></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio elements -->
+  <audio id="sfx-intro"   src="sfx/intro.mp3"  preload="auto"></audio>
+  <audio id="sfx-theme"   src="sfx/theme.mp3"  preload="auto" loop></audio>
+  <audio id="sfx-ok"      src="sfx/ok.mp3"     preload="auto"></audio>
+  <audio id="sfx-wrong"   src="sfx/wrong.mp3"  preload="auto"></audio>
+  <audio id="sfx-winner"  src="sfx/winner.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

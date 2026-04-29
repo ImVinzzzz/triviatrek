@@ -1,0 +1,310 @@
+{
+  "categories": [
+    {
+      "id": "comando",
+      "name": "COMANDO E NAVIGAZIONE",
+      "color1": "#B42828",
+      "color2": "#E61E1E",
+      "icon": "img/delta.svg",
+      "points": [100, 250, 500],
+      "questions": [
+        {
+          "id": "cmd_100",
+          "points": 100,
+          "text": "Chi comanda la USS Enterprise NCC-1701-D nella serie The Next Generation?",
+          "options": ["Jean-Luc Picard", "James T. Kirk", "Kathryn Janeway"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "cmd_250",
+          "points": 250,
+          "text": "Quanti ponti (deck) ha la nave di classe Galaxy come l'Enterprise-D?",
+          "options": ["22", "42", "36"],
+          "correct": 1,
+          "image": null
+        },
+        {
+          "id": "cmd_500",
+          "points": 500,
+          "text": "Come si chiama la manovra in cui il Capitano Picard saltava a Warp per sembrare in due luoghi contemporaneamente?",
+          "options": ["La Mossa Kirk", "La Manovra Picard", "Il Salto Quantico"],
+          "correct": 1,
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "scienza",
+      "name": "SCIENZA E MEDICINA",
+      "color1": "#286E64",
+      "color2": "#008080",
+      "icon": "img/delta.svg",
+      "points": [100, 250, 500],
+      "questions": [
+        {
+          "id": "sci_100",
+          "points": 100,
+          "text": "Come si chiama il medico capo della USS Enterprise nella serie originale?",
+          "options": ["Dott. McCoy", "Dott. Crusher", "Dott. Bashir"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "sci_250",
+          "points": 250,
+          "text": "Di che colore è il sangue dei Vulcaniani?",
+          "options": ["Rosso", "Verde", "Blu"],
+          "correct": 1,
+          "image": null
+        },
+        {
+          "id": "sci_500",
+          "points": 500,
+          "text": "Come si chiama il ciclo biologico dei Trill in cui un ospite e il simbiotico formano un legame permanente?",
+          "options": ["Giunzione", "Fusione Neurale", "Imprinting Quantico"],
+          "correct": 0,
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "tattica",
+      "name": "TATTICA E SICUREZZA",
+      "color1": "#BEBE00",
+      "color2": "#FFC800",
+      "icon": "img/delta.svg",
+      "points": [100, 250, 500],
+      "questions": [
+        {
+          "id": "tat_100",
+          "points": 100,
+          "text": "Come si chiama l'arma ad energia standard in dotazione alla Flotta Stellare?",
+          "options": ["Disruptor", "Fucile a ioni", "Phaser"],
+          "correct": 2,
+          "image": null
+        },
+        {
+          "id": "tat_250",
+          "points": 250,
+          "text": "Quale tecnologia rende invisibili le navi dell'Impero Romulan al rilevamento?",
+          "options": ["Maschera Termica", "Dispositivo Occultante", "Schermo d'Assorbimento"],
+          "correct": 1,
+          "image": null
+        },
+        {
+          "id": "tat_500",
+          "points": 500,
+          "text": "Come si chiama il tipo di siluro a energia del plasma usato come arma principale sulle navi Federazione?",
+          "options": ["Siluro Fotone", "Siluro Quantico", "Siluro Plasma"],
+          "correct": 0,
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "ingegneria",
+      "name": "INGEGNERIA E OPS",
+      "color1": "#BEBE00",
+      "color2": "#FFC800",
+      "icon": "img/delta.svg",
+      "points": [100, 250, 500],
+      "questions": [
+        {
+          "id": "ing_100",
+          "points": 100,
+          "text": "Come si chiama il cristallo che regola il flusso di materia/antimateria nei motori Warp?",
+          "options": ["Cristallo di dilithio", "Cristallo di quarzo", "Nucleo di tritanio"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "ing_250",
+          "points": 250,
+          "text": "Quale ingegnere della USS Enterprise NCC-1701 è soprannominato 'Scotty'?",
+          "options": ["Reginald Barclay", "Geordi La Forge", "Montgomery Scott"],
+          "correct": 2,
+          "image": null
+        },
+        {
+          "id": "ing_500",
+          "points": 500,
+          "text": "Come si chiama la procedura di emergenza che separa fisicamente il modulo saucer dal corpo secondario della nave?",
+          "options": ["Separazione Saucer", "Manovra di Divisione", "Protocollo Sigma"],
+          "correct": 0,
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "riskio",
+      "name": "RISKIO!",
+      "color1": "#374137",
+      "color2": "#647D6E",
+      "icon": "img/delta.svg",
+      "points": [200, 500, 1000],
+      "questions": [
+        {
+          "id": "rsk_200",
+          "points": 200,
+          "text": "In quale anno del calendario terrestre è ambientata la serie Star Trek: The Next Generation?",
+          "options": ["2151", "2364", "2269"],
+          "correct": 1,
+          "image": null
+        },
+        {
+          "id": "rsk_500",
+          "points": 500,
+          "text": "Come si chiama la sonda aliena che nel film del 1979 torna verso la Terra cercando il suo Creatore?",
+          "options": ["V'Ger", "Nomad", "Doomsday Machine"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "rsk_1000",
+          "points": 1000,
+          "text": "Quale attore ha interpretato il personaggio di Spock sia nella serie originale che nei film della trilogia Kelvin?",
+          "options": ["Zachary Quinto", "Leonard Nimoy", "Entrambi"],
+          "correct": 2,
+          "image": "img_quiz/spock_placeholder.jpg"
+        }
+      ]
+    },
+    {
+      "id": "afrodite",
+      "name": "USS AFRODITE",
+      "color1": "#BF6500",
+      "color2": "#FF9900",
+      "icon": "img/delta.svg",
+      "points": [100, 250, 500],
+      "questions": [
+        {
+          "id": "afr_100",
+          "points": 100,
+          "text": "Quanti livelli di allerta esistono a bordo della maggior parte delle navi Federazione?",
+          "options": ["Due", "Tre", "Quattro"],
+          "correct": 1,
+          "image": null
+        },
+        {
+          "id": "afr_250",
+          "points": 250,
+          "text": "Quale segnale visivo indica lo stato di massima allerta a bordo di una nave della Flotta Stellare?",
+          "options": ["Luci rosse lampeggianti", "Luci gialle", "Luci blu"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "afr_500",
+          "points": 500,
+          "text": "Come si chiama la tecnologia che consente di smaterializzare e rimaterializzare le persone a distanza?",
+          "options": ["Teletrasporto", "Dematerializzazione Quantica", "Proiezione Olografica"],
+          "correct": 0,
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "qonos",
+      "name": "QO'NOS",
+      "color1": "#803C64",
+      "color2": "#B44B82",
+      "icon": "img/delta.svg",
+      "points": [100, 250, 500],
+      "questions": [
+        {
+          "id": "qon_100",
+          "points": 100,
+          "text": "Come si chiama la bevanda tradizionale Klingon a base di sangue?",
+          "options": ["Bloodwine", "Bahgol", "Raktajino"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "qon_250",
+          "points": 250,
+          "text": "Come si chiama la grande arma a lama curva a doppia impugnatura tipica dei guerrieri Klingon?",
+          "options": ["D'k tahg", "Bat'leth", "Mek'leth"],
+          "correct": 1,
+          "image": null
+        },
+        {
+          "id": "qon_500",
+          "points": 500,
+          "text": "Chi è il leggendario eroe fondatore della civiltà e dell'Impero Klingon?",
+          "options": ["Kahless il Dimenticabile", "Kahless l'Indimenticabile", "Gorkon il Grande"],
+          "correct": 1,
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "romulus",
+      "name": "ROMULUS",
+      "color1": "#006432",
+      "color2": "#009646",
+      "icon": "img/delta.svg",
+      "points": [100, 250, 500],
+      "questions": [
+        {
+          "id": "rom_100",
+          "points": 100,
+          "text": "I Romulani condividono un'origine ancestrale comune con quale altra razza aliena di Star Trek?",
+          "options": ["Vulcaniani", "Cardassiani", "Ferenghi"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "rom_250",
+          "points": 250,
+          "text": "Come si chiama il capo supremo del governo dell'Impero Romulan?",
+          "options": ["Il Praetor", "Il Primo Ministro", "L'Imperatore"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "rom_500",
+          "points": 500,
+          "text": "Come si chiama la classe di nave da guerra Romulan più grande e potente, temuta da tutta la Federazione?",
+          "options": ["Warbird D'deridex", "Battlecruiser K't'inga", "Dreadnought Valdore"],
+          "correct": 0,
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "vulcano",
+      "name": "VULCANO",
+      "color1": "#1E3280",
+      "color2": "#324696",
+      "icon": "img/delta.svg",
+      "points": [100, 250, 500],
+      "questions": [
+        {
+          "id": "vul_100",
+          "points": 100,
+          "text": "Come si chiama il ciclo biologico di circa 7 anni durante il quale i Vulcaniani devono accoppiarsi o morire?",
+          "options": ["Pon farr", "Plak tow", "Kolinahr"],
+          "correct": 0,
+          "image": null
+        },
+        {
+          "id": "vul_250",
+          "points": 250,
+          "text": "Come si chiama la disciplina mentale Vulcaniana volta all'eliminazione totale delle emozioni?",
+          "options": ["Pon farr", "Kolinahr", "V'tosh ka'tur"],
+          "correct": 1,
+          "image": null
+        },
+        {
+          "id": "vul_500",
+          "points": 500,
+          "text": "Come si chiama l'equivalente dell'anima Vulcaniana, che può essere trasferita in un altro essere prima della morte?",
+          "options": ["Katra", "Tuwaly", "Synaptic Relay"],
+          "correct": 0,
+          "image": null
+        }
+      ]
+    }
+  ]
+}
