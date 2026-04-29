@@ -77,6 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Splash: click anywhere to start
   dom.screenSplash.addEventListener('click',    openSetupPopup);
   dom.screenSplash.addEventListener('keydown',  e => { if(e.key === 'Enter' || e.key === ' ') openSetupPopup(); });
+
+  // Play intro on first user interaction (browser policy)
+  const playIntro = () => {
+    if (!state.introPlayed) {
+      playAudio(dom.sfxIntro);
+      state.introPlayed = true;
+    }
+    document.removeEventListener('click', playIntro);
+    document.removeEventListener('keydown', playIntro);
+  };
+  document.addEventListener('click', playIntro);
+  document.addEventListener('keydown', playIntro);
 });
 
 /* ======================================================
@@ -103,8 +115,6 @@ async function loadQuizData() {
   try {
     const res = await fetch('quiz.json');
     state.quizData = await res.json();
-    // Play intro audio on load
-    playAudio(dom.sfxIntro);
   } catch(e) {
     console.warn('quiz.json non trovato, alcune funzioni potrebbero non funzionare.', e);
   }
@@ -187,17 +197,20 @@ function engageGame() {
   // Transition: hide splash → show game
   stopAudio(dom.sfxIntro);
   playAudio(dom.sfxEngage);
-  dom.screenSplash.hidden = true;
-  dom.sidebarSplash.hidden = true;
-  dom.sidebarPlayers.hidden = false;
-  dom.screenGame.hidden = false;
 
-  // Play theme
-  playAudio(dom.sfxTheme, true);
+  setTimeout(() => {
+    dom.screenSplash.hidden = true;
+    dom.sidebarSplash.hidden = true;
+    dom.sidebarPlayers.hidden = false;
+    dom.screenGame.hidden = false;
 
-  renderPlayerCards();
-  renderGameBoard();
-  updateTurnBanner();
+    // Play theme
+    playAudio(dom.sfxTheme, true);
+
+    renderPlayerCards();
+    renderGameBoard();
+    updateTurnBanner();
+  }, 1000);
 }
 
 /* ======================================================
