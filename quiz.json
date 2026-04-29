@@ -5,7 +5,7 @@
       "name": "COMANDO E NAVIGAZIONE",
       "color1": "#B42828",
       "color2": "#E61E1E",
-      "icon": "img/delta.svg",
+      "icon": "img/m1.svg",
       "points": [100, 250, 500],
       "questions": [
         {
@@ -39,7 +39,7 @@
       "name": "SCIENZA E MEDICINA",
       "color1": "#286E64",
       "color2": "#008080",
-      "icon": "img/delta.svg",
+      "icon": "img/m2.svg",
       "points": [100, 250, 500],
       "questions": [
         {
@@ -73,7 +73,7 @@
       "name": "TATTICA E SICUREZZA",
       "color1": "#BEBE00",
       "color2": "#FFC800",
-      "icon": "img/delta.svg",
+      "icon": "img/m3.svg",
       "points": [100, 250, 500],
       "questions": [
         {
@@ -107,7 +107,7 @@
       "name": "INGEGNERIA E OPS",
       "color1": "#BEBE00",
       "color2": "#FFC800",
-      "icon": "img/delta.svg",
+      "icon": "img/m4.svg",
       "points": [100, 250, 500],
       "questions": [
         {
@@ -141,7 +141,7 @@
       "name": "RISKIO!",
       "color1": "#374137",
       "color2": "#647D6E",
-      "icon": "img/delta.svg",
+      "icon": "img/m5.svg",
       "points": [200, 500, 1000],
       "questions": [
         {
@@ -175,7 +175,7 @@
       "name": "USS AFRODITE",
       "color1": "#BF6500",
       "color2": "#FF9900",
-      "icon": "img/delta.svg",
+      "icon": "img/m6.svg",
       "points": [100, 250, 500],
       "questions": [
         {
@@ -209,7 +209,7 @@
       "name": "QO'NOS",
       "color1": "#803C64",
       "color2": "#B44B82",
-      "icon": "img/delta.svg",
+      "icon": "img/m7.svg",
       "points": [100, 250, 500],
       "questions": [
         {
@@ -232,7 +232,7 @@
           "id": "qon_500",
           "points": 500,
           "text": "Chi è il leggendario eroe fondatore della civiltà e dell'Impero Klingon?",
-          "options": ["Kahless il Dimenticabile", "Kahless l'Indimenticabile", "Gorkon il Grande"],
+          "options": ["Kahless l'Indomabile", "Kahless l'Indimenticabile", "Gorkon il Grande"],
           "correct": 1,
           "image": null
         }
@@ -243,7 +243,7 @@
       "name": "ROMULUS",
       "color1": "#006432",
       "color2": "#009646",
-      "icon": "img/delta.svg",
+      "icon": "img/m8.svg",
       "points": [100, 250, 500],
       "questions": [
         {
@@ -277,7 +277,7 @@
       "name": "VULCANO",
       "color1": "#1E3280",
       "color2": "#324696",
-      "icon": "img/delta.svg",
+      "icon": "img/m9.svg",
       "points": [100, 250, 500],
       "questions": [
         {
