@@ -60,6 +60,7 @@ const dom = {
   sfxOk:            document.getElementById('sfx-ok'),
   sfxWrong:         document.getElementById('sfx-wrong'),
   sfxWinner:        document.getElementById('sfx-winner'),
+  sfxEngage:        document.getElementById('sfx-engage'),
 };
 
 // ── Selected player count (setup popup) ──
@@ -185,6 +186,7 @@ function engageGame() {
 
   // Transition: hide splash → show game
   stopAudio(dom.sfxIntro);
+  playAudio(dom.sfxEngage);
   dom.screenSplash.hidden = true;
   dom.sidebarSplash.hidden = true;
   dom.sidebarPlayers.hidden = false;
