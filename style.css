@@ -271,7 +271,7 @@ img { display: block; }
   position: absolute;
   font-family: var(--font-mono);
   font-size: 9px;
-  color: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5);
   letter-spacing: 1px;
 }
 .splash-corner.tl { top: 12px; left: 14px; }
