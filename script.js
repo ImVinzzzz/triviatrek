@@ -87,8 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.removeEventListener('click', playIntro);
     document.removeEventListener('keydown', playIntro);
   };
-  document.addEventListener('click', playIntro);
-  document.addEventListener('keydown', playIntro);
+
+  // Attempt to play immediately
+  dom.sfxIntro.play().then(() => {
+    state.introPlayed = true;
+  }).catch(() => {
+    // If blocked, wait for user interaction
+    document.addEventListener('click', playIntro);
+    document.addEventListener('keydown', playIntro);
+  });
 });
 
 /* ======================================================
