@@ -72,7 +72,10 @@ let selectedPlayerCount = 2;
 document.addEventListener('DOMContentLoaded', () => {
   loadQuizData();
   bindSetupEvents();
-  dom.btnRestart.addEventListener('click', resetToSplash);
+
+  if (dom.btnRestart) {
+    dom.btnRestart.addEventListener('click', resetToSplash);
+  }
 
   // Splash: click anywhere to start
   dom.screenSplash.addEventListener('click',    openSetupPopup);
