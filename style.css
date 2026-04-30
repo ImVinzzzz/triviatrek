@@ -1116,11 +1116,33 @@ img { display: block; }
    ===================================================== */
 @media (max-width: 900px) {
   :root { --lcars-sidebar-w: 120px; }
-  .card-title { font-size: 10.5px; }
+  .card-title { font-size: 14px; }
 }
 
 @media (max-width: 700px) {
   :root { --lcars-sidebar-w: 0px; }
+
+  .card-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-header {
+    align-items: center;
+  }
+
+  .card-materia {
+    min-height: auto;
+  }
+
+  .header-logo {
+    max-width: 100%;
+    object-fit: contain;
+  }
 
   .lcars-sidebar {
     position: fixed;
@@ -1128,9 +1150,9 @@ img { display: block; }
     top: auto;
     width: 100%;
     height: auto;
-    flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 6px 8px;
     gap: 6px;
     z-index: 500;
@@ -1140,20 +1162,34 @@ img { display: block; }
     /* Hide decorative LCARS bars on mobile */
   }
 
+  .sidebar-players {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+
   .sidebar-splash { display: none; }
 
   .lcars-bar { display: none; }
 
   .player-card {
     border-radius: 10px;
-    min-width: 90px;
-    flex-direction: column;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    padding: 6px 8px;
+    padding: 8px 16px;
     min-height: auto;
     height: auto;
   }
-  .player-card.active-player { transform: translateY(-4px); }
+  .player-card .player-name {
+    text-align: left;
+  }
+  .player-card .player-score {
+    text-align: right;
+  }
+  .player-card.active-player { transform: translateX(4px); }
   .player-indicator { display: none; }
 
   .lcars-main { padding: 12px; padding-bottom: 100px; }
