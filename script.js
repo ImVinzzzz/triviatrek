@@ -345,7 +345,7 @@ function handleAnswer(chosen) {
     state.players[state.currentIndex].score += state.currentPoints;
     playAudio('ok');
     resultText = '<i class="fa-solid fa-circle-check"></i> RIGHT!';
-    awardsText = `+${state.currentPoints} PUNTI → ${escHtml(state.players[state.currentIndex].name)}`;
+    awardsText = `+${state.currentPoints} PUNTI <i class="fa-solid fa-angle-right"></i> ${escHtml(state.players[state.currentIndex].name)}`;
   } else {
     const pts = 250;
     const winners = [];
