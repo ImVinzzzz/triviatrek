@@ -12,7 +12,7 @@
           "text": "Chi è il capitano della USS Enterprise NCC-1701-D nella serie The Next Generation?",
           "options": ["James T. Kirk", "Jean-Luc Picard", "Benjamin Sisko"],
           "correct": "B",
-          "image": "img_quiz/m1a.jpg"
+          "image": "img_quiz/enterprise-d.jpg"
         },
         {
           "points": 250,
@@ -79,7 +79,7 @@
           "text": "Come si chiama l'arma individuale standard in dotazione agli ufficiali della Flotta Stellare?",
           "options": ["Disgregatore", "Phaser", "Fotontorpedine"],
           "correct": "B",
-          "image": null
+          "image": "img_quiz/phaser.jpg"
         },
         {
           "points": 500,
@@ -109,7 +109,7 @@
           "text": "Qual è il tipo di propulsione che permette alle navi della Flotta di viaggiare più veloce della luce?",
           "options": ["Motore a impulso", "Motore a curvatura", "Motore a cavitazione"],
           "correct": "B",
-          "image": null
+          "image": "img_quiz/motore.jpg"
         },
         {
           "points": 500,
@@ -162,7 +162,7 @@
           "text": "A quale classe apparteneva la USS Afrodite?",
           "options": ["Classe Miranda", "Classe Constitution", "Classe Nova"],
           "correct": "A",
-          "image": null
+          "image": "img_quiz/afrodite.jpg"
         },
         {
           "points": 250,
@@ -199,14 +199,14 @@
           "text": "Come si traduce in italiano il grido di saluto e di congedo Klingon 'Qapla''?",
           "options": ["Vittoria", "Morte onorevole", "Per l'Impero"],
           "correct": "A",
-          "image": null
+          "image": "img_quiz/qapla.jpg"
         },
         {
           "points": 500,
           "text": "Come si chiama la tradizionale arma a doppia lama a forma di mezzaluna dei guerrieri Klingon?",
           "options": ["D'k tahg", "Mek'leth", "Bat'leth"],
           "correct": "C",
-          "image": null
+          "image": "img_quiz/klingon3.jpg"
         }
       ]
     },
@@ -236,7 +236,7 @@
           "text": "Come si chiama la nave da guerra romulana che sfrutta la tecnologia del mantello d'occultamento?",
           "options": ["D'deridex Warbird", "Valdore Warbird", "Mogai Warbird"],
           "correct": "A",
-          "image": null
+          "image": "img_quiz/romulus3.jpg"
         }
       ]
     },
@@ -252,14 +252,14 @@
           "text": "Qual è il principio filosofico vulcaniano sintetizzato nell'acronimo IDIC?",
           "options": ["'Infinite Diversity in Infinite Combinations'", "'Inner Discipline In Contemplation'", "'I Devote Intelligence to Civilization'"],
           "correct": "A",
-          "image": null
+          "image": "img_quiz/vulcano1.jpg"
         },
         {
           "points": 250,
           "text": "Come si chiama il grande filosofo vulcaniano che circa 1800 anni prima del 23° sec. guidò il suo popolo verso la logica?",
           "options": ["Surak", "Sarek", "Spock"],
           "correct": "A",
-          "image": null
+          "image": "img_quiz/vulcano2.jpg"
         },
         {
           "points": 500,
@@ -279,7 +279,7 @@
       "questions": [
         {
           "points": 200,
-          "text": "Quanti libri ha scritto Ernestina Scramiglio?",
+          "text": "Quanti libri ha pubblicato Ernestina Scramiglio?",
           "options": ["Due", "Tre", "Cinque"],
           "correct": "B",
           "image": "img_quiz/scramiglio.jpg"
