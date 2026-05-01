@@ -357,7 +357,7 @@ function handleAnswer(chosen) {
     });
     playAudio('wrong');
     resultText = '<i class="fa-solid fa-circle-xmark"></i> WRONG!';
-    awardsText = `+${pts} PUNTI → ${winners.map(escHtml).join(', ')}`;
+    awardsText = `+${pts} PUNTI <i class="fa-solid fa-angle-right"></i> ${winners.map(escHtml).join(', ')}`;
   }
 
   // Show result
