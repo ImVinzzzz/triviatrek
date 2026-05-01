@@ -19,7 +19,7 @@
           "text": "Con quale grado presta servizio Will Riker sull'Enterprise-D all'inizio della serie TNG?",
           "options": ["Comandante", "Capitano", "Tenente Comandante"],
           "correct": "A",
-          "image": null
+          "image": "img_quiz/riker.jpg"
         },
         {
           "points": 500,
