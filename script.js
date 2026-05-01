@@ -37,7 +37,8 @@ const sfx = {
   theme:  $('sfx-theme'),
   ok:     $('sfx-ok'),
   wrong:  $('sfx-wrong'),
-  winner: $('sfx-winner')
+  winner: $('sfx-winner'),
+  engage: $('sfx-engage')
 };
 
 function playAudio(name) {
@@ -146,6 +147,9 @@ function startGame() {
   state.currentIndex = Math.floor(Math.random() * players.length);
 
   popups.players.classList.add('hidden');
+
+  // Riproduce il suono di ENGAGE alla conferma giocatori
+  playAudio('engage');
 
   // Audio handoff: stop intro, play theme
   stopAudio('intro');
