@@ -528,8 +528,8 @@ body::after {
 }
 
 .cat-icon {
-  width: 55px;
-  height: 55px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   flex-shrink: 0;
   opacity: 0.85;
@@ -538,7 +538,7 @@ body::after {
 
 /* If SVG doesn't load, show FA icon */
 .cat-icon-fallback {
-  width: 44px; height: 44px;
+  width: 70px; height: 70px;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.6rem;
   color: rgba(255,255,255,0.7);
@@ -548,7 +548,7 @@ body::after {
 .cat-name {
   font-family: var(--font-main);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1.2;
