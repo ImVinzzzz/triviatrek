@@ -362,7 +362,7 @@ function handleAnswer(chosen) {
 
   // Show result
   const rm = $('q-result-msg');
-  rm.textContent = resultText;
+  rm.innerHTML = resultText;
   rm.className = `q-result-msg ${isCorrect ? 'correct-msg' : 'wrong-msg'}`;
   rm.style.display = 'block';
   $('q-points-awarded').textContent = awardsText;
