@@ -42,7 +42,7 @@
           "text": "Chi è il medico capo dell'Enterprise-D?",
           "options": ["Phlox", "Beverly Crusher", "Leonard McCoy"],
           "correct": "B",
-          "image": null
+          "image": "img_quiz/sickbay.jpg"
         },
         {
           "points": 250,
