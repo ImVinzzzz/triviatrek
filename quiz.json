@@ -174,7 +174,7 @@
         {
           "points": 500,
           "text": "Come si chiama l'istruttore di ballo della USS Afrodite",
-          "options": ["Albert Monroe", "Maurice Drews", "Adam Smith"],
+          "options": ["Thomas Magnum", "Maurice Drews", "Adam Smith"],
           "correct": "B",
           "image": "img_quiz/ballo.jpg"
         }
@@ -197,7 +197,7 @@
         {
           "points": 250,
           "text": "Come si traduce in italiano il grido di saluto e di congedo Klingon 'Qapla''?",
-          "options": ["Vittoria", "Morte onorevole", "Per l'Impero"],
+          "options": ["Vittoria", "Onore a noi", "Per l'Impero"],
           "correct": "A",
           "image": "img_quiz/qapla.jpg"
         },
@@ -219,7 +219,7 @@
       "questions": [
         {
           "points": 100,
-          "text": "I Romulani condividono origini evolutive con quale altra specie di Star Trek, da cui si separarono migliaia di anni fa?",
+          "text": "I Romulani condividono origini evolutive con quale altra specie di Star Trek?",
           "options": ["Vulcaniani", "Cardassiani", "Bajorani"],
           "correct": "A",
           "image": null
@@ -233,7 +233,7 @@
         },
         {
           "points": 500,
-          "text": "Come si chiama la nave da guerra romulana che sfrutta la tecnologia del mantello d'occultamento?",
+          "text": "Come si chiama la nave da guerra romulana che sfrutta la tecnologia del dispositivo di occultamento?",
           "options": ["D'deridex Warbird", "Valdore Warbird", "Mogai Warbird"],
           "correct": "A",
           "image": "img_quiz/romulus3.jpg"
@@ -274,7 +274,7 @@
       "id": "afrodite2",
       "name": "USS AFRODITE - GOSSIP",
       "icon": "img/m6.svg",
-      "gradient": ["#BF6500", "#FF9900"],
+      "gradient": ["#58301D", "#F1E1C1"],
       "isRiskio": true,
       "questions": [
         {
