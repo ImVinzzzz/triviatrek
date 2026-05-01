@@ -280,7 +280,7 @@ function openQuestion(cat, q) {
   // Turn
   const currentPlayer = state.players[state.currentIndex];
   $('q-turn-indicator').innerHTML =
-    `<i class="fa-solid fa-user-astronaut"></i> &nbsp;TURNO DI: <strong>${escHtml(currentPlayer.name)}</strong>`;
+    `<i class="fa-solid fa-circle-chevron-right"></i> &nbsp;TOCCA A <strong>${escHtml(currentPlayer.name)}</strong>`;
 
   // Image
   const img = $('q-image');
@@ -344,7 +344,7 @@ function handleAnswer(chosen) {
   if (isCorrect) {
     state.players[state.currentIndex].score += state.currentPoints;
     playAudio('ok');
-    resultText = '✓ RIGHT!';
+    resultText = '<i class="fa-solid fa-circle-check"></i> RIGHT!';
     awardsText = `+${state.currentPoints} PUNTI → ${escHtml(state.players[state.currentIndex].name)}`;
   } else {
     const pts = 250;
@@ -356,7 +356,7 @@ function handleAnswer(chosen) {
       }
     });
     playAudio('wrong');
-    resultText = '✗ WRONG!';
+    resultText = '<i class="fa-solid fa-circle-xmark"></i> WRONG!';
     awardsText = `+${pts} PUNTI → ${winners.map(escHtml).join(', ')}`;
   }
 
