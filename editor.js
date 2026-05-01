@@ -1,352 +1,240 @@
-/* ======================================================
-   TRIVIATREK — editor.js
-   Admin panel logic: lock screen + question editor
-   ====================================================== */
+/* ============================================================
+   TRIVIA TREK — editor.js
+   Admin Panel Logic
+   ============================================================ */
 
 'use strict';
 
-// ── Hardcoded access password ──
-const ACCESS_CODE = '1863';
+/* ── CONFIG ────────────────────────────────────────────────── */
+const EDITOR_PASSWORD = '1863';
 
-// ── Category metadata (mirrors main script) ──
-const CAT_META = [
-  { id:'comando',    name:'COMANDO E NAVIGAZIONE', color:'#E61E1E',  points:[100,250,500]  },
-  { id:'scienza',    name:'SCIENZA E MEDICINA',     color:'#008080',  points:[100,250,500]  },
-  { id:'tattica',    name:'TATTICA E SICUREZZA',    color:'#FFC800',  points:[100,250,500]  },
-  { id:'ingegneria', name:'INGEGNERIA E OPS',        color:'#FFC800',  points:[100,250,500]  },
-  { id:'riskio',     name:'RISKIO!',                 color:'#647D6E',  points:[200,500,1000] },
-  { id:'afrodite',   name:'USS AFRODITE',            color:'#FF9900',  points:[100,250,500]  },
-  { id:'qonos',      name:"QO'NOS",                  color:'#B44B82',  points:[100,250,500]  },
-  { id:'romulus',    name:'ROMULUS',                  color:'#009646',  points:[100,250,500]  },
-  { id:'vulcano',    name:'VULCANO',                  color:'#324696',  points:[100,250,500]  },
-];
+/* ── DOM REFS ──────────────────────────────────────────────── */
+const lockScreen   = document.getElementById('editor-lock-screen');
+const editorApp    = document.getElementById('editor-app');
+const lockInput    = document.getElementById('lock-password');
+const lockBtn      = document.getElementById('lock-btn');
+const lockDenied   = document.getElementById('lock-denied-msg');
+const loadInput    = document.getElementById('load-json-input');
+const catTabsEl    = document.getElementById('cat-tabs');
+const questionsEl  = document.getElementById('questions-editor');
+const exportBtn    = document.getElementById('btn-export');
+const sfxOk        = document.getElementById('sfx-ok');
+const sfxWrong     = document.getElementById('sfx-wrong');
 
-// ── Working copy of quiz data ──
-let quizData = null;
+/* ── STATE ─────────────────────────────────────────────────── */
+let quizData     = null;   // parsed quiz.json
+let activeCatIdx = 0;
 
-// ── DOM refs ──
-const dom = {
-  lockScreen:       document.getElementById('editor-lock'),
-  lockPassword:     document.getElementById('lock-password'),
-  btnAuthorize:     document.getElementById('btn-authorize'),
-  lockDenied:       document.getElementById('lock-denied'),
-  editorInterface:  document.getElementById('editor-interface'),
-  editorTabs:       document.getElementById('editor-tabs'),
-  editorContent:    document.getElementById('editor-content'),
-  fileLoadJson:     document.getElementById('file-load-json'),
-  btnExport:        document.getElementById('btn-export'),
-  sfxOk:            document.getElementById('sfx-ok'),
-  sfxWrong:         document.getElementById('sfx-wrong'),
-};
+/* ── AUDIO HELPERS ─────────────────────────────────────────── */
+function playOk()    { sfxOk.currentTime = 0;    sfxOk.play().catch(() => {}); }
+function playWrong() { sfxWrong.currentTime = 0; sfxWrong.play().catch(() => {}); }
 
-/* ======================================================
-   INIT
-   ====================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-  // Lock screen events
-  dom.btnAuthorize.addEventListener('click', tryAuthorize);
-  dom.lockPassword.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') tryAuthorize();
-  });
+/* ── LOCK SCREEN ───────────────────────────────────────────── */
+function tryUnlock() {
+  const val = lockInput.value.trim();
+  if (val === EDITOR_PASSWORD) {
+    playOk();
+    lockDenied.style.visibility = 'hidden';
 
-  // File loader
-  dom.fileLoadJson.addEventListener('change', handleFileLoad);
+    // Fade out lock screen
+    lockScreen.classList.add('fade-out');
+    setTimeout(() => {
+      lockScreen.style.display = 'none';
+      editorApp.classList.add('visible');
+    }, 500);
 
-  // Export
-  dom.btnExport.addEventListener('click', exportJson);
+    // Load default quiz data
+    loadDefaultQuizData();
+  } else {
+    playWrong();
+    lockDenied.style.visibility = 'visible';
+    lockInput.value = '';
+    lockInput.focus();
+    // Shake animation
+    lockInput.style.animation = 'none';
+    lockInput.offsetHeight; // reflow
+    lockInput.style.animation = 'shake 0.3s ease';
+  }
+}
 
-  // Auto-load quiz.json if possible (fetch from same directory)
-  autoLoadQuiz();
+lockBtn.addEventListener('click', tryUnlock);
+lockInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') tryUnlock();
 });
 
-/* ======================================================
-   LOCK SCREEN — AUTHORIZATION
-   ====================================================== */
-function tryAuthorize() {
-  const entered = dom.lockPassword.value.trim();
+/* simple shake via inline style */
+const shakeStyle = document.createElement('style');
+shakeStyle.textContent = `
+@keyframes shake {
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-6px)}
+  40%{transform:translateX(6px)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(4px)}
+}`;
+document.head.appendChild(shakeStyle);
 
-  if (entered === ACCESS_CODE) {
-    // Correct — unlock
-    playAudio(dom.sfxOk);
-    dom.lockDenied.classList.remove('visible');
-    dom.lockScreen.classList.add('hidden');
-    dom.lockScreen.setAttribute('aria-hidden', 'true');
-    dom.editorInterface.classList.add('visible');
-    dom.editorInterface.setAttribute('aria-hidden', 'false');
-
-    // Build editor UI
-    buildEditorUI();
-
-  } else {
-    // Wrong — deny
-    playAudio(dom.sfxWrong);
-    dom.lockDenied.classList.add('visible');
-    dom.lockPassword.value = '';
-    dom.lockPassword.classList.add('shake');
-    setTimeout(() => dom.lockPassword.classList.remove('shake'), 500);
-    dom.lockPassword.focus();
-  }
-}
-
-/* ======================================================
-   AUTO-LOAD QUIZ.JSON (fetch)
-   ====================================================== */
-async function autoLoadQuiz() {
+/* ── LOAD JSON ─────────────────────────────────────────────── */
+async function loadDefaultQuizData() {
   try {
     const res = await fetch('quiz.json');
-    if (res.ok) {
-      quizData = await res.json();
-    }
-  } catch(e) {
-    // Silently fail — user can load manually
+    quizData = await res.json();
+    buildEditor();
+  } catch (e) {
+    // If fetch fails (e.g. opening file directly), start with empty structure
+    quizData = { categories: [] };
+    buildEditor();
   }
 }
 
-/* ======================================================
-   FILE LOADER
-   ====================================================== */
-function handleFileLoad(e) {
+loadInput.addEventListener('change', e => {
   const file = e.target.files[0];
   if (!file) return;
   const reader = new FileReader();
-  reader.onload = (ev) => {
+  reader.onload = ev => {
     try {
       quizData = JSON.parse(ev.target.result);
-      buildEditorUI();
-      showToast('✓ quiz.json caricato correttamente');
-    } catch(err) {
-      showToast('✗ Errore parsing JSON — file non valido');
+      buildEditor();
+    } catch {
+      alert('Errore: file JSON non valido.');
     }
   };
   reader.readAsText(file);
-  // Reset input so same file can be reloaded
-  e.target.value = '';
-}
+  // Reset input so same file can be re-loaded
+  loadInput.value = '';
+});
 
-/* ======================================================
-   BUILD EDITOR UI
-   ====================================================== */
-function buildEditorUI() {
-  if (!quizData || !quizData.categories) {
-    dom.editorContent.innerHTML = `
-      <div style="padding:32px;font-family:var(--font-display);font-size:13px;color:var(--lcars-teal);letter-spacing:3px;">
-        NESSUN DATO — CARICA IL FILE quiz.json
-      </div>`;
-    dom.editorTabs.innerHTML = '';
+/* ── BUILD EDITOR UI ───────────────────────────────────────── */
+function buildEditor() {
+  if (!quizData || !quizData.categories || !quizData.categories.length) {
+    questionsEl.innerHTML = '<p style="color:var(--text-dim);letter-spacing:2px">Nessuna categoria trovata nel JSON.</p>';
     return;
   }
 
   buildTabs();
-  buildPanels();
-  activateTab(0);
+  renderCategory(activeCatIdx);
 }
 
 function buildTabs() {
-  dom.editorTabs.innerHTML = '';
-  quizData.categories.forEach((cat, i) => {
-    const meta = CAT_META.find(m => m.id === cat.id) || CAT_META[i];
-    const btn = document.createElement('button');
-    btn.className = 'tab-btn';
-    btn.textContent = cat.name;
-    btn.dataset.tabIndex = i;
-    btn.setAttribute('role', 'tab');
-    btn.setAttribute('aria-selected', 'false');
-    btn.setAttribute('aria-controls', `tab-panel-${i}`);
-    btn.style.setProperty('--tab-color', meta.color);
-    btn.addEventListener('click', () => activateTab(i));
-    dom.editorTabs.appendChild(btn);
-  });
-}
-
-function buildPanels() {
-  dom.editorContent.innerHTML = '';
-  quizData.categories.forEach((cat, catIndex) => {
-    const meta = CAT_META.find(m => m.id === cat.id) || CAT_META[catIndex];
-    const panel = document.createElement('div');
-    panel.className = 'editor-tab-panel';
-    panel.id = `tab-panel-${catIndex}`;
-    panel.setAttribute('role', 'tabpanel');
-
-    cat.questions.forEach((q, qIndex) => {
-      const pts = meta.points[qIndex] ?? q.points;
-      const block = buildQuestionForm(cat.id, catIndex, qIndex, q, pts);
-      panel.appendChild(block);
+  catTabsEl.innerHTML = '';
+  quizData.categories.forEach((cat, idx) => {
+    const tab = document.createElement('button');
+    tab.className = `cat-tab${idx === activeCatIdx ? ' active' : ''}`;
+    tab.textContent = cat.name;
+    tab.dataset.idx = idx;
+    tab.addEventListener('click', () => {
+      // Save current before switching
+      saveCategoryFromForm(activeCatIdx);
+      activeCatIdx = idx;
+      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderCategory(idx);
     });
-
-    dom.editorContent.appendChild(panel);
+    catTabsEl.appendChild(tab);
   });
 }
 
-function buildQuestionForm(catId, catIndex, qIndex, q, pts) {
-  const block = document.createElement('div');
-  block.className = 'question-form-block';
-  block.id = `form-${catId}-${qIndex}`;
+function renderCategory(idx) {
+  const cat = quizData.categories[idx];
+  questionsEl.innerHTML = '';
 
-  const letters = ['A', 'B', 'C'];
+  cat.questions.forEach((q, qi) => {
+    const card = buildQuestionForm(cat, q, qi);
+    questionsEl.appendChild(card);
+  });
+}
 
-  // Build answer options HTML
-  const optionsHtml = q.options.map((opt, i) => `
-    <div class="answer-row">
-      <span class="answer-letter" aria-hidden="true">${letters[i]}</span>
-      <input
-        type="text"
-        class="lcars-input-sm"
-        id="opt-${catId}-${qIndex}-${i}"
-        value="${escapeHtml(opt)}"
-        placeholder="Opzione ${letters[i]}"
-        aria-label="Opzione ${letters[i]} per domanda ${qIndex + 1}"
-      >
-      <input
-        type="radio"
-        name="correct-${catId}-${qIndex}"
-        value="${i}"
-        id="radio-${catId}-${qIndex}-${i}"
-        ${q.correct === i ? 'checked' : ''}
-        aria-label="Risposta corretta: opzione ${letters[i]}"
-      >
-    </div>
-  `).join('');
+function buildQuestionForm(cat, q, qi) {
+  const labels = ['A', 'B', 'C'];
+  const card = document.createElement('div');
+  card.className = 'q-form-card';
+  card.dataset.qi = qi;
 
-  block.innerHTML = `
-    <div class="form-block-title">▸ DOMANDA DA ${pts} PUNTI</div>
+  const pointsLabel = cat.isRiskio
+    ? [200, 500, 1000][qi]
+    : [100, 250, 500][qi];
+
+  card.innerHTML = `
+    <h4>
+      <i class="fa-solid fa-circle-question"></i>
+      &nbsp;DOMANDA ${qi + 1} — ${pointsLabel} PUNTI
+    </h4>
 
     <div class="form-row">
-      <label class="form-label" for="text-${catId}-${qIndex}">Testo della domanda</label>
-      <textarea
-        class="form-textarea"
-        id="text-${catId}-${qIndex}"
-        rows="3"
-        placeholder="Inserisci il testo della domanda..."
-        aria-label="Testo domanda ${qIndex + 1}"
-      >${escapeHtml(q.text)}</textarea>
+      <label>TESTO DELLA DOMANDA</label>
+      <textarea class="f-text" rows="3">${escHtml(q.text)}</textarea>
     </div>
 
     <div class="form-row">
-      <label class="form-label" for="img-${catId}-${qIndex}">Immagine (facoltativa)</label>
-      <input
-        type="text"
-        class="lcars-input-sm"
-        id="img-${catId}-${qIndex}"
-        value="${escapeHtml(q.image || '')}"
-        placeholder="img_quiz/nome_immagine.jpg"
-        aria-label="Percorso immagine per domanda ${qIndex + 1}"
-      >
+      <label>IMMAGINE (percorso opzionale, es: img_quiz/foto.jpg)</label>
+      <input type="text" class="f-image" value="${q.image ? escHtml(q.image) : ''}">
     </div>
 
-    <div class="form-row">
-      <div class="form-label">Opzioni di risposta — seleziona la corretta ▶</div>
-      ${optionsHtml}
+    <div class="correct-radio-hint">
+      <i class="fa-solid fa-circle-check" style="color:var(--correct)"></i>
+      &nbsp;Seleziona la risposta corretta →
+    </div>
+
+    <div class="options-grid">
+      ${labels.map((lbl, li) => `
+        <div class="option-row">
+          <div class="option-label-badge">${lbl}</div>
+          <input type="text" class="f-option" data-li="${li}" value="${q.options[li] ? escHtml(q.options[li]) : ''}">
+          <input type="radio" name="correct-${qi}" class="f-correct" data-ans="${lbl}"
+            ${q.correct === lbl ? 'checked' : ''} title="Risposta corretta">
+        </div>
+      `).join('')}
     </div>
   `;
 
-  return block;
+  return card;
 }
 
-/* ======================================================
-   TAB ACTIVATION
-   ====================================================== */
-function activateTab(index) {
-  // Tabs
-  dom.editorTabs.querySelectorAll('.tab-btn').forEach((btn, i) => {
-    const isActive = i === index;
-    btn.classList.toggle('active', isActive);
-    btn.setAttribute('aria-selected', String(isActive));
-  });
-  // Panels
-  dom.editorContent.querySelectorAll('.editor-tab-panel').forEach((panel, i) => {
-    panel.classList.toggle('active', i === index);
+/* ── SAVE CATEGORY (read form into quizData) ────────────────── */
+function saveCategoryFromForm(idx) {
+  if (!quizData || !quizData.categories[idx]) return;
+  const cat = quizData.categories[idx];
+  const cards = questionsEl.querySelectorAll('.q-form-card');
+
+  cards.forEach((card, qi) => {
+    if (!cat.questions[qi]) return;
+    cat.questions[qi].text    = card.querySelector('.f-text').value.trim();
+    cat.questions[qi].image   = card.querySelector('.f-image').value.trim() || null;
+    cat.questions[qi].options = Array.from(card.querySelectorAll('.f-option')).map(i => i.value.trim());
+    const checkedRadio = card.querySelector('.f-correct:checked');
+    cat.questions[qi].correct = checkedRadio ? checkedRadio.dataset.ans : 'A';
   });
 }
 
-/* ======================================================
-   EXPORT JSON
-   ====================================================== */
-function exportJson() {
-  if (!quizData) {
-    showToast('✗ Nessun dato da esportare — carica prima il JSON');
-    return;
-  }
+/* ── EXPORT JSON ────────────────────────────────────────────── */
+exportBtn.addEventListener('click', () => {
+  // Save current tab first
+  saveCategoryFromForm(activeCatIdx);
 
-  // Collect form data back into quizData
-  quizData.categories.forEach((cat, catIndex) => {
-    cat.questions.forEach((q, qIndex) => {
-      // Question text
-      const textEl = document.getElementById(`text-${cat.id}-${qIndex}`);
-      if (textEl) q.text = textEl.value.trim();
-
-      // Image
-      const imgEl = document.getElementById(`img-${cat.id}-${qIndex}`);
-      if (imgEl) q.image = imgEl.value.trim() || null;
-
-      // Options
-      q.options = q.options.map((_, i) => {
-        const optEl = document.getElementById(`opt-${cat.id}-${qIndex}-${i}`);
-        return optEl ? optEl.value.trim() : _;
-      });
-
-      // Correct answer
-      const checkedRadio = document.querySelector(
-        `input[name="correct-${cat.id}-${qIndex}"]:checked`
-      );
-      if (checkedRadio) q.correct = parseInt(checkedRadio.value);
-    });
-  });
-
-  // Serialize and download
-  const jsonStr = JSON.stringify(quizData, null, 2);
-  const blob = new Blob([jsonStr], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
+  const json = JSON.stringify(quizData, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
   a.download = 'quiz.json';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  showToast('✓ quiz.json esportato correttamente');
-  playAudio(dom.sfxOk);
-}
+  // Brief visual feedback
+  exportBtn.textContent = '✓ FILE SCARICATO!';
+  setTimeout(() => {
+    exportBtn.innerHTML = '<i class="fa-solid fa-download"></i> &nbsp;ESPORTA DATI (quiz.json)';
+  }, 2500);
+});
 
-/* ======================================================
-   TOAST NOTIFICATION
-   ====================================================== */
-let toastTimer = null;
-function showToast(message) {
-  let toast = document.getElementById('editor-toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'editor-toast';
-    toast.style.cssText = `
-      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
-      background: #111; border: 2px solid var(--lcars-teal);
-      border-radius: 50px; padding: 10px 28px;
-      font-family: var(--font-display); font-size: 11px; font-weight: 700;
-      letter-spacing: 2px; color: var(--lcars-ghost); z-index: 9999;
-      opacity: 0; transition: opacity 0.3s ease; white-space: nowrap;
-    `;
-    document.body.appendChild(toast);
-  }
-  toast.textContent = message;
-  toast.style.opacity = '1';
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { toast.style.opacity = '0'; }, 3000);
-}
-
-/* ======================================================
-   UTILITIES
-   ====================================================== */
-function playAudio(el) {
-  if (!el) return;
-  try { el.currentTime = 0; el.play().catch(() => {}); } catch(e) {}
-}
-
-function escapeHtml(str) {
-  if (typeof str !== 'string') return '';
+/* ── UTILS ─────────────────────────────────────────────────── */
+function escHtml(str) {
+  if (!str) return '';
   return str
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+    .replace(/"/g, '&quot;');
 }

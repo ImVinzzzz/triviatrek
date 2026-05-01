@@ -1,537 +1,461 @@
-/* ======================================================
-   TRIVIATREK — script.js
-   Game logic for Star Trek LCARS Quiz
-   ====================================================== */
+/* ============================================================
+   TRIVIA TREK — script.js
+   Game Logic
+   ============================================================ */
 
 'use strict';
 
-// ── Categories metadata (mirrors quiz.json structure) ──
-const CAT_META = [
-  { id:'comando',    name:'COMANDO E NAVIGAZIONE', color1:'#B42828', color2:'#E61E1E', points:[100,250,500] },
-  { id:'scienza',    name:'SCIENZA E MEDICINA',     color1:'#286E64', color2:'#008080', points:[100,250,500] },
-  { id:'tattica',    name:'TATTICA E SICUREZZA',    color1:'#BEBE00', color2:'#FFC800', points:[100,250,500] },
-  { id:'ingegneria', name:'INGEGNERIA E OPS',        color1:'#BEBE00', color2:'#FFC800', points:[100,250,500] },
-  { id:'riskio',     name:'RISKIO!',                 color1:'#374137', color2:'#647D6E', points:[200,500,1000] },
-  { id:'afrodite',   name:'USS AFRODITE',            color1:'#BF6500', color2:'#FF9900', points:[100,250,500] },
-  { id:'qonos',      name:"QO'NOS",                  color1:'#803C64', color2:'#B44B82', points:[100,250,500] },
-  { id:'romulus',    name:'ROMULUS',                  color1:'#006432', color2:'#009646', points:[100,250,500] },
-  { id:'vulcano',    name:'VULCANO',                  color1:'#1E3280', color2:'#324696', points:[100,250,500] },
-];
-
-// ── Game State ──
+/* ── STATE ─────────────────────────────────────────────────── */
 const state = {
-  players: [],           // [{name, score}]
-  currentPlayerIndex: 0,
-  quizData: null,
-  usedQuestions: new Set(), // "categoryId-questionIndex"
-  totalQuestions: 27,
-  answeredCount: 0,
-  currentQuestion: null,  // {categoryId, catIndex, questionIndex, points}
-  gameActive: false,
-  introPlayed: false,
+  players:         [],    // [{name, score}, ...]
+  currentIndex:    0,     // whose turn
+  quizData:        null,  // parsed quiz.json
+  answered:        {},    // { "catId_points": true }
+  currentQ:        null,  // active question object
+  currentCatId:    null,
+  currentPoints:   0,
+  currentGradient: [],
+  catName:         '',
+  introPlayed:     false
 };
 
-// ── DOM refs ──
-const dom = {
-  screenSplash:     document.getElementById('screen-splash'),
-  screenGame:       document.getElementById('screen-game'),
-  screenGameover:   document.getElementById('screen-gameover'),
-  sidebarSplash:    document.getElementById('sidebar-splash'),
-  sidebarPlayers:   document.getElementById('sidebar-players'),
-  popupSetup:       document.getElementById('popup-setup'),
-  popupQuestion:    document.getElementById('popup-question'),
-  turnBanner:       document.getElementById('turn-banner'),
-  gridMaterie:      document.getElementById('grid-materie'),
-  playerCountRow:   document.getElementById('player-count-row'),
-  playerInputs:     document.getElementById('player-inputs'),
-  btnEngage:        document.getElementById('btn-engage'),
-  popupQHeader:     document.getElementById('popup-qheader'),
-  popupCategoryLbl: document.getElementById('popup-category-label'),
-  popupPointsBadge: document.getElementById('popup-points-badge'),
-  popupQuestionImg: document.getElementById('popup-question-img'),
-  questionText:     document.getElementById('question-text'),
-  popupOptions:     document.getElementById('popup-options'),
-  popupResultBanner:document.getElementById('popup-result-banner'),
-  winnerCardCont:   document.getElementById('winner-card-container'),
-  runnerUpList:     document.getElementById('runner-up-list'),
-  btnRestart:       document.getElementById('btn-restart'),
-  sfxIntro:         document.getElementById('sfx-intro'),
-  sfxTheme:         document.getElementById('sfx-theme'),
-  sfxOk:            document.getElementById('sfx-ok'),
-  sfxWrong:         document.getElementById('sfx-wrong'),
-  sfxWinner:        document.getElementById('sfx-winner'),
-  sfxEngage:        document.getElementById('sfx-engage'),
+/* ── DOM REFS ──────────────────────────────────────────────── */
+const $ = id => document.getElementById(id);
+const screens = {
+  splash:   $('screen-splash'),
+  game:     $('screen-game'),
+  gameover: $('screen-gameover')
+};
+const popups = {
+  players:  $('popup-players'),
+  question: $('popup-question')
 };
 
-// ── Selected player count (setup popup) ──
-let selectedPlayerCount = 2;
+/* ── AUDIO ─────────────────────────────────────────────────── */
+const sfx = {
+  intro:  $('sfx-intro'),
+  theme:  $('sfx-theme'),
+  ok:     $('sfx-ok'),
+  wrong:  $('sfx-wrong'),
+  winner: $('sfx-winner')
+};
 
-/* ======================================================
-   INIT
-   ====================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-  loadQuizData();
-  bindSetupEvents();
+function playAudio(name) {
+  const a = sfx[name];
+  if (!a) return;
+  a.currentTime = 0;
+  a.play().catch(() => {});
+}
 
-  if (dom.btnRestart) {
-    dom.btnRestart.addEventListener('click', resetToSplash);
-  }
+function stopAudio(name) {
+  const a = sfx[name];
+  if (!a) return;
+  a.pause();
+  a.currentTime = 0;
+}
 
-  // Splash: click anywhere to start
-  dom.screenSplash.addEventListener('click',    openSetupPopup);
-  dom.screenSplash.addEventListener('keydown',  e => { if(e.key === 'Enter' || e.key === ' ') openSetupPopup(); });
-
-  // Play intro on first user interaction (browser policy)
-  const playIntro = () => {
-    if (!state.introPlayed) {
-      playAudio(dom.sfxIntro);
-      state.introPlayed = true;
-    }
-    document.removeEventListener('click', playIntro);
-    document.removeEventListener('keydown', playIntro);
-  };
-
-  // Attempt to play immediately
-  dom.sfxIntro.play().then(() => {
-    state.introPlayed = true;
-  }).catch(() => {
-    // If blocked, wait for user interaction
-    document.addEventListener('click', playIntro);
-    document.addEventListener('keydown', playIntro);
-  });
+/* ── INIT ──────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadQuizData();
+  setupSplash();
 });
 
-/* ======================================================
-   AUDIO HELPERS
-   ====================================================== */
-function playAudio(el, loop = false) {
-  if (!el) return;
-  try {
-    el.loop = loop;
-    el.currentTime = 0;
-    el.play().catch(() => {});
-  } catch(e) {}
-}
-
-function stopAudio(el) {
-  if (!el) return;
-  try { el.pause(); el.currentTime = 0; } catch(e) {}
-}
-
-/* ======================================================
-   LOAD QUIZ DATA
-   ====================================================== */
 async function loadQuizData() {
   try {
     const res = await fetch('quiz.json');
     state.quizData = await res.json();
-  } catch(e) {
-    console.warn('quiz.json non trovato, alcune funzioni potrebbero non funzionare.', e);
+  } catch (e) {
+    console.error('Impossibile caricare quiz.json — assicurati di usare un server locale.', e);
+    alert('Errore: impossibile caricare quiz.json.\nAvvia il progetto da un server locale (es: npx serve .)');
   }
 }
 
-/* ======================================================
-   SETUP POPUP
-   ====================================================== */
-function openSetupPopup() {
-  dom.popupSetup.hidden = false;
-  renderPlayerCountButtons();
-  renderPlayerInputs(selectedPlayerCount);
+/* ── SPLASH ────────────────────────────────────────────────── */
+function setupSplash() {
+  // Play intro audio on first user interaction (autoplay policy)
+  const splash = $('splash-clickable');
+  splash.addEventListener('click', onSplashClick, { once: true });
+
+  // Also catch clicks anywhere on the splash screen
+  screens.splash.addEventListener('click', onSplashClick, { once: true });
 }
 
-function bindSetupEvents() {
-  // Player count selection
-  dom.playerCountRow.addEventListener('click', (e) => {
-    const btn = e.target.closest('.btn-count');
-    if (!btn) return;
-    selectedPlayerCount = parseInt(btn.dataset.count);
-    renderPlayerCountButtons();
-    renderPlayerInputs(selectedPlayerCount);
+function onSplashClick() {
+  if (!state.introPlayed) {
+    playAudio('intro');
+    state.introPlayed = true;
+  }
+  // Stop intro when it ends, then play theme (handled in startGame)
+  openPlayerSetup();
+}
+
+/* ── PLAYER SETUP POPUP ────────────────────────────────────── */
+let selectedCount = 2;
+
+function openPlayerSetup() {
+  popups.players.classList.remove('hidden');
+  buildNameInputs(selectedCount);
+
+  // Count buttons
+  document.querySelectorAll('.count-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedCount = parseInt(btn.dataset.count);
+      buildNameInputs(selectedCount);
+    });
   });
 
-  // Engage button
-  dom.btnEngage.addEventListener('click', engageGame);
+  $('btn-engage').addEventListener('click', startGame);
 }
 
-function renderPlayerCountButtons() {
-  dom.playerCountRow.querySelectorAll('.btn-count').forEach(btn => {
-    const n = parseInt(btn.dataset.count);
-    btn.classList.toggle('selected', n === selectedPlayerCount);
-    btn.setAttribute('aria-pressed', String(n === selectedPlayerCount));
-  });
-}
-
-function renderPlayerInputs(count) {
-  dom.playerInputs.innerHTML = '';
+function buildNameInputs(count) {
+  const container = $('name-inputs-container');
+  container.innerHTML = '';
   for (let i = 0; i < count; i++) {
+    const row = document.createElement('div');
+    row.className = 'player-name-row';
+    const badge = document.createElement('div');
+    badge.className = `player-num-badge ${i % 2 === 0 ? 'odd' : 'even'}`;
+    badge.textContent = i + 1;
     const input = document.createElement('input');
     input.type = 'text';
-    input.className = 'lcars-input';
-    input.placeholder = `UFFICIALE ${i + 1}`;
-    input.maxLength = 18;
-    input.dataset.playerIndex = i;
-    input.setAttribute('aria-label', `Nome giocatore ${i + 1}`);
-    // On Enter, move to next or engage
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        if (i < count - 1) {
-          dom.playerInputs.querySelectorAll('.lcars-input')[i + 1].focus();
-        } else {
-          engageGame();
-        }
-      }
-    });
-    dom.playerInputs.appendChild(input);
+    input.className = 'player-name-input';
+    input.placeholder = `MEMBRO EQUIPAGGIO ${i + 1}`;
+    input.maxLength = 14;
+    input.style.textTransform = 'uppercase';
+    input.dataset.index = i;
+    row.appendChild(badge);
+    row.appendChild(input);
+    container.appendChild(row);
   }
   // Focus first input
-  setTimeout(() => dom.playerInputs.querySelector('.lcars-input')?.focus(), 50);
+  setTimeout(() => container.querySelector('input')?.focus(), 50);
 }
 
-function engageGame() {
-  const inputs = dom.playerInputs.querySelectorAll('.lcars-input');
+function startGame() {
+  const inputs = document.querySelectorAll('.player-name-input');
   const players = [];
-  inputs.forEach((inp, i) => {
-    const name = inp.value.trim().toUpperCase() || `UFFICIALE ${i + 1}`;
+  inputs.forEach((input, i) => {
+    const name = input.value.trim().toUpperCase() || `GIOCATORE ${i + 1}`;
     players.push({ name, score: 0 });
   });
 
   state.players = players;
-  state.currentPlayerIndex = Math.floor(Math.random() * players.length);
-  state.usedQuestions = new Set();
-  state.answeredCount = 0;
-  state.gameActive = true;
+  // Random first player
+  state.currentIndex = Math.floor(Math.random() * players.length);
 
-  // Close popup
-  dom.popupSetup.hidden = true;
+  popups.players.classList.add('hidden');
 
-  // Transition: hide splash → show game
-  stopAudio(dom.sfxIntro);
-  playAudio(dom.sfxEngage);
-  
-  setTimeout(() => {
-    dom.screenSplash.hidden = true;
-    dom.sidebarSplash.hidden = true;
-    dom.sidebarPlayers.hidden = false;
-    dom.screenGame.hidden = false;
+  // Audio handoff: stop intro, play theme
+  stopAudio('intro');
+  playAudio('theme');
 
-    // Play theme
-    playAudio(dom.sfxTheme, true);
-
-    renderPlayerCards();
-    renderGameBoard();
-    updateTurnBanner();
-  }, 1000);
+  showScreen('game');
+  buildGameBoard();
+  updatePlayerDisplays();
+  updateTurnBanner();
 }
 
-/* ======================================================
-   PLAYER CARDS (sidebar)
-   ====================================================== */
-function renderPlayerCards() {
-  dom.sidebarPlayers.innerHTML = '';
-  const colors = ['color-orange', 'color-lilac'];
-  state.players.forEach((player, i) => {
+/* ── SCREENS ───────────────────────────────────────────────── */
+function showScreen(name) {
+  Object.values(screens).forEach(s => s.classList.add('hidden'));
+  screens[name].classList.remove('hidden');
+}
+
+/* ── GAME BOARD ────────────────────────────────────────────── */
+function buildGameBoard() {
+  buildPlayersColumn();
+  buildCategoriesGrid();
+}
+
+function buildPlayersColumn() {
+  const sidebar = $('players-sidebar');
+  const mobileBar = $('players-mobile-bar');
+  sidebar.innerHTML = '';
+  mobileBar.innerHTML = '';
+
+  state.players.forEach((p, i) => {
+    // Desktop card
     const card = document.createElement('div');
-    card.className = `player-card ${colors[i % 2]}`;
+    card.className = 'player-card';
     card.id = `player-card-${i}`;
-    card.setAttribute('aria-label', `${player.name}: ${player.score} punti`);
     card.innerHTML = `
-      <span class="player-indicator" aria-hidden="true">▶</span>
-      <div class="player-name">${escapeHtml(player.name)}</div>
-      <div class="player-score" id="player-score-${i}">${player.score}</div>
+      <div class="p-name">${escHtml(p.name)}</div>
+      <div class="p-score" id="score-${i}">0</div>
     `;
-    dom.sidebarPlayers.appendChild(card);
-  });
-  highlightCurrentPlayer();
-}
+    sidebar.appendChild(card);
 
-function updatePlayerCards() {
-  state.players.forEach((player, i) => {
-    const scoreEl = document.getElementById(`player-score-${i}`);
-    if (scoreEl) scoreEl.textContent = player.score;
-    const card = document.getElementById(`player-card-${i}`);
-    if (card) card.setAttribute('aria-label', `${player.name}: ${player.score} punti`);
-  });
-  highlightCurrentPlayer();
-}
-
-function highlightCurrentPlayer() {
-  state.players.forEach((_, i) => {
-    const card = document.getElementById(`player-card-${i}`);
-    if (card) card.classList.toggle('active-player', i === state.currentPlayerIndex);
-  });
-}
-
-/* ======================================================
-   GAME BOARD
-   ====================================================== */
-function renderGameBoard() {
-  dom.gridMaterie.innerHTML = '';
-  if (!state.quizData) { dom.gridMaterie.textContent = 'Errore: quiz.json non caricato.'; return; }
-
-  state.quizData.categories.forEach((cat, catIndex) => {
-    const meta = CAT_META.find(m => m.id === cat.id) || CAT_META[catIndex];
-    const card = document.createElement('div');
-    card.className = 'card-materia';
-    card.id = `card-${cat.id}`;
-    card.style.background = `linear-gradient(135deg, ${meta.color1}, ${meta.color2})`;
-
-    // Header: icon + title
-    card.innerHTML = `
-      <div class="card-header">
-        <img class="card-icon" src="${escapeHtml(cat.icon || 'img/delta.svg')}" alt="" aria-hidden="true"
-             onerror="this.src='img/delta.svg'">
-        <div class="card-title">${escapeHtml(cat.name)}</div>
-      </div>
-      <div class="card-buttons" id="buttons-${cat.id}"></div>
+    // Mobile card
+    const mCard = document.createElement('div');
+    mCard.className = 'p-card-mobile';
+    mCard.id = `player-mobile-${i}`;
+    mCard.innerHTML = `
+      <span class="pm-name">${escHtml(p.name)}</span>
+      <span class="pm-score" id="mscore-${i}">0</span>
     `;
+    mobileBar.appendChild(mCard);
+  });
+}
 
-    // Score buttons
-    const buttonsContainer = card.querySelector(`#buttons-${cat.id}`);
-    cat.questions.forEach((q, qIndex) => {
-      const questionKey = `${cat.id}-${qIndex}`;
-      const isUsed = state.usedQuestions.has(questionKey);
-      const btn = document.createElement('button');
-      btn.className = 'btn-score';
-      btn.textContent = q.points;
-      btn.disabled = isUsed;
-      btn.setAttribute('aria-label', `${cat.name} - ${q.points} punti${isUsed ? ' (già risposta)' : ''}`);
-      btn.addEventListener('click', () => openQuestion(cat.id, catIndex, qIndex));
-      buttonsContainer.appendChild(btn);
+function buildCategoriesGrid() {
+  const grid = $('categories-grid');
+  grid.innerHTML = '';
+
+  state.quizData.categories.forEach(cat => {
+    const card = buildCategoryCard(cat);
+    grid.appendChild(card);
+  });
+}
+
+function buildCategoryCard(cat) {
+  const card = document.createElement('div');
+  card.className = 'cat-card';
+  card.style.background = `linear-gradient(135deg, ${cat.gradient[0]}, ${cat.gradient[1]})`;
+
+  // Header with icon + name
+  const header = document.createElement('div');
+  header.className = 'cat-card-header';
+
+  // Icon (try img, fallback to FA delta)
+  const img = document.createElement('img');
+  img.className = 'cat-icon';
+  img.src = cat.icon;
+  img.alt = '';
+  img.onerror = function() {
+    this.style.display = 'none';
+    const fb = document.createElement('div');
+    fb.className = 'cat-icon-fallback';
+    fb.innerHTML = '<i class="fa-solid fa-star"></i>';
+    header.insertBefore(fb, header.firstChild);
+  };
+
+  const nameEl = document.createElement('div');
+  nameEl.className = 'cat-name';
+  nameEl.textContent = cat.name;
+
+  header.appendChild(img);
+  header.appendChild(nameEl);
+
+  // Points row
+  const pointsRow = document.createElement('div');
+  pointsRow.className = 'cat-points-row';
+
+  cat.questions.forEach(q => {
+    const btn = document.createElement('button');
+    btn.className = 'point-btn';
+    btn.textContent = q.points;
+    btn.dataset.catId   = cat.id;
+    btn.dataset.points  = q.points;
+    btn.id = `btn-${cat.id}-${q.points}`;
+    btn.addEventListener('click', () => openQuestion(cat, q));
+    pointsRow.appendChild(btn);
+  });
+
+  card.appendChild(header);
+  card.appendChild(pointsRow);
+  return card;
+}
+
+/* ── QUESTION POPUP ────────────────────────────────────────── */
+function openQuestion(cat, q) {
+  state.currentQ        = q;
+  state.currentCatId    = cat.id;
+  state.currentPoints   = q.points;
+  state.currentGradient = cat.gradient;
+  state.catName         = cat.name;
+
+  // Header color
+  const header = $('q-popup-header');
+  header.style.background = `linear-gradient(90deg, ${cat.gradient[0]}, ${cat.gradient[1]})`;
+  header.style.color = '#f8f8ff';
+
+  $('q-category-label').textContent = cat.name;
+  $('q-points-label').textContent = q.points + ' PT';
+
+  // Turn
+  const currentPlayer = state.players[state.currentIndex];
+  $('q-turn-indicator').innerHTML =
+    `<i class="fa-solid fa-user-astronaut"></i> &nbsp;TURNO DI: <strong>${escHtml(currentPlayer.name)}</strong>`;
+
+  // Image
+  const img = $('q-image');
+  if (q.image) {
+    img.src = q.image;
+    img.style.display = 'block';
+  } else {
+    img.style.display = 'none';
+    img.src = '';
+  }
+
+  // Question text
+  $('q-text').textContent = q.text;
+
+  // Options
+  $('q-ans-a').textContent = q.options[0];
+  $('q-ans-b').textContent = q.options[1];
+  $('q-ans-c').textContent = q.options[2];
+
+  // Reset buttons
+  const answerBtns = document.querySelectorAll('.q-answer-btn');
+  answerBtns.forEach(btn => {
+    btn.classList.remove('correct', 'wrong');
+    btn.disabled = false;
+  });
+
+  // Hide result message
+  const resultMsg = $('q-result-msg');
+  resultMsg.style.display = 'none';
+  $('q-points-awarded').style.display = 'none';
+
+  // Attach answer handlers (fresh clone to remove old listeners)
+  answerBtns.forEach(btn => {
+    const newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+    newBtn.addEventListener('click', () => handleAnswer(newBtn.dataset.ans));
+  });
+
+  // Restore option texts after clone
+  $('q-ans-a').textContent = q.options[0];
+  $('q-ans-b').textContent = q.options[1];
+  $('q-ans-c').textContent = q.options[2];
+
+  popups.question.classList.remove('hidden');
+}
+
+function handleAnswer(chosen) {
+  const q = state.currentQ;
+  const correct = q.correct;
+  const isCorrect = (chosen === correct);
+
+  // Disable all buttons
+  document.querySelectorAll('.q-answer-btn').forEach(btn => {
+    btn.disabled = true;
+    if (btn.dataset.ans === correct) btn.classList.add('correct');
+    else if (btn.dataset.ans === chosen && !isCorrect) btn.classList.add('wrong');
+  });
+
+  // Update scores
+  let resultText, awardsText;
+  if (isCorrect) {
+    state.players[state.currentIndex].score += state.currentPoints;
+    playAudio('ok');
+    resultText = '✓ RIGHT!';
+    awardsText = `+${state.currentPoints} PUNTI → ${escHtml(state.players[state.currentIndex].name)}`;
+  } else {
+    const pts = 250;
+    const winners = [];
+    state.players.forEach((p, i) => {
+      if (i !== state.currentIndex) {
+        p.score += pts;
+        winners.push(p.name);
+      }
     });
+    playAudio('wrong');
+    resultText = '✗ WRONG!';
+    awardsText = `+${pts} PUNTI → ${winners.map(escHtml).join(', ')}`;
+  }
 
-    dom.gridMaterie.appendChild(card);
-  });
+  // Show result
+  const rm = $('q-result-msg');
+  rm.textContent = resultText;
+  rm.className = `q-result-msg ${isCorrect ? 'correct-msg' : 'wrong-msg'}`;
+  rm.style.display = 'block';
+  $('q-points-awarded').textContent = awardsText;
+  $('q-points-awarded').style.display = 'block';
+
+  // Mark question as answered
+  state.answered[`${state.currentCatId}_${state.currentPoints}`] = true;
+
+  // Update UI
+  updatePlayerDisplays();
+
+  // Disable the played button on the board
+  const boardBtn = $(`btn-${state.currentCatId}-${state.currentPoints}`);
+  if (boardBtn) boardBtn.disabled = true;
+
+  // Advance turn
+  state.currentIndex = (state.currentIndex + 1) % state.players.length;
+
+  // Close popup after delay
+  setTimeout(() => {
+    popups.question.classList.add('hidden');
+    updateTurnBanner();
+    updatePlayerDisplays();
+
+    if (checkGameOver()) {
+      setTimeout(showGameOver, 1200);
+    }
+  }, 2500);
 }
 
-function updateScoreButtons() {
-  state.usedQuestions.forEach(key => {
-    const [catId, qIndexStr] = key.split('-');
-    const catData = state.quizData?.categories.find(c => c.id === catId);
-    if (!catData) return;
-    const qIndex = parseInt(qIndexStr);
-    const buttonsContainer = document.getElementById(`buttons-${catId}`);
-    if (buttonsContainer) {
-      const btns = buttonsContainer.querySelectorAll('.btn-score');
-      if (btns[qIndex]) btns[qIndex].disabled = true;
+/* ── PLAYER DISPLAY ────────────────────────────────────────── */
+function updatePlayerDisplays() {
+  state.players.forEach((p, i) => {
+    // Desktop
+    const card = $(`player-card-${i}`);
+    const scoreEl = $(`score-${i}`);
+    if (card) {
+      card.classList.toggle('active-turn', i === state.currentIndex);
     }
+    if (scoreEl) scoreEl.textContent = p.score.toLocaleString('it-IT');
+
+    // Mobile
+    const mCard = $(`player-mobile-${i}`);
+    const mScore = $(`mscore-${i}`);
+    if (mCard) mCard.classList.toggle('active-turn', i === state.currentIndex);
+    if (mScore) mScore.textContent = p.score.toLocaleString('it-IT');
   });
 }
 
 function updateTurnBanner() {
-  const player = state.players[state.currentPlayerIndex];
-  dom.turnBanner.textContent = `TURNO DI: ${player.name}`;
+  const banner = $('turn-banner');
+  if (!banner || state.players.length === 0) return;
+  const name = state.players[state.currentIndex].name;
+  banner.textContent = `★ È IL TURNO DI: ${name} ★`;
 }
 
-/* ======================================================
-   QUESTION POPUP
-   ====================================================== */
-function openQuestion(catId, catIndex, qIndex) {
-  if (!state.quizData) return;
-  const cat = state.quizData.categories.find(c => c.id === catId);
-  if (!cat) return;
-  const q = cat.questions[qIndex];
-  if (!q) return;
-  const questionKey = `${catId}-${qIndex}`;
-  if (state.usedQuestions.has(questionKey)) return;
-
-  const meta = CAT_META.find(m => m.id === catId) || CAT_META[catIndex];
-
-  // Store current question
-  state.currentQuestion = { catId, catIndex, qIndex, points: q.points, key: questionKey };
-
-  // Style popup header with category color
-  dom.popupQHeader.style.background = `linear-gradient(90deg, ${meta.color1}, ${meta.color2})`;
-  dom.popupCategoryLbl.textContent = cat.name;
-  dom.popupPointsBadge.textContent = `${q.points} PT`;
-
-  // Question text
-  dom.questionText.textContent = q.text;
-  dom.questionText.id = 'question-text';
-
-  // Optional image
-  if (q.image) {
-    dom.popupQuestionImg.src = q.image;
-    dom.popupQuestionImg.hidden = false;
-    dom.popupQuestionImg.onerror = () => { dom.popupQuestionImg.hidden = true; };
-  } else {
-    dom.popupQuestionImg.hidden = true;
-    dom.popupQuestionImg.src = '';
-  }
-
-  // Answer options
-  dom.popupOptions.innerHTML = '';
-  const letters = ['A', 'B', 'C'];
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'btn-option';
-    btn.innerHTML = `<span class="opt-letter" aria-hidden="true">${letters[i]}</span>${escapeHtml(opt)}`;
-    btn.setAttribute('aria-label', `Opzione ${letters[i]}: ${opt}`);
-    btn.addEventListener('click', () => answerQuestion(i, q.correct, q.points));
-    dom.popupOptions.appendChild(btn);
-  });
-
-  // Hide result banner
-  dom.popupResultBanner.hidden = true;
-  dom.popupResultBanner.className = '';
-  dom.popupResultBanner.textContent = '';
-
-  // Show popup
-  dom.popupQuestion.hidden = false;
-}
-
-/* ======================================================
-   ANSWER HANDLING
-   ====================================================== */
-function answerQuestion(chosenIndex, correctIndex, points) {
-  if (!state.currentQuestion) return;
-
-  const isCorrect = (chosenIndex === correctIndex);
-  const optionBtns = dom.popupOptions.querySelectorAll('.btn-option');
-
-  // Disable all buttons
-  optionBtns.forEach(btn => btn.disabled = true);
-
-  // Highlight chosen and correct
-  optionBtns[chosenIndex].classList.add(isCorrect ? 'correct' : 'wrong');
-  if (!isCorrect) {
-    optionBtns[correctIndex].classList.add('reveal-correct');
-  }
-
-  // Score update
-  if (isCorrect) {
-    state.players[state.currentPlayerIndex].score += points;
-    playAudio(dom.sfxOk);
-    showResultBanner(true, points);
-  } else {
-    // All other players get 250
-    state.players.forEach((p, i) => {
-      if (i !== state.currentPlayerIndex) p.score += 250;
-    });
-    playAudio(dom.sfxWrong);
-    showResultBanner(false, points);
-  }
-
-  // Mark question as used
-  state.usedQuestions.add(state.currentQuestion.key);
-  state.answeredCount++;
-
-  // Update player card scores immediately
-  updatePlayerCards();
-
-  // Auto-close after delay
-  setTimeout(() => {
-    closeQuestion();
-    checkGameOver();
-  }, 2200);
-}
-
-function showResultBanner(isCorrect, points) {
-  const banner = dom.popupResultBanner;
-  banner.hidden = false;
-  if (isCorrect) {
-    const player = state.players[state.currentPlayerIndex];
-    banner.className = 'popup-result-banner result-correct';
-    banner.textContent = `✓ CORRETTO — +${points} PT → ${player.name}`;
-  } else {
-    banner.className = 'popup-result-banner result-wrong';
-    const otherCount = state.players.length - 1;
-    banner.textContent = `✗ SBAGLIATO — +250 PT A ${otherCount === 1 ? 'L\'AVVERSARIO' : `${otherCount} AVVERSARI`}`;
-  }
-}
-
-function closeQuestion() {
-  dom.popupQuestion.hidden = true;
-  state.currentQuestion = null;
-
-  // Advance turn
-  state.currentPlayerIndex = (state.currentPlayerIndex + 1) % state.players.length;
-  updateTurnBanner();
-  updateScoreButtons();
-}
-
-/* ======================================================
-   GAME OVER
-   ====================================================== */
+/* ── GAME OVER ─────────────────────────────────────────────── */
 function checkGameOver() {
-  if (state.answeredCount >= state.totalQuestions) {
-    setTimeout(showGameOver, 600);
-  }
+  const total = state.quizData.categories.reduce((sum, cat) => sum + cat.questions.length, 0);
+  return Object.keys(state.answered).length >= total;
 }
 
 function showGameOver() {
-  stopAudio(dom.sfxTheme);
-  playAudio(dom.sfxWinner);
+  stopAudio('theme');
+  playAudio('winner');
 
-  dom.screenGame.hidden = true;
+  showScreen('gameover');
 
-  // Sort players by score descending
+  // Stardate: simple fake
+  const sd = (2401 + Math.random()).toFixed(4);
+  $('go-stardate-val').textContent = sd;
+
+  // Sort players
   const sorted = [...state.players].sort((a, b) => b.score - a.score);
-  const winner = sorted[0];
 
-  // Winner card
-  dom.winnerCardCont.innerHTML = `
-    <div class="winner-card" role="region" aria-label="Vincitore">
-      <div class="winner-label">⭐ CAMPIONE DELLA FLOTTA ⭐</div>
-      <div class="winner-name">${escapeHtml(winner.name)}</div>
-      <div class="winner-score">${winner.score}<span> PT</span></div>
-    </div>
-  `;
+  // Winner
+  $('go-winner-name').textContent = sorted[0].name;
+  $('go-winner-score').textContent = sorted[0].score.toLocaleString('it-IT') + ' PT';
 
-  // Runner-ups
-  dom.runnerUpList.innerHTML = '';
-  sorted.slice(1).forEach((player, i) => {
-    const card = document.createElement('div');
-    card.className = 'runner-up-card';
-    card.innerHTML = `
-      <span class="runner-up-rank">${i + 2}°</span>
-      <span class="runner-up-name">${escapeHtml(player.name)}</span>
-      <span class="runner-up-score">${player.score} PT</span>
+  // Ranking list
+  const list = $('go-ranking-list');
+  list.innerHTML = '';
+  sorted.slice(1).forEach((p, i) => {
+    const item = document.createElement('div');
+    item.className = 'go-rank-item';
+    item.innerHTML = `
+      <span class="go-rank-pos">#${i + 2}</span>
+      <span class="go-rank-name">${escHtml(p.name)}</span>
+      <span class="go-rank-score">${p.score.toLocaleString('it-IT')} PT</span>
     `;
-    dom.runnerUpList.appendChild(card);
+    list.appendChild(item);
   });
-
-  dom.screenGameover.hidden = false;
-  state.gameActive = false;
 }
 
-/* ======================================================
-   RESET / RESTART
-   ====================================================== */
-function resetToSplash() {
-  // Reset state
-  state.players = [];
-  state.currentPlayerIndex = 0;
-  state.usedQuestions = new Set();
-  state.answeredCount = 0;
-  state.currentQuestion = null;
-  state.gameActive = false;
-
-  // Stop audio
-  stopAudio(dom.sfxTheme);
-  stopAudio(dom.sfxWinner);
-
-  // Reset UI
-  dom.screenGameover.hidden = true;
-  dom.sidebarPlayers.hidden = true;
-  dom.sidebarSplash.hidden = false;
-  dom.screenSplash.hidden = false;
-
-  // Restart intro
-  playAudio(dom.sfxIntro);
-
-  // Reset selected player count
-  selectedPlayerCount = 2;
-}
-
-/* ======================================================
-   UTILITIES
-   ====================================================== */
-function escapeHtml(str) {
-  if (typeof str !== 'string') return '';
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+/* ── UTILS ─────────────────────────────────────────────────── */
+function escHtml(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 }

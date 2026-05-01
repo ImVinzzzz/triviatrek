@@ -3,135 +3,119 @@
     {
       "id": "comando",
       "name": "COMANDO E NAVIGAZIONE",
-      "color1": "#B42828",
-      "color2": "#E61E1E",
       "icon": "img/m1.svg",
-      "points": [100, 250, 500],
+      "gradient": ["#B42828", "#E61E1E"],
+      "isRiskio": false,
       "questions": [
         {
-          "id": "cmd_100",
           "points": 100,
-          "text": "Chi comanda la USS Enterprise NCC-1701-D nella serie The Next Generation?",
-          "options": ["Jean-Luc Picard", "James T. Kirk", "Kathryn Janeway"],
-          "correct": 0,
-          "image": "img_quiz/d1a.webp"
+          "text": "Chi è il capitano della USS Enterprise NCC-1701-D nella serie The Next Generation?",
+          "options": ["James T. Kirk", "Jean-Luc Picard", "Benjamin Sisko"],
+          "correct": "B",
+          "image": "img_quiz/m1a.jpg"
         },
         {
-          "id": "cmd_250",
           "points": 250,
-          "text": "Quanti ponti (deck) ha la nave di classe Galaxy come l'Enterprise-D?",
-          "options": ["22", "42", "36"],
-          "correct": 1,
+          "text": "Con quale grado presta servizio Will Riker sull'Enterprise-D all'inizio della serie TNG?",
+          "options": ["Comandante", "Capitano", "Tenente Comandante"],
+          "correct": "A",
           "image": null
         },
         {
-          "id": "cmd_500",
           "points": 500,
-          "text": "Come si chiama la manovra in cui il Capitano Picard saltava a Warp per sembrare in due luoghi contemporaneamente?",
-          "options": ["La Mossa Kirk", "La Manovra Picard", "Il Salto Quantico"],
-          "correct": 1,
-          "image": null
+          "text": "Come si intitola l'episodio di TNG in cui Picard viene assimilato dai Borg?",
+          "options": ["Q Who", "The Best of Both Worlds", "I, Borg"],
+          "correct": "B",
+          "image": "img_quiz/locutus.jpg"
         }
       ]
     },
     {
       "id": "scienza",
       "name": "SCIENZA E MEDICINA",
-      "color1": "#286E64",
-      "color2": "#008080",
       "icon": "img/m2.svg",
-      "points": [100, 250, 500],
+      "gradient": ["#286E64", "#008080"],
+      "isRiskio": false,
       "questions": [
         {
-          "id": "sci_100",
           "points": 100,
-          "text": "Come si chiama il medico capo della USS Enterprise nella serie originale?",
-          "options": ["Dott. McCoy", "Dott. Crusher", "Dott. Bashir"],
-          "correct": 0,
+          "text": "Chi è il medico capo dell'Enterprise-D?",
+          "options": ["Phlox", "Beverly Crusher", "Leonard McCoy"],
+          "correct": "B",
           "image": null
         },
         {
-          "id": "sci_250",
           "points": 250,
-          "text": "Di che colore è il sangue dei Vulcaniani?",
-          "options": ["Rosso", "Verde", "Blu"],
-          "correct": 1,
-          "image": null
+          "text": "Come si chiama il dispositivo portatile usato dai medici di Flotta per diagnosi immediate sul campo?",
+          "options": ["Tricorder medico", "Faser diagnostico", "Scanner a tachioni"],
+          "correct": "A",
+          "image": "img_quiz/tricorder.jpg"
         },
         {
-          "id": "sci_500",
           "points": 500,
-          "text": "Come si chiama il ciclo biologico dei Trill in cui un ospite e il simbiotico formano un legame permanente?",
-          "options": ["Giunzione", "Fusione Neurale", "Imprinting Quantico"],
-          "correct": 0,
-          "image": null
+          "text": "Deanna Troi è per metà Betazoide: quale speciale abilità psichica possiede?",
+          "options": ["Telepatia", "Empatia", "Telecinesi"],
+          "correct": "B",
+          "image": "img_quiz/troi.jpg"
         }
       ]
     },
     {
       "id": "tattica",
       "name": "TATTICA E SICUREZZA",
-      "color1": "#BEBE00",
-      "color2": "#FFC800",
       "icon": "img/m3.svg",
-      "points": [100, 250, 500],
+      "gradient": ["#BEBE00", "#FFC800"],
+      "isRiskio": false,
       "questions": [
         {
-          "id": "tat_100",
           "points": 100,
-          "text": "Come si chiama l'arma ad energia standard in dotazione alla Flotta Stellare?",
-          "options": ["Disruptor", "Fucile a ioni", "Phaser"],
-          "correct": 2,
+          "text": "Chi ricopre il ruolo di capo della sicurezza e ufficiale tattico sull'Enterprise-D?",
+          "options": ["Worf", "Tasha Yar", "Miles O'Brien"],
+          "correct": "A",
           "image": null
         },
         {
-          "id": "tat_250",
           "points": 250,
-          "text": "Quale tecnologia rende invisibili le navi dell'Impero Romulan al rilevamento?",
-          "options": ["Maschera Termica", "Dispositivo Occultante", "Schermo d'Assorbimento"],
-          "correct": 1,
+          "text": "Come si chiama l'arma individuale standard in dotazione agli ufficiali della Flotta Stellare?",
+          "options": ["Disgregatore", "Phaser", "Fotontorpedine"],
+          "correct": "B",
           "image": null
         },
         {
-          "id": "tat_500",
           "points": 500,
-          "text": "Come si chiama il tipo di siluro a energia del plasma usato come arma principale sulle navi Federazione?",
-          "options": ["Siluro Fotone", "Siluro Quantico", "Siluro Plasma"],
-          "correct": 0,
-          "image": null
+          "text": "In quale stagione di TNG Tasha Yar viene uccisa da Armus sul pianeta Vagra II?",
+          "options": ["Prima stagione", "Seconda stagione", "Terza stagione"],
+          "correct": "A",
+          "image": "img_quiz/tasha.jpg"
         }
       ]
     },
     {
       "id": "ingegneria",
       "name": "INGEGNERIA E OPS",
-      "color1": "#BEBE00",
-      "color2": "#FFC800",
       "icon": "img/m4.svg",
-      "points": [100, 250, 500],
+      "gradient": ["#BEBE00", "#FFC800"],
+      "isRiskio": false,
       "questions": [
         {
-          "id": "ing_100",
           "points": 100,
-          "text": "Come si chiama il cristallo che regola il flusso di materia/antimateria nei motori Warp?",
-          "options": ["Cristallo di dilithio", "Cristallo di quarzo", "Nucleo di tritanio"],
-          "correct": 0,
+          "text": "Chi è il capo ingegnere dell'Enterprise-D?",
+          "options": ["Geordi La Forge", "Miles O'Brien", "Montgomery Scott"],
+          "correct": "A",
           "image": null
         },
         {
-          "id": "ing_250",
           "points": 250,
-          "text": "Quale ingegnere della USS Enterprise NCC-1701 è soprannominato 'Scotty'?",
-          "options": ["Reginald Barclay", "Geordi La Forge", "Montgomery Scott"],
-          "correct": 2,
+          "text": "Qual è il tipo di propulsione che permette alle navi della Flotta di viaggiare più veloce della luce?",
+          "options": ["Motore a impulso", "Motore a curvatura", "Motore a cavitazione"],
+          "correct": "B",
           "image": null
         },
         {
-          "id": "ing_500",
           "points": 500,
-          "text": "Come si chiama la procedura di emergenza che separa fisicamente il modulo saucer dal corpo secondario della nave?",
-          "options": ["Separazione Saucer", "Manovra di Divisione", "Protocollo Sigma"],
-          "correct": 0,
+          "text": "Cosa significa l'acronimo EPS nel contesto dell'ingegneria di bordo di una nave stellare?",
+          "options": ["Electro Plasma System", "Emergency Power Supply", "Enhanced Propulsion System"],
+          "correct": "A",
           "image": null
         }
       ]
@@ -139,101 +123,89 @@
     {
       "id": "riskio",
       "name": "RISKIO!",
-      "color1": "#374137",
-      "color2": "#647D6E",
       "icon": "img/m5.svg",
-      "points": [200, 500, 1000],
+      "gradient": ["#374137", "#647D6E"],
+      "isRiskio": true,
       "questions": [
         {
-          "id": "rsk_200",
           "points": 200,
-          "text": "In quale anno del calendario terrestre è ambientata la serie Star Trek: The Next Generation?",
-          "options": ["2151", "2364", "2269"],
-          "correct": 1,
+          "text": "RISKIO! — Quante specie fondatrici hanno istituito la Federazione dei Pianeti Uniti nel 2161?",
+          "options": ["Due", "Quattro", "Sei"],
+          "correct": "B",
           "image": null
         },
         {
-          "id": "rsk_500",
           "points": 500,
-          "text": "Come si chiama la sonda aliena che nel film del 1979 torna verso la Terra cercando il suo Creatore?",
-          "options": ["V'Ger", "Nomad", "Doomsday Machine"],
-          "correct": 0,
+          "text": "RISKIO! — Qual è il nome del sistema di interfaccia informatica del computer centrale dell'Enterprise?",
+          "options": ["Computer Ship", "Cervello Positronico", "LCARS"],
+          "correct": "C",
           "image": null
         },
         {
-          "id": "rsk_1000",
           "points": 1000,
-          "text": "Quale attore ha interpretato il personaggio di Spock sia nella serie originale che nei film della trilogia Kelvin?",
-          "options": ["Zachary Quinto", "Leonard Nimoy", "Entrambi"],
-          "correct": 2,
-          "image": "img_quiz/spock_placeholder.jpg"
+          "text": "RISKIO! — Secondo il canone di Star Trek, cosa significa l'acronimo NCC che precede il numero identificativo delle navi della Flotta?",
+          "options": ["Naval Construction Contract", "New Colonization Command", "Nessun significato"],
+          "correct": "C",
+          "image": "img_quiz/ncc.jpg"
         }
       ]
     },
     {
       "id": "afrodite",
       "name": "USS AFRODITE",
-      "color1": "#BF6500",
-      "color2": "#FF9900",
       "icon": "img/m6.svg",
-      "points": [100, 250, 500],
+      "gradient": ["#BF6500", "#FF9900"],
+      "isRiskio": false,
       "questions": [
         {
-          "id": "afr_100",
           "points": 100,
-          "text": "Quanti livelli di allerta esistono a bordo della maggior parte delle navi Federazione?",
-          "options": ["Due", "Tre", "Quattro"],
-          "correct": 1,
+          "text": "A quale classe apparteneva la USS Afrodite?",
+          "options": ["Classe Miranda", "Classe Constitution", "Classe Nova"],
+          "correct": "A",
           "image": null
         },
         {
-          "id": "afr_250",
           "points": 250,
-          "text": "Quale segnale visivo indica lo stato di massima allerta a bordo di una nave della Flotta Stellare?",
-          "options": ["Luci rosse lampeggianti", "Luci gialle", "Luci blu"],
-          "correct": 0,
-          "image": null
+          "text": "Come si chiama lo stregatto del Capitano?",
+          "options": ["Argo", "Geppo", "Peppino"],
+          "correct": "B",
+          "image": "img_quiz/gatto.jpg"
         },
         {
-          "id": "afr_500",
           "points": 500,
-          "text": "Come si chiama la tecnologia che consente di smaterializzare e rimaterializzare le persone a distanza?",
-          "options": ["Teletrasporto", "Dematerializzazione Quantica", "Proiezione Olografica"],
-          "correct": 0,
-          "image": null
+          "text": "Come si chiama l'istruttore di ballo della USS Afrodite",
+          "options": ["Albert Monroe", "Maurice Drews", "Adam Smith"],
+          "correct": "B",
+          "image": "img_quiz/ballo.jpg"
         }
       ]
     },
     {
       "id": "qonos",
       "name": "QO'NOS",
-      "color1": "#803C64",
-      "color2": "#B44B82",
       "icon": "img/m7.svg",
-      "points": [100, 250, 500],
+      "gradient": ["#803C64", "#B44B82"],
+      "isRiskio": false,
       "questions": [
         {
-          "id": "qon_100",
           "points": 100,
-          "text": "Come si chiama la bevanda tradizionale Klingon a base di sangue?",
-          "options": ["Bloodwine", "Bahgol", "Raktajino"],
-          "correct": 0,
-          "image": null
+          "text": "Qo'noS è il pianeta natale di quale specie nell'universo di Star Trek?",
+          "options": ["Romulani", "Klingon", "Cardassiani"],
+          "correct": "B",
+          "image": "img_quiz/qonos.jpg"
         },
         {
-          "id": "qon_250",
           "points": 250,
-          "text": "Come si chiama la grande arma a lama curva a doppia impugnatura tipica dei guerrieri Klingon?",
-          "options": ["D'k tahg", "Bat'leth", "Mek'leth"],
-          "correct": 1,
+          "text": "Come si traduce in italiano il grido di saluto e di congedo Klingon 'Qapla''?",
+          "options": ["Vittoria", "Morte onorevole", "Per l'Impero"],
+          "correct": "A",
           "image": null
         },
         {
-          "id": "qon_500",
           "points": 500,
-          "text": "Chi è il leggendario eroe fondatore della civiltà e dell'Impero Klingon?",
-          "options": ["Kahless l'Indomabile", "Kahless l'Indimenticabile", "Gorkon il Grande"],
-          "correct": 1,
+          "text": "Come si chiama la tradizionale arma a doppia lama a forma di mezzaluna dei guerrieri Klingon?",
+          "options": ["D'k tahg", "Mek'leth", "Bat'leth"],
+          "correct": "C",
           "image": null
         }
       ]
@@ -241,33 +213,29 @@
     {
       "id": "romulus",
       "name": "ROMULUS",
-      "color1": "#006432",
-      "color2": "#009646",
       "icon": "img/m8.svg",
-      "points": [100, 250, 500],
+      "gradient": ["#006432", "#009646"],
+      "isRiskio": false,
       "questions": [
         {
-          "id": "rom_100",
           "points": 100,
-          "text": "I Romulani condividono un'origine ancestrale comune con quale altra razza aliena di Star Trek?",
-          "options": ["Vulcaniani", "Cardassiani", "Ferenghi"],
-          "correct": 0,
+          "text": "I Romulani condividono origini evolutive con quale altra specie di Star Trek, da cui si separarono migliaia di anni fa?",
+          "options": ["Vulcaniani", "Cardassiani", "Bajorani"],
+          "correct": "A",
           "image": null
         },
         {
-          "id": "rom_250",
           "points": 250,
-          "text": "Come si chiama il capo supremo del governo dell'Impero Romulan?",
-          "options": ["Il Praetor", "Il Primo Ministro", "L'Imperatore"],
-          "correct": 0,
+          "text": "Come si chiama il servizio segreto militare dell'Impero Romulano, temuto per la sua brutalità?",
+          "options": ["Ordine Ossidiano", "Tal Shiar", "Sezione 31"],
+          "correct": "B",
           "image": null
         },
         {
-          "id": "rom_500",
           "points": 500,
-          "text": "Come si chiama la classe di nave da guerra Romulan più grande e potente, temuta da tutta la Federazione?",
-          "options": ["Warbird D'deridex", "Battlecruiser K't'inga", "Dreadnought Valdore"],
-          "correct": 0,
+          "text": "Come si chiama la nave da guerra romulana che sfrutta la tecnologia del mantello d'occultamento?",
+          "options": ["D'deridex Warbird", "Valdore Warbird", "Mogai Warbird"],
+          "correct": "A",
           "image": null
         }
       ]
@@ -275,34 +243,60 @@
     {
       "id": "vulcano",
       "name": "VULCANO",
-      "color1": "#1E3280",
-      "color2": "#324696",
       "icon": "img/m9.svg",
-      "points": [100, 250, 500],
+      "gradient": ["#1E3280", "#324696"],
+      "isRiskio": false,
       "questions": [
         {
-          "id": "vul_100",
           "points": 100,
-          "text": "Come si chiama il ciclo biologico di circa 7 anni durante il quale i Vulcaniani devono accoppiarsi o morire?",
-          "options": ["Pon farr", "Plak tow", "Kolinahr"],
-          "correct": 0,
+          "text": "Qual è il principio filosofico vulcaniano sintetizzato nell'acronimo IDIC?",
+          "options": ["'Infinite Diversity in Infinite Combinations'", "'Inner Discipline In Contemplation'", "'I Devote Intelligence to Civilization'"],
+          "correct": "A",
           "image": null
         },
         {
-          "id": "vul_250",
           "points": 250,
-          "text": "Come si chiama la disciplina mentale Vulcaniana volta all'eliminazione totale delle emozioni?",
-          "options": ["Pon farr", "Kolinahr", "V'tosh ka'tur"],
-          "correct": 1,
+          "text": "Come si chiama il grande filosofo vulcaniano che circa 1800 anni prima del 23° sec. guidò il suo popolo verso la logica?",
+          "options": ["Surak", "Sarek", "Spock"],
+          "correct": "A",
           "image": null
         },
         {
-          "id": "vul_500",
           "points": 500,
-          "text": "Come si chiama l'equivalente dell'anima Vulcaniana, che può essere trasferita in un altro essere prima della morte?",
-          "options": ["Katra", "Tuwaly", "Synaptic Relay"],
-          "correct": 0,
+          "text": "Come si chiama la disciplina mentale vulcaniana estrema che mira alla totale purificazione di ogni emozione?",
+          "options": ["Pon Farr", "Katra", "Kolinahr"],
+          "correct": "C",
           "image": null
+        }
+      ]
+    },
+    {
+      "id": "afrodite2",
+      "name": "USS AFRODITE - GOSSIP",
+      "icon": "img/m6.svg",
+      "gradient": ["#BF6500", "#FF9900"],
+      "isRiskio": true,
+      "questions": [
+        {
+          "points": 200,
+          "text": "Quanti libri ha scritto Ernestina Scramiglio?",
+          "options": ["Due", "Tre", "Cinque"],
+          "correct": "B",
+          "image": "img_quiz/scramiglio.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Chi è il compagno del Secondo Ufficiale Scientifico?",
+          "options": ["Baba Lambert", "Marek Capui", "Sàpek"],
+          "correct": "C",
+          "image": "img_quiz/danee.jpg"
+        },
+        {
+          "points": 1000,
+          "text": "Chi è la moglie di Adam Smith?",
+          "options": ["Lucy Bliss", "Kiss Mey", "Eva Brown"],
+          "correct": "C",
+          "image": "img_quiz/smith.jpg"
         }
       ]
     }

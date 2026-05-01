@@ -3,100 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TrivaTrek — Editor Domande</title>
+  <title>Trivia Trek — Editor Domande</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════
-       LOCK SCREEN (shown until password correct)
-  ═══════════════════════════════════════════ -->
-  <div class="editor-lock" id="editor-lock" role="dialog" aria-modal="true" aria-labelledby="lock-title">
+  <!-- ═══════════════════════════════════════════════
+       FIXED HEADER
+  ═══════════════════════════════════════════════ -->
+  <header id="main-header">
+    <img src="img/logo.svg" class="header-logo" alt="Trivia Trek">
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       LOCK SCREEN (sicurezza)
+  ═══════════════════════════════════════════════ -->
+  <div id="editor-lock-screen">
     <div class="lock-box">
       <div class="lock-header">
-        <div class="lock-title" id="lock-title">
-          AUTORIZZAZIONE<br>DI COMANDO<br>RICHIESTA
-        </div>
+        <i class="fa-solid fa-shield-halved"></i>
+        &nbsp; SISTEMA DI SICUREZZA FLOTTA STELLARE
       </div>
       <div class="lock-body">
-        <img src="img/m6.svg" alt="Starfleet Insignia" class="lock-starfleet-icon">
-        <div class="lock-label">ACCESSO RISTRETTO — SOLO UFFICIALI AUTORIZZATI<br>INSERIRE CODICE DI COMANDO</div>
-        <div class="lock-input-row">
-          <input
-            type="password"
-            class="lock-input"
-            id="lock-password"
-            placeholder="CODICE"
-            maxlength="5"
-            autocomplete="off"
-            aria-label="Codice di accesso"
-          >
-          <button class="btn-authorize" id="btn-authorize">GO</button>
+        <div class="lock-icon">
+          <i class="fa-solid fa-lock"></i>
         </div>
-        <div class="lock-denied" id="lock-denied" role="alert" aria-live="assertive">
+        <div class="lock-title">
+          AUTORIZZAZIONE<br>DI COMANDO<br>RICHIESTA
+        </div>
+        <input
+          type="password"
+          id="lock-password"
+          class="lock-input"
+          placeholder="••••"
+          maxlength="10"
+          autocomplete="off"
+        />
+        <button id="lock-btn" class="lock-btn">
+          <i class="fa-solid fa-satellite-dish"></i>
+          &nbsp; AUTHORIZE
+        </button>
+        <div id="lock-denied-msg" class="lock-denied" style="visibility:hidden">
           ⚠ ACCESSO NEGATO ⚠
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════
-       FIXED LCARS HEADER (shared)
-  ═══════════════════════════════════════════ -->
-  <header class="lcars-header" role="banner">
-    <div class="lcars-header-left" aria-hidden="true">
-      <div class="header-pip-row">
-        <div class="header-pip pip-orange pip-tall">58712</div>
-        <div class="header-pip pip-orange pip-tall">33574</div>
-        <div class="header-pip pip-teal pip-tall">6674</div>
-        <div class="header-pip pip-orange pip-tall">95224</div>
-      </div>
-    </div>
-    <div class="lcars-header-right">
-      <img src="img/logo.svg" alt="TrivaTrek Logo" class="header-logo">
-    </div>
-  </header>
-
-  <!-- ═══════════════════════════════════════════
-       EDITOR INTERFACE (hidden until authorized)
-  ═══════════════════════════════════════════ -->
-  <div class="editor-interface" id="editor-interface" aria-hidden="true">
+  <!-- ═══════════════════════════════════════════════
+       EDITOR APP (hidden until authenticated)
+  ═══════════════════════════════════════════════ -->
+  <div id="editor-app">
 
     <!-- Top bar -->
     <div class="editor-topbar">
-      <div class="editor-title">⬡ EDITOR DOMANDE — PANNELLO DI CONTROLLO</div>
-      <label class="btn-load-json" for="file-load-json" role="button" tabindex="0">
-        ▲ CARICA quiz.json
+      <h2><i class="fa-solid fa-database"></i> &nbsp;EDITOR DOMANDE</h2>
+      <label class="ed-btn" for="load-json-input" style="cursor:pointer">
+        <i class="fa-solid fa-folder-open"></i> &nbsp;CARICA JSON
       </label>
-      <input type="file" id="file-load-json" accept=".json" style="display:none" aria-label="Carica file quiz.json">
+      <input type="file" id="load-json-input" accept=".json" style="display:none">
     </div>
 
-    <!-- Category Tabs -->
-    <nav class="editor-tabs" id="editor-tabs" role="tablist" aria-label="Categorie">
-      <!-- Injected by editor.js -->
-    </nav>
+    <!-- Category tabs -->
+    <div id="cat-tabs" class="cat-tabs"></div>
 
-    <!-- Tab Panels -->
-    <div class="editor-content" id="editor-content">
-      <!-- Injected by editor.js -->
-    </div>
+    <!-- Questions editor area -->
+    <div id="questions-editor" class="questions-editor"></div>
 
     <!-- Export button -->
-    <button class="btn-export" id="btn-export">
-      ▼ ESPORTA DATI — SCARICA quiz.json
-    </button>
+    <div style="text-align:center;margin-top:32px">
+      <button id="btn-export" class="ed-btn export">
+        <i class="fa-solid fa-download"></i> &nbsp;ESPORTA DATI (quiz.json)
+      </button>
+    </div>
 
-  </div>
+  </div><!-- /editor-app -->
 
-  <!-- Audio elements -->
+  <!-- Audio elements (reused from game) -->
   <audio id="sfx-ok"    src="sfx/ok.mp3"    preload="auto"></audio>
-  <audio id="sfx-wrong" src="sfx/wrong.mp3" preload="auto"></audio>
+  <audio id="sfx-wrong" src="sfx/wrong.mp3"  preload="auto"></audio>
 
   <script src="editor.js"></script>
 </body>
