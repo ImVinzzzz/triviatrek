@@ -365,7 +365,7 @@ function handleAnswer(chosen) {
   rm.innerHTML = resultText;
   rm.className = `q-result-msg ${isCorrect ? 'correct-msg' : 'wrong-msg'}`;
   rm.style.display = 'block';
-  $('q-points-awarded').textContent = awardsText;
+  $('q-points-awarded').innerHTML = awardsText;
   $('q-points-awarded').style.display = 'block';
 
   // Mark question as answered
