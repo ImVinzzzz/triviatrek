@@ -170,7 +170,7 @@ body::after {
   display: block;
   height: 30px;
   background: var(--teal);
-  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   flex-shrink: 0;
 }
 
