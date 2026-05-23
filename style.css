@@ -132,8 +132,8 @@ body::after {
   /* Riquadro invertito: angolo alto-destro teal, resto orange per continuità visiva LCARS */
   width: 38px;
   height: 38px;
-  background: linear-gradient(to top right, var(--orange) 0 72%, var(--teal) 72% 100%);
-  border-top-right-radius: 20px;
+  background: linear-gradient(to top right, var(--black) 0 72%, var(--teal) 72% 100%);
+  border-top-left-radius: 20px;
 }
 
 .ts {
