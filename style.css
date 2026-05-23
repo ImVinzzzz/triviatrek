@@ -127,7 +127,7 @@ body::after {
   /* position: absolute;
   bottom: 0; right: 0; */
   width: 38px; height: 38px;
-  background: var(--black);
+  background: var(--teal);
   border-top-left-radius: 20px;
 }
 
