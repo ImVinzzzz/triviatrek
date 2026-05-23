@@ -120,14 +120,15 @@ body::after {
   align-items: stretch;
   gap: 3px;
   padding-left: 3px;
+  background: var(--teal);
 }
 
 .lcars-top-segs::before {
   content: '';
-  /* position: absolute;
-  bottom: 0; right: 0; */
+  position: absolute;
+  bottom: 0; right: 0;
   width: 38px; height: 38px;
-  background: var(--teal);
+  background: var(--black);
   border-top-left-radius: 20px;
 }
 
