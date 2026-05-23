@@ -127,8 +127,12 @@ body::after {
   /* position: absolute;
   bottom: 0; right: 0; */
   width: 38px; height: 38px;
-  background: var(--teal);
-  border-top-left-radius: 20px;
+  background-image: url('img/corner1t.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background: var(--black);
+  /* border-top-left-radius: 20px; */
 }
 
 .ts {
