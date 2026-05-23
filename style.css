@@ -119,7 +119,7 @@ body::after {
   display: flex;
   align-items: stretch;
   gap: 3px;
-  padding-left: 3px;
+  /* padding-left: 3px; */
 }
 
 .lcars-top-segs::before {
