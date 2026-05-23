@@ -124,8 +124,8 @@ body::after {
 
 .lcars-top-segs::before {
   content: '';
-  position: absolute;
-  bottom: 0; right: 0;
+  /* position: absolute;
+  bottom: 0; right: 0; */
   width: 38px; height: 38px;
   background: var(--black);
   border-top-left-radius: 20px;
