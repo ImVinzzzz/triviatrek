@@ -92,4 +92,4 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 
 ---
 
-*Stardate 2401 — USS Afrodite*
+*Stardate 12605.01 — USS Afrodite*
