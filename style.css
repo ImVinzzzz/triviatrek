@@ -131,6 +131,7 @@ body::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
+  border: none;
   /* background: var(--black);
   /* border-top-left-radius: 20px; */
 }
