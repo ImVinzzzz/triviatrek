@@ -13,6 +13,10 @@
   --orange-dark: #c87200;
   --lilac:       #D2A0FF;
   --lilac-dark:  #a870dc;
+  --cyan:        #40E0D0;
+  --cyan-dark:   #20B2AA;
+  --green:       #90EE90;
+  --green-dark:  #3CB371;
   --black:       #0a0a0f;
   --black2:      #0f0f18;
   --text:        #f8f8ff;
@@ -379,8 +383,10 @@ body::after {
   color: var(--black);
 }
 
-.player-num-badge.odd  { background: var(--orange); }
-.player-num-badge.even { background: var(--lilac); }
+.player-num-badge.p0, .player-num-badge.p2 { background: var(--orange); }
+.player-num-badge.p1, .player-num-badge.p3 { background: var(--lilac); }
+.player-num-badge.p4 { background: var(--cyan); }
+.player-num-badge.p5 { background: var(--green); }
 
 .player-name-input {
   flex: 1;
@@ -460,8 +466,10 @@ body::after {
   overflow: hidden;
 }
 
-.player-card:nth-child(odd)  { background: var(--orange); }
-.player-card:nth-child(even) { background: var(--lilac); }
+.player-card:nth-child(1), .player-card:nth-child(3)  { background: var(--orange); }
+.player-card:nth-child(2), .player-card:nth-child(4)  { background: var(--lilac); }
+.player-card:nth-child(5) { background: var(--cyan); }
+.player-card:nth-child(6) { background: var(--green); }
 
 .player-card.active-turn::before {
   content: '▶';
@@ -614,8 +622,10 @@ body::after {
   font-family: var(--font-main);
 }
 
-.players-mobile-bar .p-card-mobile:nth-child(odd)  { background: var(--orange); }
-.players-mobile-bar .p-card-mobile:nth-child(even) { background: var(--lilac); }
+.players-mobile-bar .p-card-mobile:nth-child(1), .players-mobile-bar .p-card-mobile:nth-child(3)  { background: var(--orange); }
+.players-mobile-bar .p-card-mobile:nth-child(2), .players-mobile-bar .p-card-mobile:nth-child(4)  { background: var(--lilac); }
+.players-mobile-bar .p-card-mobile:nth-child(5) { background: var(--cyan); }
+.players-mobile-bar .p-card-mobile:nth-child(6) { background: var(--green); }
 
 .p-card-mobile .pm-name {
   font-size: 0.7rem;
