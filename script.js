@@ -117,7 +117,7 @@ function buildNameInputs(count) {
     const row = document.createElement('div');
     row.className = 'player-name-row';
     const badge = document.createElement('div');
-    badge.className = `player-num-badge ${i % 2 === 0 ? 'odd' : 'even'}`;
+    badge.className = `player-num-badge p${i}`;
     badge.textContent = i + 1;
     const input = document.createElement('input');
     input.type = 'text';
