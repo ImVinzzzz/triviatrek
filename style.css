@@ -383,10 +383,9 @@ body::after {
   color: var(--black);
 }
 
-.player-num-badge.p0, .player-num-badge.p2 { background: var(--orange); }
-.player-num-badge.p1, .player-num-badge.p3 { background: var(--lilac); }
-.player-num-badge.p4 { background: var(--cyan); }
-.player-num-badge.p5 { background: var(--green); }
+.player-num-badge.p0, .player-num-badge.p3 { background: var(--orange); }
+.player-num-badge.p1, .player-num-badge.p4 { background: var(--lilac); }
+.player-num-badge.p2, .player-num-badge.p5 { background: var(--cyan); }
 
 .player-name-input {
   flex: 1;
@@ -466,10 +465,9 @@ body::after {
   overflow: hidden;
 }
 
-.player-card:nth-child(1), .player-card:nth-child(3)  { background: var(--orange); }
-.player-card:nth-child(2), .player-card:nth-child(4)  { background: var(--lilac); }
-.player-card:nth-child(5) { background: var(--cyan); }
-.player-card:nth-child(6) { background: var(--green); }
+.player-card:nth-child(1), .player-card:nth-child(4)  { background: var(--orange); }
+.player-card:nth-child(2), .player-card:nth-child(5)  { background: var(--lilac); }
+.player-card:nth-child(3), .player-card:nth-child(6)  { background: var(--cyan); }
 
 .player-card.active-turn::before {
   content: '▶';
@@ -622,10 +620,9 @@ body::after {
   font-family: var(--font-main);
 }
 
-.players-mobile-bar .p-card-mobile:nth-child(1), .players-mobile-bar .p-card-mobile:nth-child(3)  { background: var(--orange); }
-.players-mobile-bar .p-card-mobile:nth-child(2), .players-mobile-bar .p-card-mobile:nth-child(4)  { background: var(--lilac); }
-.players-mobile-bar .p-card-mobile:nth-child(5) { background: var(--cyan); }
-.players-mobile-bar .p-card-mobile:nth-child(6) { background: var(--green); }
+.players-mobile-bar .p-card-mobile:nth-child(1), .players-mobile-bar .p-card-mobile:nth-child(4)  { background: var(--orange); }
+.players-mobile-bar .p-card-mobile:nth-child(2), .players-mobile-bar .p-card-mobile:nth-child(5)  { background: var(--lilac); }
+.players-mobile-bar .p-card-mobile:nth-child(3), .players-mobile-bar .p-card-mobile:nth-child(6)  { background: var(--cyan); }
 
 .p-card-mobile .pm-name {
   font-size: 0.7rem;
