@@ -107,7 +107,7 @@
         {
           "points": 250,
           "text": "Quando si hanno dei problemi a regolare il flusso del plasma, cosa è meglio utilizzare?",
-          "options": ["una sonda deutronica", "un calibro gravidico", "un giravite sonico"],
+          "options": ["Una sonda deutronica.", "Un calibro gravidico.", "Un giravite sonico."],
           "correct": "B",
           "image": null
         },
