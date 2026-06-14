@@ -299,6 +299,36 @@
           "image": null
         }
       ]
+    },
+    {
+      "id": "afrodite3",
+      "name": "USS AFRODITE - TOP SECRET",
+      "icon": "img/m6.svg",
+      "gradient": ["#58301D", "#F1E1C1"],
+      "isRiskio": true,
+      "questions": [
+        {
+          "points": 500,
+          "text": "Chi è la spia mutaforma a bordo della USS Afrodite?",
+          "options": ["GM T'Val", "GM Renzi", "GM Ta Nutri"],
+          "correct": "B",
+          "image": "img_quiz/afrodite.jpg"
+        },
+        {
+          "points": 1000,
+          "text": "Chi è il clandestino a bordo della USS Afrodite?",
+          "options": ["Boregh", "Misca", "Geber Leandrom"],
+          "correct": "C",
+          "image": null
+        },
+        {
+          "points": 2000,
+          "text": "Cosa fa il fratello di Christian D'Accardi da sconvolere il nostro XTO?",
+          "options": ["Si arruola nei Maquies.", "Si imbarca su un vascello di pirati di Orione.", "Sposa il figlio di un contrabbandiere di dilitio caitiano."],
+          "correct": "A",
+          "image": null
+        }
+      ]
     }
   ]
 }
