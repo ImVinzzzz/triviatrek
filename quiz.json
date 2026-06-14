@@ -69,24 +69,24 @@
       "questions": [
         {
           "points": 100,
-          "text": "Chi ricopre il ruolo di capo della sicurezza e ufficiale tattico sull'Enterprise-D?",
-          "options": ["Worf", "Tasha Yar", "Miles O'Brien"],
-          "correct": "A",
+          "text": "Chi è il padre di Rael, la CTO della USS Afrodite?",
+          "options": ["O'Renn, un pretore romulano", "Tahn, un mercante romulano", "Wort, un capitano klingon"],
+          "correct": "B",
           "image": null
         },
         {
           "points": 250,
           "text": "Durante un contatto con una cultura aliena sconosciuta, uno dei protocolli che un tattico di bordo deve rispettare è:",
-          "options": ["Attivare i sensori SOLO in modalità passiva. Se la nave aliena è sconosciuta mette in stand-by anche i sensori di navigazione", "Sparare non appena la nave aliena sia a tiro", "Disattivare gli scudi ma preparare i phaser e i siluri fotonici per l’ingaggio immediato"],
-          "correct": "B",
-          "image": "img_quiz/phaser.jpg"
+          "options": ["Attivare i sensori SOLO in modalità passiva; se la nave aliena è sconosciuta mette in stand-by anche i sensori di navigazione.", "Sparare non appena la nave aliena sia a tiro.", "Disattivare gli scudi ma preparare i phaser e i siluri fotonici per l’ingaggio immediato."],
+          "correct": "A",
+          "image": "img_quiz/tactical.jpg"
         },
         {
           "points": 500,
-          "text": "In quale stagione di TNG Tasha Yar viene uccisa da Armus sul pianeta Vagra II?",
-          "options": ["Prima stagione", "Seconda stagione", "Terza stagione"],
+          "text": "L’equipaggiamento tattico di base in territorio ostile consiste in:",
+          "options": ["Phaser di tipo I o II, Phaser tipo III per i tattici, UVT, pugnale, granate fotoniche e lancia impulsi tetrionico.", "Phaser di tipo I o II, Phaser tipo III per i tattici, UVT, pugnale, tricorder e comunicatore.", "Phaser di tipo III, phaser di tipo IV per i tattici, UVT, tricorder, comunicatore e granate fotoniche."],
           "correct": "A",
-          "image": "img_quiz/tasha.jpg"
+          "image": "img_quiz/tactical500.jpg"
         }
       ]
     },
@@ -99,24 +99,24 @@
       "questions": [
         {
           "points": 100,
-          "text": "Chi è il capo ingegnere dell'Enterprise-D?",
-          "options": ["Geordi La Forge", "Miles O'Brien", "Montgomery Scott"],
+          "text": "Cosa prevede un teletrasporto codice 14?",
+          "options": ["Il teletrasporto nello spazio aperto e a massima dispersione del soggetto.", "È il teletrasporto di emergenza direttamente in Infermeria.", "Il teletrasporto di un soggetto sulla piattaforma di una nave che viaggia a curvatura."],
           "correct": "A",
-          "image": null
+          "image": "img_quiz/teletrasporto.jpg"
         },
         {
           "points": 250,
-          "text": "Qual è il tipo di propulsione che permette alle navi della Flotta di viaggiare più veloce della luce?",
-          "options": ["Motore a impulso", "Motore a curvatura", "Motore a cavitazione"],
+          "text": "Quando si hanno dei problemi a regolare il flusso del plasma, è meglio utilizzare",
+          "options": ["una sonda deutronica", "un calibro gravidico", "un giravite sonico"],
           "correct": "B",
-          "image": "img_quiz/motore.jpg"
+          "image": null
         },
         {
           "points": 500,
-          "text": "Cosa significa l'acronimo EPS nel contesto dell'ingegneria di bordo di una nave stellare?",
-          "options": ["Electro Plasma System", "Emergency Power Supply", "Enhanced Propulsion System"],
-          "correct": "A",
-          "image": null
+          "text": "Che tipo di motore warp è installato su un vascello classe Intrepid?",
+          "options": ["Motore a curvatura di classe 9 con collettore biciclico di immissione.", "Motore a curvatura di classe 9 con collettore triciclico di immissione.", "Motore a curvatura di classe 10 con collettore triciclico di emissione."],
+          "correct": "B",
+          "image": "img_quiz/voyager.jpg"
         }
       ]
     },
@@ -129,17 +129,17 @@
       "questions": [
         {
           "points": 200,
-          "text": "RISKIO! — Quante specie fondatrici hanno istituito la Federazione dei Pianeti Uniti nel 2161?",
-          "options": ["Due", "Quattro", "Sei"],
-          "correct": "B",
+          "text": "RISKIO! — Chi è Sabin Genestra?",
+          "options": ["Una terrestre di DS9", "Una orioniana di TOS", "Un betazoide di TNG"],
+          "correct": "C",
           "image": null
         },
         {
           "points": 500,
-          "text": "RISKIO! — Qual è il nome del sistema di interfaccia informatica del computer centrale dell'Enterprise?",
+          "text": "RISKIO! — Come si chiama il pianeta prigione Klingon?",
           "options": ["Computer Ship", "Cervello Positronico", "LCARS"],
           "correct": "C",
-          "image": null
+          "image": "img_quiz/rura.jpg"
         },
         {
           "points": 1000,
@@ -159,9 +159,9 @@
       "questions": [
         {
           "points": 100,
-          "text": "A quale classe apparteneva la USS Afrodite?",
-          "options": ["Classe Miranda", "Classe Constitution", "Classe Nova"],
-          "correct": "A",
+          "text": "Qual è il soprannome dei due tattici Thomas Magnum e DeForest Kelley?",
+          "options": ["Gianni e Pinotto", "Cip e Ciop", "Holmes e Watson"],
+          "correct": "B",
           "image": "img_quiz/afrodite.jpg"
         },
         {
@@ -173,10 +173,10 @@
         },
         {
           "points": 500,
-          "text": "Come si chiama l'istruttore di ballo della USS Afrodite",
-          "options": ["Thomas Magnum", "Maurice Drews", "Adam Smith"],
-          "correct": "B",
-          "image": "img_quiz/ballo.jpg"
+          "text": "L'acronimo SOMARO sta per:",
+          "options": ["Sovrano Onorario dei Malintesi e degli Affanni Ripetuti Ovunque", "Soggetto Ostinato, Maldestramente Arrampicato Regolarmente Ovunqu", "Sindrome Orrida Mercanzia Acquistata Rimettendo Obolo"],
+          "correct": "C",
+          "image": null
         }
       ]
     },
@@ -279,24 +279,24 @@
       "questions": [
         {
           "points": 200,
-          "text": "Quanti libri ha pubblicato Ernestina Scramiglio?",
-          "options": ["Due", "Tre", "Cinque"],
-          "correct": "B",
-          "image": "img_quiz/scramiglio.jpg"
+          "text": "Chi sono i 'Promessi Sposi' della Afrodite?",
+          "options": ["GM Millard e GM Alessara", "GM Field e GM Lambert", "C1 Castell e C3 Capui"],
+          "correct": "A",
+          "image": null
         },
         {
           "points": 500,
-          "text": "Chi è il compagno del Secondo Ufficiale Scientifico?",
-          "options": ["Baba Lambert", "Marek Capui", "Sàpek"],
+          "text": "Chi è Vildebranda Crapomena?",
+          "options": ["La zia di Stanislao 'Stan ' Becco", "La nonna di Adam Smith", "La madre di Capitan Beppe"],
           "correct": "C",
-          "image": "img_quiz/danee.jpg"
+          "image": null
         },
         {
           "points": 1000,
-          "text": "Chi è la moglie di Adam Smith?",
-          "options": ["Lucy Bliss", "Kiss Mey", "Eva Brown"],
+          "text": "Chi è Vildebranda Crapomena?",
+          "options": ["La zia di Stanislao 'Stan ' Becco", "La nonna di Adam Smith", "La madre di Capitan Beppe"],
           "correct": "C",
-          "image": "img_quiz/smith.jpg"
+          "image": null
         }
       ]
     }
