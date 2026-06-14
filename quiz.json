@@ -294,8 +294,8 @@
         {
           "points": 1000,
           "text": "Alla fine Adam Smith mette incinta qualcuna. Chi?",
-          "options": ["Arianna Field", "Tania Faq", "Kiss Mey"],
-          "correct": "C",
+          "options": ["Chun Ki", "Tania Faq", "Kiss Mey"],
+          "correct": "A",
           "image": null
         }
       ]
