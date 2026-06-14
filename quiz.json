@@ -70,8 +70,8 @@
         {
           "points": 100,
           "text": "Chi è il tattico 'vittima sacrificale' della USS Afrodite?",
-          "options": ["Gino Ciccozzi", "T'Val", "Sery Brax"],
-          "correct": "B",
+          "options": ["Sery Brax", "T'Val", "Gino Ciccozzi"],
+          "correct": "C",
           "image": null
         },
         {
