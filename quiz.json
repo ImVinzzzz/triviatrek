@@ -69,8 +69,8 @@
       "questions": [
         {
           "points": 100,
-          "text": "Chi è il padre di Rael, la CTO della USS Afrodite?",
-          "options": ["O'Renn, un pretore romulano", "Tahn, un mercante romulano", "Wort, un capitano klingon"],
+          "text": "Chi è il tattico 'vittima sacrificale' della USS Afrodite?",
+          "options": ["Gino Ciccozzi", "T'Val", "Sery Brax"],
           "correct": "B",
           "image": null
         },
@@ -166,8 +166,8 @@
         },
         {
           "points": 250,
-          "text": "Come si chiama lo stregatto del Capitano?",
-          "options": ["Argo", "Geppo", "Peppino"],
+          "text": "Chi è il padre di Rael, la CTO della USS Afrodite?",
+          "options": ["O'Renn, un pretore romulano", "Tahn, un mercante romulano", "Wort, un capitano klingon"],
           "correct": "B",
           "image": "img_quiz/gatto.jpg"
         },
