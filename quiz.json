@@ -203,7 +203,7 @@
         },
         {
           "points": 500,
-          "text": "Nel rituale di separazione, il Klingon che decide di separarsi, colpisce il coniuge al volto e gli urla contro «N'Gos tlhogh cha!» (Il nostro matrimonio è finito!)... subito dopo cosa fa?",
+          "text": "Nel rituale di separazione, il Klingon che decide di separarsi, colpisce il coniuge al volto e gli urla contro 'N'Gos tlhogh cha!' (Il nostro matrimonio è finito!)... subito dopo cosa fa?",
           "options": ["Dà le spalle al coniuge.", "Gli sputa addosso.", "Lo pugnala alla spalla destra con un coltello rituale."],
           "correct": "B",
           "image": null
@@ -227,7 +227,7 @@
         {
           "points": 250,
           "text": "Se un romulano vi dice 'wort' come rispondente?",
-          "options": ["Grazie altrettanto", "Jolan'tru Rekkhai", "Gli date un pugno sul naso"],
+          "options": ["Grazie altrettanto.", "Jolan'tru Rekkhai!", "Dandogli un pugno sul naso."],
           "correct": "C",
           "image": null
         },
