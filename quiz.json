@@ -136,10 +136,10 @@
         },
         {
           "points": 500,
-          "text": "RISKIO! — Come si chiama il pianeta prigione Klingon?",
-          "options": ["Computer Ship", "Cervello Positronico", "LCARS"],
+          "text": "RISKIO! — Da quale episodio di VOY è tartta questa immagine?",
+          "options": ["5x24 - Relativity", "6x10 - Pathfinder", "4x14 - Message in a bottle"],
           "correct": "C",
-          "image": "img_quiz/rura.jpg"
+          "image": "img_quiz/r500.jpg"
         },
         {
           "points": 1000,
