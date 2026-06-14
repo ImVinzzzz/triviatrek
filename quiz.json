@@ -334,7 +334,7 @@
       "id": "afrodite4",
       "name": "USS AFRODITE - HOT",
       "icon": "img/m6.svg",
-      "gradient": ["#BF6500", "#253600"],
+      "gradient": ["#BF6500", "#B42828"],
       "isRiskio": true,
       "questions": [
         {
