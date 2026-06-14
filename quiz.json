@@ -293,8 +293,8 @@
         },
         {
           "points": 1000,
-          "text": "Chi è Vildebranda Crapomena?",
-          "options": ["La zia di Stanislao 'Stan ' Becco", "La nonna di Adam Smith", "La madre di Capitan Beppe"],
+          "text": "Alla fine Adam Smith mette incinta qualcuna. Chi?",
+          "options": ["Arianna Field", "Tania Faq", "Kiss Mey"],
           "correct": "C",
           "image": null
         }
