@@ -9,7 +9,7 @@
       "questions": [
         {
           "points": 100,
-          "text": "Chi è il capitano della USS Enterprise nella puntata pilota di Star Trek “The Cage”?",
+          "text": "Chi è il capitano della USS Enterprise nell'episodio: 'The Cage'?",
           "options": ["James T. Kirk", "Christopher Pike", "Jonathan Archer"],
           "correct": "B",
           "image": "img_quiz/cage.jpg"
@@ -23,10 +23,10 @@
         },
         {
           "points": 500,
-          "text": "Come si intitola l'episodio di TNG in cui Picard viene assimilato dai Borg?",
-          "options": ["Q Who", "The Best of Both Worlds", "I, Borg"],
-          "correct": "B",
-          "image": "img_quiz/locutus.jpg"
+          "text": "In che occasione Jean-Luc Picard usa per la prima volta la 'manovra Picard'?",
+          "options": ["Wolf 359", "la Battaglia di Narendra III", "La Battaglia di Maxia"],
+          "correct": "C",
+          "image": "img_quiz/picard.jpg"
         }
       ]
     },
@@ -49,7 +49,7 @@
           "text": "Che forma ha un modulatore trombico?",
           "options": ["Cilindro", "Tetraedro", "Cono"],
           "correct": "C",
-          "image": "img_quiz/none.jpg"
+          "image": null
         },
         {
           "points": 500,
@@ -76,8 +76,8 @@
         },
         {
           "points": 250,
-          "text": "Come si chiama l'arma individuale standard in dotazione agli ufficiali della Flotta Stellare?",
-          "options": ["Disgregatore", "Phaser", "Fotontorpedine"],
+          "text": "Durante un contatto con una cultura aliena sconosciuta, uno dei protocolli che un tattico di bordo deve rispettare è:",
+          "options": ["Attivare i sensori SOLO in modalità passiva. Se la nave aliena è sconosciuta mette in stand-by anche i sensori di navigazione", "Sparare non appena la nave aliena sia a tiro", "Disattivare gli scudi ma preparare i phaser e i siluri fotonici per l’ingaggio immediato"],
           "correct": "B",
           "image": "img_quiz/phaser.jpg"
         },
