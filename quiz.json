@@ -250,7 +250,7 @@
         {
           "points": 100,
           "text": "Quanti satelliti naturali ha il pianeta Vulcano?",
-          "options": ["Tre", "'Uno", "Nessuno"],
+          "options": ["Due", "Nove", "Nessuno"],
           "correct": "C",
           "image": "img_quiz/vulcano1.jpg"
         },
