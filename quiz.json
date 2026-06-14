@@ -53,7 +53,7 @@
         },
         {
           "points": 500,
-          "text": "Che tipo di fenomeno astronomico sfrutta Reginald "Reg" Barclay per contattare la Voyager nel 2376?",
+          "text": "Che tipo di fenomeno astronomico sfrutta Reginald Barclay per contattare la Voyager nel 2376?",
           "options": ["Nana bianca di classe C", "Pulsar itinerante di classe B", "Quasar a emissione di tipo 2"],
           "correct": "B",
           "image": "img_quiz/barclay.jpg"
