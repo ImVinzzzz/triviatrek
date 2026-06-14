@@ -85,7 +85,7 @@
           "points": 500,
           "text": "L’equipaggiamento tattico di base in territorio ostile consiste in:",
           "options": ["Phaser di tipo I o II, Phaser tipo III per i tattici, UVT, pugnale, granate fotoniche e lancia impulsi tetrionico.", "Phaser di tipo I o II, Phaser tipo III per i tattici, UVT, pugnale, tricorder e comunicatore.", "Phaser di tipo III, phaser di tipo IV per i tattici, UVT, tricorder, comunicatore e granate fotoniche."],
-          "correct": "A",
+          "correct": "B",
           "image": "img_quiz/tactical500.jpg"
         }
       ]
