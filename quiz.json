@@ -329,6 +329,22 @@
           "image": null
         }
       ]
+    },
+    {
+      "id": "afrodite4",
+      "name": "USS AFRODITE - HOT",
+      "icon": "img/m6.svg",
+      "gradient": ["#BF6500", "#253600"],
+      "isRiskio": true,
+      "questions": [
+        {
+          "points": 5000,
+          "text": "Chi mette in imbarazzo la XO Frruuu con delle avances spinte durante un massaggio?",
+          "options": ["Adam Smith", "Eva Brown", "Uno scienziato ferengi"],
+          "correct": "B",
+          "image": null
+        }
+      ]
     }
   ]
 }
