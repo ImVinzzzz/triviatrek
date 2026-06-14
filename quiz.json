@@ -78,7 +78,7 @@
           "points": 250,
           "text": "Durante un contatto con una cultura aliena sconosciuta, uno dei protocolli che un tattico di bordo deve rispettare è:",
           "options": ["Attivare i sensori SOLO in modalità passiva; se la nave aliena è sconosciuta mette in stand-by anche i sensori di navigazione.", "Sparare non appena la nave aliena sia a tiro.", "Disattivare gli scudi ma preparare i phaser e i siluri fotonici per l’ingaggio immediato."],
-          "correct": "A",
+          "correct": "B",
           "image": "img_quiz/tactical.jpg"
         },
         {
