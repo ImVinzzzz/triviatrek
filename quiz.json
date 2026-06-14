@@ -219,24 +219,24 @@
       "questions": [
         {
           "points": 100,
-          "text": "I Romulani condividono origini evolutive con quale altra specie di Star Trek?",
-          "options": ["Vulcaniani", "Cardassiani", "Bajorani"],
+          "text": "Perché il sangue dei romulani è verde?",
+          "options": ["La loro emoglobina è a base di rame.", "Mangiano molti spinaci.", "Solo il Pretore e i Consoli hanno il sangue verde."],
           "correct": "A",
           "image": null
         },
         {
           "points": 250,
-          "text": "Come si chiama il servizio segreto militare dell'Impero Romulano, temuto per la sua brutalità?",
-          "options": ["Ordine Ossidiano", "Tal Shiar", "Sezione 31"],
-          "correct": "B",
+          "text": "Se un romulano vi dice 'wort' come rispondente?",
+          "options": ["Grazie altrettanto", "Jolan'tru Rekkhai", "Gli date un pugno sul naso"],
+          "correct": "C",
           "image": null
         },
         {
           "points": 500,
-          "text": "Come si chiama la nave da guerra romulana che sfrutta la tecnologia del dispositivo di occultamento?",
-          "options": ["D'deridex Warbird", "Valdore Warbird", "Mogai Warbird"],
-          "correct": "A",
-          "image": "img_quiz/romulus3.jpg"
+          "text": "Qual è il motto della Tal’Shiar?",
+          "options": ["Per Proteggere e Servire l'Impero", "Per Proteggere e servire il Pretore", "Per Proteggere e Servire Noi"],
+          "correct": "C",
+          "image": "img_quiz/narek.jpg"
         }
       ]
     },
@@ -249,22 +249,22 @@
       "questions": [
         {
           "points": 100,
-          "text": "Qual è il principio filosofico vulcaniano sintetizzato nell'acronimo IDIC?",
-          "options": ["'Infinite Diversity in Infinite Combinations'", "'Inner Discipline In Contemplation'", "'I Devote Intelligence to Civilization'"],
-          "correct": "A",
+          "text": "Quanti satelliti naturali ha il pianeta Vulcano?",
+          "options": ["Tre", "'Uno", "Nessuno"],
+          "correct": "C",
           "image": "img_quiz/vulcano1.jpg"
         },
         {
           "points": 250,
-          "text": "Come si chiama il grande filosofo vulcaniano che circa 1800 anni prima del 23° sec. guidò il suo popolo verso la logica?",
-          "options": ["Surak", "Sarek", "Spock"],
-          "correct": "A",
-          "image": "img_quiz/vulcano2.jpg"
+          "text": "Quale tra questi è un piatto tradizionale vulcaniano?",
+          "options": ["Fagioli Lokar", "Salsa Grapok", "Zuppa Plomeek"],
+          "correct": "C",
+          "image": null
         },
         {
           "points": 500,
-          "text": "Come si chiama la disciplina mentale vulcaniana estrema che mira alla totale purificazione di ogni emozione?",
-          "options": ["Pon Farr", "Katra", "Kolinahr"],
+          "text": "I vulcaniani possiedono una particolare concezione dell'anima che in particolari condizioni può essere trasferita ad altri individui oppure conservata in speciali contenitori chiamati arche. Che nome prende questo concetto di anima?",
+          "options": ["Chakra", "Qatar", "Katra"],
           "correct": "C",
           "image": "img_quiz/vulcano3.jpg"
         }
@@ -278,21 +278,21 @@
       "isRiskio": true,
       "questions": [
         {
-          "points": 200,
+          "points": 500,
           "text": "Chi sono i 'Promessi Sposi' della Afrodite?",
           "options": ["GM Millard e GM Alessara", "GM Field e GM Lambert", "C1 Castell e C3 Capui"],
           "correct": "A",
           "image": null
         },
         {
-          "points": 500,
+          "points": 1000,
           "text": "Chi è Vildebranda Crapomena?",
           "options": ["La zia di Stanislao 'Stan ' Becco", "La nonna di Adam Smith", "La madre di Capitan Beppe"],
           "correct": "C",
           "image": null
         },
         {
-          "points": 1000,
+          "points": 2000,
           "text": "Alla fine Adam Smith mette incinta qualcuna. Chi?",
           "options": ["Chun Ki", "Tania Faq", "Kiss Mey"],
           "correct": "A",
