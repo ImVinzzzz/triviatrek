@@ -100,8 +100,8 @@
         {
           "points": 100,
           "text": "Cosa prevede un teletrasporto codice 14?",
-          "options": ["Il teletrasporto nello spazio aperto e a massima dispersione del soggetto.", "È il teletrasporto di emergenza direttamente in Infermeria.", "Il teletrasporto di un soggetto sulla piattaforma di una nave che viaggia a curvatura."],
-          "correct": "A",
+          "options": ["Il teletrasporto di un soggetto sulla piattaforma di una nave che viaggia a curvatura.", "Il teletrasporto di emergenza direttamente in Infermeria.", "Il teletrasporto nello spazio aperto e a massima dispersione del soggetto."],
+          "correct": "C",
           "image": "img_quiz/teletrasporto.jpg"
         },
         {
@@ -136,9 +136,9 @@
         },
         {
           "points": 500,
-          "text": "RISKIO! — Da quale episodio di VOY è tartta questa immagine?",
-          "options": ["5x24 - Relativity", "6x10 - Pathfinder", "4x14 - Message in a bottle"],
-          "correct": "C",
+          "text": "RISKIO! — Da quale episodio di VOY è tratta questa immagine?",
+          "options": ["4x14 - Message in a bottle", "5x24 - Relativity", "6x10 - Pathfinder"],
+          "correct": "A",
           "image": "img_quiz/r500.jpg"
         },
         {
@@ -160,7 +160,7 @@
         {
           "points": 100,
           "text": "Qual è il soprannome dei due tattici Thomas Magnum e DeForest Kelley?",
-          "options": ["Gianni e Pinotto", "Cip e Ciop", "Holmes e Watson"],
+          "options": ["Gianni e Pinotto", "Cip e Ciop", "Scemo e Più Scemo"],
           "correct": "B",
           "image": "img_quiz/afrodite.jpg"
         },
@@ -189,24 +189,24 @@
       "questions": [
         {
           "points": 100,
-          "text": "Qo'noS è il pianeta natale di quale specie nell'universo di Star Trek?",
-          "options": ["Romulani", "Klingon", "Cardassiani"],
-          "correct": "B",
-          "image": "img_quiz/qonos.jpg"
+          "text": "Cosa simboleggia la barba per i Klingon?",
+          "options": ["Coraggio", "Onore", "Forza"],
+          "correct": "A",
+          "image": "img_quiz/klingon1.jpg"
         },
         {
           "points": 250,
-          "text": "Come si traduce in italiano il grido di saluto e di congedo Klingon 'Qapla''?",
-          "options": ["Vittoria", "Onore a noi", "Per l'Impero"],
-          "correct": "A",
-          "image": "img_quiz/qapla.jpg"
+          "text": "Come si chiama il pianeta prigione Klingon?",
+          "options": ["Azetbur", "Rura Penthe", "Ya'Vang"],
+          "correct": "B",
+          "image": "img_quiz/rura.jpg"
         },
         {
           "points": 500,
-          "text": "Come si chiama la tradizionale arma a doppia lama a forma di mezzaluna dei guerrieri Klingon?",
-          "options": ["D'k tahg", "Mek'leth", "Bat'leth"],
-          "correct": "C",
-          "image": "img_quiz/klingon3.jpg"
+          "text": "Nel rituale di separazione, il Klingon che decide di separarsi, colpisce il coniuge al volto e gli urla contro «N'Gos tlhogh cha!» (Il nostro matrimonio è finito!)... subito dopo cosa fa?",
+          "options": ["Dà le spalle al coniuge.", "Gli sputa addosso.", "Lo pugnala alla spalla destra con un coltello rituale."],
+          "correct": "B",
+          "image": null
         }
       ]
     },
