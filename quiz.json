@@ -9,17 +9,17 @@
       "questions": [
         {
           "points": 100,
-          "text": "Chi è il capitano della USS Enterprise NCC-1701-D nella serie The Next Generation?",
-          "options": ["James T. Kirk", "Jean-Luc Picard", "Benjamin Sisko"],
+          "text": "Chi è il capitano della USS Enterprise nella puntata pilota di Star Trek “The Cage”?",
+          "options": ["James T. Kirk", "Christopher Pike", "Jonathan Archer"],
           "correct": "B",
-          "image": "img_quiz/enterprise-d.jpg"
+          "image": "img_quiz/cage.jpg"
         },
         {
           "points": 250,
-          "text": "Con quale grado presta servizio Will Riker sull'Enterprise-D all'inizio della serie TNG?",
-          "options": ["Comandante", "Capitano", "Tenente Comandante"],
+          "text": "In che anno è nato James Tiberius Kirk?",
+          "options": ["2233", "2230", "2218"],
           "correct": "A",
-          "image": "img_quiz/riker.jpg"
+          "image": "img_quiz/kirk.jpg"
         },
         {
           "points": 500,
@@ -39,24 +39,24 @@
       "questions": [
         {
           "points": 100,
-          "text": "Chi è il medico capo dell'Enterprise-D?",
-          "options": ["Phlox", "Beverly Crusher", "Leonard McCoy"],
+          "text": "Chi sostituì la Dottoressa Crusher nel 2365 come CMO dell'Enterprise D?",
+          "options": ["Dott.ssa Kosinski", "Dott.ssa Pulaski", "Dott.ssa Soong"],
           "correct": "B",
-          "image": "img_quiz/sickbay.jpg"
+          "image": "img_quiz/enterprise-d.jpg"
         },
         {
           "points": 250,
-          "text": "Come si chiama il dispositivo portatile usato dai medici di Flotta per diagnosi immediate sul campo?",
-          "options": ["Tricorder medico", "Faser diagnostico", "Scanner a tachioni"],
-          "correct": "A",
-          "image": "img_quiz/tricorder.jpg"
+          "text": "Che forma ha un modulatore trombico?",
+          "options": ["Cilindro", "Tetraedro", "Cono"],
+          "correct": "C",
+          "image": "img_quiz/none.jpg"
         },
         {
           "points": 500,
-          "text": "Deanna Troi è per metà Betazoide: quale speciale abilità psichica possiede?",
-          "options": ["Telepatia", "Empatia", "Telecinesi"],
+          "text": "Che tipo di fenomeno astronomico sfrutta Reginald "Reg" Barclay per contattare la Voyager nel 2376?",
+          "options": ["Nana bianca di classe C", "Pulsar itinerante di classe B", "Quasar a emissione di tipo 2"],
           "correct": "B",
-          "image": "img_quiz/troi.jpg"
+          "image": "img_quiz/barclay.jpg"
         }
       ]
     },
