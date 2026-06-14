@@ -169,7 +169,7 @@
           "text": "Chi è il padre di Rael, la CTO della USS Afrodite?",
           "options": ["O'Renn, un pretore romulano", "Tahn, un mercante romulano", "Wort, un capitano klingon"],
           "correct": "B",
-          "image": "img_quiz/gatto.jpg"
+          "image": null
         },
         {
           "points": 500,
