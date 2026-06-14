@@ -129,24 +129,24 @@
       "questions": [
         {
           "points": 200,
-          "text": "RISKIO! — Chi è Sabin Genestra?",
-          "options": ["Una terrestre di DS9", "Una orioniana di TOS", "Un betazoide di TNG"],
+          "text": "RISKIO! — Qual è il medico delle serie di Star Trek che è stato sottoposto a miglioramenti di ingegneria genetica?",
+          "options": ["Phlox", "Leonard McCoy", "Julian Bashir"],
           "correct": "C",
           "image": null
         },
         {
           "points": 500,
+          "text": "RISKIO! — Chi è Sabin Genestra?",
+          "options": ["Una trill di DS9", "Una orioniana di TOS", "Un betazoide di TNG"],
+          "correct": "C",
+          "image": null
+        },
+        {
+          "points": 1000,
           "text": "RISKIO! — Da quale episodio di VOY è tratta questa immagine?",
           "options": ["4x14 - Message in a bottle", "5x24 - Relativity", "6x10 - Pathfinder"],
           "correct": "A",
           "image": "img_quiz/r500.jpg"
-        },
-        {
-          "points": 1000,
-          "text": "RISKIO! — Secondo il canone di Star Trek, cosa significa l'acronimo NCC che precede il numero identificativo delle navi della Flotta?",
-          "options": ["Naval Construction Contract", "New Colonization Command", "Nessun significato"],
-          "correct": "C",
-          "image": "img_quiz/ncc.jpg"
         }
       ]
     },
