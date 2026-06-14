@@ -304,7 +304,7 @@
       "id": "afrodite3",
       "name": "USS AFRODITE - TOP SECRET",
       "icon": "img/m6.svg",
-      "gradient": ["#58301D", "#F1E1C1"],
+      "gradient": ["#BF6500", "#374137"],
       "isRiskio": true,
       "questions": [
         {
