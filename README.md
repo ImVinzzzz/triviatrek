@@ -88,7 +88,7 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 | Risposta corretta | Giocatore di turno +N punti (N = valore domanda) |
 | Risposta errata | Tutti gli **altri** giocatori +250 punti fissi |
 | RISKIO! (valori domanda) | 200, 500, 1000 punti |
-| Penalità errore RISKIO! | Uguale alle altre: +250 agli avversari |
+| Penalità errore RISKIO! | Tutti gli **altri** giocatori + metà del valore della domanda |
 
 ---
 
