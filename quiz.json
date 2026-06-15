@@ -167,7 +167,7 @@
         {
           "points": 250,
           "text": "Chi è il padre di Rael, la CTO della USS Afrodite?",
-          "options": ["O'Renn, un pretore romulano", "Tahn, un mercante romulano", "Wort, un capitano klingon"],
+          "options": ["O'Renn, un Pretore romulano", "Tahn, un mercante romulano", "G'Worth, un capitano klingon"],
           "correct": "B",
           "image": null
         },
