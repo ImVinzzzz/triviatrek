@@ -203,7 +203,7 @@
         },
         {
           "points": 500,
-          "text": "Nel rituale di separazione, il Klingon che decide di separarsi, colpisce il coniuge al volto e gli urla contro 'N'Gos tlhogh cha!' (Il nostro matrimonio è finito!)... subito dopo cosa fa?",
+          "text": "Nel rituale di separazione, il Klingon che decide di separarsi colpisce il coniuge al volto e gli urla contro 'N'Gos tlhogh cha!' (Il nostro matrimonio è finito!); subito dopo cosa fa?",
           "options": ["Dà le spalle al coniuge.", "Gli sputa addosso.", "Lo pugnala alla spalla destra con un coltello rituale."],
           "correct": "B",
           "image": null
@@ -220,7 +220,7 @@
         {
           "points": 100,
           "text": "Perché il sangue dei romulani è verde?",
-          "options": ["La loro emoglobina è a base di rame.", "Mangiano molti spinaci.", "Solo il Pretore e i Consoli hanno il sangue verde."],
+          "options": ["La loro emoglobina è a base di rame.", "Mangiano molta verdura.", "Solo il Pretore e i Consoli hanno il sangue verde."],
           "correct": "A",
           "image": null
         },
@@ -272,7 +272,7 @@
     },
     {
       "id": "afrodite2",
-      "name": "USS AFRODITE - GOSSIP",
+      "name": "AFRODITE - GOSSIP",
       "icon": "img/m6.svg",
       "gradient": ["#58301D", "#F1E1C1"],
       "isRiskio": true,
@@ -293,7 +293,7 @@
         },
         {
           "points": 2000,
-          "text": "Alla fine Adam Smith mette incinta qualcuna. Chi?",
+          "text": "Dai e dai Adam Smith mette incinta una collega. Chi?",
           "options": ["Chun Ki", "Tania Faq", "Kiss Mey"],
           "correct": "A",
           "image": null
@@ -302,14 +302,14 @@
     },
     {
       "id": "afrodite3",
-      "name": "USS AFRODITE - TOP SECRET",
+      "name": "AFRODITE - TOP SECRET",
       "icon": "img/m6.svg",
-      "gradient": ["#BF6500", "#253600"],
+      "gradient": ["#B42828", "#253600"],
       "isRiskio": true,
       "questions": [
         {
           "points": 500,
-          "text": "Chi è la spia mutaforma a bordo della USS Afrodite?",
+          "text": "Chi è il mutaforma a bordo della USS Afrodite?",
           "options": ["GM T'Val", "GM Renzi", "GM Ta Nutri"],
           "correct": "B",
           "image": "img_quiz/afrodite.jpg"
@@ -323,8 +323,8 @@
         },
         {
           "points": 2000,
-          "text": "Cosa fa il fratello di Christian D'Accardi da sconvolere il nostro XTO?",
-          "options": ["Si arruola nei Maquies.", "Si imbarca su un vascello di pirati di Orione.", "Sposa il figlio di un contrabbandiere di dilitio caitiano."],
+          "text": "Cosa fa di tanto 'grave' Daniel, il fratello di Christian D'Accardi, da sconvolgere il nostro XTO?",
+          "options": ["Si arruola nei Maquis.", "Si imbarca su un vascello di pirati di Orione.", "Sposa il figlio di un contrabbandiere di dilitio caitiano."],
           "correct": "A",
           "image": null
         }
@@ -332,7 +332,7 @@
     },
     {
       "id": "afrodite4",
-      "name": "USS AFRODITE - HOT",
+      "name": "AFRODITE - HOT",
       "icon": "img/m6.svg",
       "gradient": ["#BF6500", "#B42828"],
       "isRiskio": true,
