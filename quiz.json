@@ -173,8 +173,8 @@
         },
         {
           "points": 500,
-          "text": "L'acronimo SOMARO sta per:",
-          "options": ["Sovrano Onorario dei Malintesi e degli Affanni Ripetuti Ovunque", "Soggetto Ostinato, Maldestramente Arrampicato Regolarmente Ovunqu", "Sindrome Orrida Mercanzia Acquistata Rimettendo Obolo"],
+          "text": "L'acronimo 'SOMARO' sta per:",
+          "options": ["Sovrano Onorario dei Malintesi e degli Affanni Ripetuti Ovunque", "Soggetto Ostinato, Maldestramente Arrampicato Regolarmente Ovunque", "Sindrome Orrida Mercanzia Acquistata Rimettendo Obolo"],
           "correct": "C",
           "image": null
         }
