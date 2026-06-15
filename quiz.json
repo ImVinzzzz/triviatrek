@@ -273,7 +273,7 @@
     {
       "id": "afrodite2",
       "name": "AFRODITE - GOSSIP",
-      "icon": "img/m6.svg",
+      "icon": "img/m10.svg",
       "gradient": ["#58301D", "#F1E1C1"],
       "isRiskio": true,
       "questions": [
@@ -303,7 +303,7 @@
     {
       "id": "afrodite3",
       "name": "AFRODITE - TOP SECRET",
-      "icon": "img/m6.svg",
+      "icon": "img/m11.svg",
       "gradient": ["#B42828", "#253600"],
       "isRiskio": true,
       "questions": [
@@ -333,7 +333,7 @@
     {
       "id": "afrodite4",
       "name": "AFRODITE - HOT",
-      "icon": "img/m6.svg",
+      "icon": "img/m12.svg",
       "gradient": ["#BF6500", "#B42828"],
       "isRiskio": true,
       "questions": [
