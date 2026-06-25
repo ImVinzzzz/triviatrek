@@ -271,7 +271,7 @@
       ]
     },
     {
-      "id": "afrodite2",
+      "id": "afrodite-gossip",
       "name": "AFRODITE - GOSSIP",
       "icon": "img/m10.svg",
       "gradient": ["#58301D", "#F1E1C1"],
@@ -293,7 +293,7 @@
         },
         {
           "points": 2000,
-          "text": "Dai e dai Adam Smith mette incinta una collega. Chi?",
+          "text": "Dai e dai Adam Smith alla fine mette incinta una collega... chi?",
           "options": ["Chun Ki", "Tania Faq", "Kiss Mey"],
           "correct": "A",
           "image": null
@@ -301,7 +301,7 @@
       ]
     },
     {
-      "id": "afrodite3",
+      "id": "afrodite-top-secret",
       "name": "AFRODITE - TOP SECRET",
       "icon": "img/m11.svg",
       "gradient": ["#B42828", "#253600"],
@@ -317,7 +317,7 @@
         {
           "points": 1000,
           "text": "Chi è il clandestino a bordo della USS Afrodite?",
-          "options": ["Boregh", "Misca", "Geber Leandrom"],
+          "options": ["Boregh", "Miscia", "Geber Leandrom"],
           "correct": "C",
           "image": null
         },
@@ -331,12 +331,19 @@
       ]
     },
     {
-      "id": "afrodite4",
+      "id": "afrodite-hot",
       "name": "AFRODITE - HOT",
       "icon": "img/m12.svg",
       "gradient": ["#BF6500", "#B42828"],
       "isRiskio": true,
       "questions": [
+        {
+          "points": 2500,
+          "text": "Dopo aver ritrovato il Capitano Maxwell i nostri si godono la franchigia su Sol III. Dove passa la sua 'meritata' vancanza il XTO GM D'Accardi con la sua Vanian?",
+          "options": ["In crociera ai Caraibi sulla 'Pacific Princess'", "Nel resort 'Las Brizas' di Acapulco (Messico)", "Nell'Hotel 'Astoria' di Almada (Portogallo)"],
+          "correct": "C",
+          "image": null
+        },
         {
           "points": 5000,
           "text": "Da chi è messa in forte imbarazzo la nostra XO Frruuu con delle avances molto spinte durante un massaggio?",
