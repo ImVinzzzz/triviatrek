@@ -339,14 +339,14 @@
       "questions": [
         {
           "points": 2500,
-          "text": "Dopo aver ritrovato il Capitano Maxwell i nostri si godono la franchigia su Sol III. Dove passa la sua 'meritata' vancanza il XTO GM D'Accardi con la sua Vanian?",
-          "options": ["In crociera ai Caraibi sulla 'Pacific Princess'", "Nel resort 'Las Brizas' di Acapulco (Messico)", "Nell'Hotel 'Astoria' di Almada (Portogallo)"],
+          "text": "Dopo aver ritrovato il Capitano Maxwell i nostri eroi si godono la franchigia su Sol III. Dove passa la sua 'meritata' vancanza il XTO GM D'Accardi con la sua Vanian?",
+          "options": ["In crociera ai Caraibi sulla 'Pacific Princess'.", "Nel resort 'Las Brizas' di Acapulco (Messico).", "Nell'Hotel 'Astoria' di Almada (Portogallo)."],
           "correct": "C",
           "image": null
         },
         {
           "points": 5000,
-          "text": "Da chi è messa in forte imbarazzo la nostra XO Frruuu con delle avances molto spinte durante un massaggio?",
+          "text": "Da chi viene messa in forte imbarazzo la nostra XO Frruuu con delle avances molto spinte durante un massaggio?",
           "options": ["Adam Smith", "Eva Brown", "Uno scienziato ferengi"],
           "correct": "B",
           "image": null
