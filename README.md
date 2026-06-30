@@ -3,6 +3,13 @@
 
 ---
 
+## DESCRIZIONE DEL GIOCO
+**Trivia Trek** è un gioco a quiz interattivo a tema Star Trek, appositamente personalizzato per la ciurma degli **"Afrodisiaci"** a bordo della mitica *USS Afrodite*.
+
+Il gioco si presenta con una splendida interfaccia in stile **LCARS** (l'iconico sistema operativo dei computer della Flotta Stellare), completa di effetti sonori e una colonna sonora orchestrale in sottofondo. I giocatori si sfidano a turni rispondendo a domande divise in categorie su un tabellone di gioco, accumulando punti o assegnando penalità agli avversari in caso di risposte errate, fino a decretare il vincitore finale.
+
+---
+
 ## STRUTTURA DEL PROGETTO
 
 ```
@@ -88,7 +95,7 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 | Risposta corretta | Giocatore di turno +N punti (N = valore domanda) |
 | Risposta errata | Tutti gli **altri** giocatori +250 punti fissi |
 | RISKIO! (valori domanda) | 200, 500, 1000 punti |
-| Penalità errore RISKIO! | Tutti gli **altri** giocatori + metà del valore della domanda |
+| Penalità errore RISKIO! | Uguale alle altre: +250 agli avversari |
 
 ---
 
