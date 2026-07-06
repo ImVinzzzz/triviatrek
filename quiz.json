@@ -304,7 +304,7 @@
       "id": "afrodite-top-secret",
       "name": "AFRODITE - TOP SECRET",
       "icon": "img/m11.svg",
-      "gradient": ["#000000", "#ffff00"],
+      "gradient": ["#ffff00", "#000000"],
       "isRiskio": true,
       "questions": [
         {
@@ -334,7 +334,7 @@
       "id": "afrodite-hot",
       "name": "AFRODITE - HOT",
       "icon": "img/m12.svg",
-      "gradient": ["#BF6500", "#ff0000"],
+      "gradient": ["#ff0000", "#BF6500"],
       "isRiskio": true,
       "questions": [
         {
