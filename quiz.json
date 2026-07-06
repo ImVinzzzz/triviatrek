@@ -287,7 +287,7 @@
         {
           "points": 1000,
           "text": "Chi è Vildebranda Crapomena?",
-          "options": ["La zia di Stanislao 'Stan ' Becco", "La nonna di Adam Smith", "La madre di Capitan Beppe"],
+          "options": ["La zia di Stanislao 'Stan ' Becco.", "La nonna di Adam Smith.", "La madre di Capitan Beppe."],
           "correct": "C",
           "image": null
         },
@@ -304,7 +304,7 @@
       "id": "afrodite-top-secret",
       "name": "AFRODITE - TOP SECRET",
       "icon": "img/m11.svg",
-      "gradient": ["#B42828", "#253600"],
+      "gradient": ["#000000", "#ffff00"],
       "isRiskio": true,
       "questions": [
         {
@@ -334,7 +334,7 @@
       "id": "afrodite-hot",
       "name": "AFRODITE - HOT",
       "icon": "img/m12.svg",
-      "gradient": ["#BF6500", "#B42828"],
+      "gradient": ["#BF6500", "#ff0000"],
       "isRiskio": true,
       "questions": [
         {
