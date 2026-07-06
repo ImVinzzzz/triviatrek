@@ -17,7 +17,7 @@
         {
           "points": 250,
           "text": "In che anno è nato James Tiberius Kirk?",
-          "options": ["2233", "2230", "2218"],
+          "options": ["2233", "2202", "2185"],
           "correct": "A",
           "image": "img_quiz/kirk.jpg"
         },
@@ -45,16 +45,16 @@
           "image": "img_quiz/enterprise-d.jpg"
         },
         {
-          "points": 250,
+          "points": 500,
           "text": "Che forma ha un modulatore trombico?",
           "options": ["Cilindro", "Tetraedro", "Cono"],
           "correct": "C",
           "image": null
         },
         {
-          "points": 500,
+          "points": 750,
           "text": "Che tipo di fenomeno astronomico sfrutta Reginald Barclay per contattare la Voyager?",
-          "options": ["Nana bianca di classe C", "Pulsar itinerante di classe B", "Quasar a emissione di tipo 2"],
+          "options": ["Una nana bianca di classe C.", "Una pulsar itinerante di classe B.", "Una quasar a emissione di tipo II."],
           "correct": "B",
           "image": "img_quiz/barclay.jpg"
         }
@@ -68,21 +68,21 @@
       "isRiskio": false,
       "questions": [
         {
-          "points": 100,
+          "points": 200,
           "text": "Chi è il tattico 'vittima sacrificale' della USS Afrodite?",
           "options": ["Sery Brax", "T'Val", "Gino Ciccozzi"],
           "correct": "C",
           "image": null
         },
         {
-          "points": 250,
+          "points": 500,
           "text": "Durante un contatto con una cultura aliena sconosciuta, uno dei protocolli che un tattico di bordo deve rispettare è:",
-          "options": ["Attivare i sensori in modalità passiva e, se la nave aliena è di una cultura completamente sconosciuta, mette in stand-by i sensori di navigazione.", "Sparare non appena la nave aliena sia a tiro.", "Disattivare gli scudi ma preparare i phaser e i siluri fotonici per l’ingaggio immediato."],
+          "options": ["Attivare i sensori in modalità passiva e mettere in stand-by i sensori di navigazione.", "Sparare non appena la nave aliena è a tiro.", "Disattivare gli scudi ma preparare i phaser e i siluri fotonici per l’ingaggio immediato."],
           "correct": "A",
           "image": null
         },
         {
-          "points": 500,
+          "points": 750,
           "text": "L’equipaggiamento tattico di base in territorio ostile consiste in:",
           "options": ["Phaser di tipo I o II, Phaser tipo III per i tattici, UVT, pugnale, granate fotoniche e lancia impulsi tetrionico.", "Phaser di tipo I o II, Phaser tipo III per i tattici, UVT, pugnale, tricorder e comunicatore.", "Phaser di tipo III, phaser di tipo IV per i tattici, UVT, tricorder, comunicatore e granate fotoniche."],
           "correct": "B",
@@ -98,21 +98,21 @@
       "isRiskio": false,
       "questions": [
         {
-          "points": 100,
+          "points": 250,
           "text": "Cosa prevede un teletrasporto codice 14?",
           "options": ["Il teletrasporto di un soggetto sulla piattaforma di una nave che viaggia a curvatura.", "Il teletrasporto di emergenza direttamente in Infermeria.", "Il teletrasporto nello spazio aperto e a massima dispersione del soggetto."],
           "correct": "C",
           "image": "img_quiz/teletrasporto.jpg"
         },
         {
-          "points": 250,
+          "points": 500,
           "text": "Quando si hanno dei problemi a regolare il flusso del plasma, cosa è meglio utilizzare?",
           "options": ["Una sonda deutronica.", "Un calibro gravidico.", "Un giravite sonico."],
           "correct": "B",
           "image": null
         },
         {
-          "points": 500,
+          "points": 1000,
           "text": "Che tipo di motore warp è installato su un vascello classe Intrepid?",
           "options": ["Motore a curvatura di classe 9 con collettore biciclico di immissione.", "Motore a curvatura di classe 9 con collettore triciclico di immissione.", "Motore a curvatura di classe 10 con collettore triciclico di emissione."],
           "correct": "B",
@@ -159,20 +159,20 @@
       "questions": [
         {
           "points": 100,
-          "text": "Qual è il soprannome dei due tattici Thomas Magnum e DeForest Kelley?",
+          "text": "Qual è il soprannome dei due tattici DeForest Kelley e Thomas Magnum?",
           "options": ["Gianni e Pinotto", "Cip e Ciop", "Scemo e Più Scemo"],
           "correct": "B",
           "image": "img_quiz/afrodite.jpg"
         },
         {
-          "points": 250,
+          "points": 500,
           "text": "Chi è il padre di Rael, la CTO della USS Afrodite?",
           "options": ["O'Renn, un Pretore romulano", "Tahn, un mercante romulano", "G'Worth, un capitano klingon"],
           "correct": "B",
           "image": null
         },
         {
-          "points": 500,
+          "points": 750,
           "text": "L'acronimo 'SOMARO' sta per:",
           "options": ["Sovrano Onorario dei Malintesi e degli Affanni Ripetuti Ovunque", "Soggetto Ostinato, Maldestramente Arrampicato Regolarmente Ovunque", "Sindrome Orrida Mercanzia Acquistata Rimettendo Obolo"],
           "correct": "C",
@@ -190,7 +190,7 @@
         {
           "points": 100,
           "text": "Cosa simboleggia la barba per i Klingon?",
-          "options": ["Coraggio", "Onore", "Forza"],
+          "options": ["Il Coraggio.", "L'Onore.", "La Forza."],
           "correct": "A",
           "image": "img_quiz/klingon1.jpg"
         },
@@ -202,9 +202,9 @@
           "image": "img_quiz/rura.jpg"
         },
         {
-          "points": 500,
+          "points": 750,
           "text": "Nel rituale di separazione, il Klingon che decide di separarsi colpisce il coniuge al volto e gli urla contro 'N'Gos tlhogh cha!' (Il nostro matrimonio è finito!); subito dopo cosa fa?",
-          "options": ["Dà le spalle al coniuge.", "Gli sputa addosso.", "Lo pugnala alla spalla destra con un coltello rituale."],
+          "options": ["Si volta dall'altra parte dandogli le spalle.", "Gli sputa addosso.", "Lo pugnala alla spalla con un coltello rituale."],
           "correct": "B",
           "image": null
         }
@@ -227,7 +227,7 @@
         {
           "points": 250,
           "text": "Se un romulano vi dice 'wort' come rispondente?",
-          "options": ["Grazie altrettanto.", "Jolan'tru Rekkhai!", "Dandogli un pugno sul naso."],
+          "options": ["Grazie altrettanto.", "Jolan'tru Rekkhai!", "Gli date un pugno sul naso."],
           "correct": "C",
           "image": null
         },
@@ -292,7 +292,7 @@
           "image": null
         },
         {
-          "points": 2000,
+          "points": 1500,
           "text": "Dai e dai Adam Smith alla fine mette incinta una collega... chi?",
           "options": ["Chun Ki", "Tania Faq", "Kiss Mey"],
           "correct": "A",
@@ -322,7 +322,7 @@
           "image": null
         },
         {
-          "points": 2000,
+          "points": 1500,
           "text": "Cosa fa di tanto 'grave' Daniel, il fratello di Christian D'Accardi, da sconvolgere il nostro XTO?",
           "options": ["Si arruola nei Maquis.", "Si imbarca su un vascello di pirati di Orione.", "Sposa il figlio di un contrabbandiere di dilitio caitiano."],
           "correct": "A",
