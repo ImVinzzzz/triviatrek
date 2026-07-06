@@ -99,7 +99,7 @@
       "questions": [
         {
           "points": 250,
-          "text": "Cosa prevede un teletrasporto codice 14?",
+          "text": "Cosa prevede un teletrasporto 'Codice 14'?",
           "options": ["Il teletrasporto di un soggetto sulla piattaforma di una nave che viaggia a curvatura.", "Il teletrasporto di emergenza direttamente in Infermeria.", "Il teletrasporto nello spazio aperto e a massima dispersione del soggetto."],
           "correct": "C",
           "image": "img_quiz/teletrasporto.jpg"
@@ -202,7 +202,7 @@
           "image": "img_quiz/rura.jpg"
         },
         {
-          "points": 750,
+          "points": 500,
           "text": "Nel rituale di separazione, il Klingon che decide di separarsi colpisce il coniuge al volto e gli urla contro 'N'Gos tlhogh cha!' (Il nostro matrimonio è finito!); subito dopo cosa fa?",
           "options": ["Si volta dall'altra parte dandogli le spalle.", "Gli sputa addosso.", "Lo pugnala alla spalla con un coltello rituale."],
           "correct": "B",
@@ -234,7 +234,7 @@
         {
           "points": 500,
           "text": "Qual è il motto della Tal’Shiar?",
-          "options": ["Per Proteggere e Servire l'Impero", "Per Proteggere e servire il Pretore", "Per Proteggere e Servire Noi"],
+          "options": ["Per Proteggere e Servire l'Impero.", "Per Proteggere e servire il Pretore.", "Per Proteggere e Servire Noi."],
           "correct": "C",
           "image": "img_quiz/narek.jpg"
         }
@@ -250,14 +250,14 @@
         {
           "points": 100,
           "text": "Quanti satelliti naturali ha il pianeta Vulcano?",
-          "options": ["Due", "Nove", "Nessuno"],
+          "options": ["Due", "Sei", "Nessuno"],
           "correct": "C",
-          "image": "img_quiz/vulcano1.jpg"
+          "image": "https://static.wikia.nocookie.net/memoryalpha/images/9/99/Vulcan_surface%2C_2256.jpg/" /* image": "img_quiz/vulcano1.jpg" */
         },
         {
           "points": 250,
           "text": "Quale tra questi è un piatto tradizionale vulcaniano?",
-          "options": ["Fagioli Lokar", "Salsa Grapok", "Zuppa Plomeek"],
+          "options": ["Fagioli Lokar.", "Salsa Grapok.", "Zuppa Plomeek."],
           "correct": "C",
           "image": null
         },
