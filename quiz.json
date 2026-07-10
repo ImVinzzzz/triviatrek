@@ -234,7 +234,7 @@
         {
           "points": 500,
           "text": "Qual è il motto della Tal’Shiar?",
-          "options": ["Per Proteggere e Servire l'Impero.", "Per Proteggere e servire il Pretore.", "Per Proteggere e Servire Noi."],
+          "options": ["Per Proteggere e Servire l'Impero.", "Per Proteggere e Servire il Pretore.", "Per Proteggere e Servire Noi."],
           "correct": "C",
           "image": "img_quiz/narek.jpg"
         }
