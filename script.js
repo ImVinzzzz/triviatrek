@@ -59,7 +59,7 @@ function stopAudio(name) {
 document.addEventListener('DOMContentLoaded', async () => {
   await loadQuizData();
   if (sfx.theme) {
-    sfx.theme.volume = 0.5;
+    sfx.theme.volume = 0.25;
   }
   setupSplash();
 });
