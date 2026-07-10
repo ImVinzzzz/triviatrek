@@ -23,7 +23,7 @@
         },
         {
           "points": 500,
-          "text": "In che occasione Jean-Luc Picard usa per la prima volta la 'manovra Picard'?",
+          "text": "In che occasione Jean-Luc Picard usa per la prima volta la famosa 'manovra Picard'?",
           "options": ["La Battaglia di Wolf 359", "La Battaglia di Narendra III", "La Battaglia di Maxia"],
           "correct": "C",
           "image": "img_quiz/picard.jpg"
@@ -40,7 +40,7 @@
         {
           "points": 100,
           "text": "Chi sostituì la Dottoressa Crusher nel 2365 come CMO dell'Enterprise D?",
-          "options": ["Dott.ssa Kosinski", "Dott.ssa Pulaski", "Dott.ssa Soong"],
+          "options": ["Dott.ssa Kosinski", "Dott.ssa Pulaski", "Dr. Soong"],
           "correct": "B",
           "image": "img_quiz/enterprise-d.jpg"
         },
