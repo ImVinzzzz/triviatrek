@@ -16,7 +16,6 @@ const state = {
   currentPoints:   0,
   currentGradient: [],
   catName:         '',
-  isRiskio:        false,
   introPlayed:     false
 };
 
@@ -59,6 +58,9 @@ function stopAudio(name) {
 /* ── INIT ──────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', async () => {
   await loadQuizData();
+  if (sfx.theme) {
+    sfx.theme.volume = 0.5;
+  }
   setupSplash();
 });
 
@@ -269,7 +271,6 @@ function openQuestion(cat, q) {
   state.currentPoints   = q.points;
   state.currentGradient = cat.gradient;
   state.catName         = cat.name;
-  state.isRiskio        = cat.isRiskio;
 
   // Header color
   const header = $('q-popup-header');
@@ -349,7 +350,7 @@ function handleAnswer(chosen) {
     resultText = '<i class="fa-solid fa-circle-check"></i> RIGHT!';
     awardsText = `+${state.currentPoints} PUNTI <i class="fa-solid fa-angle-right"></i> ${escHtml(state.players[state.currentIndex].name)}`;
   } else {
-    const pts = state.isRiskio ? Math.floor(state.currentPoints / 2) : 250;
+    const pts = 250;
     const winners = [];
     state.players.forEach((p, i) => {
       if (i !== state.currentIndex) {
@@ -434,8 +435,11 @@ function showGameOver() {
   showScreen('gameover');
 
   // Stardate: simple fake
-  const sd = (2401 + Math.random()).toFixed(4);
-  $('go-stardate-val').textContent = sd;
+  const stardateEl = $('go-stardate-val');
+  if (stardateEl) {
+    const sd = (2401 + Math.random()).toFixed(4);
+    stardateEl.textContent = sd;
+  }
 
   // Sort players
   const sorted = [...state.players].sort((a, b) => b.score - a.score);
