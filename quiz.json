@@ -21,6 +21,13 @@
           "correct": "A",
           "image": "img_quiz/kirk.jpg"
         },
+        {
+          "points": 500,
+          "text": "In che occasione Jean-Luc Picard usa per la prima volta la 'manovra Picard'?",
+          "options": ["La Battaglia di Wolf 359", "La Battaglia di Narendra III", "La Battaglia di Maxia"],
+          "correct": "C",
+          "image": "img_quiz/picard.jpg"
+        }
       ]
     }
   ]
