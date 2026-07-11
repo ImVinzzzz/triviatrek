@@ -91,6 +91,51 @@
       ]
     },
     {
+      "id": "medicina",
+      "name": "MEDICINA",
+      "icon": "img_quiz/quiz/medicina.svg",
+      "gradient": [
+        "#286E64",
+        "#008080"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Domanda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
+          "correct": "B",
+          "image": "img_quiz/quiz/medicina1.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Domanda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
+          "correct": "C",
+          "image": null
+        },
+        {
+          "points": 750,
+          "text": "Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
+          "correct": "B",
+          "image": "img_quiz/quiz/medicina3.jpg"
+        }
+      ]
+    },
+    {
       "id": "tattica",
       "name": "TATTICA",
       "icon": "img_quiz/quiz/tattica.svg",
