@@ -316,14 +316,7 @@ function buildQuestionForm(cat, q, qi, catIdx) {
     "</h4>" +
     "<div class=\"form-row\">" +
       "<label>PUNTEGGIO DOMANDA</label>" +
-      "<div style=\"display:flex;align-items:center;gap:20px;\">" +
-        "<input type=\"number\" class=\"f-points\" value=\"" + points + "\" style=\"width:100px;\">" +
-        "<div class=\"q-risk-container\">" +
-          "<span>Domanda Riskio?</span>" +
-          "<label><input type=\"radio\" name=\"q-risk-" + qi + "\" class=\"f-q-risk-yes\" value=\"true\" " + (q.isRiskio ? "checked" : "") + "> Sì</label>" +
-          "<label><input type=\"radio\" name=\"q-risk-" + qi + "\" class=\"f-q-risk-no\" value=\"false\" " + (!q.isRiskio ? "checked" : "") + "> No</label>" +
-        "</div>" +
-      "</div>" +
+      "<input type=\"number\" class=\"f-points\" value=\"" + points + "\" style=\"width:100px;\">" +
     "</div>" +
     "<div class=\"form-row\">" +
       "<label>TESTO DELLA DOMANDA</label>" +
@@ -382,7 +375,6 @@ function saveCategoryFromForm(idx) {
   cards.forEach((card, qi) => {
     if (!cat.questions[qi]) return;
     cat.questions[qi].points   = parseInt(card.querySelector(".f-points").value, 10) || 0;
-    cat.questions[qi].isRiskio = card.querySelector(".f-q-risk-yes").checked;
     cat.questions[qi].text     = card.querySelector(".f-text").value.trim();
     cat.questions[qi].image    = card.querySelector(".f-image").value.trim() || null;
     cat.questions[qi].options  = Array.from(card.querySelectorAll(".f-option")).map(i => i.value.trim());
