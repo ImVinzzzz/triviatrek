@@ -1116,6 +1116,102 @@ body::after {
   gap: 20px;
 }
 
+.global-settings-card,
+.category-settings-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.global-settings-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 680px) {
+  .global-settings-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-row-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.form-row-checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+.suggestion-text {
+  font-size: 0.72rem;
+  color: var(--orange);
+  margin-top: 4px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.use-suggested-btn {
+  background: var(--orange-dark);
+  color: var(--text);
+  border: none;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: var(--font-main);
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+}
+
+.use-suggested-btn:hover {
+  opacity: 0.9;
+}
+
+.cat-tab.add-tab-btn {
+  border-color: var(--correct);
+  color: var(--correct);
+}
+.cat-tab.add-tab-btn:hover {
+  background: rgba(0,200,100,0.15);
+  color: var(--correct);
+}
+
+.delete-cat-btn {
+  background: var(--wrong);
+  color: var(--text);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.delete-cat-btn:hover {
+  opacity: 0.9;
+}
+
 .q-form-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.1);
