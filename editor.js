@@ -113,6 +113,11 @@ if (quizTitleInput) {
   quizTitleInput.addEventListener("input", () => {
     if (quizData) {
       quizData.title = quizTitleInput.value.trim();
+      if (quizPrefixInput) {
+        const prefissoGenerato = quizTitleInput.value.toLowerCase().replace(/\s+/g, "-");
+        quizPrefixInput.value = prefissoGenerato;
+        quizPrefixInput.dispatchEvent(new Event("input"));
+      }
     }
   });
 }
