@@ -56,23 +56,12 @@ function stopAudio(name) {
 }
 
 /* ── INIT ──────────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadQuizData();
+document.addEventListener('DOMContentLoaded', () => {
   if (sfx.theme) {
     sfx.theme.volume = 0.15;
   }
   setupSplash();
 });
-
-async function loadQuizData() {
-  try {
-    const res = await fetch('quiz.json');
-    state.quizData = await res.json();
-  } catch (e) {
-    console.error('Impossibile caricare quiz.json — assicurati di usare un server locale.', e);
-    alert('Errore: impossibile caricare quiz.json.\nAvvia il progetto da un server locale (es: npx serve .)');
-  }
-}
 
 /* ── SPLASH ────────────────────────────────────────────────── */
 function setupSplash() {
@@ -96,9 +85,22 @@ function onSplashClick() {
 /* ── PLAYER SETUP POPUP ────────────────────────────────────── */
 let selectedCount = 2;
 
+function populateMissionSelect() {
+  const select = $('mission-select');
+  if (!select || typeof MISSIONS === 'undefined') return;
+  select.innerHTML = '';
+  MISSIONS.forEach(mission => {
+    const opt = document.createElement('option');
+    opt.value = mission.file;
+    opt.textContent = mission.name;
+    select.appendChild(opt);
+  });
+}
+
 function openPlayerSetup() {
   popups.players.classList.remove('hidden');
   buildNameInputs(selectedCount);
+  populateMissionSelect();
 
   // Count buttons
   document.querySelectorAll('.count-btn').forEach(btn => {
@@ -137,7 +139,19 @@ function buildNameInputs(count) {
   setTimeout(() => container.querySelector('input')?.focus(), 50);
 }
 
-function startGame() {
+async function startGame() {
+  const missionSelect = $('mission-select');
+  const selectedJson = missionSelect ? missionSelect.value : 'quiz.json';
+
+  try {
+    const res = await fetch(selectedJson);
+    state.quizData = await res.json();
+  } catch (e) {
+    console.error('Impossibile caricare il file JSON della missione:', e);
+    alert('Errore: impossibile caricare il file JSON della missione.');
+    return;
+  }
+
   const inputs = document.querySelectorAll('.player-name-input');
   const players = [];
   inputs.forEach((input, i) => {

@@ -129,7 +129,7 @@
   <div id="popup-players" class="popup-overlay hidden">
     <div class="lcars-popup">
       <div class="popup-header teal">
-        <span><i class="fa-solid fa-person-dots-from-line"></i> &nbsp;SELEZIONE EQUIPAGGIO</span>
+        <span><i class="fa-solid fa-person-dots-from-line"></i> &nbsp;SELEZIONA MISSIONE</span>
       </div>
       <div class="popup-body">
 
@@ -144,6 +144,11 @@
 
         <label class="lcars-label">NOMINATIVI</label>
         <div id="name-inputs-container" class="name-inputs-container"></div>
+
+        <label class="lcars-label">MISSIONE</label>
+        <div class="form-row" style="margin-bottom: 22px;">
+          <select id="mission-select" class="lcars-select"></select>
+        </div>
 
         <button id="btn-engage" class="engage-btn">
           <i class="fa-solid fa-rocket"></i> &nbsp;ENGAGE
@@ -197,6 +202,7 @@
   <audio id="sfx-winner" src="sfx/winner.mp3" preload="auto"></audio>
   <audio id="sfx-engage" src="sfx/engage.mp3" preload="auto"></audio>
 
+  <script src="missions.js"></script>
   <script src="script.js"></script>
 </body>
 

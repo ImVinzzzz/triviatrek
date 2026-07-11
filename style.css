@@ -343,13 +343,13 @@ body::after {
 }
 
 .count-btn {
-  width: 52px;
-  height: 52px;
+  width: 36px;
+  height: 36px;
   border: 2px solid var(--teal);
   background: transparent;
   color: var(--teal);
   font-family: var(--font-score);
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: 50%;
   cursor: pointer;
@@ -358,6 +358,31 @@ body::after {
 
 .count-btn:hover { background: rgba(0,128,128,0.2); }
 .count-btn.active { background: var(--teal); color: var(--black); }
+
+.lcars-select {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,128,128,0.4);
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.lcars-select:focus {
+  border-color: var(--teal);
+}
+
+.lcars-select option {
+  background: var(--black2);
+  color: var(--text);
+}
 
 .name-inputs-container {
   display: flex;
