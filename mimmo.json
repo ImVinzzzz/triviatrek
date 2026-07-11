@@ -1,0 +1,96 @@
+{
+  "categories": [
+    {
+      "id": "romulus",
+      "name": "ROMULUS",
+      "icon": "/img_quiz/mimmo/romulus.svg",
+      "gradient": [
+        "#006432",
+        "#009646"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Chi comanda?",
+          "options": [
+            "luigi",
+            "mario",
+            "peach"
+          ],
+          "correct": "A",
+          "image": "img_quiz/mimmo/a1.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Mario che fa?",
+          "options": [
+            "dorme",
+            "gioca",
+            "corre"
+          ],
+          "correct": "C",
+          "image": "img_quiz/mimmo/a2.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Sei scemo",
+          "options": [
+            "sì",
+            "no",
+            "bho"
+          ],
+          "correct": "C",
+          "image": "img_quiz/mimmo/a3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "vulcano",
+      "name": "STROMBOLI",
+      "icon": "/img_quiz/mimmo/stromboli.svg",
+      "gradient": [
+        "#1e3280",
+        "#ff0000"
+      ],
+      "isRiskio": true,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Dove si trova?",
+          "options": [
+            "Elba",
+            "Sicilia",
+            "Sardinia"
+          ],
+          "correct": "C",
+          "image": "img_quiz/mimmo/b1.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Attivo",
+          "options": [
+            "Sì",
+            "No",
+            "Solo domani"
+          ],
+          "correct": "A",
+          "image": "img_quiz/mimmo/b2.jpg"
+        },
+        {
+          "points": 1000,
+          "text": "Ah ah ah, Ci credi?",
+          "options": [
+            "Perché no",
+            "Perché sì",
+            "Perché bho"
+          ],
+          "correct": "B",
+          "image": "img_quiz/mimmo/b3.jpg"
+        }
+      ]
+    }
+  ],
+  "title": "Mimmo",
+  "imagePrefix": "mimmo"
+}
