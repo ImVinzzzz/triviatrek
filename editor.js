@@ -155,11 +155,10 @@ if (quizPrefixInput) {
       const cards = questionsEl.querySelectorAll(".q-form-card");
       cards.forEach((card) => {
         const qi = parseInt(card.dataset.qi, 10);
-        const catLetter = String.fromCharCode(97 + (activeCatIdx % 26));
         const imageInput = card.querySelector(".f-image");
 
-        const oldSuggested = "img_quiz/" + oldFolder + "/" + catLetter + (qi + 1) + ".jpg";
-        const newSuggested = "img_quiz/" + folder + "/" + catLetter + (qi + 1) + ".jpg";
+        const oldSuggested = "img_quiz/" + oldFolder + "/" + oldFolder + (qi + 1) + ".jpg";
+        const newSuggested = "img_quiz/" + folder + "/" + folder + (qi + 1) + ".jpg";
 
         // Se l'input corrisponde al vecchio suggerimento o è vuoto, lo aggiorna dinamicamente
         if (imageInput.value === "" || imageInput.value === oldSuggested) {
@@ -389,9 +388,8 @@ function buildQuestionForm(cat, q, qi, catIdx) {
   const points = q.points !== undefined ? q.points : (cat.isRiskio ? [200, 500, 1000][qi] : [100, 250, 500][qi]);
 
   // Genera percorso consigliato per l'immagine
-  const catLetter = String.fromCharCode(97 + (catIdx % 26)); // 'a', 'b', 'c', ecc.
   const folder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-  const suggestedPath = "img_quiz/" + folder + "/" + catLetter + (qi + 1) + ".jpg";
+  const suggestedPath = "img_quiz/" + folder + "/" + folder + (qi + 1) + ".jpg";
 
   // Pre-popola se q.image non è presente
   const imageVal = q.image ? q.image : suggestedPath;
@@ -445,7 +443,7 @@ function buildQuestionForm(cat, q, qi, catIdx) {
 
   useBtn.addEventListener("click", () => {
     const currentFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-    imageInput.value = "img_quiz/" + currentFolder + "/" + catLetter + (qi + 1) + ".jpg";
+    imageInput.value = "img_quiz/" + currentFolder + "/" + currentFolder + (qi + 1) + ".jpg";
   });
 
   delImgBtn.addEventListener("click", () => {
@@ -644,8 +642,7 @@ if (resetPathsBtn) {
 
         if (cat.questions) {
           cat.questions.forEach((q, qIdx) => {
-            const catLetter = String.fromCharCode(97 + (catIdx % 26));
-            q.image = "img_quiz/" + folder + "/" + catLetter + (qIdx + 1) + ".jpg";
+            q.image = "img_quiz/" + folder + "/" + folder + (qIdx + 1) + ".jpg";
           });
         }
       });
