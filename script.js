@@ -280,6 +280,17 @@ function openQuestion(cat, q) {
   $('q-category-label').textContent = cat.name;
   $('q-points-label').textContent = q.points + ' PT';
 
+  const iconImg = $('q-category-icon');
+  if (iconImg) {
+    if (cat.icon) {
+      iconImg.src = cat.icon;
+      iconImg.style.display = 'block';
+    } else {
+      iconImg.style.display = 'none';
+      iconImg.src = '';
+    }
+  }
+
   // Turn
   const currentPlayer = state.players[state.currentIndex];
   $('q-turn-indicator').innerHTML =

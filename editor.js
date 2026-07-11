@@ -125,16 +125,18 @@ if (quizPrefixInput) {
       const folder = currentFolder || "prefisso";
       const oldFolder = prevPrefix || "prefisso";
 
-      // Aggiorna l'icona della materia attiva
+      // Aggiorna l'icona della materia attiva se è una nuova materia
       const activeCatIconInput = document.getElementById("active-cat-icon");
       if (activeCatIconInput && quizData.categories[activeCatIdx]) {
         const cat = quizData.categories[activeCatIdx];
-        const catNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-        const oldSuggestedIcon = "img_quiz/" + oldFolder + "/" + catNameClean + ".svg";
-        const newSuggestedIcon = "img_quiz/" + folder + "/" + catNameClean + ".svg";
-        if (activeCatIconInput.value === "" || activeCatIconInput.value === oldSuggestedIcon) {
-          activeCatIconInput.value = newSuggestedIcon;
-          cat.icon = newSuggestedIcon;
+        if (cat.isNew) {
+          const catNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+          const oldSuggestedIcon = "/img_quiz/" + oldFolder + "/" + catNameClean + ".svg";
+          const newSuggestedIcon = "/img_quiz/" + folder + "/" + catNameClean + ".svg";
+          if (activeCatIconInput.value === "" || activeCatIconInput.value === oldSuggestedIcon) {
+            activeCatIconInput.value = newSuggestedIcon;
+            cat.icon = newSuggestedIcon;
+          }
         }
       }
 
@@ -225,6 +227,7 @@ function buildTabs() {
       icon: null,
       gradient: ["#008080", "#005f5f"],
       isRiskio: false,
+      isNew: true,
       questions: [
         { points: 100, isRiskio: false, text: "Domanda 1", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null },
         { points: 250, isRiskio: false, text: "Domanda 2", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null },
@@ -255,18 +258,35 @@ function renderCategory(idx) {
   // Calcolo percorso consigliato/attuale per l'icona
   const currentPrefix = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
   const iconNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-  const suggestedIconPath = "img_quiz/" + currentPrefix + "/" + iconNameClean + ".svg";
+  // Per nuove materie usiamo lo slash iniziale, per quelle esistenti lasciamo la compatibilità
+  const suggestedIconPath = cat.isNew 
+    ? "/img_quiz/" + currentPrefix + "/" + iconNameClean + ".svg"
+    : "img_quiz/" + currentPrefix + "/" + iconNameClean + ".svg";
   const iconVal = cat.icon ? cat.icon : suggestedIconPath;
+
+  // Valori del gradiente a due colori
+  const grad1 = (cat.gradient && cat.gradient[0]) ? cat.gradient[0] : "#008080";
+  const grad2 = (cat.gradient && cat.gradient[1]) ? cat.gradient[1] : "#005f5f";
 
   settingsCard.innerHTML = 
     "<div class=\"category-settings-row\">" +
       "<div class=\"form-row\">" +
         "<label>Nome Materia / Argomento</label>" +
-        "<input type=\"text\" id=\"active-cat-name\" value=\"" + escHtml(cat.name) + "\">" +
+        "<input type=\"text\" id=\"active-cat-name\" value=\"" + escHtml(cat.name) + "\" style=\"text-transform: uppercase;\">" +
       "</div>" +
       "<div class=\"form-row\">" +
         "<label>Icona Materia / Argomento (percorso)</label>" +
         "<input type=\"text\" id=\"active-cat-icon\" value=\"" + escHtml(iconVal) + "\">" +
+      "</div>" +
+    "</div>" +
+    "<div style=\"margin-top:14px\">" +
+      "<div class=\"form-row\">" +
+        "<label>Gradiente Colore Materia (Inizio e Fine)</label>" +
+        "<div class=\"gradient-pickers\" style=\"display:flex; gap:10px; align-items:center\">" +
+          "<input type=\"color\" id=\"active-cat-grad1\" value=\"" + escHtml(grad1) + "\">" +
+          "<input type=\"color\" id=\"active-cat-grad2\" value=\"" + escHtml(grad2) + "\">" +
+          "<span style=\"font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:1px\">Scegli i colori del gradiente per le schede del tabellone</span>" +
+        "</div>" +
       "</div>" +
     "</div>" +
     "<div class=\"category-settings-bottom\">" +
@@ -284,20 +304,17 @@ function renderCategory(idx) {
   const iconInput = settingsCard.querySelector("#active-cat-icon");
 
   nameInput.addEventListener("input", () => {
+    nameInput.value = nameInput.value.toUpperCase();
     const oldName = cat.name || "";
     cat.name = nameInput.value.trim();
     const activeTab = catTabsEl.querySelector(".cat-tab[data-idx=\"" + idx + "\"]");
     if (activeTab) activeTab.textContent = cat.name;
 
-    // Aggiornamento dinamico dell'icona se corrisponde al valore suggerito calcolato col vecchio nome o è vuoto
-    const currentPrefixFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-    const oldNameClean = oldName.trim().toLowerCase().replace(/\s+/g, "-") || "materia";
-    const oldSuggestedIcon = "img_quiz/" + currentPrefixFolder + "/" + oldNameClean + ".svg";
-    
-    const newNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-    const newSuggestedIcon = "img_quiz/" + currentPrefixFolder + "/" + newNameClean + ".svg";
-
-    if (iconInput.value === "" || iconInput.value === oldSuggestedIcon) {
+    // Aggiornamento dinamico dell'icona solo se la materia è nuova
+    if (cat.isNew) {
+      const currentPrefixFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
+      const newNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+      const newSuggestedIcon = "/img_quiz/" + currentPrefixFolder + "/" + newNameClean + ".svg";
       iconInput.value = newSuggestedIcon;
       cat.icon = newSuggestedIcon;
     }
@@ -418,6 +435,11 @@ function saveCategoryFromForm(idx) {
   const activeCatIcon = document.getElementById("active-cat-icon");
   if (activeCatIcon) {
     cat.icon = activeCatIcon.value.trim() || null;
+  }
+  const grad1Input = document.getElementById("active-cat-grad1");
+  const grad2Input = document.getElementById("active-cat-grad2");
+  if (grad1Input && grad2Input) {
+    cat.gradient = [grad1Input.value, grad2Input.value];
   }
 
   cards.forEach((card, qi) => {
