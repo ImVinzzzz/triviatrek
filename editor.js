@@ -27,6 +27,7 @@ const quizPrefixInput = document.getElementById("quiz-prefix");
 /* ── STATE ─────────────────────────────────────────────────── */
 let quizData     = null;   // parsed quiz.json
 let activeCatIdx = 0;
+let prevPrefix   = "";
 
 /* ── AUDIO HELPERS ─────────────────────────────────────────── */
 function playOk()    { sfxOk.currentTime = 0;    sfxOk.play().catch(() => {}); }
@@ -118,9 +119,34 @@ if (quizTitleInput) {
 if (quizPrefixInput) {
   quizPrefixInput.addEventListener("input", () => {
     if (quizData) {
-      quizData.imagePrefix = quizPrefixInput.value.trim();
-      // Aggiorna la vista per mostrare i percorsi consigliati con il nuovo prefisso
-      renderCategory(activeCatIdx);
+      const currentFolder = quizPrefixInput.value.trim();
+      quizData.imagePrefix = currentFolder;
+
+      const folder = currentFolder || "prefisso";
+      const oldFolder = prevPrefix || "prefisso";
+
+      const cards = questionsEl.querySelectorAll(".q-form-card");
+      cards.forEach((card) => {
+        const qi = parseInt(card.dataset.qi, 10);
+        const catLetter = String.fromCharCode(97 + (activeCatIdx % 26));
+        const imageInput = card.querySelector(".f-image");
+
+        const oldSuggested = "img_quiz/" + oldFolder + "/" + catLetter + (qi + 1) + ".jpg";
+        const newSuggested = "img_quiz/" + folder + "/" + catLetter + (qi + 1) + ".jpg";
+
+        // Se l'input corrisponde al vecchio suggerimento o è vuoto, lo aggiorna dinamicamente
+        if (imageInput.value === "" || imageInput.value === oldSuggested) {
+          imageInput.value = newSuggested;
+        }
+
+        // Aggiorna anche il testo del percorso consigliato
+        const suggestedStrong = card.querySelector(".suggested-path-str");
+        if (suggestedStrong) {
+          suggestedStrong.textContent = newSuggested;
+        }
+      });
+
+      prevPrefix = currentFolder;
     }
   });
 }
@@ -136,6 +162,7 @@ function buildEditor() {
   }
   if (quizPrefixInput) {
     quizPrefixInput.value = quizData.imagePrefix || "";
+    prevPrefix = quizPrefixInput.value.trim();
   }
 
   buildTabs();
@@ -177,9 +204,9 @@ function buildTabs() {
       gradient: ["#008080", "#005f5f"],
       isRiskio: false,
       questions: [
-        { points: 100, text: "Domanda 1", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null },
-        { points: 250, text: "Domanda 2", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null },
-        { points: 500, text: "Domanda 3", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null }
+        { points: 100, isRiskio: false, text: "Domanda 1", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null },
+        { points: 250, isRiskio: false, text: "Domanda 2", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null },
+        { points: 500, isRiskio: false, text: "Domanda 3", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null }
       ]
     };
     quizData.categories.push(newCat);
@@ -212,7 +239,7 @@ function renderCategory(idx) {
       "<label for=\"active-cat-risk\">Materia a Rischio (punteggi diversi o regole speciali)</label>" +
     "</div>" +
     "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
-      "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questa materia" +
+      "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +
     "</button>";
 
   // Cambiamento dinamico del nome della tab mentre si scrive
@@ -259,6 +286,9 @@ function buildQuestionForm(cat, q, qi, catIdx) {
   const folder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
   const suggestedPath = "img_quiz/" + folder + "/" + catLetter + (qi + 1) + ".jpg";
 
+  // Pre-popola se q.image non è presente
+  const imageVal = q.image ? q.image : suggestedPath;
+
   let optionsHtml = "";
   labels.forEach((lbl, li) => {
     optionsHtml += 
@@ -277,7 +307,14 @@ function buildQuestionForm(cat, q, qi, catIdx) {
     "</h4>" +
     "<div class=\"form-row\">" +
       "<label>PUNTEGGIO DOMANDA</label>" +
-      "<input type=\"number\" class=\"f-points\" value=\"" + points + "\">" +
+      "<div style=\"display:flex;align-items:center;gap:20px;\">" +
+        "<input type=\"number\" class=\"f-points\" value=\"" + points + "\" style=\"width:100px;\">" +
+        "<div class=\"q-risk-container\">" +
+          "<span>Domanda Riskio?</span>" +
+          "<label><input type=\"radio\" name=\"q-risk-" + qi + "\" class=\"f-q-risk-yes\" value=\"true\" " + (q.isRiskio ? "checked" : "") + "> Sì</label>" +
+          "<label><input type=\"radio\" name=\"q-risk-" + qi + "\" class=\"f-q-risk-no\" value=\"false\" " + (!q.isRiskio ? "checked" : "") + "> No</label>" +
+        "</div>" +
+      "</div>" +
     "</div>" +
     "<div class=\"form-row\">" +
       "<label>TESTO DELLA DOMANDA</label>" +
@@ -285,25 +322,34 @@ function buildQuestionForm(cat, q, qi, catIdx) {
     "</div>" +
     "<div class=\"form-row\">" +
       "<label>IMMAGINE (percorso opzionale)</label>" +
-      "<input type=\"text\" class=\"f-image\" value=\"" + (q.image ? escHtml(q.image) : "") + "\">" +
+      "<input type=\"text\" class=\"f-image\" value=\"" + escHtml(imageVal) + "\">" +
       "<div class=\"suggestion-text\">" +
-        "<span>Percorso consigliato: <strong>" + suggestedPath + "</strong></span>" +
-        "<button type=\"button\" class=\"use-suggested-btn\">Usa consigliato</button>" +
+        "<span>Percorso consigliato: <strong class=\"suggested-path-str\">" + suggestedPath + "</strong></span>" +
+        "<div>" +
+          "<button type=\"button\" class=\"use-suggested-btn\">Usa consigliato</button>" +
+          "<button type=\"button\" class=\"delete-image-btn\">Elimina immagine</button>" +
+        "</div>" +
       "</div>" +
     "</div>" +
     "<div class=\"correct-radio-hint\">" +
       "<i class=\"fa-solid fa-circle-check\" style=\"color:var(--correct)\"></i>" +
-      " &nbsp;Seleziona la risposta corretta →" +
+      " &nbsp;Seleziona la risposta corretta <i class=\"fa-solid fa-arrow-right\"></i>" +
     "</div>" +
     "<div class=\"options-grid\">" +
       optionsHtml +
     "</div>";
 
   const useBtn = card.querySelector(".use-suggested-btn");
+  const delImgBtn = card.querySelector(".delete-image-btn");
   const imageInput = card.querySelector(".f-image");
+
   useBtn.addEventListener("click", () => {
     const currentFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
     imageInput.value = "img_quiz/" + currentFolder + "/" + catLetter + (qi + 1) + ".jpg";
+  });
+
+  delImgBtn.addEventListener("click", () => {
+    imageInput.value = "";
   });
 
   return card;
@@ -326,12 +372,13 @@ function saveCategoryFromForm(idx) {
 
   cards.forEach((card, qi) => {
     if (!cat.questions[qi]) return;
-    cat.questions[qi].points  = parseInt(card.querySelector(".f-points").value, 10) || 0;
-    cat.questions[qi].text    = card.querySelector(".f-text").value.trim();
-    cat.questions[qi].image   = card.querySelector(".f-image").value.trim() || null;
-    cat.questions[qi].options = Array.from(card.querySelectorAll(".f-option")).map(i => i.value.trim());
+    cat.questions[qi].points   = parseInt(card.querySelector(".f-points").value, 10) || 0;
+    cat.questions[qi].isRiskio = card.querySelector(".f-q-risk-yes").checked;
+    cat.questions[qi].text     = card.querySelector(".f-text").value.trim();
+    cat.questions[qi].image    = card.querySelector(".f-image").value.trim() || null;
+    cat.questions[qi].options  = Array.from(card.querySelectorAll(".f-option")).map(i => i.value.trim());
     const checkedRadio = card.querySelector(".f-correct:checked");
-    cat.questions[qi].correct = checkedRadio ? checkedRadio.dataset.ans : "A";
+    cat.questions[qi].correct  = checkedRadio ? checkedRadio.dataset.ans : "A";
   });
 }
 
@@ -349,9 +396,13 @@ exportBtn.addEventListener("click", () => {
   const json = JSON.stringify(quizData, null, 2);
   const blob = new Blob([json], { type: "application/json" });
   const url  = URL.createObjectURL(blob);
+  
+  const prefix = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "quiz";
+  const filename = prefix + ".json";
+
   const a    = document.createElement("a");
   a.href     = url;
-  a.download = "quiz.json";
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -360,7 +411,7 @@ exportBtn.addEventListener("click", () => {
   // Brief visual feedback
   exportBtn.textContent = "✓ FILE SCARICATO!";
   setTimeout(() => {
-    exportBtn.innerHTML = "<i class=\"fa-solid fa-download\"></i> &nbsp;ESPORTA DATI (quiz.json)";
+    exportBtn.innerHTML = "<i class=\"fa-solid fa-download\"></i> &nbsp;ESPORTA DATI (" + filename + ")";
   }, 2500);
 });
 
