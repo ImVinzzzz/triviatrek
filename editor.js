@@ -125,6 +125,19 @@ if (quizPrefixInput) {
       const folder = currentFolder || "prefisso";
       const oldFolder = prevPrefix || "prefisso";
 
+      // Aggiorna l'icona della materia attiva
+      const activeCatIconInput = document.getElementById("active-cat-icon");
+      if (activeCatIconInput && quizData.categories[activeCatIdx]) {
+        const cat = quizData.categories[activeCatIdx];
+        const catNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+        const oldSuggestedIcon = "img_quiz/" + oldFolder + "/" + catNameClean + ".svg";
+        const newSuggestedIcon = "img_quiz/" + folder + "/" + catNameClean + ".svg";
+        if (activeCatIconInput.value === "" || activeCatIconInput.value === oldSuggestedIcon) {
+          activeCatIconInput.value = newSuggestedIcon;
+          cat.icon = newSuggestedIcon;
+        }
+      }
+
       const cards = questionsEl.querySelectorAll(".q-form-card");
       cards.forEach((card) => {
         const qi = parseInt(card.dataset.qi, 10);
@@ -209,7 +222,7 @@ function buildTabs() {
     const newCat = {
       id: "materia_" + Date.now(),
       name: "NUOVA MATERIA",
-      icon: "img/m1.svg",
+      icon: null,
       gradient: ["#008080", "#005f5f"],
       isRiskio: false,
       questions: [
@@ -238,25 +251,56 @@ function renderCategory(idx) {
   // Box impostazioni materia attiva
   const settingsCard = document.createElement("div");
   settingsCard.className = "category-settings-card";
-  settingsCard.innerHTML = 
-    "<div class=\"form-row\">" +
-      "<label>Nome Materia / Argomento</label>" +
-      "<input type=\"text\" id=\"active-cat-name\" value=\"" + escHtml(cat.name) + "\">" +
-    "</div>" +
-    "<div class=\"form-row-checkbox\">" +
-      "<input type=\"checkbox\" id=\"active-cat-risk\" " + (cat.isRiskio ? "checked" : "") + ">" +
-      "<label for=\"active-cat-risk\">Materia 'Rischio!' (punteggi diversi o regole speciali)</label>" +
-    "</div>" +
-    "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
-      "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +
-    "</button>";
 
-  // Cambiamento dinamico del nome della tab mentre si scrive
+  // Calcolo percorso consigliato/attuale per l'icona
+  const currentPrefix = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
+  const iconNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+  const suggestedIconPath = "img_quiz/" + currentPrefix + "/" + iconNameClean + ".svg";
+  const iconVal = cat.icon ? cat.icon : suggestedIconPath;
+
+  settingsCard.innerHTML = 
+    "<div class=\"category-settings-row\">" +
+      "<div class=\"form-row\">" +
+        "<label>Nome Materia / Argomento</label>" +
+        "<input type=\"text\" id=\"active-cat-name\" value=\"" + escHtml(cat.name) + "\">" +
+      "</div>" +
+      "<div class=\"form-row\">" +
+        "<label>Icona Materia / Argomento (percorso)</label>" +
+        "<input type=\"text\" id=\"active-cat-icon\" value=\"" + escHtml(iconVal) + "\">" +
+      "</div>" +
+    "</div>" +
+    "<div class=\"category-settings-bottom\">" +
+      "<div class=\"form-row-checkbox\">" +
+        "<input type=\"checkbox\" id=\"active-cat-risk\" " + (cat.isRiskio ? "checked" : "") + ">" +
+        "<label for=\"active-cat-risk\">Materia 'Rischio!' (punteggi diversi o regole speciali)</label>" +
+      "</div>" +
+      "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
+        "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +
+      "</button>" +
+    "</div>";
+
+  // Cambiamento dinamico del nome della tab e dell'icona mentre si scrive
   const nameInput = settingsCard.querySelector("#active-cat-name");
+  const iconInput = settingsCard.querySelector("#active-cat-icon");
+
   nameInput.addEventListener("input", () => {
+    const oldName = cat.name || "";
     cat.name = nameInput.value.trim();
     const activeTab = catTabsEl.querySelector(".cat-tab[data-idx=\"" + idx + "\"]");
     if (activeTab) activeTab.textContent = cat.name;
+
+    // Aggiornamento dinamico dell'icona se corrisponde al valore suggerito calcolato col vecchio nome o è vuoto
+    const currentPrefixFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
+    const oldNameClean = oldName.trim().toLowerCase().replace(/\s+/g, "-") || "materia";
+    const oldSuggestedIcon = "img_quiz/" + currentPrefixFolder + "/" + oldNameClean + ".svg";
+    
+    const newNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+    const newSuggestedIcon = "img_quiz/" + currentPrefixFolder + "/" + newNameClean + ".svg";
+
+    if (iconInput.value === "" || iconInput.value === oldSuggestedIcon) {
+      iconInput.value = newSuggestedIcon;
+      cat.icon = newSuggestedIcon;
+    }
   });
 
   const riskCheck = settingsCard.querySelector("#active-cat-risk");
@@ -370,6 +414,10 @@ function saveCategoryFromForm(idx) {
   const activeCatRisk = document.getElementById("active-cat-risk");
   if (activeCatRisk) {
     cat.isRiskio = activeCatRisk.checked;
+  }
+  const activeCatIcon = document.getElementById("active-cat-icon");
+  if (activeCatIcon) {
+    cat.icon = activeCatIcon.value.trim() || null;
   }
 
   cards.forEach((card, qi) => {

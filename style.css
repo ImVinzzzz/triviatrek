@@ -1131,9 +1131,32 @@ body::after {
   gap: 20px;
 }
 
+.category-settings-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.category-settings-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+#active-cat-risk {
+  accent-color: var(--correct) !important;
+}
+
 @media (max-width: 680px) {
   .global-settings-card {
     grid-template-columns: 1fr;
+  }
+  .category-settings-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
@@ -1252,8 +1275,6 @@ body::after {
   cursor: pointer;
   text-transform: uppercase;
   transition: opacity 0.2s;
-  align-self: flex-start;
-  margin-top: 10px;
 }
 
 .delete-cat-btn:hover {
