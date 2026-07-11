@@ -3,7 +3,7 @@
     {
       "id": "comando",
       "name": "COMANDO",
-      "icon": "img/m1.svg",
+      "icon": "img-quiz/quiz/m1.svg",
       "gradient": [
         "#B42828",
         "#E61E1E"
@@ -19,7 +19,7 @@
             "Risposta C"
           ],
           "correct": "B",
-          "image": "img_quiz/cage.jpg"
+          "image": "img_quiz/quiz/comando1.jpg"
         },
         {
           "points": 250,
@@ -30,7 +30,7 @@
             "Risposta C"
           ],
           "correct": "A",
-          "image": "img_quiz/kirk.jpg"
+          "image": "img_quiz/quiz/comando2.jpg"
         },
         {
           "points": 500,
@@ -41,14 +41,14 @@
             "Risposta C"
           ],
           "correct": "C",
-          "image": "img_quiz/picard.jpg"
+          "image": "img_quiz/quiz/comando3.jpg"
         }
       ]
     },
     {
       "id": "scienza",
       "name": "SCIENZA",
-      "icon": "img/m2.svg",
+      "icon": "img-quiz/quiz/m2.svg",
       "gradient": [
         "#286E64",
         "#008080"
@@ -64,7 +64,7 @@
             "Risposta C"
           ],
           "correct": "B",
-          "image": "img_quiz/enterprise-d.jpg"
+          "image": "img_quiz/quiz/scienza1.jpg"
         },
         {
           "points": 500,
@@ -86,14 +86,14 @@
             "Risposta C"
           ],
           "correct": "B",
-          "image": "img_quiz/barclay.jpg"
+          "image": "img_quiz/quiz/scienza3.jpg"
         }
       ]
     },
     {
       "id": "tattica",
       "name": "TATTICA",
-      "icon": "img/m3.svg",
+      "icon": "img-quiz/quiz/m3.svg",
       "gradient": [
         "#BEBE00",
         "#FFC800"
@@ -131,14 +131,14 @@
             "Risposta C"
           ],
           "correct": "B",
-          "image": "img_quiz/tactical500.jpg"
+          "image": "img_quiz/quiz/tattica3.jpg"
         }
       ]
     },
     {
       "id": "ingegneria",
       "name": "INGEGNERIA",
-      "icon": "img/m4.svg",
+      "icon": "img-quiz/quiz/m4.svg",
       "gradient": [
         "#BEBE00",
         "#FFC800"
@@ -154,7 +154,7 @@
             "Risposta C"
           ],
           "correct": "C",
-          "image": "img_quiz/teletrasporto.jpg"
+          "image": "img_quiz/quiz/ingegneria1.jpg"
         },
         {
           "points": 500,
@@ -176,14 +176,14 @@
             "Risposta C"
           ],
           "correct": "B",
-          "image": "img_quiz/voyager.jpg"
+          "image": "img_quiz/quiz/ingegneria3.jpg"
         }
       ]
     },
     {
       "id": "riskio",
       "name": "RISKIO!",
-      "icon": "img/m5.svg",
+      "icon": "img-quiz/quiz/m5.svg",
       "gradient": [
         "#374137",
         "#647D6E"
@@ -221,14 +221,14 @@
             "Risposta C"
           ],
           "correct": "A",
-          "image": "img_quiz/r500.jpg"
+          "image": "img_quiz/quiz/riskio3.jpg"
         }
       ]
     },
     {
       "id": "qonos",
       "name": "QO'NOS",
-      "icon": "img/m7.svg",
+      "icon": "img-quiz/quiz/m7.svg",
       "gradient": [
         "#803C64",
         "#B44B82"
@@ -244,7 +244,7 @@
             "Risposta C"
           ],
           "correct": "A",
-          "image": "img_quiz/klingon1.jpg"
+          "image": "img_quiz/quiz/qonos1.jpg"
         },
         {
           "points": 250,
@@ -255,7 +255,7 @@
             "Risposta C"
           ],
           "correct": "B",
-          "image": "img_quiz/rura.jpg"
+          "image": "img_quiz/quiz/qonos2.jpg"
         },
         {
           "points": 500,
@@ -273,7 +273,7 @@
     {
       "id": "romulus",
       "name": "ROMULUS",
-      "icon": "img/m8.svg",
+      "icon": "img-quiz/quiz/m8.svg",
       "gradient": [
         "#006432",
         "#009646"
@@ -311,14 +311,14 @@
             "Risposta C"
           ],
           "correct": "C",
-          "image": "img_quiz/narek.jpg"
+          "image": "img_quiz/quiz/romulus3.jpg"
         }
       ]
     },
     {
       "id": "vulcano",
       "name": "VULCANO",
-      "icon": "img/m9.svg",
+      "icon": "img-quiz/quiz/m9.svg",
       "gradient": [
         "#1E3280",
         "#324696"
@@ -334,7 +334,7 @@
             "Risposta C"
           ],
           "correct": "C",
-          "image": "img_quiz/vulcano1.jpg"
+          "image": "img_quiz/quiz/vulcano1.jpg"
         },
         {
           "points": 250,
@@ -356,7 +356,7 @@
             "Risposta C"
           ],
           "correct": "C",
-          "image": "img_quiz/vulcano3.jpg"
+          "image": "img_quiz/quiz/vulcano3.jpg"
         }
       ]
     }
