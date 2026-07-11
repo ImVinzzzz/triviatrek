@@ -147,11 +147,19 @@ if (quizPrefixInput) {
       });
 
       prevPrefix = currentFolder;
+      updateExportButtonLabel();
     }
   });
 }
 
 /* ── BUILD EDITOR UI ───────────────────────────────────────── */
+function updateExportButtonLabel() {
+  const prefix = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "quiz";
+  if (exportBtn) {
+    exportBtn.innerHTML = "<i class=\"fa-solid fa-download\"></i> &nbsp;ESPORTA DATI (" + prefix + ".json)";
+  }
+}
+
 function buildEditor() {
   if (!quizData) {
     quizData = { categories: [] };
@@ -165,6 +173,7 @@ function buildEditor() {
     prevPrefix = quizPrefixInput.value.trim();
   }
 
+  updateExportButtonLabel();
   buildTabs();
   renderCategory(activeCatIdx);
 }
@@ -411,7 +420,7 @@ exportBtn.addEventListener("click", () => {
   // Brief visual feedback
   exportBtn.textContent = "✓ FILE SCARICATO!";
   setTimeout(() => {
-    exportBtn.innerHTML = "<i class=\"fa-solid fa-download\"></i> &nbsp;ESPORTA DATI (" + filename + ")";
+    updateExportButtonLabel();
   }, 2500);
 });
 
