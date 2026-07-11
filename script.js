@@ -375,7 +375,9 @@ function handleAnswer(chosen) {
     resultText = '<i class="fa-solid fa-circle-check"></i> RIGHT!';
     awardsText = `+${state.currentPoints} PUNTI <i class="fa-solid fa-angle-right"></i> ${escHtml(state.players[state.currentIndex].name)}`;
   } else {
-    const pts = 250;
+    const cat = state.quizData.categories.find(c => c.id === state.currentCatId);
+    const isRiskio = cat ? cat.isRiskio : false;
+    const pts = isRiskio ? 250 : 50;
     const winners = [];
     state.players.forEach((p, i) => {
       if (i !== state.currentIndex) {
