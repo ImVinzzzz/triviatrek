@@ -95,7 +95,10 @@
     <div id="questions-editor" class="questions-editor"></div>
 
     <!-- Export button -->
-    <div style="text-align:center;margin-top:32px">
+    <div style="text-align:center;margin-top:32px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
+      <button id="btn-reset-paths" class="ed-btn" style="border-color:var(--orange);color:var(--orange)">
+        <i class="fa-solid fa-arrows-rotate"></i> &nbsp;RESETTA TUTTI I PERCORSI
+      </button>
       <button id="btn-export" class="ed-btn export">
         <i class="fa-solid fa-download"></i> &nbsp;ESPORTA DATI (quiz.json)
       </button>

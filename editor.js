@@ -18,6 +18,7 @@ const loadInput    = document.getElementById("load-json-input");
 const catTabsEl    = document.getElementById("cat-tabs");
 const questionsEl  = document.getElementById("questions-editor");
 const exportBtn    = document.getElementById("btn-export");
+const resetPathsBtn = document.getElementById("btn-reset-paths");
 const sfxOk        = document.getElementById("sfx-ok");
 const sfxWrong     = document.getElementById("sfx-wrong");
 
@@ -197,6 +198,7 @@ function buildEditor() {
   updateExportButtonLabel();
   buildTabs();
   renderCategory(activeCatIdx);
+  updateExportButtonState();
 }
 
 function buildTabs() {
@@ -246,6 +248,7 @@ function buildTabs() {
     renderCategory(activeCatIdx);
   });
   catTabsEl.appendChild(addTab);
+  updateExportButtonState();
 }
 
 function renderCategory(idx) {
@@ -369,6 +372,7 @@ function renderCategory(idx) {
     const card = buildQuestionForm(cat, q, qi, idx);
     questionsEl.appendChild(card);
   });
+  updateExportButtonState();
 }
 
 function buildQuestionForm(cat, q, qi, catIdx) {
@@ -481,10 +485,117 @@ function saveCategoryFromForm(idx) {
   });
 }
 
+/* ── VALIDATION HELPERS ────────────────────────────────────── */
+function isDefaultText(text) {
+  if (!text) return true;
+  const t = text.trim().toLowerCase();
+  return t === "" || t === "nuova materia" || /^domanda \d+\??$/.test(t) || /^doamnda \d+\??$/.test(t);
+}
+
+function isIconDefaultOrInvalid(icon) {
+  if (!icon) return true;
+  const i = icon.trim().toLowerCase();
+  return i.indexOf("prefisso") !== -1 || i.startsWith("img/m") || i.startsWith("img/default");
+}
+
+function isImageDefaultOrInvalid(img) {
+  if (!img) return false;
+  return img.trim().toLowerCase().indexOf("prefisso") !== -1;
+}
+
+function validateQuizData() {
+  const errors = [];
+  if (!quizData || !quizData.categories) return { isValid: false, errors: [] };
+
+  quizData.categories.forEach((cat, catIdx) => {
+    if (isDefaultText(cat.name)) {
+      errors.push({ catIdx: catIdx, type: "name" });
+    }
+    if (isIconDefaultOrInvalid(cat.icon)) {
+      errors.push({ catIdx: catIdx, type: "icon" });
+    }
+    if (cat.questions) {
+      cat.questions.forEach((q, qIdx) => {
+        if (isDefaultText(q.text)) {
+          errors.push({ catIdx: catIdx, type: "q-text", qIdx: qIdx });
+        }
+        if (isImageDefaultOrInvalid(q.image)) {
+          errors.push({ catIdx: catIdx, type: "q-image", qIdx: qIdx });
+        }
+      });
+    }
+  });
+
+  return {
+    isValid: errors.length === 0,
+    errors: errors
+  };
+}
+
+function updateExportButtonState() {
+  if (!exportBtn) return;
+  const val = validateQuizData();
+  if (val.isValid) {
+    exportBtn.classList.remove("disabled-btn");
+  } else {
+    exportBtn.classList.add("disabled-btn");
+  }
+}
+
 /* ── EXPORT JSON ────────────────────────────────────────────── */
-exportBtn.addEventListener("click", () => {
-  // Save current tab first
+exportBtn.addEventListener("click", (e) => {
   saveCategoryFromForm(activeCatIdx);
+  const val = validateQuizData();
+
+  // Rimuovi errori precedenti
+  document.querySelectorAll(".validation-error").forEach((el) => {
+    el.classList.remove("validation-error");
+  });
+
+  if (!val.isValid) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    val.errors.forEach((err) => {
+      // Evidenzia tab
+      const tab = catTabsEl.querySelector(".cat-tab[data-idx=\"" + err.catIdx + "\"]");
+      if (tab) {
+        tab.classList.add("validation-error");
+      }
+
+      if (err.catIdx === activeCatIdx) {
+        if (err.type === "name") {
+          const nameInput = document.getElementById("active-cat-name");
+          if (nameInput) nameInput.classList.add("validation-error");
+        }
+        if (err.type === "icon") {
+          const iconInput = document.getElementById("active-cat-icon");
+          if (iconInput) iconInput.classList.add("validation-error");
+          const resetIconBtn = document.querySelector(".reset-icon-btn");
+          if (resetIconBtn) resetIconBtn.classList.add("validation-error");
+        }
+        if (err.type === "q-text") {
+          const qCard = questionsEl.querySelector(".q-form-card[data-qi=\"" + err.qIdx + "\"]");
+          if (qCard) {
+            const txt = qCard.querySelector(".f-text");
+            if (txt) txt.classList.add("validation-error");
+          }
+        }
+        if (err.type === "q-image") {
+          const qCard = questionsEl.querySelector(".q-form-card[data-qi=\"" + err.qIdx + "\"]");
+          if (qCard) {
+            const imgInput = qCard.querySelector(".f-image");
+            if (imgInput) imgInput.classList.add("validation-error");
+            const useBtn = qCard.querySelector(".use-suggested-btn");
+            if (useBtn) useBtn.classList.add("validation-error");
+          }
+        }
+      }
+    });
+
+    alert("Errore: Impossibile esportare. Alcuni campi o percorsi non sono stati personalizzati. Gli elementi errati sono stati evidenziati in rosso.");
+    return;
+  }
 
   // Assicurati che i valori globali siano salvati
   if (quizData) {
@@ -511,8 +622,52 @@ exportBtn.addEventListener("click", () => {
   exportBtn.textContent = "✓ FILE SCARICATO!";
   setTimeout(() => {
     updateExportButtonLabel();
+    updateExportButtonState();
   }, 2500);
 });
+
+/* ── RESET ALL PATHS ────────────────────────────────────────── */
+if (resetPathsBtn) {
+  resetPathsBtn.addEventListener("click", () => {
+    if (confirm("Sei sicuro di voler resettare tutti i percorsi delle icone delle materie e delle immagini delle domande in base al prefisso delle immagini attuale?")) {
+      saveCategoryFromForm(activeCatIdx);
+      const folder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
+
+      quizData.categories.forEach((cat, catIdx) => {
+        const catNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+        cat.icon = "/img_quiz/" + folder + "/" + catNameClean + ".svg";
+
+        if (cat.questions) {
+          cat.questions.forEach((q, qIdx) => {
+            const catLetter = String.fromCharCode(97 + (catIdx % 26));
+            q.image = "img_quiz/" + folder + "/" + catLetter + (qIdx + 1) + ".jpg";
+          });
+        }
+      });
+
+      renderCategory(activeCatIdx);
+      updateExportButtonState();
+      
+      document.querySelectorAll(".validation-error").forEach((el) => {
+        el.classList.remove("validation-error");
+      });
+
+      alert("Tutti i percorsi sono stati resettati ai valori consigliati!");
+    }
+  });
+}
+
+/* ── MONITOR INPUT CHANGE ───────────────────────────────────── */
+if (editorApp) {
+  editorApp.addEventListener("input", () => {
+    saveCategoryFromForm(activeCatIdx);
+    updateExportButtonState();
+  });
+  editorApp.addEventListener("change", () => {
+    saveCategoryFromForm(activeCatIdx);
+    updateExportButtonState();
+  });
+}
 
 /* ── UTILS ─────────────────────────────────────────────────── */
 function escHtml(str) {

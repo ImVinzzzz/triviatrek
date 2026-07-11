@@ -1474,3 +1474,20 @@ body::after {
   cursor: pointer;
   padding: 2px;
 }
+
+.ed-btn.export.disabled-btn {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: transparent !important;
+  border-color: #555 !important;
+  color: #777 !important;
+  box-shadow: none !important;
+}
+.ed-btn.export.disabled-btn:hover {
+  box-shadow: none !important;
+}
+
+.validation-error {
+  border: 2px solid var(--wrong) !important;
+  box-shadow: 0 0 10px rgba(230, 30, 30, 0.45) !important;
+}
