@@ -134,9 +134,10 @@ if (quizPrefixInput) {
       // Aggiorna l'icona della materia attiva e la label del percorso consigliato
       const activeCatIconInput = document.getElementById("active-cat-icon");
       const suggestedIconStrong = document.querySelector(".suggested-icon-str");
-      if (quizData.categories[activeCatIdx]) {
-        const cat = quizData.categories[activeCatIdx];
-        const catNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+      const cat = quizData.categories[activeCatIdx];
+      const catNameClean = cat && cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+
+      if (cat) {
         const newSuggestedIcon = "/img_quiz/" + folder + "/" + catNameClean + ".svg";
 
         if (suggestedIconStrong) {
@@ -157,8 +158,8 @@ if (quizPrefixInput) {
         const qi = parseInt(card.dataset.qi, 10);
         const imageInput = card.querySelector(".f-image");
 
-        const oldSuggested = "img_quiz/" + oldFolder + "/" + oldFolder + (qi + 1) + ".jpg";
-        const newSuggested = "img_quiz/" + folder + "/" + folder + (qi + 1) + ".jpg";
+        const oldSuggested = "img_quiz/" + oldFolder + "/" + catNameClean + (qi + 1) + ".jpg";
+        const newSuggested = "img_quiz/" + folder + "/" + catNameClean + (qi + 1) + ".jpg";
 
         // Se l'input corrisponde al vecchio suggerimento o è vuoto, lo aggiorna dinamicamente
         if (imageInput.value === "" || imageInput.value === oldSuggested) {
@@ -388,8 +389,9 @@ function buildQuestionForm(cat, q, qi, catIdx) {
   const points = q.points !== undefined ? q.points : (cat.isRiskio ? [200, 500, 1000][qi] : [100, 250, 500][qi]);
 
   // Genera percorso consigliato per l'immagine
+  const catNameClean = cat && cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
   const folder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-  const suggestedPath = "img_quiz/" + folder + "/" + folder + (qi + 1) + ".jpg";
+  const suggestedPath = "img_quiz/" + folder + "/" + catNameClean + (qi + 1) + ".jpg";
 
   // Pre-popola se q.image non è presente
   const imageVal = q.image ? q.image : suggestedPath;
@@ -443,7 +445,7 @@ function buildQuestionForm(cat, q, qi, catIdx) {
 
   useBtn.addEventListener("click", () => {
     const currentFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-    imageInput.value = "img_quiz/" + currentFolder + "/" + currentFolder + (qi + 1) + ".jpg";
+    imageInput.value = "img_quiz/" + currentFolder + "/" + catNameClean + (qi + 1) + ".jpg";
   });
 
   delImgBtn.addEventListener("click", () => {
@@ -642,7 +644,7 @@ if (resetPathsBtn) {
 
         if (cat.questions) {
           cat.questions.forEach((q, qIdx) => {
-            q.image = "img_quiz/" + folder + "/" + folder + (qIdx + 1) + ".jpg";
+            q.image = "img_quiz/" + folder + "/" + catNameClean + (qIdx + 1) + ".jpg";
           });
         }
       });
