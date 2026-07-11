@@ -67,7 +67,7 @@
           "image": "img_quiz/quiz/scienza1.jpg"
         },
         {
-          "points": 500,
+          "points": 250,
           "text": "Domanda 2?",
           "options": [
             "Risposta A",
@@ -78,7 +78,7 @@
           "image": null
         },
         {
-          "points": 750,
+          "points": 500,
           "text": "Domanda 3?",
           "options": [
             "Risposta A",
@@ -112,7 +112,7 @@
           "image": "img_quiz/quiz/medicina1.jpg"
         },
         {
-          "points": 500,
+          "points": 250,
           "text": "Domanda 2?",
           "options": [
             "Risposta A",
@@ -123,7 +123,7 @@
           "image": null
         },
         {
-          "points": 750,
+          "points": 500,
           "text": "Domanda 3?",
           "options": [
             "Risposta A",
@@ -146,7 +146,7 @@
       "isRiskio": false,
       "questions": [
         {
-          "points": 200,
+          "points": 100,
           "text": "Domanda 1?",
           "options": [
             "Risposta A",
@@ -157,7 +157,7 @@
           "image": null
         },
         {
-          "points": 500,
+          "points": 250,
           "text": "Domanda 2?",
           "options": [
             "Risposta A",
@@ -168,7 +168,7 @@
           "image": null
         },
         {
-          "points": 750,
+          "points": 500,
           "text": "Domanda 3?",
           "options": [
             "Risposta A",
@@ -236,7 +236,7 @@
       "isRiskio": true,
       "questions": [
         {
-          "points": 200,
+          "points": 100,
           "text": "RISKIO! — Doamnda 1?",
           "options": [
             "Risposta A",
@@ -247,7 +247,7 @@
           "image": null
         },
         {
-          "points": 500,
+          "points": 250,
           "text": "RISKIO! — Domanda 2?",
           "options": [
             "Risposta A",
@@ -258,7 +258,7 @@
           "image": null
         },
         {
-          "points": 1000,
+          "points": 500,
           "text": "RISKIO! — Domanda 3?",
           "options": [
             "Risposta A",
