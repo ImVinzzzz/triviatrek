@@ -2,29 +2,44 @@
   "categories": [
     {
       "id": "comando",
-      "name": "COMANDO E NAVIGAZIONE",
+      "name": "COMANDO",
       "icon": "img/m1.svg",
-      "gradient": ["#B42828", "#E61E1E"],
+      "gradient": [
+        "#B42828",
+        "#E61E1E"
+      ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Chi è il capitano della USS Enterprise nell'episodio: 'The Cage'?",
-          "options": ["James T. Kirk", "Christopher Pike", "Jonathan Archer"],
+          "text": "Domanda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "B",
           "image": "img_quiz/cage.jpg"
         },
         {
           "points": 250,
-          "text": "In che anno è nato James Tiberius Kirk?",
-          "options": ["2233", "2202", "2185"],
+          "text": "omanda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "A",
           "image": "img_quiz/kirk.jpg"
         },
         {
           "points": 500,
-          "text": "In che occasione Jean-Luc Picard usa per la prima volta la 'manovra Picard'?",
-          "options": ["La Battaglia di Wolf 359", "La Battaglia di Narendra III", "La Battaglia di Maxia"],
+          "text": "Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": "img_quiz/picard.jpg"
         }
@@ -32,29 +47,44 @@
     },
     {
       "id": "scienza",
-      "name": "SCIENZA E MEDICINA",
+      "name": "SCIENZA",
       "icon": "img/m2.svg",
-      "gradient": ["#286E64", "#008080"],
+      "gradient": [
+        "#286E64",
+        "#008080"
+      ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Chi sostituì la Dottoressa Crusher nel 2365 come CMO dell'Enterprise D?",
-          "options": ["Dott.ssa Kosinski", "Dott.ssa Pulaski", "Dott.ssa Soong"],
+          "text": "Domanda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "B",
           "image": "img_quiz/enterprise-d.jpg"
         },
         {
           "points": 500,
-          "text": "Che forma ha un modulatore trombico?",
-          "options": ["Cilindro", "Tetraedro", "Cono"],
+          "text": "Domanda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": null
         },
         {
           "points": 750,
-          "text": "Che tipo di fenomeno astronomico sfrutta Reginald Barclay per contattare la Voyager?",
-          "options": ["Una nana bianca di classe C.", "Una pulsar itinerante di classe B.", "Una quasar a emissione di tipo II."],
+          "text": "Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "B",
           "image": "img_quiz/barclay.jpg"
         }
@@ -62,29 +92,44 @@
     },
     {
       "id": "tattica",
-      "name": "TATTICA E SICUREZZA",
+      "name": "TATTICA",
       "icon": "img/m3.svg",
-      "gradient": ["#BEBE00", "#FFC800"],
+      "gradient": [
+        "#BEBE00",
+        "#FFC800"
+      ],
       "isRiskio": false,
       "questions": [
         {
           "points": 200,
-          "text": "Chi è il tattico 'vittima sacrificale' della USS Afrodite?",
-          "options": ["Sery Brax", "T'Val", "Gino Ciccozzi"],
+          "text": "Domanda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": null
         },
         {
           "points": 500,
-          "text": "Durante un contatto con una cultura aliena sconosciuta, uno dei protocolli che un tattico di bordo deve rispettare è:",
-          "options": ["Attivare i sensori in modalità passiva e mettere in stand-by i sensori di navigazione.", "Sparare non appena la nave aliena è a tiro.", "Disattivare gli scudi ma preparare i phaser e i siluri fotonici per l’ingaggio immediato."],
+          "text": "Domanda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "A",
           "image": null
         },
         {
           "points": 750,
-          "text": "L’equipaggiamento tattico di base in territorio ostile consiste in:",
-          "options": ["Phaser di tipo I o II, Phaser tipo III per i tattici, UVT, pugnale, granate fotoniche e lancia impulsi tetrionico.", "Phaser di tipo I o II, Phaser tipo III per i tattici, UVT, pugnale, tricorder e comunicatore.", "Phaser di tipo III, phaser di tipo IV per i tattici, UVT, tricorder, comunicatore e granate fotoniche."],
+          "text": "Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "B",
           "image": "img_quiz/tactical500.jpg"
         }
@@ -92,29 +137,44 @@
     },
     {
       "id": "ingegneria",
-      "name": "INGEGNERIA E OPS",
+      "name": "INGEGNERIA",
       "icon": "img/m4.svg",
-      "gradient": ["#BEBE00", "#FFC800"],
+      "gradient": [
+        "#BEBE00",
+        "#FFC800"
+      ],
       "isRiskio": false,
       "questions": [
         {
           "points": 250,
-          "text": "Cosa prevede un teletrasporto 'Codice 14'?",
-          "options": ["Il teletrasporto di un soggetto sulla piattaforma di una nave che viaggia a curvatura.", "Il teletrasporto di emergenza direttamente in Infermeria.", "Il teletrasporto nello spazio aperto e a massima dispersione del soggetto."],
+          "text": "Domanda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": "img_quiz/teletrasporto.jpg"
         },
         {
           "points": 500,
-          "text": "Quando si hanno dei problemi a regolare il flusso del plasma, cosa è meglio utilizzare?",
-          "options": ["Una sonda deutronica.", "Un calibro gravidico.", "Un giravite sonico."],
+          "text": "Domanda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "B",
           "image": null
         },
         {
           "points": 1000,
-          "text": "Che tipo di motore warp è installato su un vascello classe Intrepid?",
-          "options": ["Motore a curvatura di classe 9 con collettore biciclico di immissione.", "Motore a curvatura di classe 9 con collettore triciclico di immissione.", "Motore a curvatura di classe 10 con collettore triciclico di emissione."],
+          "text": "Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "B",
           "image": "img_quiz/voyager.jpg"
         }
@@ -124,59 +184,44 @@
       "id": "riskio",
       "name": "RISKIO!",
       "icon": "img/m5.svg",
-      "gradient": ["#374137", "#647D6E"],
+      "gradient": [
+        "#374137",
+        "#647D6E"
+      ],
       "isRiskio": true,
       "questions": [
         {
           "points": 200,
-          "text": "RISKIO! — Qual è il medico delle serie di Star Trek che è stato sottoposto a miglioramenti di ingegneria genetica?",
-          "options": ["Phlox", "Leonard McCoy", "Julian Bashir"],
+          "text": "RISKIO! — Doamnda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": null
         },
         {
           "points": 500,
-          "text": "RISKIO! — Chi è Sabin Genestra?",
-          "options": ["Una trill di DS9", "Una orioniana di TOS", "Un betazoide di TNG"],
+          "text": "RISKIO! — Domanda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": null
         },
         {
           "points": 1000,
-          "text": "RISKIO! — Da quale episodio di VOY è tratta questa immagine?",
-          "options": ["4x14 - Message in a bottle", "5x24 - Relativity", "6x10 - Pathfinder"],
+          "text": "RISKIO! — Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "A",
           "image": "img_quiz/r500.jpg"
-        }
-      ]
-    },
-    {
-      "id": "afrodite",
-      "name": "USS AFRODITE",
-      "icon": "img/m6.svg",
-      "gradient": ["#BF6500", "#FF9900"],
-      "isRiskio": false,
-      "questions": [
-        {
-          "points": 100,
-          "text": "Qual è il soprannome dei due tattici DeForest Kelley e Thomas Magnum?",
-          "options": ["Gianni e Pinotto", "Cip e Ciop", "Scemo e Più Scemo"],
-          "correct": "B",
-          "image": "img_quiz/afrodite.jpg"
-        },
-        {
-          "points": 500,
-          "text": "Chi è il padre di Rael, la CTO della USS Afrodite?",
-          "options": ["O'Renn, un Pretore romulano", "Tahn, un mercante romulano", "G'Worth, un capitano klingon"],
-          "correct": "B",
-          "image": null
-        },
-        {
-          "points": 750,
-          "text": "L'acronimo 'SOMARO' sta per:",
-          "options": ["Sovrano Onorario dei Malintesi e degli Affanni Ripetuti Ovunque", "Soggetto Ostinato, Maldestramente Arrampicato Regolarmente Ovunque", "Sindrome Orrida Mercanzia Acquistata Rimettendo Obolo"],
-          "correct": "C",
-          "image": null
         }
       ]
     },
@@ -184,27 +229,42 @@
       "id": "qonos",
       "name": "QO'NOS",
       "icon": "img/m7.svg",
-      "gradient": ["#803C64", "#B44B82"],
+      "gradient": [
+        "#803C64",
+        "#B44B82"
+      ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Cosa simboleggia la barba per i Klingon?",
-          "options": ["Il Coraggio.", "L'Onore.", "La Forza."],
+          "text": "Domanda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "A",
           "image": "img_quiz/klingon1.jpg"
         },
         {
           "points": 250,
-          "text": "Come si chiama il pianeta prigione Klingon?",
-          "options": ["Azetbur", "Rura Penthe", "Ya'Vang"],
+          "text": "Domanda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "B",
           "image": "img_quiz/rura.jpg"
         },
         {
           "points": 500,
-          "text": "Nel rituale di separazione, il Klingon che decide di separarsi colpisce il coniuge al volto e gli urla contro 'N'Gos tlhogh cha!' (Il nostro matrimonio è finito!); subito dopo cosa fa?",
-          "options": ["Si volta dall'altra parte dandogli le spalle.", "Gli sputa addosso.", "Lo pugnala alla spalla con un coltello rituale."],
+          "text": "Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "B",
           "image": null
         }
@@ -214,27 +274,42 @@
       "id": "romulus",
       "name": "ROMULUS",
       "icon": "img/m8.svg",
-      "gradient": ["#006432", "#009646"],
+      "gradient": [
+        "#006432",
+        "#009646"
+      ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Perché il sangue dei romulani è verde?",
-          "options": ["La loro emoglobina è a base di rame.", "Mangiano molta verdura.", "Solo il Pretore e i Consoli hanno il sangue verde."],
+          "text": "Doamnda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "A",
           "image": null
         },
         {
           "points": 250,
-          "text": "Se un romulano vi dice 'wort' come rispondente?",
-          "options": ["Grazie altrettanto.", "Jolan'tru Rekkhai!", "Gli date un pugno sul naso."],
+          "text": "Doamnda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": null
         },
         {
           "points": 500,
-          "text": "Qual è il motto della Tal’Shiar?",
-          "options": ["Per Proteggere e Servire l'Impero.", "Per Proteggere e servire il Pretore.", "Per Proteggere e Servire Noi."],
+          "text": "Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": "img_quiz/narek.jpg"
         }
@@ -244,112 +319,44 @@
       "id": "vulcano",
       "name": "VULCANO",
       "icon": "img/m9.svg",
-      "gradient": ["#1E3280", "#324696"],
+      "gradient": [
+        "#1E3280",
+        "#324696"
+      ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Quanti satelliti naturali ha il pianeta Vulcano?",
-          "options": ["Due", "Sei", "Nessuno"],
+          "text": "Domanda 1?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": "img_quiz/vulcano1.jpg"
         },
         {
           "points": 250,
-          "text": "Quale tra questi è un piatto tradizionale vulcaniano?",
-          "options": ["Fagioli Lokar.", "Salsa Grapok.", "Zuppa Plomeek."],
+          "text": "Domanda 2?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": null
         },
         {
           "points": 500,
-          "text": "I vulcaniani possiedono una particolare concezione dell'anima che in particolari condizioni può essere trasferita ad altri individui oppure conservata in speciali contenitori chiamati arche. Che nome prende questo concetto di anima?",
-          "options": ["Chakra", "Qatar", "Katra"],
+          "text": "Domanda 3?",
+          "options": [
+            "Risposta A",
+            "Risposta B",
+            "Risposta C"
+          ],
           "correct": "C",
           "image": "img_quiz/vulcano3.jpg"
-        }
-      ]
-    },
-    {
-      "id": "afrodite-gossip",
-      "name": "AFRODITE - GOSSIP",
-      "icon": "img/m10.svg",
-      "gradient": ["#58301D", "#F1E1C1"],
-      "isRiskio": true,
-      "questions": [
-        {
-          "points": 500,
-          "text": "Chi sono i 'Promessi Sposi' della Afrodite?",
-          "options": ["GM Millard e GM Alessara", "GM Field e GM Lambert", "C1 Castell e C3 Capui"],
-          "correct": "A",
-          "image": null
-        },
-        {
-          "points": 1000,
-          "text": "Chi è Vildebranda Crapomena?",
-          "options": ["La zia di Stanislao 'Stan ' Becco.", "La nonna di Adam Smith.", "La madre di Capitan Beppe."],
-          "correct": "C",
-          "image": null
-        },
-        {
-          "points": 1500,
-          "text": "Dai e dai Adam Smith alla fine mette incinta una collega... chi?",
-          "options": ["Chun Ki", "Tania Faq", "Kiss Mey"],
-          "correct": "A",
-          "image": null
-        }
-      ]
-    },
-    {
-      "id": "afrodite-top-secret",
-      "name": "AFRODITE - TOP SECRET",
-      "icon": "img/m11.svg",
-      "gradient": ["#000000", "#ffff00"],
-      "isRiskio": true,
-      "questions": [
-        {
-          "points": 500,
-          "text": "Chi è l'infiltrato mutaforma a bordo della USS Afrodite?",
-          "options": ["GM T'Val", "GM Renzi", "GM Ta Nutri"],
-          "correct": "B",
-          "image": "img_quiz/afrodite.jpg"
-        },
-        {
-          "points": 1000,
-          "text": "Chi è il clandestino a bordo della USS Afrodite?",
-          "options": ["Boregh", "Miscia", "Geber Leandrom"],
-          "correct": "C",
-          "image": null
-        },
-        {
-          "points": 1500,
-          "text": "Cosa fa di tanto 'grave' Daniel, il fratello di Christian D'Accardi, da sconvolgere il nostro XTO?",
-          "options": ["Si arruola nei Maquis.", "Si imbarca su un vascello di pirati di Orione.", "Sposa il figlio di un contrabbandiere di dilitio caitiano."],
-          "correct": "A",
-          "image": null
-        }
-      ]
-    },
-    {
-      "id": "afrodite-hot",
-      "name": "AFRODITE - HOT",
-      "icon": "img/m12.svg",
-      "gradient": ["#ff0000", "#BF6500"],
-      "isRiskio": true,
-      "questions": [
-        {
-          "points": 2500,
-          "text": "Dopo aver ritrovato il Capitano Maxwell i nostri eroi si godono la franchigia su Sol III. Dove passano la loro roamntica vancanza il XTO GM D'Accardi e il C1 Vanian?",
-          "options": ["In crociera ai Caraibi sulla 'Pacific Princess'.", "Nel resort 'Las Brizas' di Acapulco (Messico).", "All'Hotel 'Astoria' di Almada (Portogallo)."],
-          "correct": "C",
-          "image": null
-        },
-        {
-          "points": 5000,
-          "text": "Da chi viene messa in forte imbarazzo la nostra XO Frruuu con delle avances molto spinte durante un massaggio?",
-          "options": ["Adam Smith", "Eva Brown", "Uno scienziato ferengi"],
-          "correct": "B",
-          "image": "img_quiz/frruuu.jpg"
         }
       ]
     }
