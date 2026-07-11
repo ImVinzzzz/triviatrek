@@ -3,7 +3,7 @@
     {
       "id": "comando",
       "name": "COMANDO E NAVIGAZIONE",
-      "icon": "fa-solid fa-user-astronaut",
+      "icon": "img/m1.svg",
       "gradient": ["#B42828", "#E61E1E"],
       "isRiskio": false,
       "questions": [
@@ -33,7 +33,7 @@
     {
       "id": "scienza",
       "name": "SCIENZA E MEDICINA",
-      "icon": "fa-solid fa-flask",
+      "icon": "img/m2.svg",
       "gradient": ["#286E64", "#008080"],
       "isRiskio": false,
       "questions": [
@@ -63,7 +63,7 @@
     {
       "id": "tattica",
       "name": "TATTICA E SICUREZZA",
-      "icon": "fa-solid fa-shield-halved",
+      "icon": "img/m3.svg",
       "gradient": ["#BEBE00", "#FFC800"],
       "isRiskio": false,
       "questions": [
@@ -93,7 +93,7 @@
     {
       "id": "ingegneria",
       "name": "INGEGNERIA E OPS",
-      "icon": "fa-solid fa-gears",
+      "icon": "img/m4.svg",
       "gradient": ["#BEBE00", "#FFC800"],
       "isRiskio": false,
       "questions": [
@@ -123,7 +123,7 @@
     {
       "id": "riskio",
       "name": "RISKIO!",
-      "icon": "fa-solid fa-triangle-exclamation",
+      "icon": "img/m5.svg",
       "gradient": ["#374137", "#647D6E"],
       "isRiskio": true,
       "questions": [
@@ -153,7 +153,7 @@
     {
       "id": "afrodite",
       "name": "USS AFRODITE",
-      "icon": "fa-solid fa-rocket",
+      "icon": "img/m6.svg",
       "gradient": ["#BF6500", "#FF9900"],
       "isRiskio": false,
       "questions": [
@@ -183,7 +183,7 @@
     {
       "id": "qonos",
       "name": "QO'NOS",
-      "icon": "fa-solid fa-hand-fist",
+      "icon": "img/m7.svg",
       "gradient": ["#803C64", "#B44B82"],
       "isRiskio": false,
       "questions": [
@@ -213,7 +213,7 @@
     {
       "id": "romulus",
       "name": "ROMULUS",
-      "icon": "fa-solid fa-eye",
+      "icon": "img/m8.svg",
       "gradient": ["#006432", "#009646"],
       "isRiskio": false,
       "questions": [
@@ -243,7 +243,7 @@
     {
       "id": "vulcano",
       "name": "VULCANO",
-      "icon": "fa-solid fa-hand-spock",
+      "icon": "img/m9.svg",
       "gradient": ["#1E3280", "#324696"],
       "isRiskio": false,
       "questions": [
@@ -273,7 +273,7 @@
     {
       "id": "afrodite-gossip",
       "name": "AFRODITE - GOSSIP",
-      "icon": "fa-solid fa-comments",
+      "icon": "img/m10.svg",
       "gradient": ["#58301D", "#F1E1C1"],
       "isRiskio": true,
       "questions": [
@@ -303,7 +303,7 @@
     {
       "id": "afrodite-top-secret",
       "name": "AFRODITE - TOP SECRET",
-      "icon": "fa-solid fa-user-secret",
+      "icon": "img/m11.svg",
       "gradient": ["#000000", "#ffff00"],
       "isRiskio": true,
       "questions": [
@@ -333,7 +333,7 @@
     {
       "id": "afrodite-hot",
       "name": "AFRODITE - HOT",
-      "icon": "fa-solid fa-fire",
+      "icon": "img/m12.svg",
       "gradient": ["#ff0000", "#BF6500"],
       "isRiskio": true,
       "questions": [
