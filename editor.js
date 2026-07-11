@@ -125,14 +125,20 @@ if (quizPrefixInput) {
       const folder = currentFolder || "prefisso";
       const oldFolder = prevPrefix || "prefisso";
 
-      // Aggiorna l'icona della materia attiva se è una nuova materia
+      // Aggiorna l'icona della materia attiva e la label del percorso consigliato
       const activeCatIconInput = document.getElementById("active-cat-icon");
-      if (activeCatIconInput && quizData.categories[activeCatIdx]) {
+      const suggestedIconStrong = document.querySelector(".suggested-icon-str");
+      if (quizData.categories[activeCatIdx]) {
         const cat = quizData.categories[activeCatIdx];
-        if (cat.isNew) {
-          const catNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+        const catNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+        const newSuggestedIcon = "/img_quiz/" + folder + "/" + catNameClean + ".svg";
+
+        if (suggestedIconStrong) {
+          suggestedIconStrong.textContent = newSuggestedIcon;
+        }
+
+        if (cat.isNew && activeCatIconInput) {
           const oldSuggestedIcon = "/img_quiz/" + oldFolder + "/" + catNameClean + ".svg";
-          const newSuggestedIcon = "/img_quiz/" + folder + "/" + catNameClean + ".svg";
           if (activeCatIconInput.value === "" || activeCatIconInput.value === oldSuggestedIcon) {
             activeCatIconInput.value = newSuggestedIcon;
             cat.icon = newSuggestedIcon;
@@ -277,6 +283,12 @@ function renderCategory(idx) {
       "<div class=\"form-row\">" +
         "<label>Icona Materia / Argomento (percorso)</label>" +
         "<input type=\"text\" id=\"active-cat-icon\" value=\"" + escHtml(iconVal) + "\">" +
+        "<div class=\"suggestion-text\">" +
+          "<span>Percorso consigliato: <strong class=\"suggested-icon-str\">" + suggestedIconPath + "</strong></span>" +
+          "<div>" +
+            "<button type=\"button\" class=\"use-suggested-btn reset-icon-btn\">Resetta URL</button>" +
+          "</div>" +
+        "</div>" +
       "</div>" +
     "</div>" +
     "<div style=\"margin-top:14px\">" +
@@ -302,6 +314,7 @@ function renderCategory(idx) {
   // Cambiamento dinamico del nome della tab e dell'icona mentre si scrive
   const nameInput = settingsCard.querySelector("#active-cat-name");
   const iconInput = settingsCard.querySelector("#active-cat-icon");
+  const resetIconBtn = settingsCard.querySelector(".reset-icon-btn");
 
   nameInput.addEventListener("input", () => {
     nameInput.value = nameInput.value.toUpperCase();
@@ -310,14 +323,29 @@ function renderCategory(idx) {
     const activeTab = catTabsEl.querySelector(".cat-tab[data-idx=\"" + idx + "\"]");
     if (activeTab) activeTab.textContent = cat.name;
 
+    const currentPrefixFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
+    const newNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+    const newSuggestedIcon = "/img_quiz/" + currentPrefixFolder + "/" + newNameClean + ".svg";
+
+    // Aggiorna la label del percorso consigliato
+    const suggestedIconStrong = settingsCard.querySelector(".suggested-icon-str");
+    if (suggestedIconStrong) {
+      suggestedIconStrong.textContent = newSuggestedIcon;
+    }
+
     // Aggiornamento dinamico dell'icona solo se la materia è nuova
     if (cat.isNew) {
-      const currentPrefixFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-      const newNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-      const newSuggestedIcon = "/img_quiz/" + currentPrefixFolder + "/" + newNameClean + ".svg";
       iconInput.value = newSuggestedIcon;
       cat.icon = newSuggestedIcon;
     }
+  });
+
+  resetIconBtn.addEventListener("click", () => {
+    const currentPrefixFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
+    const nameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
+    const path = "/img_quiz/" + currentPrefixFolder + "/" + nameClean + ".svg";
+    iconInput.value = path;
+    cat.icon = path;
   });
 
   const riskCheck = settingsCard.querySelector("#active-cat-risk");
