@@ -245,7 +245,7 @@ function renderCategory(idx) {
     "</div>" +
     "<div class=\"form-row-checkbox\">" +
       "<input type=\"checkbox\" id=\"active-cat-risk\" " + (cat.isRiskio ? "checked" : "") + ">" +
-      "<label for=\"active-cat-risk\">Materia a Rischio (punteggi diversi o regole speciali)</label>" +
+      "<label for=\"active-cat-risk\">Materia 'Rischio!' (punteggi diversi o regole speciali)</label>" +
     "</div>" +
     "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
       "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +
