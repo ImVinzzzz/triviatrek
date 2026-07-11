@@ -243,6 +243,15 @@ function renderCategory(idx) {
       "<label>Nome Materia / Argomento</label>" +
       "<input type=\"text\" id=\"active-cat-name\" value=\"" + escHtml(cat.name) + "\">" +
     "</div>" +
+    "<div class=\"form-row\" style=\"display:flex; gap:15px; align-items:flex-end;\">" +
+      "<div style=\"flex:1;\">" +
+        "<label>Icona FontAwesome (es: fa-solid fa-flask)</label>" +
+        "<input type=\"text\" id=\"active-cat-icon\" value=\"" + escHtml(cat.icon || "fa-solid fa-star") + "\">" +
+      "</div>" +
+      "<div class=\"icon-preview-box\" style=\"background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:6px; width:45px; height:45px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--teal);\">" +
+        "<i id=\"active-cat-icon-preview\" class=\"" + escHtml(cat.icon || "fa-solid fa-star") + "\"></i>" +
+      "</div>" +
+    "</div>" +
     "<div class=\"form-row-checkbox\">" +
       "<input type=\"checkbox\" id=\"active-cat-risk\" " + (cat.isRiskio ? "checked" : "") + ">" +
       "<label for=\"active-cat-risk\">Materia 'Rischio!' (punteggi diversi o regole speciali)</label>" +
@@ -257,6 +266,14 @@ function renderCategory(idx) {
     cat.name = nameInput.value.trim();
     const activeTab = catTabsEl.querySelector(".cat-tab[data-idx=\"" + idx + "\"]");
     if (activeTab) activeTab.textContent = cat.name;
+  });
+
+  const iconInput = settingsCard.querySelector("#active-cat-icon");
+  const iconPreview = settingsCard.querySelector("#active-cat-icon-preview");
+  iconInput.addEventListener("input", () => {
+    const val = iconInput.value.trim() || "fa-solid fa-star";
+    cat.icon = val;
+    iconPreview.className = val;
   });
 
   const riskCheck = settingsCard.querySelector("#active-cat-risk");
@@ -366,6 +383,10 @@ function saveCategoryFromForm(idx) {
   const activeCatName = document.getElementById("active-cat-name");
   if (activeCatName) {
     cat.name = activeCatName.value.trim();
+  }
+  const activeCatIcon = document.getElementById("active-cat-icon");
+  if (activeCatIcon) {
+    cat.icon = activeCatIcon.value.trim() || "fa-solid fa-star";
   }
   const activeCatRisk = document.getElementById("active-cat-risk");
   if (activeCatRisk) {

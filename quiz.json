@@ -3,7 +3,7 @@
     {
       "id": "comando",
       "name": "COMANDO E NAVIGAZIONE",
-      "icon": "img/m1.svg",
+      "icon": "fa-solid fa-user-astronaut",
       "gradient": ["#B42828", "#E61E1E"],
       "isRiskio": false,
       "questions": [
@@ -23,7 +23,7 @@
         },
         {
           "points": 500,
-          "text": "In che occasione Jean-Luc Picard usa per la prima volta la famosa 'manovra Picard'?",
+          "text": "In che occasione Jean-Luc Picard usa per la prima volta la 'manovra Picard'?",
           "options": ["La Battaglia di Wolf 359", "La Battaglia di Narendra III", "La Battaglia di Maxia"],
           "correct": "C",
           "image": "img_quiz/picard.jpg"
@@ -33,14 +33,14 @@
     {
       "id": "scienza",
       "name": "SCIENZA E MEDICINA",
-      "icon": "img/m2.svg",
+      "icon": "fa-solid fa-flask",
       "gradient": ["#286E64", "#008080"],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
           "text": "Chi sostituì la Dottoressa Crusher nel 2365 come CMO dell'Enterprise D?",
-          "options": ["Dott.ssa Kosinski", "Dott.ssa Pulaski", "Dr. Soong"],
+          "options": ["Dott.ssa Kosinski", "Dott.ssa Pulaski", "Dott.ssa Soong"],
           "correct": "B",
           "image": "img_quiz/enterprise-d.jpg"
         },
@@ -63,7 +63,7 @@
     {
       "id": "tattica",
       "name": "TATTICA E SICUREZZA",
-      "icon": "img/m3.svg",
+      "icon": "fa-solid fa-shield-halved",
       "gradient": ["#BEBE00", "#FFC800"],
       "isRiskio": false,
       "questions": [
@@ -93,7 +93,7 @@
     {
       "id": "ingegneria",
       "name": "INGEGNERIA E OPS",
-      "icon": "img/m4.svg",
+      "icon": "fa-solid fa-gears",
       "gradient": ["#BEBE00", "#FFC800"],
       "isRiskio": false,
       "questions": [
@@ -123,7 +123,7 @@
     {
       "id": "riskio",
       "name": "RISKIO!",
-      "icon": "img/m5.svg",
+      "icon": "fa-solid fa-triangle-exclamation",
       "gradient": ["#374137", "#647D6E"],
       "isRiskio": true,
       "questions": [
@@ -153,7 +153,7 @@
     {
       "id": "afrodite",
       "name": "USS AFRODITE",
-      "icon": "img/m6.svg",
+      "icon": "fa-solid fa-rocket",
       "gradient": ["#BF6500", "#FF9900"],
       "isRiskio": false,
       "questions": [
@@ -183,7 +183,7 @@
     {
       "id": "qonos",
       "name": "QO'NOS",
-      "icon": "img/m7.svg",
+      "icon": "fa-solid fa-hand-fist",
       "gradient": ["#803C64", "#B44B82"],
       "isRiskio": false,
       "questions": [
@@ -213,7 +213,7 @@
     {
       "id": "romulus",
       "name": "ROMULUS",
-      "icon": "img/m8.svg",
+      "icon": "fa-solid fa-eye",
       "gradient": ["#006432", "#009646"],
       "isRiskio": false,
       "questions": [
@@ -234,7 +234,7 @@
         {
           "points": 500,
           "text": "Qual è il motto della Tal’Shiar?",
-          "options": ["Per Proteggere e Servire l'Impero.", "Per Proteggere e Servire il Pretore.", "Per Proteggere e Servire Noi."],
+          "options": ["Per Proteggere e Servire l'Impero.", "Per Proteggere e servire il Pretore.", "Per Proteggere e Servire Noi."],
           "correct": "C",
           "image": "img_quiz/narek.jpg"
         }
@@ -243,7 +243,7 @@
     {
       "id": "vulcano",
       "name": "VULCANO",
-      "icon": "img/m9.svg",
+      "icon": "fa-solid fa-hand-spock",
       "gradient": ["#1E3280", "#324696"],
       "isRiskio": false,
       "questions": [
@@ -273,7 +273,7 @@
     {
       "id": "afrodite-gossip",
       "name": "AFRODITE - GOSSIP",
-      "icon": "img/m10.svg",
+      "icon": "fa-solid fa-comments",
       "gradient": ["#58301D", "#F1E1C1"],
       "isRiskio": true,
       "questions": [
@@ -303,7 +303,7 @@
     {
       "id": "afrodite-top-secret",
       "name": "AFRODITE - TOP SECRET",
-      "icon": "img/m11.svg",
+      "icon": "fa-solid fa-user-secret",
       "gradient": ["#000000", "#ffff00"],
       "isRiskio": true,
       "questions": [
@@ -333,7 +333,7 @@
     {
       "id": "afrodite-hot",
       "name": "AFRODITE - HOT",
-      "icon": "img/m12.svg",
+      "icon": "fa-solid fa-fire",
       "gradient": ["#ff0000", "#BF6500"],
       "isRiskio": true,
       "questions": [

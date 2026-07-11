@@ -224,24 +224,31 @@ function buildCategoryCard(cat) {
   const header = document.createElement('div');
   header.className = 'cat-card-header';
 
-  // Icon (try img, fallback to FA delta)
-  const img = document.createElement('img');
-  img.className = 'cat-icon';
-  img.src = cat.icon;
-  img.alt = '';
-  img.onerror = function() {
-    this.style.display = 'none';
-    const fb = document.createElement('div');
-    fb.className = 'cat-icon-fallback';
-    fb.innerHTML = '<i class="fa-solid fa-star"></i>';
-    header.insertBefore(fb, header.firstChild);
-  };
+  // Icon (check if FontAwesome or fallback to SVG image)
+  let iconElement;
+  if (cat.icon && (cat.icon.indexOf("fa-") !== -1 || cat.icon.indexOf("fab ") !== -1 || cat.icon.indexOf("fas ") !== -1 || cat.icon.indexOf("far ") !== -1)) {
+    iconElement = document.createElement("i");
+    iconElement.className = cat.icon + " cat-icon-fa";
+  } else {
+    const img = document.createElement("img");
+    img.className = "cat-icon";
+    img.src = cat.icon || "img/m1.svg";
+    img.alt = "";
+    img.onerror = function() {
+      this.style.display = "none";
+      const fb = document.createElement("div");
+      fb.className = "cat-icon-fallback";
+      fb.innerHTML = "<i class=\"fa-solid fa-star\"></i>";
+      header.insertBefore(fb, header.firstChild);
+    };
+    iconElement = img;
+  }
 
-  const nameEl = document.createElement('div');
-  nameEl.className = 'cat-name';
+  const nameEl = document.createElement("div");
+  nameEl.className = "cat-name";
   nameEl.textContent = cat.name;
 
-  header.appendChild(img);
+  header.appendChild(iconElement);
   header.appendChild(nameEl);
 
   // Points row
