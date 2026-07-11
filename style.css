@@ -1437,7 +1437,7 @@ body::after {
   object-fit: contain;
   flex-shrink: 0;
   opacity: 0.95;
-  filter: brightness(0);
+  filter: brightness(0) invert(1);
 }
 
 .gradient-pickers input[type="color"] {
