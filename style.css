@@ -1321,11 +1321,65 @@ body::after {
   animation: pulse-green 1.5s infinite alternate;
 }
 
+.blind-correct-popup .q-text,
+.blind-correct-popup .q-turn-indicator,
+.blind-correct-popup .q-points-awarded {
+  color: var(--black) !important;
+}
+
+.blind-correct-popup .q-answer-btn {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  color: var(--black) !important;
+}
+
+.blind-correct-popup .q-answer-btn.correct {
+  background: rgba(0, 0, 0, 0.35) !important;
+  border-color: var(--black) !important;
+  color: var(--black) !important;
+  font-weight: 700;
+}
+
+.blind-correct-popup .q-answer-btn.correct .ans-label {
+  background: var(--black) !important;
+  color: var(--correct) !important;
+}
+
 .blind-wrong-popup {
   background-color: var(--wrong) !important;
   color: var(--text) !important;
   box-shadow: 0 0 25px var(--wrong) !important;
   animation: pulse-red 1.5s infinite alternate;
+}
+
+.blind-wrong-popup .q-text,
+.blind-wrong-popup .q-turn-indicator,
+.blind-wrong-popup .q-points-awarded {
+  color: var(--text) !important;
+}
+
+.blind-wrong-popup .q-answer-btn {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  color: var(--text) !important;
+}
+
+.blind-wrong-popup .q-answer-btn.correct {
+  background: rgba(0, 200, 100, 0.4) !important;
+  border-color: var(--correct) !important;
+  color: var(--text) !important;
+  font-weight: 700;
+}
+
+.blind-wrong-popup .q-answer-btn.wrong {
+  background: rgba(0, 0, 0, 0.35) !important;
+  border-color: var(--black) !important;
+  color: var(--text) !important;
+}
+
+.blind-wrong-popup .q-answer-btn.wrong .ans-label {
+  background: var(--black) !important;
+  color: var(--wrong) !important;
 }
 
 @keyframes pulse-green {
