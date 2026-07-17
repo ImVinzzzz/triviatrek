@@ -262,10 +262,12 @@ function buildCategoryCard(cat) {
   const pointsRow = document.createElement('div');
   pointsRow.className = 'cat-points-row';
 
+  const isBlind = cat.type === 'blind';
+
   cat.questions.forEach(q => {
     const btn = document.createElement('button');
     btn.className = 'point-btn';
-    btn.textContent = q.points;
+    btn.textContent = isBlind ? '?' : q.points;
     btn.dataset.catId   = cat.id;
     btn.dataset.points  = q.points;
     btn.id = `btn-${cat.id}-${q.points}`;
@@ -291,8 +293,14 @@ function openQuestion(cat, q) {
   header.style.background = `linear-gradient(90deg, ${cat.gradient[0]}, ${cat.gradient[1]})`;
   header.style.color = '#f8f8ff';
 
+  // Ripristina stili del popup che potrebbero essere stati alterati da Blind
+  const popupEl = header.parentElement;
+  popupEl.classList.remove('blind-correct-popup', 'blind-wrong-popup');
+
   $('q-category-label').textContent = cat.name;
-  $('q-points-label').textContent = q.points + ' PT';
+  
+  const isBlind = cat.type === 'blind';
+  $('q-points-label').textContent = isBlind ? '?' : q.points + ' PT';
 
   const iconImg = $('q-category-icon');
   if (iconImg) {
@@ -360,6 +368,22 @@ function handleAnswer(chosen) {
   const correct = q.correct;
   const isCorrect = (chosen === correct);
 
+  const cat = state.quizData.categories.find(c => c.id === state.currentCatId);
+  const isBlind = cat ? cat.type === 'blind' : false;
+
+  // Mostra il punteggio reale anche se era Blind
+  $('q-points-label').textContent = q.points + ' PT';
+
+  // Cambia il colore dell'intero popup se è Blind
+  const popupEl = $('q-popup-header').parentElement;
+  if (isBlind) {
+    if (isCorrect) {
+      popupEl.classList.add('blind-correct-popup');
+    } else {
+      popupEl.classList.add('blind-wrong-popup');
+    }
+  }
+
   // Disable all buttons
   document.querySelectorAll('.q-answer-btn').forEach(btn => {
     btn.disabled = true;
@@ -375,9 +399,8 @@ function handleAnswer(chosen) {
     resultText = '<i class="fa-solid fa-circle-check"></i> RIGHT!';
     awardsText = `+${state.currentPoints} PUNTI <i class="fa-solid fa-angle-right"></i> ${escHtml(state.players[state.currentIndex].name)}`;
   } else {
-    const cat = state.quizData.categories.find(c => c.id === state.currentCatId);
-    const isRiskio = cat ? cat.isRiskio : false;
-    const pts = isRiskio ? 250 : 50;
+    const isRiskio = cat ? (cat.isRiskio || cat.type === 'riskio') : false;
+    const pts = isBlind ? state.currentPoints : (isRiskio ? 250 : 50);
     const winners = [];
     state.players.forEach((p, i) => {
       if (i !== state.currentIndex) {
@@ -414,13 +437,15 @@ function handleAnswer(chosen) {
   // Close popup after delay
   setTimeout(() => {
     popups.question.classList.add('hidden');
+    // Ripristina stili del popup
+    popupEl.classList.remove('blind-correct-popup', 'blind-wrong-popup');
     updateTurnBanner();
     updatePlayerDisplays();
 
     if (checkGameOver()) {
       setTimeout(showGameOver, 1200);
     }
-  }, 2500);
+  }, isBlind ? 4000 : 2500); // Più tempo se è Blind per far leggere ed apprezzare l'evidenziazione
 }
 
 /* ── PLAYER DISPLAY ────────────────────────────────────────── */

@@ -310,9 +310,10 @@ function renderCategory(idx) {
       "</div>" +
     "</div>" +
     "<div class=\"category-settings-bottom\">" +
-      "<div class=\"form-row-checkbox\">" +
-        "<input type=\"checkbox\" id=\"active-cat-risk\" " + (cat.isRiskio ? "checked" : "") + ">" +
-        "<label for=\"active-cat-risk\">Materia 'Rischio!' (punteggi diversi o regole speciali)</label>" +
+      "<div class=\"cat-type-container\">" +
+        "<label><input type=\"radio\" name=\"cat-type\" value=\"normal\" " + ((!cat.type || cat.type === "normal") && !cat.isRiskio ? "checked" : "") + "> Normale</label>" +
+        "<label><input type=\"radio\" name=\"cat-type\" value=\"riskio\" " + (cat.type === "riskio" || cat.isRiskio ? "checked" : "") + "> Riskio!</label>" +
+        "<label><input type=\"radio\" name=\"cat-type\" value=\"blind\" " + (cat.type === "blind" ? "checked" : "") + "> Blind</label>" +
       "</div>" +
       "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
         "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +
@@ -356,9 +357,13 @@ function renderCategory(idx) {
     cat.icon = path;
   });
 
-  const riskCheck = settingsCard.querySelector("#active-cat-risk");
-  riskCheck.addEventListener("change", () => {
-    cat.isRiskio = riskCheck.checked;
+  // Gestione del cambio di tipo argomento tramite i nuovi radio-button
+  const typeRadios = settingsCard.querySelectorAll("input[name=\"cat-type\"]");
+  typeRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      cat.type = radio.value;
+      cat.isRiskio = (radio.value === "riskio");
+    });
   });
 
   const deleteBtn = settingsCard.querySelector("#delete-cat-btn");
@@ -373,10 +378,38 @@ function renderCategory(idx) {
 
   questionsEl.appendChild(settingsCard);
 
+  // Render questions
   cat.questions.forEach((q, qi) => {
     const card = buildQuestionForm(cat, q, qi, idx);
     questionsEl.appendChild(card);
   });
+
+  // Aggiungi pulsante per aggiungere una domanda se ce ne sono meno di 3
+  if (cat.questions.length < 3) {
+    const addQDiv = document.createElement("div");
+    addQDiv.style.textAlign = "center";
+    addQDiv.style.marginTop = "20px";
+    addQDiv.innerHTML = 
+      "<button type=\"button\" class=\"ed-btn\" id=\"add-question-btn\" style=\"border-color:var(--teal); color:var(--teal)\">" +
+        "<i class=\"fa-solid fa-plus\"></i> &nbsp;Aggiungi Domanda a questo argomento" +
+      "</button>";
+    const addQBtn = addQDiv.querySelector("#add-question-btn");
+    addQBtn.addEventListener("click", () => {
+      saveCategoryFromForm(idx);
+      const qi = cat.questions.length;
+      const defPoints = (cat.type === "riskio" || cat.isRiskio) ? [200, 500, 1000][qi] || 500 : [100, 250, 500][qi] || 250;
+      cat.questions.push({
+        points: defPoints,
+        text: "Domanda " + (qi + 1),
+        options: ["Opzione A", "Opzione B", "Opzione C"],
+        correct: "A",
+        image: null
+      });
+      renderCategory(idx);
+    });
+    questionsEl.appendChild(addQDiv);
+  }
+
   updateExportButtonState();
 }
 
@@ -386,7 +419,7 @@ function buildQuestionForm(cat, q, qi, catIdx) {
   card.className = "q-form-card";
   card.dataset.qi = qi;
 
-  const points = q.points !== undefined ? q.points : (cat.isRiskio ? [200, 500, 1000][qi] : [100, 250, 500][qi]);
+  const points = q.points !== undefined ? q.points : ((cat.type === "riskio" || cat.isRiskio) ? [200, 500, 1000][qi] : [100, 250, 500][qi]);
 
   // Genera percorso consigliato per l'immagine
   const catNameClean = cat && cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
@@ -408,10 +441,15 @@ function buildQuestionForm(cat, q, qi, catIdx) {
   });
 
   card.innerHTML = 
-    "<h4>" +
-      "<i class=\"fa-solid fa-circle-question\"></i>" +
-      " &nbsp;DOMANDA " + (qi + 1) +
-    "</h4>" +
+    "<div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;\">" +
+      "<h4 style=\"margin:0;\">" +
+        "<i class=\"fa-solid fa-circle-question\"></i>" +
+        " &nbsp;DOMANDA " + (qi + 1) +
+      "</h4>" +
+      "<button type=\"button\" class=\"delete-q-btn\" style=\"background:none; border:none; color:var(--wrong); cursor:pointer; font-size:1.1rem;\" title=\"Elimina questa domanda\">" +
+        "<i class=\"fa-solid fa-square-minus\"></i>" +
+      "</button>" +
+    "</div>" +
     "<div class=\"form-row\">" +
       "<label>PUNTEGGIO DOMANDA</label>" +
       "<input type=\"number\" class=\"f-points\" value=\"" + points + "\" style=\"width:100px;\">" +
@@ -442,6 +480,7 @@ function buildQuestionForm(cat, q, qi, catIdx) {
   const useBtn = card.querySelector(".use-suggested-btn");
   const delImgBtn = card.querySelector(".delete-image-btn");
   const imageInput = card.querySelector(".f-image");
+  const deleteQBtn = card.querySelector(".delete-q-btn");
 
   useBtn.addEventListener("click", () => {
     const currentFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
@@ -450,6 +489,14 @@ function buildQuestionForm(cat, q, qi, catIdx) {
 
   delImgBtn.addEventListener("click", () => {
     imageInput.value = "";
+  });
+
+  deleteQBtn.addEventListener("click", () => {
+    if (confirm("Sei sicuro di voler eliminare la Domanda " + (qi + 1) + "?")) {
+      saveCategoryFromForm(catIdx);
+      cat.questions.splice(qi, 1);
+      renderCategory(catIdx);
+    }
   });
 
   return card;
@@ -465,10 +512,13 @@ function saveCategoryFromForm(idx) {
   if (activeCatName) {
     cat.name = activeCatName.value.trim();
   }
-  const activeCatRisk = document.getElementById("active-cat-risk");
-  if (activeCatRisk) {
-    cat.isRiskio = activeCatRisk.checked;
+  
+  const activeTypeRadio = document.querySelector("input[name=\"cat-type\"]:checked");
+  if (activeTypeRadio) {
+    cat.type = activeTypeRadio.value;
+    cat.isRiskio = (activeTypeRadio.value === "riskio");
   }
+
   const activeCatIcon = document.getElementById("active-cat-icon");
   if (activeCatIcon) {
     cat.icon = activeCatIcon.value.trim() || null;
