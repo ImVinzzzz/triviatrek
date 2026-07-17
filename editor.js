@@ -449,7 +449,7 @@ function buildQuestionForm(cat, q, qi, catIdx) {
         "<i class=\"fa-solid fa-circle-question\"></i>" +
         " &nbsp;DOMANDA " + (qi + 1) +
       "</h4>" +
-      "<button type=\"button\" class=\"delete-q-btn\" title=\"Elimina questa domanda\">" +
+      "<button type=\"button\" class=\"delete-q-btn\" title=\"Elimina questa domanda\"" + (cat.questions.length <= 1 ? " disabled" : "") + ">" +
         "<i class=\"fa-solid fa-square-minus\" style=\"font-size:1.1rem;\"></i> ELIMINA DOMANDA" +
       "</button>" +
     "</div>" +
