@@ -696,7 +696,7 @@ body::after {
 
 .q-image {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 21/9;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 14px;
