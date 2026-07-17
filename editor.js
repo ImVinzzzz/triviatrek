@@ -310,10 +310,13 @@ function renderCategory(idx) {
       "</div>" +
     "</div>" +
     "<div class=\"category-settings-bottom\">" +
-      "<div class=\"cat-type-container\">" +
-        "<label><input type=\"radio\" name=\"cat-type\" value=\"normal\" " + ((!cat.type || cat.type === "normal") && !cat.isRiskio ? "checked" : "") + "> Normale</label>" +
-        "<label><input type=\"radio\" name=\"cat-type\" value=\"riskio\" " + (cat.type === "riskio" || cat.isRiskio ? "checked" : "") + "> Riskio!</label>" +
-        "<label><input type=\"radio\" name=\"cat-type\" value=\"blind\" " + (cat.type === "blind" ? "checked" : "") + "> Blind</label>" +
+      "<div>" +
+        "<span class=\"cat-type-label\">Tipologia domande</span>" +
+        "<div class=\"cat-type-container\">" +
+          "<label><input type=\"radio\" name=\"cat-type\" value=\"normal\" " + ((!cat.type || cat.type === "normal") && !cat.isRiskio ? "checked" : "") + "> Normale</label>" +
+          "<label><input type=\"radio\" name=\"cat-type\" value=\"riskio\" " + (cat.type === "riskio" || cat.isRiskio ? "checked" : "") + "> Riskio!</label>" +
+          "<label><input type=\"radio\" name=\"cat-type\" value=\"blind\" " + (cat.type === "blind" ? "checked" : "") + "> Blind</label>" +
+        "</div>" +
       "</div>" +
       "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
         "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +

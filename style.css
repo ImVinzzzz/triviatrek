@@ -1280,28 +1280,36 @@ body::after {
 }
 
 /* Stili per la selezione del tipo argomento nell'editor */
+.cat-type-label {
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
 .cat-type-container {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 0.72rem;
+  gap: 24px;
+  font-size: 0.85rem;
   letter-spacing: 1.5px;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  margin-top: 10px;
+  color: var(--text);
+  margin-top: 4px;
 }
 
 .cat-type-container label {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .cat-type-container input[type="radio"] {
   width: 18px;
   height: 18px;
-  accent-color: var(--teal);
+  accent-color: var(--correct);
   cursor: pointer;
 }
 
