@@ -324,6 +324,7 @@
         "#009646"
       ],
       "isRiskio": false,
+      "type": "blind",
       "questions": [
         {
           "points": 100,
@@ -339,17 +340,6 @@
         {
           "points": 250,
           "text": "Doamnda 2?",
-          "options": [
-            "Risposta A",
-            "Risposta B",
-            "Risposta C"
-          ],
-          "correct": "C",
-          "image": null
-        },
-        {
-          "points": 500,
-          "text": "Domanda 3?",
           "options": [
             "Risposta A",
             "Risposta B",
