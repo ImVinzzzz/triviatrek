@@ -496,18 +496,34 @@ function showGameOver() {
   // Sort players
   const sorted = [...state.players].sort((a, b) => b.score - a.score);
 
-  // Winner
-  $('go-winner-name').textContent = sorted[0].name;
-  $('go-winner-score').textContent = sorted[0].score.toLocaleString('it-IT') + ' PT';
+  // Calcola le posizioni considerando i parimerito
+  const rankedPlayers = [];
+  let currentRank = 1;
+  sorted.forEach((p, idx) => {
+    if (idx > 0 && p.score < sorted[idx - 1].score) {
+      currentRank = idx + 1;
+    }
+    rankedPlayers.push({ ...p, rank: currentRank });
+  });
 
-  // Ranking list
+  // Vincitori (tutti quelli con rank 1)
+  const winners = rankedPlayers.filter(p => p.rank === 1);
+  const winnerLabel = $('go-winner-box').querySelector('.go-winner-label');
+  if (winnerLabel) {
+    winnerLabel.textContent = winners.length > 1 ? '★ WINNERS ★' : '★ WINNER ★';
+  }
+  $('go-winner-name').innerHTML = winners.map(w => escHtml(w.name)).join(' &amp; ');
+  $('go-winner-score').textContent = winners[0].score.toLocaleString('it-IT') + ' PT';
+
+  // Altri in classifica (tutti tranne i vincitori principali)
   const list = $('go-ranking-list');
   list.innerHTML = '';
-  sorted.slice(1).forEach((p, i) => {
+  rankedPlayers.forEach(p => {
+    if (p.rank === 1) return; // Saltiamo i primi classificati perché sono già nel box dei vincitori
     const item = document.createElement('div');
     item.className = 'go-rank-item';
     item.innerHTML = `
-      <span class="go-rank-pos">#${i + 2}</span>
+      <span class="go-rank-pos">#${p.rank}</span>
       <span class="go-rank-name">${escHtml(p.name)}</span>
       <span class="go-rank-score">${p.score.toLocaleString('it-IT')} PT</span>
     `;
