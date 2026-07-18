@@ -11,7 +11,7 @@
       "isRiskio": false,
       "questions": [
         {
-          "points": 100,
+          "points": -100,
           "text": "Domanda 1?",
           "options": [
             "Risposta A",
