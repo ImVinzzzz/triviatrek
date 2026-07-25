@@ -1,0 +1,774 @@
+{
+  "categories": [
+    {
+      "id": "comando",
+      "name": "COMANDO",
+      "icon": "/img_quiz/giuliano/comando.svg",
+      "gradient": [
+        "#ff0000",
+        "#e61e1e"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Chi",
+          "options": [
+            "Tizio",
+            "Caio",
+            "Sempronio"
+          ],
+          "correct": "A",
+          "image": "https://tse4.mm.bing.net/th/id/OIP.GoWAHmUO3T1CA6x8sxKhFwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+        },
+        {
+          "points": 250,
+          "text": "Dove?",
+          "options": [
+            "Qui",
+            "Là",
+            "No"
+          ],
+          "correct": "A",
+          "image": "https://wallpaperaccess.com/full/168150.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Perché?",
+          "options": [
+            "Sì",
+            "No",
+            "Forse"
+          ],
+          "correct": "A",
+          "image": "https://wallpapercave.com/wp/TZq5FHQ.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "scienza",
+      "name": "SCIENZA",
+      "icon": "/img_quiz/giuliano/scienza.svg",
+      "gradient": [
+        "#00c8c8",
+        "#008080"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Quando?",
+          "options": [
+            "Sempre",
+            "Mai",
+            "Ieri"
+          ],
+          "correct": "A",
+          "image": "https://trekmovie.com/wp-content/uploads/2024/03/snw-s3-preview-sciencelab.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Lui?",
+          "options": [
+            "Luigi",
+            "Mario",
+            "Yoshi"
+          ],
+          "correct": "A",
+          "image": "https://i.pinimg.com/originals/c5/83/43/c583431177c5b1a1fb7ef74276d06b73.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Chi?",
+          "options": [
+            "Lorem",
+            "Ipsum",
+            "Dolor"
+          ],
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/08/star-trek-voyager-a.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "medicina",
+      "name": "MEDICINA",
+      "icon": "/img_quiz/giuliano/medicina.svg",
+      "gradient": [
+        "#00c8c8",
+        "#008080"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Cosa?",
+          "options": [
+            "Bho!",
+            "Forse",
+            "Chi lo sa"
+          ],
+          "correct": "A",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2023/08/star-trek-medicine-biobed.jpg?w=1600&h=900&fit=crop"
+        },
+        {
+          "points": 250,
+          "text": "Ma che, davero?",
+          "options": [
+            "Naaaaa",
+            "Neeeee",
+            "Nuuuuu"
+          ],
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/01/admiral-pike-future-strange-new-worlds.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Domanda...",
+          "options": [
+            "Cipolla",
+            "Zucchine",
+            "Rutabaga"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/Zo-CQR5LeNNTxA-S_st-tvh-remaster-bluray-0913.jpg?auto=format,compress"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "tattica",
+      "name": "TATTICA",
+      "icon": "/img_quiz/giuliano/tattica.svg",
+      "gradient": [
+        "#bebe00",
+        "#ffff00"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Chi?",
+          "options": [
+            "qui",
+            "quo",
+            "qua"
+          ],
+          "correct": "A",
+          "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/08/star-trek-strange-new-worlds-s2-pike-1.jpeg"
+        },
+        {
+          "points": 250,
+          "text": "Chi?",
+          "options": [
+            "Pippo",
+            "Pluto",
+            "Paperino"
+          ],
+          "correct": "A",
+          "image": "https://mlpnk72yciwc.i.optimole.com/cqhiHLc.IIZS~2ef73/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2025/07/SFA_105_BP_1111_0365_RT.jpg"
+        },
+        {
+          "points": 500,
+          "text": "La treeeee",
+          "options": [
+            "No no",
+            "Sì sì",
+            "Anche no"
+          ],
+          "correct": "B",
+          "image": "https://i.pinimg.com/originals/70/86/5c/70865cb8f9a1ef82cd2df5d0595891b2.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "ingegneria",
+      "name": "INGEGNERIA",
+      "icon": "/img_quiz/giuliano/ingegneria.svg",
+      "gradient": [
+        "#bebe00",
+        "#ffff00"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 250,
+          "text": "Chi?",
+          "options": [
+            "Uno",
+            "Due",
+            "Tre"
+          ],
+          "correct": "A",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/11/Star-Trek-engineering.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Dove?",
+          "options": [
+            "Stella",
+            "Pianeta",
+            "Asteroide"
+          ],
+          "correct": "A",
+          "image": "https://cdnb.artstation.com/p/assets/images/images/025/157/717/4k/donny-versiga-screenshot-enterprise-engineering-twok-o-deck-03.jpg?1584833619"
+        },
+        {
+          "points": 1000,
+          "text": "Ciccio",
+          "options": [
+            "A",
+            "B",
+            "D"
+          ],
+          "correct": "A",
+          "image": "https://forgottentrek.com/the-next-generation/designing-the-next-generations-engineering/images/Enterprise-D-engineering-2.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "qonos",
+      "name": "QO'NOS",
+      "icon": "/img_quiz/giuliano/qo-nos.svg",
+      "gradient": [
+        "#ff0096",
+        "#b44b82"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "E uno",
+          "options": [
+            "Vino",
+            "Birra",
+            "Acqua"
+          ],
+          "correct": "A",
+          "image": "https://comicvine.gamespot.com/a/uploads/original/13/132327/3076095-qo__nos_dreamer_by_davemetlesits.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Ecco a voi...",
+          "options": [
+            "Papo",
+            "Pipo",
+            "Pepo"
+          ],
+          "correct": "A",
+          "image": "https://th.bing.com/th/id/R.60b9cf5cdb9903e69d981c0c58769a0f?rik=NTV3v%2bo8DJMxUQ&riu=http%3a%2f%2ftrekmovie.com%2fwp-content%2fuploads%2f2018%2f02%2fdsc-115-vidprehd-04.jpg&ehk=JuXuTo%2fbUiKXsDQf8FlU0qewLNGJeBSiQcVIGzXUT1w%3d&risl=&pid=ImgRaw&r=0"
+        },
+        {
+          "points": 500,
+          "text": "Bho!",
+          "options": [
+            "Cinque",
+            "Otto",
+            "Venticinque"
+          ],
+          "correct": "A",
+          "image": "https://i.pinimg.com/originals/00/dd/f3/00ddf360c5f5561c35220a522a020e9c.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "romulus",
+      "name": "ROMULUS",
+      "icon": "/img_quiz/giuliano/romulus.svg",
+      "gradient": [
+        "#006432",
+        "#00ff00"
+      ],
+      "isRiskio": false,
+      "type": "normal",
+      "questions": [
+        {
+          "points": 100,
+          "text": "Ah ah!",
+          "options": [
+            "Brutti",
+            "Cattivi",
+            "Stronzi"
+          ],
+          "correct": "A",
+          "image": "https://www.denofgeek.com/wp-content/uploads/2020/01/star-trek-nemesis-romulus.jpg?fit=1600%2C800"
+        },
+        {
+          "points": 250,
+          "text": "Chi?",
+          "options": [
+            "Tulipano",
+            "Margherita",
+            "Ranuncolo"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/ZmVhZDkwMDctM2Q2Yy00ZjMxLTg0NjMtZGY3MzNiZTlhNjQy_alidar_jarok.jpg?auto=compress%2Cformat&rect=0%2C0%2C1800%2C1358&h=1358&width=3840"
+        },
+        {
+          "points": 500,
+          "text": "Chi?",
+          "options": [
+            "Rosso",
+            "Giallo",
+            "Blu"
+          ],
+          "correct": "A",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/05/collage-maker-17-may-2023-05-15-pm-7832.jpg"
+        }
+      ]
+    },
+    {
+      "id": "vulcano",
+      "name": "VULCANO",
+      "icon": "/img_quiz/giuliano/vulcano.svg",
+      "gradient": [
+        "#003280",
+        "#0032ff"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Cosa?",
+          "options": [
+            "Mangia",
+            "Prega",
+            "Ama"
+          ],
+          "correct": "A",
+          "image": "https://screenrant.com/wp-content/uploads/startrek-vulcans-spock.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Perché?",
+          "options": [
+            "Cazzi miei!",
+            "Cazzi miei!",
+            "Cazzi miei!"
+          ],
+          "correct": "A",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/05/tos-surak-in-star-trek.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Ecco",
+          "options": [
+            "Bango",
+            "Bingo",
+            "Bongo"
+          ],
+          "correct": "A",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/05/t-pol-enterprise-star-trek.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1784967926430",
+      "name": "ARMI",
+      "icon": "/img_quiz/giuliano/armi.svg",
+      "gradient": [
+        "#323200",
+        "#0a0a00"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Mah!",
+          "options": [
+            "Sì",
+            "No",
+            "Forse"
+          ],
+          "correct": "A",
+          "image": "https://th.bing.com/th/id/R.b1aa8b0ae17406abe8b2d76faf65f4f8?rik=%2bhmXA2ZO7mEs3A&riu=http%3a%2f%2fimg.hexus.net%2fv2%2fgaming%2fscreenshots%2flegacy3_large.jpg&ehk=Fpgb2nTVeV0RM%2bhsD1f0oNbVWNxBhPUoWLmWtFA9w98%3d&risl=&pid=ImgRaw&r=0"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Se insisti",
+          "options": [
+            "Nonno",
+            "Zio",
+            "Cugino"
+          ],
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/04/Picard-and-Riker-fire-their-phasers-in-the-Conspiracy-episode-of-Star-Trek-The-Next-Generation.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Mhhhhhh",
+          "options": [
+            "Lui",
+            "Loro",
+            "Lara"
+          ],
+          "correct": "A",
+          "image": "https://wallpapers.com/images/hd/star-trek-into-darkness-leonard-mccoy-tuc3yzjqcp0l0yoi.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1784967937177",
+      "name": "CULTURA GENERALE",
+      "icon": "/img_quiz/giuliano/cultura-generale.svg",
+      "gradient": [
+        "#8000b4",
+        "#320064"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Cosa?",
+          "options": [
+            "Strange",
+            "New",
+            "Worlds"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/aCVoeydWJ-7kSIgZ_SNWS3_ENSEMBLE_PR_HORZ_16x9_3840x2160-CLEAN.jpg?auto=format,compress"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Op op op",
+          "options": [
+            "Veni",
+            "Vidi",
+            "Vici"
+          ],
+          "correct": "A",
+          "image": "https://mlpnk72yciwc.i.optimole.com/cqhiHLc.WqA8~2eefa/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2022/06/SNW_109_MG_09_30_21__049544_RT.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Loro",
+          "options": [
+            "Titti",
+            "Silvestro",
+            "Nonnina"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/NjY4YjEzOGMtNzQ2MS00ZDc3LThlMmYtMjc3YjhiODBmMWM4_snw_207_mg_0503_0267_rt.jpg?auto=compress,format&rect=0,0,3060,2041&w=3060&h=2041"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1784967953151",
+      "name": "FERENGINAR",
+      "icon": "/img_quiz/giuliano/ferenginar.svg",
+      "gradient": [
+        "#008000",
+        "#00c800"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Cosa?",
+          "options": [
+            "Dentista",
+            "Podologo",
+            "Otorino"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/OGI0Njc2NjAtM2FiZi00OWU1LWJmNGItMTA3ZWRkNTliNjU4_ferengi_marauders_thumbnail.jpg?auto=compress,format&rect=0,0,1920,1080&w=1920&h=1080"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Pssssss",
+          "options": [
+            "Aaa",
+            "Bbb",
+            "Ccc"
+          ],
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/star-trek-quark-ferengi-family-actors-no-return.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Cameriere!",
+          "options": [
+            "Fame",
+            "Sete",
+            "Sonno"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/fd3a695f-7dbf-4589-84ec-4635a62d7cf9_LD_406_0046_f.jpg?auto=compress,format"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1784967967082",
+      "name": "AFRODITE",
+      "icon": "/img_quiz/giuliano/afrodite.svg",
+      "gradient": [
+        "#ff8000",
+        "#c84b00"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Cosa",
+          "options": [
+            "Nutella",
+            "Marmellata",
+            "Burro di Arachidi"
+          ],
+          "correct": "A",
+          "image": "https://ussafrodite.vercel.app/images/padd/padd_4g.jpg"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Dove",
+          "options": [
+            "Woodstock",
+            "Madison Square",
+            "Chicago"
+          ],
+          "correct": "A",
+          "image": "https://ussafrodite.vercel.app/images/log/M01_L1a.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Come?",
+          "options": [
+            "Diavola",
+            "Quattro Stagioni",
+            "Capricciosa"
+          ],
+          "correct": "A",
+          "image": "https://ussafrodite.vercel.app/images/crew/bliss.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1784967979847",
+      "name": "TRAPPOLONE 1",
+      "icon": "/img_quiz/giuliano/trappolone-1.svg",
+      "gradient": [
+        "#000000",
+        "#ff0000"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Ahahahah",
+          "options": [
+            "Ecco",
+            "Fatto",
+            "Moriremo"
+          ],
+          "correct": "A",
+          "image": "https://cdn.arstechnica.net/wp-content/uploads/2018/12/trek5.jpg"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Chi?",
+          "options": [
+            "Tom",
+            "Jerry",
+            "Spike"
+          ],
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/09/star-trek-lower-decks-moopsy.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Magara",
+          "options": [
+            "Ops",
+            "Nops",
+            "Anops"
+          ],
+          "correct": "A",
+          "image": "https://parade.com/.image/ODowMDAwMDAwMDAxNTM4NTgw/starfleet-academy-103-28-1538580.jpg?profile=w1536&x=50&y=50"
+        }
+      ],
+      "type": "blind"
+    },
+    {
+      "id": "materia_1784967990976",
+      "name": "TRAPPOLONE 2",
+      "icon": "/img_quiz/giuliano/trappolone-2.svg",
+      "gradient": [
+        "#ff0000",
+        "#000000"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Noooooo",
+          "options": [
+            "Ponte",
+            "Ponente",
+            "Ponteppì"
+          ],
+          "correct": "A",
+          "image": "https://parade.com/.image/ODowMDAwMDAwMDAxNTUxMjE2/star-trek-starfleet-academy-104-1-1551216.jpg?profile=w1536&ar=4-3&x=50&y=50"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Domanda...2",
+          "options": [
+            "Bianco",
+            "Rosso",
+            "Verdone"
+          ],
+          "correct": "A",
+          "image": "https://clip.cafe/clipimg/it-a-destructive-force.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Come?",
+          "options": [
+            "Morti",
+            "Vivi",
+            "Dispersi"
+          ],
+          "correct": "A",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2025/12/uss-athena-starfleet-academy.jpg?q=49&fit=crop&w=825&dpr=2"
+        }
+      ],
+      "type": "blind"
+    },
+    {
+      "id": "materia_1784968000780",
+      "name": "MIRROR MIRROR",
+      "icon": "/img_quiz/giuliano/mirror-mirror.svg",
+      "gradient": [
+        "#960000",
+        "#4b0000"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Carol",
+          "options": [
+            "Alice",
+            "In",
+            "Wonderland"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/YmM5NjVkYTItYTkyYi00MGM1LThkMDQtNzc4MjQzMzRkYzY2_mv5bymjhognjntctymfhnc00mtvklwjloditymjky2flodzintc1xkeyxkfqcgdeqxvymzq2mduxmtg._v1_.jpg?auto=compress,format&rect=0,0,1600,1085&w=1600&h=1085"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Chi?",
+          "options": [
+            "Maria",
+            "Consuelo",
+            "Rosario"
+          ],
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2018/01/Star-Trek-Discovery-Mirror-Universe-Georgiou.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Oooohhhh",
+          "options": [
+            "Dai",
+            "Su",
+            "Spicciati"
+          ],
+          "correct": "A",
+          "image": "https://comicvine.gamespot.com/a/uploads/original/1/17981/2080901-uhura_distracts_hikaru_sulu__mirror_.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1784968015753",
+      "name": "IL DOMINIO",
+      "icon": "/img_quiz/giuliano/il-dominio.svg",
+      "gradient": [
+        "#4b4b4b",
+        "#004b00"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Quando?",
+          "options": [
+            "Buon giorno",
+            "Buona sera",
+            "Buona notte"
+          ],
+          "correct": "A",
+          "image": "https://fwmedia.fandomwire.com/wp-content/uploads/2025/08/13064133/sisko-1536x768.jpg"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Chi?",
+          "options": [
+            "Mamma",
+            "Sorella",
+            "Zia"
+          ],
+          "correct": "A",
+          "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/11/the-female-changeling-standing-against-a-cave-wall-on-star-trek-deep-space-nine-1.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Dove?",
+          "options": [
+            "Io",
+            "Non",
+            "So"
+          ],
+          "correct": "A",
+          "image": "https://s-media-cache-ak0.pinimg.com/originals/0f/1d/06/0f1d06e5fd082dc540ff8f04ee261bde.jpg"
+        }
+      ],
+      "type": "normal"
+    }
+  ],
+  "title": "Giuliano",
+  "imagePrefix": "giuliano"
+}
