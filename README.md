@@ -93,9 +93,21 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 | Evento | Effetto |
 |---|---|
 | Risposta corretta | Giocatore di turno +N punti (N = valore domanda) |
-| Risposta errata | Tutti gli **altri** giocatori +250 punti fissi |
-| RISKIO! (valori domanda) | 200, 500, 1000 punti |
-| Penalità errore RISKIO! | Uguale alle altre: +250 agli avversari |
+| Risposta errata | Tutti gli **altri** giocatori +50 punti (+250 se categoria Riskio) |
+
+### Categoria Blind (Punti Nascosti)
+Le domande di tipo Blind nascondono il proprio valore reale con dei punti interrogativi sul tabellone e sul popup di gioco in base al loro ordine:
+- Prima domanda: `?`
+- Seconda domanda: `??`
+- Terza domanda: `???`
+
+La dinamica dei punteggi per la categoria Blind è la seguente:
+- **Se la domanda ha un valore positivo (es. +250 punti)**:
+  - **Risposta corretta**: Il giocatore di turno guadagna i punti della domanda (+250).
+  - **Risposta errata**: Tutti gli **altri** giocatori guadagnano **+150 punti** fissi.
+- **Se la domanda ha un valore negativo (es. -500 punti)**:
+  - **Risposta corretta**: Il giocatore di turno perde i punti della domanda (-500).
+  - **Risposta errata**: Tutti gli **altri** giocatori perdono **-250 punti** fissi.
 
 ---
 

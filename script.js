@@ -1,6 +1,6 @@
 /* ============================================================
-   TRIVIA TREK — script.js
-   Game Logic
+   TRIVIA TREK v.2.5 — script.js
+   Logica di Gioco
    ============================================================ */
 
 'use strict';
@@ -264,14 +264,14 @@ function buildCategoryCard(cat) {
 
   const isBlind = cat.type === 'blind';
 
-  cat.questions.forEach(q => {
-    const btn = document.createElement('button');
-    btn.className = 'point-btn';
-    btn.textContent = isBlind ? '?' : q.points;
+  cat.questions.forEach((q, idx) => {
+    const btn = document.createElement("button");
+    btn.className = "point-btn";
+    btn.textContent = isBlind ? "?".repeat(idx + 1) : q.points;
     btn.dataset.catId   = cat.id;
     btn.dataset.points  = q.points;
-    btn.id = `btn-${cat.id}-${q.points}`;
-    btn.addEventListener('click', () => openQuestion(cat, q));
+    btn.id = "btn-" + cat.id + "-" + q.points;
+    btn.addEventListener("click", () => openQuestion(cat, q));
     pointsRow.appendChild(btn);
   });
 
@@ -299,8 +299,9 @@ function openQuestion(cat, q) {
 
   $('q-category-label').textContent = cat.name;
   
-  const isBlind = cat.type === 'blind';
-  $('q-points-label').textContent = isBlind ? '?' : q.points + ' PT';
+  const isBlind = cat.type === "blind";
+  const idx = cat.questions.indexOf(q);
+  $("q-points-label").textContent = isBlind ? "?".repeat(idx + 1) : q.points + " PT";
 
   const iconImg = $('q-category-icon');
   if (iconImg) {
