@@ -395,12 +395,16 @@ function handleAnswer(chosen) {
   let resultText, awardsText;
   if (isCorrect) {
     state.players[state.currentIndex].score += state.currentPoints;
-    playAudio('ok');
-    resultText = '<i class="fa-solid fa-circle-check"></i> RIGHT!';
-    awardsText = `+${state.currentPoints} PUNTI <i class="fa-solid fa-angle-right"></i> ${escHtml(state.players[state.currentIndex].name)}`;
+    playAudio("ok");
+    resultText = "<i class=\"fa-solid fa-circle-check\"></i> RIGHT!";
+    if (state.currentPoints >= 0) {
+      awardsText = "+" + state.currentPoints + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + escHtml(state.players[state.currentIndex].name);
+    } else {
+      awardsText = "Il giocatore " + escHtml(state.players[state.currentIndex].name) + " perde " + Math.abs(state.currentPoints) + " punti";
+    }
   } else {
-    const isRiskio = cat ? (cat.isRiskio || cat.type === 'riskio') : false;
-    const pts = isBlind ? state.currentPoints : (isRiskio ? 250 : 50);
+    const isRiskio = cat ? (cat.isRiskio || cat.type === "riskio") : false;
+    const pts = isBlind ? (state.currentPoints >= 0 ? 150 : -250) : (isRiskio ? 250 : 50);
     const winners = [];
     state.players.forEach((p, i) => {
       if (i !== state.currentIndex) {
@@ -408,9 +412,15 @@ function handleAnswer(chosen) {
         winners.push(p.name);
       }
     });
-    playAudio('wrong');
-    resultText = '<i class="fa-solid fa-circle-xmark"></i> WRONG!';
-    awardsText = `+${pts} PUNTI <i class="fa-solid fa-angle-right"></i> ${winners.map(escHtml).join(', ')}`;
+    playAudio("wrong");
+    resultText = "<i class=\"fa-solid fa-circle-xmark\"></i> WRONG!";
+    if (pts >= 0) {
+      awardsText = "+" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
+    } else {
+      const labelGiocatori = winners.length === 1 ? "Il giocatore " : "I giocatori ";
+      const labelPerde = winners.length === 1 ? " perde " : " perdono ";
+      awardsText = labelGiocatori + winners.map(escHtml).join(", ") + labelPerde + Math.abs(pts) + " punti";
+    }
   }
 
   // Show result
