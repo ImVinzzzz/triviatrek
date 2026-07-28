@@ -5,43 +5,43 @@
       "name": "COMANDO",
       "icon": "/img_quiz/giuliano/comando.svg",
       "gradient": [
-        "#b42828",
+        "#ff0000",
         "#e61e1e"
       ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Chi era il Capitano della U.S.S. Enterprise C?",
+          "text": "Chi",
           "options": [
-            "John Harriman",
-            "Rachel Garrett",
-            "Spock"
+            "Tizio",
+            "Caio",
+            "Sempronio"
           ],
-          "correct": "B",
-          "image": "https://mahannahsscifiuniverse.com/cdn/shop/articles/star-trek-ship-bio-the-uss-enterprise-ncc-1701-c-782789_1512x.jpg?v=1661648427"
+          "correct": "A",
+          "image": "https://tse4.mm.bing.net/th/id/OIP.GoWAHmUO3T1CA6x8sxKhFwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
         },
         {
           "points": 250,
-          "text": "Cosa si intende per \"Allerta Blu\"?",
+          "text": "Dove?",
           "options": [
-            "Quando si usa un team specializzato o si iniziano le manovre d'attracco ad una stazione spaziale",
-            "Quando una nave stellare viene invasa dai puffi",
-            "Viene usata sulla U.S.S. Discovery quando attiva la propulsione a spore"
+            "Qui",
+            "Là",
+            "No"
           ],
           "correct": "A",
-          "image": "https://m.media-amazon.com/images/I/71Fjbv7uAjL.jpg"
+          "image": "https://wallpaperaccess.com/full/168150.jpg"
         },
         {
           "points": 500,
-          "text": "Nell'episodio DS9:\"Chiamata alle armi\", il capitano Sisko mina la zona intorno al Tunnel Spaziale, perché lo fa?",
+          "text": "Perché?",
           "options": [
-            "Per proteggere Bajor da un invasione imminente",
-            "Per evitare che il Dominio riesca a inviare rinforzi",
-            "Per attirare la flotta cardassiana in una trappola"
+            "Sì",
+            "No",
+            "Forse"
           ],
-          "correct": "B",
-          "image": "https://m.media-amazon.com/images/I/71Fjbv7uAjL.jpg"
+          "correct": "A",
+          "image": "https://wallpapercave.com/wp/TZq5FHQ.jpg"
         }
       ],
       "type": "normal"
@@ -51,43 +51,43 @@
       "name": "SCIENZA",
       "icon": "/img_quiz/giuliano/scienza.svg",
       "gradient": [
-        "#286e64",
+        "#00c8c8",
         "#008080"
       ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Qual è stato il risultato dell'incidente del teletrasporto su Nervala IV?",
+          "text": "Quando?",
           "options": [
-            "La creazione di Tuvix",
-            "La creazione di Thomas Riker",
-            "La moltiplicazione dei barattoli di Nutella"
+            "Sempre",
+            "Mai",
+            "Ieri"
           ],
-          "correct": "B",
-          "image": "https://cdnb.artstation.com/p/assets/images/images/043/745/365/4k/donny-versiga-tuc-transporter-01.jpg?1638164371"
+          "correct": "A",
+          "image": "https://trekmovie.com/wp-content/uploads/2024/03/snw-s3-preview-sciencelab.jpg"
         },
         {
           "points": 250,
-          "text": "Il dispositivo di occultamento è utilizzato da molte razze. Se due navi spaziali occultate si incontrano, cosa succede?",
+          "text": "Lui?",
           "options": [
-            "Rimangono invisibili l'una all'altra",
-            "Si fanno \"ciao ciao\" con le luci di posizione",
-            "Emettono un segnale passivo di sicurezza nello spazio per evitare collisioni"
+            "Luigi",
+            "Mario",
+            "Yoshi"
           ],
           "correct": "A",
-          "image": "https://startrekfleetcommand.com/wp-content/uploads/2021/10/Ship-Cloaking.png"
+          "image": "https://i.pinimg.com/originals/c5/83/43/c583431177c5b1a1fb7ef74276d06b73.jpg"
         },
         {
           "points": 500,
-          "text": "Quale è l'effetto catastrofico della Molecola Omega che ha dato origine alla Direttiva Omega?",
+          "text": "Chi?",
           "options": [
-            "La destabilizzazione distrugge in modo permanente il sub-spazio in un raggio di svariati anni luce",
-            "La destabilizzazione emette un'onda di shock gravitazionale che ripiega lo spazio-tempo",
-            "La destabilizzazione genera una singolarità quantistica artificiale che squarcia la barriera dello spazio-tempo attirando specie da altre dimensioni"
+            "Lorem",
+            "Ipsum",
+            "Dolor"
           ],
           "correct": "A",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/OmegaDirective.png?_=20190121080859"
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/08/star-trek-voyager-a.jpg"
         }
       ],
       "type": "normal"
@@ -97,43 +97,43 @@
       "name": "MEDICINA",
       "icon": "/img_quiz/giuliano/medicina.svg",
       "gradient": [
-        "#286e64",
+        "#00c8c8",
         "#008080"
       ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Nell'episodio TNG:\"Genesis\", un retrovirus sintetico si diffonde su tutta la nave. Cosa succede all'equipaggio?",
+          "text": "Cosa?",
           "options": [
-            "Si trasformano in Umpa-Lumpa",
-            "Si trasformano in Reginald Barclay",
-            "Si trasformano in creature primordiali"
+            "Bho!",
+            "Forse",
+            "Chi lo sa"
           ],
-          "correct": "C",
-          "image": "https://fansets.myshopify.com/cdn/shop/files/IMG_5736_a09149ea-1381-4d45-abce-5e949bcaa98e_1024x.jpg?v=1726864824"
+          "correct": "A",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2023/08/star-trek-medicine-biobed.jpg?w=1600&h=900&fit=crop"
         },
         {
           "points": 250,
-          "text": "Nell'episodio VOY:\"Tinker, Tenor, Doctor, Spy\", il Dottore modifica le sue sub-routine per darsi la possibilità di sognare a occhi aperti. Quale caratteristica speciale ottiene il Dottore in questi suoi sogni?",
+          "text": "Ma che, davero?",
           "options": [
-            "Diviene un famosissimo cantante d'opera di enorme talento",
-            "Diviene un seduttore corteggiato da tutte le donne",
-            "Diviene l'Ologramma Medico di Comando (ECH)"
+            "Naaaaa",
+            "Neeeee",
+            "Nuuuuu"
           ],
-          "correct": "C",
-          "image": "https://fansets.myshopify.com/cdn/shop/files/IMG_5736_a09149ea-1381-4d45-abce-5e949bcaa98e_1024x.jpg?v=1726864824"
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/01/admiral-pike-future-strange-new-worlds.jpg"
         },
         {
-          "points": 1000,
-          "text": "Cos'è la Nehret?",
+          "points": 500,
+          "text": "Domanda...",
           "options": [
-            "Una malattia mortale nei Vulcaniani che porta a disordini emozionali e sbalzi d'umore",
-            "Una malattia mortale nei Klingon che viene spesso scambiata per vecchiaia",
-            "Una malattia mortale nei Vidiani che porta alla necrosi delle cellule"
+            "Cipolla",
+            "Zucchine",
+            "Rutabaga"
           ],
-          "correct": "B",
-          "image": "https://fansets.myshopify.com/cdn/shop/files/IMG_5736_a09149ea-1381-4d45-abce-5e949bcaa98e_1024x.jpg?v=1726864824"
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/Zo-CQR5LeNNTxA-S_st-tvh-remaster-bluray-0913.jpg?auto=format,compress"
         }
       ],
       "type": "normal"
@@ -144,42 +144,42 @@
       "icon": "/img_quiz/giuliano/tattica.svg",
       "gradient": [
         "#bebe00",
-        "#ffc800"
+        "#ffff00"
       ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "A cosa serve l'adattatore Phaser?",
+          "text": "Chi?",
           "options": [
-            "A variare a random il settaggio del phaser per combattere i Borg",
-            "A variare il colore del raggio phaser",
-            "A variare l'intensità della luce del raggio phaser"
+            "Qui",
+            "Quo",
+            "Qua"
           ],
           "correct": "A",
-          "image": "https://i.etsystatic.com/8526422/r/il/959599/5182617388/il_fullxfull.5182617388_gw64.jpg"
+          "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/08/star-trek-strange-new-worlds-s2-pike-1.jpeg"
+        },
+        {
+          "points": 250,
+          "text": "Chi?",
+          "options": [
+            "Pippo",
+            "Pluto",
+            "Paperino"
+          ],
+          "correct": "A",
+          "image": "https://mlpnk72yciwc.i.optimole.com/cqhiHLc.IIZS~2ef73/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2025/07/SFA_105_BP_1111_0365_RT.jpg"
         },
         {
           "points": 500,
-          "text": "Da una postazione tattica si ha accesso ai phaser, ai siluri e agli scudi, ma si ha anche accesso a cos'altro?",
+          "text": "La treeeee",
           "options": [
-            "Ai motori a curvatura",
-            "Ai sensori interni e lungo raggio",
-            "Al teletrasporto"
+            "No no",
+            "Sì sì",
+            "Anche no"
           ],
           "correct": "B",
-          "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/24620250/enterprise_bridge_d.jpg?quality=90&strip=all&crop=0.59261300992282,0,98.814773980154,100"
-        },
-        {
-          "points": 1000,
-          "text": "Durante la Guerra del Dominio, le navi dei Jem'Hadar erano in grado di penetrare gli scudi delle navi della Federazione senza problemi. Quale tattica d'emergenza fu pensata per ovviare almeno temporaneamente al problema?",
-          "options": [
-            "I generatori degli scudi vennero riconfigurati per emettere una barriera a fase asincrona",
-            "Si utilizzò la \"Rotazione di Frequenza degli Scudi\" casuale e automatizzata",
-            "La Federazione creò una griglia di difesa tachionica in grado di annullare gli effetti delle armi del Dominio"
-          ],
-          "correct": "B",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGTkkTE7DN4aodd0xGrIiA_rVc7W-eDjnlIQBPoAiSBMpSiM-HmkT_tZA&s=10"
+          "image": "https://i.pinimg.com/originals/70/86/5c/70865cb8f9a1ef82cd2df5d0595891b2.jpg"
         }
       ],
       "type": "normal"
@@ -190,42 +190,42 @@
       "icon": "/img_quiz/giuliano/ingegneria.svg",
       "gradient": [
         "#bebe00",
-        "#ffc800"
+        "#ffff00"
       ],
       "isRiskio": false,
       "questions": [
         {
-          "points": 100,
-          "text": "Cosa non è presente nell'ingegneria in una nave stellare",
-          "options": [
-            "Il motore a curvatura",
-            "Le consolle tecniche",
-            "Spazzolone e straccio"
-          ],
-          "correct": "C",
-          "image": "https://static.wikia.nocookie.net/sto_gamepedia/images/5/53/SCE_patch.png/revision/latest?cb=20120409234222"
-        },
-        {
           "points": 250,
-          "text": "Come si chiamava la nave che precipitò contro la sfera di Dyson e che trasportava Montgomery Scott?",
+          "text": "Chi?",
           "options": [
-            "U.S.S. Jenolan",
-            "U.S.S. Reliant",
-            "U.S.S. Orville"
+            "Uno",
+            "Due",
+            "Tre"
           ],
           "correct": "A",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE-bEmvnY1UoHjwos8gx2h2AwO_GLBZyn3aRMC8k69vbVE49UHuPXNDGdP&s=10"
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/11/Star-Trek-engineering.jpg"
         },
         {
           "points": 500,
-          "text": "Come descrisse O'Brian la stazione DS9 a Sisko durante una delle prime puntate?",
+          "text": "Dove?",
           "options": [
-            "\"Una gigantesca trappola per topi fluttuante\"",
-            "\"Un vecchio impianto di lavorazione minerario tenuto insieme a stento\"",
-            "\"Una vecchia fabbrica di specchi abbandonata nello spazio\""
+            "Stella",
+            "Pianeta",
+            "Asteroide"
           ],
           "correct": "A",
-          "image": "https://media.wired.com/photos/5932555e2a990b06268a9da7/3:2/w_2560%2Cc_limit/STDS9.jpg"
+          "image": "https://cdnb.artstation.com/p/assets/images/images/025/157/717/4k/donny-versiga-screenshot-enterprise-engineering-twok-o-deck-03.jpg?1584833619"
+        },
+        {
+          "points": 1000,
+          "text": "Ciccio",
+          "options": [
+            "A",
+            "B",
+            "D"
+          ],
+          "correct": "A",
+          "image": "https://forgottentrek.com/the-next-generation/designing-the-next-generations-engineering/images/Enterprise-D-engineering-2.jpg"
         }
       ],
       "type": "normal"
@@ -235,43 +235,43 @@
       "name": "QO'NOS",
       "icon": "/img_quiz/giuliano/qo-nos.svg",
       "gradient": [
-        "#000000",
-        "#ff0000"
+        "#ff0096",
+        "#b44b82"
       ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Chi è stato l'unificatore della razza Klingon contro la Federazione ed è morto nella battaglia della stella binaria?",
+          "text": "E uno",
           "options": [
-            "T'Kumbra",
-            "T'Kuvma",
-            "T'Chumbia"
+            "Vino",
+            "Birra",
+            "Acqua"
           ],
-          "correct": "B",
-          "image": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/KlingonInsignia.svg/1280px-KlingonInsignia.svg.png"
+          "correct": "A",
+          "image": "https://comicvine.gamespot.com/a/uploads/original/13/132327/3076095-qo__nos_dreamer_by_davemetlesits.jpg"
         },
         {
           "points": 250,
-          "text": "Il Brak'lul è un termine klingon che designa",
+          "text": "Ecco a voi...",
           "options": [
-            "Il fatto che nella fisiologia Klingon ci siano un insieme di organi doppi ridondanti",
-            "Il fatto che nella storia Klingon si parli di Kahless",
-            "Il fatto che nelle trattorie Klingon si mangi il Gagh"
+            "Papo",
+            "Pipo",
+            "Pepo"
           ],
           "correct": "A",
-          "image": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/KlingonInsignia.svg/1280px-KlingonInsignia.svg.png"
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/08/Star-Trek-Klingon-martial-arts.jpg"
         },
         {
           "points": 500,
-          "text": "Nel 24esimo secolo quante erano le grandi case Klingon?",
+          "text": "Bho!",
           "options": [
-            "15",
-            "18",
-            "24"
+            "Cinque",
+            "Otto",
+            "Venticinque"
           ],
-          "correct": "C",
-          "image": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/KlingonInsignia.svg/1280px-KlingonInsignia.svg.png"
+          "correct": "A",
+          "image": "https://i.pinimg.com/originals/00/dd/f3/00ddf360c5f5561c35220a522a020e9c.jpg"
         }
       ],
       "type": "normal"
@@ -281,44 +281,44 @@
       "name": "ROMULUS",
       "icon": "/img_quiz/giuliano/romulus.svg",
       "gradient": [
-        "#1c0b9d",
-        "#009646"
+        "#006432",
+        "#00ff00"
       ],
       "isRiskio": false,
       "type": "normal",
       "questions": [
         {
           "points": 100,
-          "text": "Come si chiamava il commodoro rivelatosi poi una spia Vulcaniana in Star Trek Picard?",
+          "text": "Ah ah!",
           "options": [
-            "Ah",
-            "Oh",
-            "Uh"
+            "Brutti",
+            "Cattivi",
+            "Stronzi"
           ],
-          "correct": "B",
-          "image": "https://www.ex-astris-scientia.org/inconsistencies/emblems/romulan-emblem-17.png"
+          "correct": "A",
+          "image": "https://www.denofgeek.com/wp-content/uploads/2020/01/star-trek-nemesis-romulus.jpg?fit=1600%2C800"
         },
         {
           "points": 250,
-          "text": "Sela era la figlia di Tasha Yar e un generale romulano. In quale episodio appare per la prima volta?",
+          "text": "Chi?",
           "options": [
-            "Il Segreto di Spock",
-            "La via di Klingon",
-            "L'enterprise del passato"
+            "Tulipano",
+            "Margherita",
+            "Ranuncolo"
           ],
-          "correct": "B",
-          "image": "https://static.wikia.nocookie.net/memoryalpha/images/4/49/Sela.jpg/revision/latest?cb=20130508195150&path-prefix=en"
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/ZmVhZDkwMDctM2Q2Yy00ZjMxLTg0NjMtZGY3MzNiZTlhNjQy_alidar_jarok.jpg?auto=compress%2Cformat&rect=0%2C0%2C1800%2C1358&h=1358&width=3840"
         },
         {
           "points": 500,
-          "text": "Quale razza della Federazione può donare sangue ai Romulani oltre ai Vulcaniani?",
+          "text": "Chi?",
           "options": [
-            "I Betazoidi",
-            "I Klingon",
-            "I Tellariti"
+            "Rosso",
+            "Giallo",
+            "Blu"
           ],
-          "correct": "B",
-          "image": "https://www.ex-astris-scientia.org/inconsistencies/emblems/romulan-emblem-17.png"
+          "correct": "A",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/05/collage-maker-17-may-2023-05-15-pm-7832.jpg"
         }
       ]
     },
@@ -327,54 +327,54 @@
       "name": "VULCANO",
       "icon": "/img_quiz/giuliano/vulcano.svg",
       "gradient": [
-        "#d6b81f",
-        "#fbff00"
+        "#003280",
+        "#0032ff"
       ],
       "isRiskio": false,
       "questions": [
         {
           "points": 100,
-          "text": "Oltre a Spock, quale di questi è un famosissimo Vulcaniano?",
+          "text": "Cosa?",
           "options": [
-            "Surak",
-            "T'Mik",
-            "Valeris"
+            "Mangia",
+            "Prega",
+            "Ama"
           ],
           "correct": "A",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/IDIC.png"
+          "image": "https://screenrant.com/wp-content/uploads/startrek-vulcans-spock.jpg"
         },
         {
           "points": 250,
-          "text": "Neelix scopre un'antica festa Vulcaniana. Cosa facevano i Vulcaniani durante il \"Rumarie\"?",
+          "text": "Perché?",
           "options": [
-            "Inseguivano le galline armati solo con dei retini",
-            "Si inseguivano tra loro per colpirsi con la pietra di Gol",
-            "Si inseguivano tra loro semi nudi ricoperti da grasso"
+            "Cazzi miei!",
+            "Cazzi miei!",
+            "Cazzi miei!"
           ],
-          "correct": "C",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/IDIC.png"
+          "correct": "A",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/05/tos-surak-in-star-trek.jpg"
         },
         {
           "points": 500,
-          "text": "Quanti anni potevano volerci al massimo per il training per il Kolinahar?",
+          "text": "Ecco",
           "options": [
-            "Due o più",
-            "Quattro o più",
-            "Sei o più"
+            "Bango",
+            "Bingo",
+            "Bongo"
           ],
-          "correct": "C",
-          "image": "https://forgottentrek.com/the-original-series/creating-planet-vulcan/images/Vulcan-concept-art-25.jpg"
+          "correct": "A",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/05/t-pol-enterprise-star-trek.jpg"
         }
       ],
       "type": "normal"
     },
     {
-      "id": "materia_1784938017017",
+      "id": "materia_1784967926430",
       "name": "ARMI",
       "icon": "/img_quiz/giuliano/armi.svg",
       "gradient": [
-        "#bebe00",
-        "#ffc800"
+        "#323200",
+        "#0a0a00"
       ],
       "isRiskio": false,
       "isNew": true,
@@ -382,49 +382,49 @@
         {
           "points": 100,
           "isRiskio": false,
-          "text": "Quale di questi sistemi faceva parte dele difese planetarie del Sistema Solare?",
+          "text": "Mah!",
           "options": [
-            "Il nulla cosmico",
-            "Un potentissimo scudo di difesa",
-            "Il perimetro di difesa di Marte"
-          ],
-          "correct": "C",
-          "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/83aec17d-b7b3-4f8d-b006-9cec19625c76/deyxfj-7e7e449e-1331-4eb8-9572-38493fb22899.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi84M2FlYzE3ZC1iN2IzLTRmOGQtYjAwNi05Y2VjMTk2MjVjNzYvZGV5eGZqLTdlN2U0NDllLTEzMzEtNGViOC05NTcyLTM4NDkzZmIyMjg5OS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.w9pG0hFcdZ71hDOynfj-uokUD5QXhtagEV7gyPbMays"
-        },
-        {
-          "points": 1000,
-          "isRiskio": false,
-          "text": "Cosa è la Ushaan-tor?",
-          "options": [
-            "Un arma usata dai minatori di ghiaccio Andoriani",
-            "Un pugnale da combattimento Klingon",
-            "Un arma da combattimento favorita dai Jem'Hadar"
+            "Sì",
+            "No",
+            "Forse"
           ],
           "correct": "A",
-          "image": "https://static.wikia.nocookie.net/memoryalpha/images/5/54/Blade_weapons.jpg/revision/latest?cb=20210820144004&path-prefix=en"
+          "image": "https://www.slashfilm.com/img/gallery/the-difference-between-star-treks-photon-torpedos-and-quantum-torpedos-in-plain-english/l-intro-1687299782.jpg"
         },
         {
-          "points": 1500,
+          "points": 250,
           "isRiskio": false,
-          "text": "Quale è massimo raggio d'azione di un siluro fotonico?",
+          "text": "Se insisti",
           "options": [
-            "400 Kilometri",
-            "300.000 Kilometri",
-            "10.000 Kilometri"
+            "Nonno",
+            "Zio",
+            "Cugino"
           ],
-          "correct": "B",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX58wCKhkXgaFEq1oSqlXUR6fx7oIaTNyxCIp4PL8vk3VfNK29JWnR9-0P&s=10"
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/04/Picard-and-Riker-fire-their-phasers-in-the-Conspiracy-episode-of-Star-Trek-The-Next-Generation.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Mhhhhhh",
+          "options": [
+            "Lui",
+            "Loro",
+            "Lara"
+          ],
+          "correct": "A",
+          "image": "https://wallpapers.com/images/hd/star-trek-into-darkness-leonard-mccoy-tuc3yzjqcp0l0yoi.jpg"
         }
       ],
       "type": "normal"
     },
     {
-      "id": "materia_1784940735100",
+      "id": "materia_1784967937177",
       "name": "CULTURA GENERALE",
       "icon": "/img_quiz/giuliano/cultura-generale.svg",
       "gradient": [
-        "#ff85ba",
-        "#bc57ff"
+        "#8000b4",
+        "#320064"
       ],
       "isRiskio": false,
       "isNew": true,
@@ -432,49 +432,49 @@
         {
           "points": 100,
           "isRiskio": false,
-          "text": "A che razza appartiene Kira Nerys?",
+          "text": "Cosa?",
           "options": [
-            "Ai Vulcaniani",
-            "Ai Cardassiani",
-            "Ai Bajoriani"
+            "Strange",
+            "New",
+            "Worlds"
           ],
-          "correct": "C",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAGJmTclD8EhBNdRirLAYc1tt_7r-rlM11wI_F7xYq74ab2wKAUFnKF48&s=10"
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/aCVoeydWJ-7kSIgZ_SNWS3_ENSEMBLE_PR_HORZ_16x9_3840x2160-CLEAN.jpg?auto=format,compress"
         },
         {
           "points": 250,
           "isRiskio": false,
-          "text": "Quale razza dava filo da torcere ai Borg, tanto che la descrivevano come all'apice dell'evoluzione biologica?",
+          "text": "Op op op",
           "options": [
-            "Specie 8472",
-            "Specie 3783",
-            "Specie 478"
+            "Veni",
+            "Vidi",
+            "Vici"
           ],
           "correct": "A",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAGJmTclD8EhBNdRirLAYc1tt_7r-rlM11wI_F7xYq74ab2wKAUFnKF48&s=10"
+          "image": "https://mlpnk72yciwc.i.optimole.com/cqhiHLc.WqA8~2eefa/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2022/06/SNW_109_MG_09_30_21__049544_RT.jpg"
         },
         {
-          "points": 1000,
+          "points": 500,
           "isRiskio": false,
-          "text": "Ogni 50.000 anni, tutti gli Horta muoiono tranne uno: la madre, che deve proteggere le uova fino alla schiusa. In quale luogo sotterraneo sono custodite queste uova?",
+          "text": "Loro",
           "options": [
-            "Nella Camera delle Ere",
-            "Nella cripta di Domani",
-            "Nella Cripta di Janus"
+            "Titti",
+            "Silvestro",
+            "Nonnina"
           ],
-          "correct": "B",
-          "image": "https://static.wikia.nocookie.net/memoryalpha/images/1/12/Horta.jpg/revision/latest/scale-to-width-down/1200?cb=20110626014559&path-prefix=en"
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/NjY4YjEzOGMtNzQ2MS00ZDc3LThlMmYtMjc3YjhiODBmMWM4_snw_207_mg_0503_0267_rt.jpg?auto=compress,format&rect=0,0,3060,2041&w=3060&h=2041"
         }
       ],
       "type": "normal"
     },
     {
-      "id": "materia_1784940957259",
+      "id": "materia_1784967953151",
       "name": "FERENGINAR",
       "icon": "/img_quiz/giuliano/ferenginar.svg",
       "gradient": [
-        "#387a55",
-        "#098b4e"
+        "#008000",
+        "#00c800"
       ],
       "isRiskio": false,
       "isNew": true,
@@ -482,249 +482,249 @@
         {
           "points": 100,
           "isRiskio": false,
-          "text": "Quale è la base della dieta dei Ferenghi?",
+          "text": "Cosa?",
           "options": [
-            "Lumache, invertebrati e pesce",
-            "Muschi e licheni",
-            "Piccoli vertebrati, e noci"
+            "Dentista",
+            "Podologo",
+            "Otorino"
           ],
           "correct": "A",
-          "image": "https://scontent.fyhz1-1.fna.fbcdn.net/v/t1.6435-9/75380191_2869468926399209_4451060275986038784_n.jpg?stp=dst-jpg_tt6&cstp=mx1792x895&ctp=s1792x895&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_ohc=WPu8ajv0PtcQ7kNvwHa2pYj&_nc_oc=Adqa9ZdpeQgPFkP08x0oMk2-S4CQYiwHZG4oqESP4372Lcj5ZYSYxpnp4P0Uo4cyQCw&_nc_zt=23&_nc_ht=scontent.fyhz1-1.fna&_nc_gid=yGJg1_jqojtdnBx2lxsQqw&_nc_ss=7b2a8&oh=00_AQBvNf6YEBbo5j9klh1oWMRjLMfgJOYC0AU1LzmhFaZi3g&oe=6A8F58DA"
+          "image": "https://images.prismic.io/star-trek-untold/OGI0Njc2NjAtM2FiZi00OWU1LWJmNGItMTA3ZWRkNTliNjU4_ferengi_marauders_thumbnail.jpg?auto=compress,format&rect=0,0,1920,1080&w=1920&h=1080"
         },
         {
           "points": 250,
           "isRiskio": false,
-          "text": "Quale delle seguenti azioni NON rientrava tra i divieti o gli obblighi imposti a una donna Ferengi prima delle riforme della fine del XXIV secolo?",
+          "text": "Pssssss",
           "options": [
-            "Firmare un documento di rinuncia a qualsiasi proprietà o profitto del marito in caso di fine del matrimonio",
-            "Imparare a memoria le Regole dell'Acquisizione per poterle insegnare ai figli maschi, dato che alle donne era vietato imparare a leggere",
-            "Essere costrette a sposare l'ufficiale giudiziario se venivano colte a generare profitto"
+            "Aaa",
+            "Bbb",
+            "Ccc"
           ],
-          "correct": "C",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqnVEpH6TTL3pvEc1PL0Ox54iGja5elKWWGvx3wRA88Q&s=10"
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/star-trek-quark-ferengi-family-actors-no-return.jpg"
         },
         {
           "points": 500,
           "isRiskio": false,
-          "text": "Escludendo Lower Decks, quante sono le Regole dell'Aquisizione?",
+          "text": "Cameriere!",
           "options": [
-            "280",
-            "285",
-            "255"
+            "Fame",
+            "Sete",
+            "Sonno"
           ],
-          "correct": "B",
-          "image": "https://images.prismic.io/star-trek-untold/d8080633-9bad-4bfd-91a0-3c44dca252fa_ARTICLE-RULES-OF-ACQUISITION_KEY.png?auto=compress,format"
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/fd3a695f-7dbf-4589-84ec-4635a62d7cf9_LD_406_0046_f.jpg?auto=compress,format"
         }
       ],
       "type": "normal"
     },
     {
-      "id": "materia_1784941134003",
+      "id": "materia_1784967967082",
       "name": "AFRODITE",
       "icon": "/img_quiz/giuliano/afrodite.svg",
       "gradient": [
-        "#8b557d",
-        "#febdff"
+        "#ff8000",
+        "#c84b00"
       ],
       "isRiskio": false,
       "isNew": true,
       "questions": [
         {
-          "points": 250,
+          "points": 100,
           "isRiskio": false,
-          "text": "Nell'infermeria, in che cosa era stato trasformato il MOE?",
+          "text": "Cosa",
           "options": [
-            "In un Mugato",
-            "In un Selhat da guardia",
-            "In un orangutan che urlava OOK OOK"
+            "Nutella",
+            "Marmellata",
+            "Burro di Arachidi"
           ],
-          "correct": "B",
-          "image": "https://ussafrodite.vercel.app/images/afrodite_lcars.png"
+          "correct": "A",
+          "image": "https://ussafrodite.vercel.app/images/padd/padd_4g.jpg"
         },
         {
           "points": 250,
           "isRiskio": false,
-          "text": "All'inizio della Missione 5, accogliamo a bordo un bizzarro nuovo membro dell'equipaggio telecinetico e dal pessimo carattere.  Chi o che cosa è?",
+          "text": "Dove",
           "options": [
-            "Un avvoltoio bavoso con gli occhiali che fluttua su un cuscino magnetico",
-            "Un simbionte racchiuso in una scatola di liquido bianco, affiancato da forbici e asciugamano",
-            "Una cappello parlante che decide in su quale nave spaziale si viene destinati"
+            "Woodstock",
+            "Madison Square",
+            "Chicago"
           ],
-          "correct": "B",
-          "image": "https://ussafrodite.vercel.app/images/afrodite_lcars.png"
+          "correct": "A",
+          "image": "https://ussafrodite.vercel.app/images/log/M01_L1a.jpg"
         },
         {
-          "points": 1000,
+          "points": 500,
           "isRiskio": false,
-          "text": "Nella Missione 4, \"The Voyage Home\", mentre la nave rischiava di essere distrutta dall'attacco dei Borg e la Plancia era in pieno allarme rosso, in cosa erano impegnati l'ufficiale di sicurezza Christian D'Accardi e l'El-Auriana Vanian sul Ponte 15?",
+          "text": "Come?",
           "options": [
-            "Stavano giocando al flipper virtuale \"Cadetto Spaziale\" dalla consolle dell'Infermeria",
-            "Stavano guardando un holofilm romantico mangiando popcorn, del tutto ignari dell'attacco",
-            "Stavano tentando di catturare il cane Anubi fuggito tra i condotti di ventilazione"
+            "Diavola",
+            "Quattro Stagioni",
+            "Capricciosa"
           ],
-          "correct": "B",
-          "image": "https://ussafrodite.vercel.app/images/afrodite_lcars.png"
+          "correct": "A",
+          "image": "https://ussafrodite.vercel.app/images/crew/bliss.jpg"
         }
       ],
       "type": "normal"
     },
     {
-      "id": "materia_1784941712505",
-      "name": "IL TRAPPOLONE 1",
+      "id": "materia_1784967979847",
+      "name": "TRAPPOLONE 1",
       "icon": "/img_quiz/giuliano/trappolone-1.svg",
       "gradient": [
-        "#ffffff",
-        "#ffffff"
+        "#000000",
+        "#ff0000"
       ],
       "isRiskio": false,
       "isNew": true,
       "questions": [
         {
-          "points": 1000,
+          "points": 100,
           "isRiskio": false,
-          "text": "Alcuni agenti operativi scelti dell'Ordine Ossidiano venivano dotati di un particolare impianto cranico integrato nel cervello. A quale scopo principale serviva questo dispositivo?",
+          "text": "Ahahahah",
           "options": [
-            "A resistere meglio alla tortura fisica e psicologica in caso di cattura",
-            "A stabilire un collegamento neurale diretto con la rete di sorveglianza globale di Cardassia",
-            "A cancellare istantaneamente la memoria a lungo termine se interrogati con droghe della verità"
+            "Ecco",
+            "Fatto",
+            "Moriremo"
           ],
           "correct": "A",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjOfEWEcasMlLMn6qVuoJsCjyvJAmBoGdOti4KA3E2rw&s=10"
+          "image": "https://cdn.arstechnica.net/wp-content/uploads/2018/12/trek5.jpg"
         },
         {
-          "points": -500,
+          "points": 250,
           "isRiskio": false,
-          "text": "Quale di queste affermazioni sui Gorn è vera?",
+          "text": "Chi?",
           "options": [
-            "I Gorn possono riprodursi sia tramite deposizione di uova che parto di cuccioli vivi",
-            "I Gorn hanno il sangue verde come i Vulcaniani",
-            "I Gorn provengono da quadrante Gamma e sono spietati cacciatori"
+            "Tom",
+            "Jerry",
+            "Spike"
           ],
           "correct": "A",
-          "image": "https://cdn.mos.cms.futurecdn.net/J7gBpzw3mCZ62R6z2vvmjG.jpg"
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/09/star-trek-lower-decks-moopsy.jpg"
         },
         {
           "points": 500,
           "isRiskio": false,
-          "text": "Chi appare insieme al Dr Zimmerman su Jupiter Station nell'episodio di Voyager \"La linea della vita\"?",
+          "text": "Magara",
           "options": [
-            "Il Dottore e Julian Bashir",
-            "Il Dottore e Deanna Troi",
-            "Il Dottore e Picard"
+            "Ops",
+            "Nops",
+            "Anops"
           ],
-          "correct": "B",
-          "image": "https://static.wikia.nocookie.net/p__/images/e/e7/Dr._Lewis_Zimmerman.jpg/revision/latest?cb=20240604204204&path-prefix=protagonist"
+          "correct": "A",
+          "image": "https://parade.com/.image/ODowMDAwMDAwMDAxNTM4NTgw/starfleet-academy-103-28-1538580.jpg?profile=w1536&x=50&y=50"
         }
       ],
       "type": "blind"
     },
     {
-      "id": "materia_1784941886978",
-      "name": "IL TRAPPOLONE 2",
+      "id": "materia_1784967990976",
+      "name": "TRAPPOLONE 2",
       "icon": "/img_quiz/giuliano/trappolone-2.svg",
       "gradient": [
-        "#5a5e5e",
-        "#646868"
+        "#ff0000",
+        "#000000"
       ],
       "isRiskio": false,
       "isNew": true,
       "questions": [
         {
-          "points": -500,
+          "points": 100,
           "isRiskio": false,
-          "text": "In quale pianeta e in quale sistema nacque Ezri Tigan, la futura Ezri Dax?",
+          "text": "Noooooo",
           "options": [
-            "New Berlin nel sistema 40 Eridani",
-            "New Sydney nel sistema Sappora",
-            "New France nel sistema Sigma Ceti"
-          ],
-          "correct": "B",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShklmWcF1zcLyC_sQQ1PHrBKBjRo2G8-_ndJPUMAEVHQ&s=10"
-        },
-        {
-          "points": 600,
-          "isRiskio": false,
-          "text": "I Bynar sono una razza di umanoidi dalla pelle violacea, nativi del pianeta Bynaus nel sistema Beta Magellan. Tutti gli abitanti del pianeta sono collegati ad un computer centrale. Cosa accade a tutti i neonati di questa specie?",
-          "options": [
-            "Viene asportato parte del cervello per sostituirlo con un processore sinaptico",
-            "Viene impiantato un ricevitore sub-spaziale direttamente nel tronco encefalico",
-            "Viene fusa la corteccia visiva con un buffer di memoria indossabile sul fianco"
+            "Ponte",
+            "Ponente",
+            "Ponteppì"
           ],
           "correct": "A",
-          "image": "https://images8.alphacoders.com/388/thumb-1920-388084.jpg"
+          "image": "https://parade.com/.image/ODowMDAwMDAwMDAxNTUxMjE2/star-trek-starfleet-academy-104-1-1551216.jpg?profile=w1536&ar=4-3&x=50&y=50"
         },
         {
-          "points": -1000,
+          "points": 250,
           "isRiskio": false,
-          "text": "A causa della loro struttura fisica, le menti di quali tra queste specie sono completamente impossibili da leggere per un Betazoide?",
+          "text": "Domanda...2",
           "options": [
-            "Vulcaniani, Romulani, Klingon e Cardassiani",
-            "Ferengi, Breen, Dopteriani e Kaelon",
-            "Umani, Bajoriani, Trill e Benziti"
+            "Bianco",
+            "Rosso",
+            "Verdone"
           ],
-          "correct": "B",
-          "image": "https://images8.alphacoders.com/388/thumb-1920-388084.jpg"
+          "correct": "A",
+          "image": "https://clip.cafe/clipimg/it-a-destructive-force.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Come?",
+          "options": [
+            "Morti",
+            "Vivi",
+            "Dispersi"
+          ],
+          "correct": "A",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2025/12/uss-athena-starfleet-academy.jpg?q=49&fit=crop&w=825&dpr=2"
         }
       ],
       "type": "blind"
     },
     {
-      "id": "materia_1784942136231",
+      "id": "materia_1784968000780",
       "name": "MIRROR MIRROR",
       "icon": "/img_quiz/giuliano/mirror-mirror.svg",
       "gradient": [
-        "#ac3e3e",
-        "#b70606"
+        "#960000",
+        "#4b0000"
       ],
       "isRiskio": false,
       "isNew": true,
       "questions": [
         {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Carol",
+          "options": [
+            "Alice",
+            "In",
+            "Wonderland"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/YmM5NjVkYTItYTkyYi00MGM1LThkMDQtNzc4MjQzMzRkYzY2_mv5bymjhognjntctymfhnc00mtvklwjloditymjky2flodzintc1xkeyxkfqcgdeqxvymzq2mduxmtg._v1_.jpg?auto=compress,format&rect=0,0,1600,1085&w=1600&h=1085"
+        },
+        {
           "points": 250,
           "isRiskio": false,
-          "text": "Nell'universo parallelo dello specchio, cosa successe quando i Vulcaniani atterrarono sul pianeta Terra durante il primo contatto?",
+          "text": "Chi?",
           "options": [
-            "Zefram Cochrane li prese a bastonate",
-            "Zefram Cochrane gli sparò",
-            "Zefram Cochrane li accoltellò"
+            "Maria",
+            "Consuelo",
+            "Rosario"
           ],
-          "correct": "B",
-          "image": "https://images8.alphacoders.com/388/thumb-1920-388084.jpg"
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2018/01/Star-Trek-Discovery-Mirror-Universe-Georgiou.jpg"
         },
         {
           "points": 500,
           "isRiskio": false,
-          "text": "Nell'episodio DS9:\"Attraverso lo specchio\", che carica aveva Kira Nerys su Terok Nor?",
+          "text": "Oooohhhh",
           "options": [
-            "Gerente",
-            "Intendente",
-            "Tenente"
+            "Dai",
+            "Su",
+            "Spicciati"
           ],
-          "correct": "B",
-          "image": "https://images8.alphacoders.com/388/thumb-1920-388084.jpg"
-        },
-        {
-          "points": 1000,
-          "isRiskio": false,
-          "text": "Chi inventò La Cabina dell'Agonia, una delle invenzioni più famose dell'Impero Terrestre?",
-          "options": [
-            "Capitano Gabriel Lorca e il Comandante Saru",
-            "Dottor Leonard McCoy e il Sottotenente Pavel Chekov",
-            "Dottor Phlox e il Maggiore Malcolm Reed"
-          ],
-          "correct": "C",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Pg0YxKQ3K7WTtk54hpCObS9DyLwKJf50Le8RccoUkQ&s=10"
+          "correct": "A",
+          "image": "https://comicvine.gamespot.com/a/uploads/original/1/17981/2080901-uhura_distracts_hikaru_sulu__mirror_.jpg"
         }
       ],
       "type": "normal"
     },
     {
-      "id": "materia_1784942343157",
+      "id": "materia_1784968015753",
       "name": "IL DOMINIO",
       "icon": "/img_quiz/giuliano/il-dominio.svg",
       "gradient": [
-        "#000000",
-        "#1eb859"
+        "#4b4b4b",
+        "#004b00"
       ],
       "isRiskio": false,
       "isNew": true,
@@ -732,93 +732,43 @@
         {
           "points": 100,
           "isRiskio": false,
-          "text": "Quali erano le due razze di servitori del Fondatori?",
+          "text": "Quando?",
           "options": [
-            "I Karemma e i Breen",
-            "I Vorta e i Jem'Hadar",
-            "I Cardassiani e i Dosi"
-          ],
-          "correct": "B",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAgGfPkpdUB3kvb0aotBXGqoHmkwsIbT86rCoJxOe4Jg&s=10"
-        },
-        {
-          "points": 250,
-          "isRiskio": false,
-          "text": "Quale era l'età massima di aspettativa di vita dei Jem'Hadar?",
-          "options": [
-            "10",
-            "13",
-            "15"
-          ],
-          "correct": "C",
-          "image": "https://trekmovie.com/wp-content/uploads/2026/01/ds9-ometiklan.jpg"
-        },
-        {
-          "points": 1000,
-          "isRiskio": false,
-          "text": "Il Senatore Vreenak scopre che il chip di dati cardassiano presentato da Sisko è un falso. Ciononostante, pochi giorni dopo Romulus dichiara ufficialmente guerra al Dominio. Perché invece il Tal Shiar lo ritiene autentico?",
-          "options": [
-            "Perché l'esplosione della navetta distrugge i sistemi della nave, costringendo il Tal Shiar a fidarsi unicamente del verbale d'ispezione preliminare che Vreenak aveva già inviato a Romulus prima di lasciare DS9",
-            "Perché i danni causati dall'esplosione nascondono le imperfezioni della falsificazione portando il Tal Shiar a dedurre che il Dominio abbia assassinato Vreenak per impedirgli di smascherare i loro piani di invasione",
-            "Perché il supporto dati era un chip cardassiano autentico della Commissione d'Informativa comprato con il gel biomimetico, rendendo impossibile per i sensori romulani tracciare la manipolazione del codice"
-          ],
-          "correct": "B",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYJy1s8GadVNnr-h_BlwBmbnUyLqwbrey6_4MNaXPkuO5jCnYsPiOmeZg&s=10"
-        }
-      ],
-      "type": "normal"
-    },
-    {
-      "id": "materia_1785195903194",
-      "name": "CULTURA GENERALE 2",
-      "icon": "/img_quiz/il-quizzone/cultura-generale-2.svg",
-      "gradient": [
-        "#008080",
-        "#005f5f"
-      ],
-      "isRiskio": false,
-      "isNew": true,
-      "questions": [
-        {
-          "points": 100,
-          "isRiskio": false,
-          "text": "Come era conosciuto Q dagli abitanti del pianeta Brax?",
-          "options": [
-            "Il grande koala",
-            "Il Dio della cioccolata calda",
-            "Il Dio delle Bugie"
-          ],
-          "correct": "C",
-          "image": "https://static.wikia.nocookie.net/p__/images/6/6e/Bc4f447bb314a71330049043da90bcfb.jpg/revision/latest?cb=20180825222904&path-prefix=protagonist"
-        },
-        {
-          "points": 250,
-          "isRiskio": false,
-          "text": "A cosa assomiglia l'ex del comandante Ransom?",
-          "options": [
-            "Ad un mugato",
-            "Ad un ferenghi",
-            "Ad un targ"
+            "Buon giorno",
+            "Buona sera",
+            "Buona notte"
           ],
           "correct": "A",
-          "image": "https://images.prismic.io/star-trek-untold/YzNmNjgwYzgtNjYzNC00MTQ3LThmMzUtY2IxZDlkMGYwNjUw_01_life_aboard_the_cerritos.00_00_34_06.still001.png?auto=format,compress"
+          "image": "https://fwmedia.fandomwire.com/wp-content/uploads/2025/08/13064133/sisko-1536x768.jpg"
         },
         {
-          "points": 1000,
+          "points": 250,
           "isRiskio": false,
-          "text": "In Alberta, Canada, si trova il paesino di Vulcan. Quale famoso monumento vi si può ammirare?",
+          "text": "Chi?",
           "options": [
-            "Un gigantesco tribolo",
-            "Una statua a misura d'uomo di Picard",
-            "Una statua della U.S.S. Enterprise? (nessuna maledetta A, B, C o D)"
+            "Mamma",
+            "Sorella",
+            "Zia"
           ],
-          "correct": "C",
-          "image": "https://www.townofvulcan.ca/sites/14/files/styles/wysiwyg_image/public/2024-03/P6160009.jpeg?itok=DfJDhC7e"
+          "correct": "A",
+          "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/11/the-female-changeling-standing-against-a-cave-wall-on-star-trek-deep-space-nine-1.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Dove?",
+          "options": [
+            "Io",
+            "Non",
+            "So"
+          ],
+          "correct": "A",
+          "image": "https://s-media-cache-ak0.pinimg.com/originals/0f/1d/06/0f1d06e5fd082dc540ff8f04ee261bde.jpg"
         }
       ],
       "type": "normal"
     }
   ],
-  "title": "Il Quizzone",
-  "imagePrefix": "il-quizzone"
+  "title": "Giuliano",
+  "imagePrefix": "giuliano"
 }
