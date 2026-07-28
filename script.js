@@ -405,6 +405,9 @@ function handleAnswer(chosen) {
     }
   } else {
     const isRiskio = cat ? (cat.isRiskio || cat.type === "riskio") : false;
+    if (isRiskio && !isBlind) {
+      state.players[state.currentIndex].score -= 100;
+    }
     const pts = isBlind ? (state.currentPoints >= 0 ? 150 : -250) : (isRiskio ? 250 : 50);
     const winners = [];
     state.players.forEach((p, i) => {
@@ -416,7 +419,11 @@ function handleAnswer(chosen) {
     playAudio("wrong");
     resultText = "<i class=\"fa-solid fa-circle-xmark\"></i> WRONG!";
     if (pts >= 0) {
-      awardsText = "+" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
+      if (isRiskio && !isBlind) {
+        awardsText = "Il giocatore " + escHtml(state.players[state.currentIndex].name) + " perde 100 punti | +" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
+      } else {
+        awardsText = "+" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
+      }
     } else {
       const labelGiocatori = winners.length === 1 ? "Il giocatore " : "I giocatori ";
       const labelPerde = winners.length === 1 ? " perde " : " perdono ";
