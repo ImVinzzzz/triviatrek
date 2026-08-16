@@ -28,7 +28,8 @@ const screens = {
 };
 const popups = {
   players:  $('popup-players'),
-  question: $('popup-question')
+  question: $('popup-question'),
+  rules:    $('popup-rules')
 };
 
 /* ── AUDIO ─────────────────────────────────────────────────── */
@@ -61,7 +62,54 @@ document.addEventListener('DOMContentLoaded', () => {
     sfx.theme.volume = 0.15;
   }
   setupSplash();
+  setupRulesPopup();
 });
+
+/* ── REGOLAMENTO POPUP ─────────────────────────────────────── */
+function setupRulesPopup() {
+  const btnHeaderRules = $('header-rules-btn');
+  const btnCloseTop = $('btn-close-rules-top');
+  const btnCloseBottom = $('btn-close-rules-bottom');
+  const rulesOverlay = popups.rules;
+
+  if (btnHeaderRules) {
+    btnHeaderRules.addEventListener('click', openRulesPopup);
+  }
+
+  if (btnCloseTop) {
+    btnCloseTop.addEventListener('click', closeRulesPopup);
+  }
+
+  if (btnCloseBottom) {
+    btnCloseBottom.addEventListener('click', closeRulesPopup);
+  }
+
+  if (rulesOverlay) {
+    rulesOverlay.addEventListener('click', (e) => {
+      if (e.target === rulesOverlay) {
+        closeRulesPopup();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && rulesOverlay && !rulesOverlay.classList.contains('hidden')) {
+      closeRulesPopup();
+    }
+  });
+}
+
+function openRulesPopup() {
+  if (popups.rules) {
+    popups.rules.classList.remove('hidden');
+  }
+}
+
+function closeRulesPopup() {
+  if (popups.rules) {
+    popups.rules.classList.add('hidden');
+  }
+}
 
 /* ── SPLASH ────────────────────────────────────────────────── */
 function setupSplash() {
@@ -182,6 +230,15 @@ async function startGame() {
 function showScreen(name) {
   Object.values(screens).forEach(s => s.classList.add('hidden'));
   screens[name].classList.remove('hidden');
+
+  const btnHeaderRules = $('header-rules-btn');
+  if (btnHeaderRules) {
+    if (name === 'game' || name === 'gameover') {
+      btnHeaderRules.classList.remove('hidden');
+    } else {
+      btnHeaderRules.classList.add('hidden');
+    }
+  }
 }
 
 /* ── GAME BOARD ────────────────────────────────────────────── */

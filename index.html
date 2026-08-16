@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TriviaTrek</title>
+  <title>Trivia Trek</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/favicon.png">
@@ -26,7 +26,13 @@
        FIXED HEADER
   ═══════════════════════════════════════════════ -->
   <header id="main-header">
-    <img src="img/logo.svg" class="header-logo" alt="Trivia Trek">
+    <div class="header-right">
+      <button id="header-rules-btn" class="header-rules-btn hidden" type="button" aria-label="Visualizza regolamento del quiz">
+        <i class="fa-solid fa-book-journal-whills"></i>
+        <span>REGOLAMENTO</span>
+      </button>
+      <img src="img/logo.svg" class="header-logo" alt="Trivia Trek">
+    </div>
   </header>
 
   <!-- ═══════════════════════════════════════════════
@@ -109,7 +115,7 @@
   <div id="screen-gameover" class="screen hidden">
     <div class="gameover-container">
       <h2 class="go-title"><i class="fa-solid fa-trophy"></i> MISSIONE COMPLETATA</h2>
-      <p class="go-stardate">DATA STELLARE: 12608.15</p>
+      <p class="go-stardate">DATA STELLARE: 12607.10</p>
       <!-- p class="go-stardate">DATA STELLARE: <span id="go-stardate-val"></span></!-->
       <div id="go-winner-box" class="go-winner-box">
         <div class="go-winner-label">★ WINNER ★</div>
@@ -193,6 +199,188 @@
       </div>
     </div>
   </div><!-- /popup-question -->
+
+  <!-- ═══════════════════════════════════════════════
+       POPUP — RULES (REGOLAMENTO)
+  ═══════════════════════════════════════════════ -->
+  <div id="popup-rules" class="popup-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="rules-title">
+    <div class="lcars-popup rules-popup">
+      
+      <!-- Rules Header -->
+      <div class="popup-header teal rules-header">
+        <div class="rules-header-title" id="rules-title">
+          <i class="fa-solid fa-book-open-reader"></i>
+          <span>MANUALE OPERATIVO &bull; REGOLAMENTO</span>
+        </div>
+        <div class="rules-header-right">
+          <span class="rules-header-code">DIR-01 // PROTOCOLLO</span>
+          <button id="btn-close-rules-top" class="rules-close-btn" type="button" aria-label="Chiudi regolamento">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Rules Body -->
+      <div class="popup-body rules-body">
+        
+        <!-- Intro / Overview -->
+        <section class="rules-section">
+          <h3 class="rules-section-title">
+            <i class="fa-solid fa-compass"></i> PANORAMICA DELLA MISSIONE
+          </h3>
+          <p class="rules-text">
+            Trivia Trek mette alla prova le conoscenze dell'equipaggio in una sfida su una griglia LCARS 3x3 composta da 9 materie. Ogni materia comprende 3 livelli di difficolta per un totale di 27 domande. L'obiettivo e accumulare il maggior punteggio rispondendo correttamente e sfruttando strategicamente gli errori degli avversari.
+          </p>
+        </section>
+
+        <!-- Turn System -->
+        <section class="rules-section">
+          <h3 class="rules-section-title">
+            <i class="fa-solid fa-arrows-spin"></i> FUNZIONAMENTO DEI TURNI
+          </h3>
+          <div class="rules-grid-steps">
+            <div class="rules-step-card">
+              <div class="rules-step-num">01</div>
+              <div class="rules-step-content">
+                <strong>ASSEGNAZIONE INIZIALE</strong>
+                <p>All'avvio della missione il computer di bordo seleziona casualmente il primo membro dell'equipaggio di turno.</p>
+              </div>
+            </div>
+            <div class="rules-step-card">
+              <div class="rules-step-num">02</div>
+              <div class="rules-step-content">
+                <strong>SCELTA DELLA CASELLA</strong>
+                <p>Il giocatore di turno sceglie liberamente qualsiasi casella ancora attiva sulla griglia di gioco.</p>
+              </div>
+            </div>
+            <div class="rules-step-card">
+              <div class="rules-step-num">03</div>
+              <div class="rules-step-content">
+                <strong>RISPOSTA E ROTAZIONE</strong>
+                <p>Si risponde scegliendo tra A, B o C. Conclusa la domanda, il turno passa automaticamente al giocatore successivo in senso orario.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Question Types & Scoring -->
+        <section class="rules-section">
+          <h3 class="rules-section-title">
+            <i class="fa-solid fa-layer-group"></i> TIPOLOGIE DI DOMANDE E PUNTEGGI
+          </h3>
+
+          <div class="rules-cards-container">
+            
+            <!-- Standard Category Card -->
+            <div class="rules-type-card standard-card">
+              <div class="rules-type-header">
+                <span class="rules-badge badge-standard">
+                  <i class="fa-solid fa-circle-question"></i> STANDARD (NORMALE)
+                </span>
+                <span class="rules-type-subtitle">Punti Chiari (es. 100, 250, 500 PT)</span>
+              </div>
+              <div class="rules-type-rules">
+                <div class="rule-outcome rule-correct">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <div>
+                    <strong>RISPOSTA CORRETTA</strong>
+                    <p>Il giocatore di turno guadagna l'intero valore indicato (+PT).</p>
+                  </div>
+                </div>
+                <div class="rule-outcome rule-wrong">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                  <div>
+                    <strong>RISPOSTA ERRATA</strong>
+                    <p>Nessuna perdita per chi sbaglia. Tutti gli <em>altri</em> giocatori guadagnano <strong>+50 PT</strong> fissi ciascuno!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Riskio Category Card -->
+            <div class="rules-type-card riskio-card">
+              <div class="rules-type-header">
+                <span class="rules-badge badge-riskio">
+                  <i class="fa-solid fa-triangle-exclamation"></i> RISKIO!
+                </span>
+                <span class="rules-type-subtitle">Alto Rischio e Valore (es. 200, 500, 1000 PT)</span>
+              </div>
+              <div class="rules-type-rules">
+                <div class="rule-outcome rule-correct">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <div>
+                    <strong>RISPOSTA CORRETTA</strong>
+                    <p>Il giocatore di turno incassa l'alto valore della domanda (+PT).</p>
+                  </div>
+                </div>
+                <div class="rule-outcome rule-wrong">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                  <div>
+                    <strong>RISPOSTA ERRATA</strong>
+                    <p>Il giocatore di turno <strong>perde 100 PT</strong>! Tutti gli <em>altri</em> giocatori guadagnano <strong>+250 PT</strong> ciascuno!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blind Category Card -->
+            <div class="rules-type-card blind-card">
+              <div class="rules-type-header">
+                <span class="rules-badge badge-blind">
+                  <i class="fa-solid fa-eye-slash"></i> BLIND (PUNTI NASCOSTI)
+                </span>
+                <span class="rules-type-subtitle">Valore Misterioso indicato da ?, ??, ???</span>
+              </div>
+              <div class="rules-type-rules">
+                <div class="blind-subcase">
+                  <div class="blind-subcase-tag"><i class="fa-solid fa-plus"></i> SE VALORE POSITIVO (es. +250 PT)</div>
+                  <div class="rule-outcome rule-correct">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <div><strong>Corretta:</strong> Il giocatore di turno guadagna i punti della domanda.</div>
+                  </div>
+                  <div class="rule-outcome rule-wrong">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <div><strong>Errata:</strong> Tutti gli <em>altri</em> giocatori guadagnano <strong>+150 PT</strong> ciascuno.</div>
+                  </div>
+                </div>
+                
+                <div class="blind-subcase">
+                  <div class="blind-subcase-tag tag-malus"><i class="fa-solid fa-minus"></i> SE VALORE NEGATIVO / MALUS (es. -500 PT)</div>
+                  <div class="rule-outcome rule-correct">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <div><strong>Corretta:</strong> Il giocatore di turno <strong>perde</strong> i punti della domanda!</div>
+                  </div>
+                  <div class="rule-outcome rule-wrong">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <div><strong>Errata:</strong> Il giocatore evita il malus e tutti gli <em>altri</em> giocatori <strong>perdono 250 PT</strong> ciascuno!</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Strategy & Game Over -->
+        <section class="rules-section">
+          <h3 class="rules-section-title">
+            <i class="fa-solid fa-trophy"></i> COMPLETAMENTO MISSIONE E PODIO
+          </h3>
+          <p class="rules-text">
+            Quando tutte le 27 domande sono state affrontate, il sistema elabora il registro di volo e visualizza la classifica ufficiale della Flotta Stellare. Vengono gestiti automaticamente gli eventuali parimerito al primo posto e proclamati i vincitori della missione.
+          </p>
+        </section>
+
+        <!-- Footer action -->
+        <div class="rules-footer">
+          <button id="btn-close-rules-bottom" class="engage-btn rules-bottom-btn" type="button">
+            <i class="fa-solid fa-circle-check"></i> &nbsp;RITORNA AL TABELLONE
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /popup-rules -->
 
   <!-- Audio elements -->
   <audio id="sfx-intro" src="sfx/intro.mp3" preload="auto"></audio>
