@@ -134,8 +134,12 @@
   ═══════════════════════════════════════════════ -->
   <div id="popup-players" class="popup-overlay hidden">
     <div class="lcars-popup">
-      <div class="popup-header teal">
+      <div class="popup-header teal popup-header-flex">
         <span><i class="fa-solid fa-person-dots-from-line"></i> &nbsp;SELEZIONA MISSIONE</span>
+        <a href="editor.html" class="header-editor-btn" title="Apri Editor Domande" target="_blank" rel="noopener">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>EDITOR</span>
+        </a>
       </div>
       <div class="popup-body">
 
@@ -213,7 +217,7 @@
           <span>MANUALE OPERATIVO &bull; REGOLAMENTO</span>
         </div>
         <div class="rules-header-right">
-          <span class="rules-header-code">DIR-01 // PROTOCOLLO</span>
+          <span class="rules-header-code">DIR-01 // LCARS</span>
           <button id="btn-close-rules-top" class="rules-close-btn" type="button" aria-label="Chiudi regolamento">
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -229,7 +233,7 @@
             <i class="fa-solid fa-compass"></i> PANORAMICA DELLA MISSIONE
           </h3>
           <p class="rules-text">
-            Trivia Trek mette alla prova le conoscenze dell'equipaggio in una sfida su una griglia LCARS 3x3 composta da 9 materie. Ogni materia comprende 3 livelli di difficolta per un totale di 27 domande. L'obiettivo e accumulare il maggior punteggio rispondendo correttamente e sfruttando strategicamente gli errori degli avversari.
+            TriviaTrek mette alla prova le conoscenze dell'equipaggio in una sfida su una griglia LCARS. Ogni materia comprende da 1 a 3 livelli di difficoltà. L'obiettivo è accumulare il maggior punteggio rispondendo correttamente e sfruttando strategicamente gli errori degli avversari.
           </p>
         </section>
 
@@ -250,14 +254,14 @@
               <div class="rules-step-num">02</div>
               <div class="rules-step-content">
                 <strong>SCELTA DELLA CASELLA</strong>
-                <p>Il giocatore di turno sceglie liberamente qualsiasi casella ancora attiva sulla griglia di gioco.</p>
+                <p>Il giocatore di turno sceglie liberamente qualsiasi casella/doamnda ancora attiva sulla griglia di gioco.</p>
               </div>
             </div>
             <div class="rules-step-card">
               <div class="rules-step-num">03</div>
               <div class="rules-step-content">
                 <strong>RISPOSTA E ROTAZIONE</strong>
-                <p>Si risponde scegliendo tra A, B o C. Conclusa la domanda, il turno passa automaticamente al giocatore successivo in senso orario.</p>
+                <p>Si risponde scegliendo tra tre opzioni (A, B o C). Conclusa la domanda, il turno passa automaticamente al giocatore successivo.</p>
               </div>
             </div>
           </div>
@@ -277,21 +281,21 @@
                 <span class="rules-badge badge-standard">
                   <i class="fa-solid fa-circle-question"></i> STANDARD (NORMALE)
                 </span>
-                <span class="rules-type-subtitle">Punti Chiari (es. 100, 250, 500 PT)</span>
+                <span class="rules-type-subtitle">Punti in chiaro (es. 100, 250, 500 PT)</span>
               </div>
               <div class="rules-type-rules">
                 <div class="rule-outcome rule-correct">
                   <i class="fa-solid fa-circle-check"></i>
                   <div>
                     <strong>RISPOSTA CORRETTA</strong>
-                    <p>Il giocatore di turno guadagna l'intero valore indicato (+PT).</p>
+                    <p>Il giocatore di turno guadagna il valore indicato.</p>
                   </div>
                 </div>
                 <div class="rule-outcome rule-wrong">
                   <i class="fa-solid fa-circle-xmark"></i>
                   <div>
                     <strong>RISPOSTA ERRATA</strong>
-                    <p>Nessuna perdita per chi sbaglia. Tutti gli <em>altri</em> giocatori guadagnano <strong>+50 PT</strong> fissi ciascuno!</p>
+                    <p>Nessun malus per chi sbaglia. Tutti gli <em>altri</em> giocatori guadagnano <strong>+50 PT</strong> ciascuno!</p>
                   </div>
                 </div>
               </div>
@@ -310,14 +314,14 @@
                   <i class="fa-solid fa-circle-check"></i>
                   <div>
                     <strong>RISPOSTA CORRETTA</strong>
-                    <p>Il giocatore di turno incassa l'alto valore della domanda (+PT).</p>
+                    <p>Il giocatore di turno incassa il valore della domanda.</p>
                   </div>
                 </div>
                 <div class="rule-outcome rule-wrong">
                   <i class="fa-solid fa-circle-xmark"></i>
                   <div>
                     <strong>RISPOSTA ERRATA</strong>
-                    <p>Il giocatore di turno <strong>perde 100 PT</strong>! Tutti gli <em>altri</em> giocatori guadagnano <strong>+250 PT</strong> ciascuno!</p>
+                    <p>Il giocatore di turno <strong>perde 150 PT</strong>! Tutti gli <em>altri</em> giocatori guadagnano <strong>+250 PT</strong> ciascuno!</p>
                   </div>
                 </div>
               </div>
@@ -333,10 +337,10 @@
               </div>
               <div class="rules-type-rules">
                 <div class="blind-subcase">
-                  <div class="blind-subcase-tag"><i class="fa-solid fa-plus"></i> SE VALORE POSITIVO (es. +250 PT)</div>
+                  <div class="blind-subcase-tag"><i class="fa-solid fa-plus"></i> VALORE POSITIVO (es. +250 PT)</div>
                   <div class="rule-outcome rule-correct">
                     <i class="fa-solid fa-circle-check"></i>
-                    <div><strong>Corretta:</strong> Il giocatore di turno guadagna i punti della domanda.</div>
+                    <div><strong>Corretta:</strong> Il giocatore di turno guadagna il punteggio associato alla domanda.</div>
                   </div>
                   <div class="rule-outcome rule-wrong">
                     <i class="fa-solid fa-circle-xmark"></i>
@@ -345,10 +349,10 @@
                 </div>
                 
                 <div class="blind-subcase">
-                  <div class="blind-subcase-tag tag-malus"><i class="fa-solid fa-minus"></i> SE VALORE NEGATIVO / MALUS (es. -500 PT)</div>
+                  <div class="blind-subcase-tag tag-malus"><i class="fa-solid fa-minus"></i> VALORE NEGATIVO / MALUS (es. -500 PT)</div>
                   <div class="rule-outcome rule-correct">
                     <i class="fa-solid fa-circle-check"></i>
-                    <div><strong>Corretta:</strong> Il giocatore di turno <strong>perde</strong> i punti della domanda!</div>
+                    <div><strong>Corretta:</strong> Il giocatore di turno <strong>perde</strong> i punti associati alla domanda!</div>
                   </div>
                   <div class="rule-outcome rule-wrong">
                     <i class="fa-solid fa-circle-xmark"></i>
@@ -367,7 +371,7 @@
             <i class="fa-solid fa-trophy"></i> COMPLETAMENTO MISSIONE E PODIO
           </h3>
           <p class="rules-text">
-            Quando tutte le 27 domande sono state affrontate, il sistema elabora il registro di volo e visualizza la classifica ufficiale della Flotta Stellare. Vengono gestiti automaticamente gli eventuali parimerito al primo posto e proclamati i vincitori della missione.
+            Quando tutte le domande sono state affrontate, il sistema elabora i punteggi e visualizza la classifica finale. Vengono gestiti automaticamente gli eventuali ex-equo al primo posto e proclamati i vincitori della missione.
           </p>
         </section>
 

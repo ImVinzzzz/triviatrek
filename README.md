@@ -112,7 +112,7 @@ La dinamica dei punteggi per la categoria Blind è la seguente:
 ### Categoria Riskio!
 Le domande appartenenti a una categoria di tipo *Riskio!* (con valore esplicito visibile sul tabellone, come ad esempio 200, 500 o 1000 punti) seguono queste regole:
 - **Risposta corretta**: Il giocatore di turno guadagna l'intero valore associato alla domanda (es. +500 punti).
-- **Risposta errata**: Il giocatore di turno perde **100 punti**, mentre tutti gli **altri** giocatori guadagnano **+250 punti** fissi ciascuno (a differenza delle categorie normali dove gli altri giocatori ricevono +50 punti).
+- **Risposta errata**: Il giocatore di turno perde **150 punti**, mentre tutti gli **altri** giocatori guadagnano **+250 punti** fissi ciascuno (a differenza delle categorie normali dove gli altri giocatori ricevono +50 punti).
 
 ---
 

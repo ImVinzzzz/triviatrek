@@ -463,7 +463,7 @@ function handleAnswer(chosen) {
   } else {
     const isRiskio = cat ? (cat.isRiskio || cat.type === "riskio") : false;
     if (isRiskio && !isBlind) {
-      state.players[state.currentIndex].score -= 100;
+      state.players[state.currentIndex].score -= 150;
     }
     const pts = isBlind ? (state.currentPoints >= 0 ? 150 : -250) : (isRiskio ? 250 : 50);
     const winners = [];
@@ -477,7 +477,7 @@ function handleAnswer(chosen) {
     resultText = "<i class=\"fa-solid fa-circle-xmark\"></i> WRONG!";
     if (pts >= 0) {
       if (isRiskio && !isBlind) {
-        awardsText = "Il giocatore " + escHtml(state.players[state.currentIndex].name) + " perde 100 punti | +" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
+        awardsText = "Il giocatore " + escHtml(state.players[state.currentIndex].name) + " perde 150 punti | +" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
       } else {
         awardsText = "+" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
       }
