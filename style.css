@@ -102,8 +102,8 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(10, 10, 15, 0.85);
-  color: var(--teal);
+  background: var(--teal-dark);
+  color: var(--text);
   border: 0.125rem solid var(--teal);
   padding: 0.4rem 0.85rem;
   border-radius: 1.25rem;
@@ -114,12 +114,12 @@ body::after {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 0 0.625rem rgba(0, 128, 128, 0.25);
+  box-shadow: 0 0 0.625rem rgba(0, 128, 128, 0.35);
 }
 
 .header-rules-btn i {
   font-size: 1rem;
-  color: var(--teal);
+  color: var(--cyan);
   transition: transform 0.2s ease;
 }
 
@@ -149,8 +149,8 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: rgba(10, 10, 15, 0.85);
-  color: var(--teal);
+  background: var(--teal-dark);
+  color: var(--text);
   border: 0.125rem solid var(--teal);
   padding: 0.35rem 0.75rem;
   border-radius: 1.25rem;
@@ -162,12 +162,12 @@ body::after {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 0 0.5rem rgba(0, 128, 128, 0.25);
+  box-shadow: 0 0 0.5rem rgba(0, 128, 128, 0.35);
 }
 
 .header-editor-btn i {
   font-size: 0.9rem;
-  color: var(--teal);
+  color: var(--cyan);
   transition: transform 0.2s ease;
 }
 
@@ -1729,9 +1729,9 @@ body::after {
    POPUP REGOLAMENTO (RULES MODAL)
    ============================================================ */
 .rules-popup {
-  max-width: 52rem;
+  max-width: 62rem;
   width: 95%;
-  max-height: 90vh;
+  max-height: 75vh;
   display: flex;
   flex-direction: column;
   border: 0.125rem solid var(--teal);
@@ -1803,7 +1803,7 @@ body::after {
 .rules-body {
   padding: 1.5rem;
   overflow-y: auto;
-  max-height: calc(90vh - 4.25rem);
+  max-height: calc(75vh - 4.25rem);
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
