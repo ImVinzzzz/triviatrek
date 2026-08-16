@@ -114,6 +114,11 @@ Le domande appartenenti a una categoria di tipo *Riskio!* (con valore esplicito 
 - **Risposta corretta**: Il giocatore di turno guadagna l'intero valore associato alla domanda (es. +500 punti).
 - **Risposta errata**: Il giocatore di turno perde **150 punti**, mentre tutti gli **altri** giocatori guadagnano **+250 punti** fissi ciascuno (a differenza delle categorie normali dove gli altri giocatori ricevono +50 punti).
 
+### Compensazione Turni a Fine Partita
+Nel caso in cui il numero totale di domande sul tabellone non sia perfettamente divisibile per il numero di giocatori (ad esempio 24 domande e 5 partecipanti), uno o più concorrenti potrebbero rispondere a una domanda in meno rispetto agli altri.
+Per garantire la massima equità:
+- A fine partita, a ogni concorrente che ha risposto a una domanda in meno rispetto al massimo viene assegnato un **bonus automatico di +250 punti** per ciascun turno mancante prima della proclamazione della classifica finale.
+
 ---
 
 *Stardate 12605.01 — USS Afrodite*

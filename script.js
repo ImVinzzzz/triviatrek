@@ -203,8 +203,8 @@ async function startGame() {
   const inputs = document.querySelectorAll('.player-name-input');
   const players = [];
   inputs.forEach((input, i) => {
-    const name = input.value.trim().toUpperCase() || `GIOCATORE ${i + 1}`;
-    players.push({ name, score: 0 });
+    const name = input.value.trim().toUpperCase() || ("GIOCATORE " + (i + 1));
+    players.push({ name: name, score: 0, questionsCount: 0 });
   });
 
   state.players = players;
@@ -496,6 +496,9 @@ function handleAnswer(chosen) {
   $('q-points-awarded').innerHTML = awardsText;
   $('q-points-awarded').style.display = 'block';
 
+  // Incrementa il conteggio delle domande affrontate dal giocatore di turno
+  state.players[state.currentIndex].questionsCount = (state.players[state.currentIndex].questionsCount || 0) + 1;
+
   // Mark question as answered
   state.answered[`${state.currentCatId}_${state.currentPoints}`] = true;
 
@@ -558,6 +561,18 @@ function checkGameOver() {
 function showGameOver() {
   stopAudio('theme');
   playAudio('winner');
+
+  // Assegnazione automatica del bonus di 250 punti per i concorrenti che hanno risposto a meno domande
+  const maxQuestions = Math.max(...state.players.map(p => p.questionsCount || 0));
+  state.players.forEach(p => {
+    const missed = maxQuestions - (p.questionsCount || 0);
+    if (missed > 0) {
+      p.score += missed * 250;
+      p.bonusMissed = missed * 250;
+    }
+  });
+
+  updatePlayerDisplays();
 
   showScreen('gameover');
 
