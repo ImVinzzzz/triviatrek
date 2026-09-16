@@ -1,0 +1,870 @@
+{
+  "categories": [
+    {
+      "id": "comando",
+      "name": "COMANDO",
+      "icon": "/img_quiz/giuliano2/comando.svg",
+      "gradient": [
+        "#b42828",
+        "#e61e1e"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Come si chiamava la nave spaziale che jean-luc Picard comandò per 22 anni?",
+          "options": [
+            "U.S.S. Cerritos",
+            "U.S.S. Stargazer",
+            "U.S.S. Saratoga"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/comando1.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Quanti ufficiali superiori sono necessari per attivare la sequenza di autodistruzione?",
+          "options": [
+            "Tre. Il capitano, il primo ufficiale e il capo della sicurezza",
+            "Due. Il capitano e l'ingegnere capo",
+            "Due. Il capitano e il primo ufficiale o l'ufficiale di grado più alto in plancia"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/comando2.jpg"
+        },
+        {
+          "points": 1000,
+          "text": "Quale di queste versioni di Braxton che il Tenente Ducane NON trattiene in custodia alla fine dell'episodio Relatività?",
+          "options": [
+            "Il Braxton del XX secolo vissuto a Los Angeles come senzatetto",
+            "Il Braxton del futuro affetto da psicosi temporale che ha piazzato l'ordigno su Voyager",
+            "Il Braxton del passato catturato da Janeway nel 2372 mentre sta per attivare il disruttore temporale"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/comando3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "scienza",
+      "name": "SCIENZA",
+      "icon": "/img_quiz/giuliano2/scienza.svg",
+      "gradient": [
+        "#286e64",
+        "#008080"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 250,
+          "text": "Gli artropoidi di Taurus II erano descritti dal dipartimento di antropologia astrale come:",
+          "options": [
+            "Alti tra i 10 e i 15 centimetri, glabri e dalla pelle blu e un cappellino bianco",
+            "Alti tra i 7 e 10 piedi, pelosi, combattivi e dalle antenne lunghe",
+            "Alti tra i 10 e i 12 piedi, pelosi, combattivi e simili a scimmie"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/scienza1.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Nell'episodio di Enterprise \"Civilizzazione\", che tipi di mappatura del pianeta Aakali dovevano fare?",
+          "options": [
+            "Lo studio della geologia, della mineralogia, una scansione sismica e geotermica",
+            "Lo studio della flora, fauna e delle malattie endemiche",
+            "Lo studio dei lumaconi giganti utilizzati dalla popolazione locale per parlare da un angolo all'altro del pianeta"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/scienza2.jpg"
+        },
+        {
+          "points": 1000,
+          "text": "La flotta stellare utilizza normalmente varie tipologie di sonde. 9 sono le classi delle sonde utilizzate. Come viene comunemente chiamata una sonda di Classe 9 e qual è la sua funzione primaria?",
+          "options": [
+            "Sonda di ricognizione: serve per mappare il territorio nemico senza essere intercettata dai sensori a lungo raggio",
+            "Boa di emergenza o dei diari di bordo: serve come \"scatola nera\" d'emergenza per salvare i diari di bordo e inviare messaggi verso la base stellare più vicina",
+            "Sonda per anomalie spaziali: in grado di analizzare varie anomalie e dotata di scudi"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/scienza3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "medicina",
+      "name": "MEDICINA",
+      "icon": "/img_quiz/giuliano2/medicina.svg",
+      "gradient": [
+        "#286e64",
+        "#008080"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Come si chiama e di che razza è il medico della U.S.S. Cerritos",
+          "options": [
+            "Si chiama T'ana ed è un caitiano",
+            "Si chiama T'anna ed è un vulcaniano",
+            "Si chiama T'attila ed è un flagello di Dio"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/medicina1.jpg"
+        },
+        {
+          "points": 500,
+          "text": "In cosa consisteva esattamente il protocollo choH'a' dal punto di vista medico e chirurgico?",
+          "options": [
+            "Nell'uso di una matrice olografica sottocutanea in grado di proiettare l'aspetto umano sopra la fisiologia Klingon senza toccare gli organi interni",
+            "Nella clonazione completa di un corpo umano in cui veniva poi trasferita la sola coscienza Klingon tramite un impulso di energia neurale",
+            "Nella modifica chirurgica del corpo Klingon e nell'innesto di DNA, ricordi e psiche di un donatore umano sopra la personalità Klingon originale"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/medicina2.jpg"
+        },
+        {
+          "points": 1000,
+          "text": "Quale tra i seguenti dispositivi medici NON fa parte della dotazione standard di un Medkit base d'emergenza?",
+          "options": [
+            "Lo scanner corticale",
+            "Il rigeneratore dermico",
+            "Un hypo-spray caricato con sei diversi tipi di medicine"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/medicina3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "tattica",
+      "name": "TATTICA",
+      "icon": "/img_quiz/giuliano2/tattica.svg",
+      "gradient": [
+        "#bebe00",
+        "#ffc800"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 250,
+          "text": "In cosa consiste la Manovra della carbonite?",
+          "options": [
+            "Una manovra evasiva a spirale con velocità in aumento fino a curvatura 3, nel tentativo di disorientare i sensori di puntamento del nemico",
+            "Una manovra in cui si afferma che l'astronave contiene una sostanza segreta in grado di riflettere automaticamente l'energia di qualsiasi attacco distruggendo l'attaccante",
+            "Una manovra salva vita in cui Han Solo si immerge in un gas a base di carbonio che diventa solido se posto a bassissime temperature"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/tattica1.jpg"
+        },
+        {
+          "points": 750,
+          "text": "Quale astronave della Flotta Stellare venne distrutta da un attacco suicida dei Jem'Hadar, eseguito quando la nave si stava già ritirando?",
+          "options": [
+            "La U.S.S. Defiant",
+            "La U.S.S. Valiant",
+            "La U.S.S. Odyssey"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/tattica2.jpg"
+        },
+        {
+          "points": 1500,
+          "text": "Nella Seconda Battaglia di Chin'toka, di 312 navi spaziali, solo 1 non venne distrutta. Di quale nave si trattava e chi apparteneva?",
+          "options": [
+            "La I.K.S. Ki'tang dell'Impero Klingon",
+            "La U.S.S. Lakota della Federazione",
+            "La CDS Prakesh dell'Unione Cardassiana"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/tattica3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "ingegneria",
+      "name": "INGEGNERIA",
+      "icon": "/img_quiz/giuliano2/ingegneria.svg",
+      "gradient": [
+        "#bebe00",
+        "#ffc800"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "In quale famoso film Montgomery Scott disse al Capitano Kirk: \"Come avevo promesso, è tutta sua, Signore. Tutti i sistemi automatizzati e pronti. Perfino uno scimpanzé e due allievi potrebbero guidarla!\"",
+          "options": [
+            "Star Trek V - L'ultima Frontiera",
+            "Star Trek VI - L'ira dei Romulani",
+            "Star Trek III - Alla ricerca di Spock"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/ingegneria1.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Il vulcaniano Stron, rimasto sulla Terra del 1950, lavorava come idraulico. Quale era la sua vera mansione?",
+          "options": [
+            "Era un ingegnere specializzato nella curvatura",
+            "Era un ingegnere specializzato nell' agricoltura",
+            "Era un ingegnere specializzato nella sanificazione"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/ingegneria2.jpg"
+        },
+        {
+          "points": 800,
+          "text": "Quale brillante manovra tecnica eseguì il Capo O'Brien per salire a bordo della U.S.S. Phoenix?",
+          "options": [
+            "Riuscì a materializzarsi a bordo della nave sincronizzando il raggio del teletrasporto con la frequenza degli scudi",
+            "Sovraccaricò i generatori del teletrasporto dell'Enterprise per creare una breccia fisica nello scudo della nave",
+            "Utilizzò una sonda modificata per convertire il segnale del teletrasporto in un impulso di occultamento"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/ingegneria3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "riskio",
+      "name": "ARMI",
+      "icon": "/img_quiz/giuliano2/armi.svg",
+      "gradient": [
+        "#ffff00",
+        "#fdc708"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Quale è la caratteristica del disgregatore Varon-T che lo ha reso illegale nella Federazione?",
+          "options": [
+            "Quando la vittima viene colpita lascia un fortissimo odore di pop-corn",
+            "Quando la vittima viene colpita muore tra dolori terribili e strazianti",
+            "Quando la vittima viene colpita viene vaporizzata lasciando un mucchietto di cenere radioattiva"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/armi1.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Per quale motivo tecnico i siluri ai cronitoni dei Krenim riescono a penetrare direttamente attraverso gli scudi deflettori della Voyager senza essere bloccati?",
+          "options": [
+            "Perché si trovano in uno stato costante di fluttuazione temporale, ignorando le barriere di energia dello spazio convenzionale",
+            "Perché utilizzano una tecnologia di occultamento per attraversare la materia solida e le barriere di energia",
+            "Perché emettono un impulso di cronitoni ad altissima frequenza che permette loro di ignorare le barriere fisiche e energetiche"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/armi2.jpg"
+        },
+        {
+          "points": 1000,
+          "text": "Quale tra queste affermazioni riguardanti le caratteristiche tecniche e le varianti storiche del Bat'leth è VERA?",
+          "options": [
+            "Un antico decreto Klingon stabilì che le Bat'leth in combattimento reale dovessero avere le punte smussate per evitare la morte dell'avversario",
+            "Le prime varianti storiche del Bat'leth, come la Spada di Kahless, differivano da quelle moderne perché dotate di quattro impugnature laterali al posto di tre",
+            "Le specifiche ufficiali di un Bat'leth da guerriero prevedono una lunghezza di 116 cm, un peso di 5,3 kg e lame realizzate in una lega di baconite"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/armi3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "qonos",
+      "name": "QO'NOS",
+      "icon": "/img_quiz/giuliano2/qo'nos.svg",
+      "gradient": [
+        "#803c64",
+        "#b44b82"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Quale era un passatempo del giovane Alexander Rozhenko?",
+          "options": [
+            "La musica vulcaniana",
+            "La collezione di teste di androidi",
+            "La sala ologrammi"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/qo'nos1.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Quali di queste specie era assoggettata all'Impero Klingon e aveva macchie sul corpo?",
+          "options": [
+            "I Kriosiani",
+            "I Nausicaani",
+            "I Mat'Aaran"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/qo'nos2.jpg"
+        },
+        {
+          "points": 1000,
+          "text": "A quale evento storico su Qo'noS corrisponde l'Anno 1 del calendario ufficiale Klingon, e quanto dura un anno orbitale del pianeta Qo'noS rispetto a un anno terrestre?",
+          "options": [
+            "Corrisponde all'unificazione di Qo'noS da parte di Kahless l'Insuperabile, e l'anno di Qo'noS dura circa 365 giorni terrestr",
+            "Corrisponde alla morte di Kahless l'Insuperabile, e l'anno di Qo'noS dura circa 567 giorni terrestri.",
+            "Corrisponde alla morte di Kahless l'Insuperabile, e l'anno di Qo'noS dura circa 280 giorni terrestri"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/qo'nos3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "romulus",
+      "name": "ROMULUS",
+      "icon": "/img_quiz/giuliano2/romulus.svg",
+      "gradient": [
+        "#006432",
+        "#009646"
+      ],
+      "isRiskio": false,
+      "type": "blind",
+      "questions": [
+        {
+          "points": 100,
+          "text": "Quale fondamentale risorsa mineraria per la Flotta Stellare e l'Impero Romulano veniva estratta nelle miniere di Remus tramite il lavoro forzato dei Remani?",
+          "options": [
+            "Il Mithril",
+            "Il Dilitio",
+            "Il Latinum"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/romulus1.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Quale decisione militare sulla luna di Derna genera una fortissima tensione tra i Romulani e le forze bajorane guidate dal Colonnello Kira Nerys?",
+          "options": [
+            "La decisione di fortificare la luna con testate al plasma sotto la copertura di una struttura ospedaliera",
+            "La decisione di installare un generatore di occultamento planetario senza l'autorizzazione di Starfleet",
+            "La decisione di requisire le miniere locali per estrarre dilitio destinato esclusivamente ai falchi da guerra Romulani"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/romulus2.jpg"
+        },
+        {
+          "points": 500,
+          "text": "La nave-drone sperimentale Romulana apparsa nella serie Enterprise, utilizzava proiettori olografici in grado di trasformarla in qualsiasi nave. Cosa succedeva alla nave quando gli emettitori erano attivati?",
+          "options": [
+            "Rendeva quasi impossibile per i nemici agganciare i bersagli sui sistemi primari",
+            "Diventava totalmente invisibile ai sensori a lungo raggio",
+            "Poteva sparare con i siluri fotonici senza disattivare l'ologramma"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/romulus3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "vulcano",
+      "name": "VULCANO",
+      "icon": "/img_quiz/giuliano2/vulcano.svg",
+      "gradient": [
+        "#1e3280",
+        "#324696"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Nella città di ShiKahr, chi prendeva in giro il giovane Spock per il fatto di essere mezzo umano?",
+          "options": [
+            "Stark, Golden e Delicius",
+            "Stark, Sofek e Sepek",
+            "Stark, Stork e Sterk"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/vulcano1.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Qual era la professione di T'Pring prima degli eventi del matrimonio con Spock visti nella serie classica?",
+          "options": [
+            "Lavorava come amministratrice nella colonia di riabilitazione di criminali vulcaniani",
+            "Era una diplomatica di alto livello dell'Alto Consiglio Vulcaniano",
+            "Era una ricercatrice dell'Accademia delle Scienze Vulcaniana"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/vulcano2.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Quale di queste specie fu contattata dai Vulcaniani prima del 21esimo secolo?",
+          "options": [
+            "Trill",
+            "Toliani",
+            "Tellariti"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/vulcano3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1788731022287",
+      "name": "CULTURA GENERALE",
+      "icon": "/img_quiz/giuliano2/cultura-generale.svg",
+      "gradient": [
+        "#a8e5ff",
+        "#fe58f9"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Come si chiamava il pianeta  che ospitava la colonia distrutta dagli Husnock?",
+          "options": [
+            "Rana IV nel sistema Delta Rana",
+            "Rospo IV nel sistema Delta Rospo",
+            "Ranatan IV nel sistema Delta Stagno"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/cultura-generale1.jpg"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "In Star Trek, come vengono classificati i pianeti gassosi simili a Giove?",
+          "options": [
+            "Pianeti di Classe J per i giganti gassosi",
+            "Pianeti di Classe G per i giganti gassosi",
+            "Pianeti di Classe L per i giganti spassosi"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/cultura-generale2.jpg"
+        },
+        {
+          "points": 800,
+          "isRiskio": false,
+          "text": "Quale tra le seguenti NON è una caratteristica anatomica e biologica unica della specie Benzita?",
+          "options": [
+            "Hanno due pollici opponibili su ciascuna mano e individui appartenenti alla stessa geostruttura nascono praticamente identici tra loro",
+            "Hanno tre polmoni indipendenti che permettono loro di immagazzinare gas e sopravvivere fino a due giorni nello spazio vuoto",
+            "Non possono respirare un atmosfera di ossigeno/azoto e per questo motivo usano un apparato respiratorio esterno"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/cultura-generale3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1788731191746",
+      "name": "FERENGINAR",
+      "icon": "/img_quiz/giuliano2/ferenginar.svg",
+      "gradient": [
+        "#008037",
+        "#2bc520"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Dove si trovano gli uffici del Grande Nagus?",
+          "options": [
+            "Nella Camera delle opportunità",
+            "Nella Torre del commercio",
+            "Nella Torre d'Avorio"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/ferenginar1.jpg"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Quale tra le seguenti NON è una Regola dell'Acquisizione ufficiale riconosciuta dalla FCA?",
+          "options": [
+            "\"La cupidigia è eterna\"",
+            "\"Il tempo, come il latinum, è una risorsa altamente limitata\"",
+            "\"Un buon cliente è raro come il latinum. Fanne tesoro\""
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/ferenginar2.jpg"
+        },
+        {
+          "points": 800,
+          "isRiskio": false,
+          "text": "Nella battaglia di Prexnak, quanti Ferenghi combatterono contro quanti Litasiani?",
+          "options": [
+            "2 contro 200",
+            "8 contro 255",
+            "10 contro 273"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/ferenginar3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1788731738613",
+      "name": "Q-CONTINUUM",
+      "icon": "/img_quiz/giuliano2/q-continuum.svg",
+      "gradient": [
+        "#720303",
+        "#ff0026"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Quale tra i seguenti NON è uno dei fastidi o bisogni corporei che ha espressamente citato di non aver mai provato come Q?",
+          "options": [
+            "Dover fare il bagno o starnutire",
+            "Avere prurito, brufoli o l'alito cattivo",
+            "Avere quel leggero languorino"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/q-continuum1.jpg"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Quale tra i seguenti eventi storici è stato causato direttamente dall'ingerenza di un Q per suo puro divertimento o capriccio?",
+          "options": [
+            "L'inizio di una guerra durata cento anni tra Vulcaniani e Romulani",
+            "La distruzione del pianeta natale degli El-Auriani per mano dei Borg",
+            "La visita dei Thermiani sulla Terra"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/q-continuum2.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Con quale punizione i genitori di Trelane minacciano il figlio per farlo smettere di fare i capricci e costringerlo a seguire i loro ordini?",
+          "options": [
+            "Non gli sarebbe più stato permesso di creare altri pianeti",
+            "Sarebbe stato imprigionato per l'eternità all'interno di una cometa",
+            "Gli sarebbero stati rimossi i poteri da Q lasciandolo in forma umana"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/q-continuum3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1788731844172",
+      "name": "IL TRAPPOLONE 1",
+      "icon": "/img_quiz/giuliano2/il-trappolone-1.svg",
+      "gradient": [
+        "#0e0458",
+        "#0008ff"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 700,
+          "isRiskio": false,
+          "text": "Il pianeta di Penthara IV era una colonia della Federazione e fu colpita da un asteroide nel 2368. Quanti milioni di persone vivevano sul pianeta e quale era la sua capitale?",
+          "options": [
+            "45 Milioni di abitanti e la capitale era New Providence",
+            "20 Milioni di abitanti e la capitale era New Seattle",
+            "35 Milioni di abitanti e la capitale era New Agrabah"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/il-trappolone-11.jpg"
+        },
+        {
+          "points": 450,
+          "isRiskio": false,
+          "text": "Nell'episodio di Lower Decks \"Non ho ossa ma devo scappare\", il guardiamarina Livik tenta di superare il rivale Rutherford migliorando i tubi di Tucker. Con quale nome ribattezza questa nuova versione?",
+          "options": [
+            "I tubi di Scotty",
+            "I tubi di Billups",
+            "I tubi di LaForge"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/il-trappolone-12.jpg"
+        },
+        {
+          "points": -500,
+          "isRiskio": false,
+          "text": "Nell'episodio di Prodigy \"Non c'è verità nella bellezza\", qual è il senso dimenticato celebrato dagli Ovidiani durante la corsa dei Nazamon che questa pericolosa tradizione celebra, e quali spaventose creature aeree ne sono le protagoniste?",
+          "options": [
+            "La paura, celebrata venendo inseguiti da enormi creature aviane a quattro ali",
+            "Il dolore, celebrato cavalcando enormi Warg",
+            "L'equilibrio, celebrato correndo sopra precipizi scoscesi inseguiti da sciami di insetti giganti"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/il-trappolone-13.jpg"
+        }
+      ],
+      "type": "blind"
+    },
+    {
+      "id": "materia_1788731978244",
+      "name": "IL TRAPPOLONE 2",
+      "icon": "/img_quiz/giuliano2/il-trappolone-2.svg",
+      "gradient": [
+        "#ff0026",
+        "#61000f"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Quale di questi ufficiali è stato ingegnere capo della U.S.S. Enterprise-D prima di Geordi LaForge?",
+          "options": [
+            "il tenente Logan, il comandante Argyle e il tenente comandante MacDougal",
+            "il tenente Logan e il comandante Argyle",
+            "Il comandante Argyle e il tenente comandante MacDougal"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/il-trappolone-21.jpg"
+        },
+        {
+          "points": -600,
+          "isRiskio": false,
+          "text": "Quale specifica tipologia di campo di forza viene usata nelle stive di carico delle navi stellari?",
+          "options": [
+            "Campo di integrità strutturale",
+            "Campo di contenimento",
+            "Campo di forza di Cadderon"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/il-trappolone-22.jpg"
+        },
+        {
+          "points": -500,
+          "isRiskio": false,
+          "text": "In Star Trek: Beyond, dopo che la U.S.S. Enterprise viene distrutta dallo sciame di Krall su Altamid, con quale celebre brano musicale \"antico\" del XX secolo Kirk e l'equipaggio riescono a sovraccaricare la frequenza radio dello sciame alieno, facendolo esplodere in catena?",
+          "options": [
+            "\"Sabotage\" dei Beastie Boys",
+            "\"9 to 5\" di Dolly Parton",
+            "\"Pretty Woman\" di Roy Orbison"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/il-trappolone-23.jpg"
+        }
+      ],
+      "type": "blind"
+    },
+    {
+      "id": "materia_1788732110261",
+      "name": "MIRROR MIRROR",
+      "icon": "/img_quiz/giuliano2/mirror-mirror.svg",
+      "gradient": [
+        "#806f00",
+        "#fe4120"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Nell'episodio di Star Trek: Prodigy \"Specchio spezzato\", l'equipaggio della Protostar finisce temporaneamente nell'Universo dello Specchio a bordo della Voyager-A. Quale specie fa esclamare a Jankom Pog che anche loro erano malvagie?",
+          "options": [
+            "Le scimmie",
+            "Le balene",
+            "Le lontre"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/mirror-mirror1.jpg"
+        },
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Tra l'Universo Base e l'Universo dello Specchio, esiste una specifica differenza biologica accertata tra gli Umani e i Terrestri dello Specchio. Di cosa si tratta?",
+          "options": [
+            "Fotofobia",
+            "Acarofobia",
+            "Fonofobia"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/mirror-mirror2.jpg"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "In che modo il Grande Nagus Zek era riuscito a viaggiare nell'universo dello specchio alla ricerca di nuove opportunità commerciali per i Ferengi prima di essere catturato?",
+          "options": [
+            "Comprò un dispositivo di traslocazione interdimensionale da un mercante Breen",
+            "Rubò gli schemi del trasportatore interdimensionale dal PADD di Rom",
+            "Sfruttò una micro-anomalia temporale creatasi su Deep Space 9"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/mirror-mirror3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1788732240134",
+      "name": "IL DOMINIO",
+      "icon": "/img_quiz/giuliano2/il-dominio.svg",
+      "gradient": [
+        "#008080",
+        "#005f5f"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "All'inizio dell'episodio DS9:\"Il Mutaforma\", come fa Odo a spiare di nascosto l'incontro d'affari illegale che Quark sta tenendo in un holosuite con i due gemelli Miradorn?",
+          "options": [
+            "Si trasforma in uno dei bicchieri sul vassoio portato da Rom",
+            "Si trasforma in una delle sedie nell'holosuite",
+            "Si trasforma in un drago viola urlando \"Ho detto niente draghi viola?! Ho vinto, Ho vinto!\""
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/il-dominio1.jpg"
+        },
+        {
+          "points": 600,
+          "isRiskio": false,
+          "text": "Durante la tragica missione della USS Valiant, Tim Watters e il suo equipaggio tentano di distruggere una corazzata del Dominio sfruttando la vulnerabilità di un materiale di supporto, mentre Watters abusava di una specifica sostanza medica per sostenere lo stress.\nQuali sono il materiale di supporto, lo stimolante assunto da Watters e il capitano originario della U.S.S. Valiant?",
+          "options": [
+            "Il duranio, il cordrazene e il capitano Parton",
+            "Il tritio, il clarinoxamine e il capitano Farris",
+            "Il viterium, il cordafin e il capitano Ramirez"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/il-dominio2.jpg"
+        },
+        {
+          "points": 1500,
+          "isRiskio": false,
+          "text": "Durante il Progetto Proteus condotto dalla Sezione 31 sulla Stazione Daystrom, dieci Mutaforma prigionieri furono sottoposti a torture per creare spie perfette capaci di replicare fedelmente gli organi interni dei Solidi. Quale specifico chimico venne utilizzato dagli scienziati come agente stabilizzante nella formula, consentendo poi alla Dott.ssa Crusher di tracciarli?",
+          "options": [
+            "Telomio-847",
+            "Torio-232",
+            "Trilizio-7"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/il-dominio3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1788732436475",
+      "name": "CULTURA GENERALE 2",
+      "icon": "/img_quiz/giuliano2/cultura-generale-2.svg",
+      "gradient": [
+        "#bbcd60",
+        "#f2e01c"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Quale di queste navi della Federazione è presente in TNG, DS9 e Lower Decks?",
+          "options": [
+            "U.S.S. Actarus",
+            "U.S.S. Hood",
+            "U.S.S. Kotiomkin"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/cultura-generale-21.jpg"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Chi era l'ufficiale comandante della Stazione Spaziale 80?",
+          "options": [
+            "Jemma Simmons",
+            "Kassia Nox",
+            "John Lurry"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/cultura-generale-22.jpg"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "Nella linea temporale Kelvin, che vaccino inietta il dott. McCoy al Capitano Kirk nel 2258?",
+          "options": [
+            "Un vaccino contro i virus trasmessi dai morsi dell'anguilla di ceti",
+            "Un vaccino contro i virus trasmessi dai morsi dal parassita neurale",
+            "Un vaccino contro i virus trasmessi dai morsi della pulce melvarana del fango"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/cultura-generale-23.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1788734130927",
+      "name": "NAVI SPAZIALI",
+      "icon": "/img_quiz/giuliano2/navi-spaziali.svg",
+      "gradient": [
+        "#008080",
+        "#005f5f"
+      ],
+      "isRiskio": false,
+      "isNew": true,
+      "questions": [
+        {
+          "points": 100,
+          "isRiskio": false,
+          "text": "Chi costruì la U.S.S. Dauntless e perchè?",
+          "options": [
+            "La Federazione per aiutare l'equipaggio di Voyager a tornare a casa prima",
+            "La specie 007 per aiutare l'equipaggio di Voyager a rintracciare la cabina blu",
+            "La specie 116 per catturare l'equipaggio di Voyager e farli assimilare dei Borg"
+          ],
+          "correct": "C",
+          "image": "img_quiz/giuliano2/navi-spaziali1.jpg"
+        },
+        {
+          "points": 250,
+          "isRiskio": false,
+          "text": "Nell'episodio di DS9 \"Il momento di resistere\", la U.S.S. Centaur comandata dal capitano Charlie Reynolds, ingaggia per errore un combattimento contro quale astronave?",
+          "options": [
+            "Un incrociatore da guerra Cardassiano guidato dal Legato Damar",
+            "Una nave d'attacco dei Jem'Hadar requisita e comandata da Benjamin Sisko",
+            "Un raider Maquis camuffato da mercantile Cardassiano"
+          ],
+          "correct": "B",
+          "image": "img_quiz/giuliano2/navi-spaziali2.jpg"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "Come si chiamava la nave spaziale che stava monitorando un'anomalia di materia oscura insieme alla NSS T'Pau nell'episodio di Discovery \"Gli esempi\"?",
+          "options": [
+            "U.S.S. Janeway",
+            "U.S.S. Hansando",
+            "U.S.S. Dallas"
+          ],
+          "correct": "A",
+          "image": "img_quiz/giuliano2/navi-spaziali3.jpg"
+        }
+      ],
+      "type": "normal"
+    }
+  ],
+  "title": "giuliano2",
+  "imagePrefix": "giuliano2"
+}
