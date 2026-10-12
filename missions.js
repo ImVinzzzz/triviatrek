@@ -4,5 +4,6 @@ const MISSIONS = [
   { name: "demo", file: "quiz.json" },
   { name: "Giuliano", file: "giuliano.json" },
   { name: "Giuliano 2 - la Vendemmia", file: "giuliano2.json" },
-  { name: "Afrotite 2", file: "afrodite-2.json" }
+  { name: "Afrotite 2", file: "afrodite-2.json" },
+  { name: "Topik Test", file: "topic1.json" }
 ];
