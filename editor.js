@@ -240,6 +240,7 @@ function buildTabs() {
       icon: null,
       gradient: ["#008080", "#005f5f"],
       isRiskio: false,
+      type: "normal",
       isNew: true,
       questions: [
         { points: 100, isRiskio: false, text: "Domanda 1", options: ["Opzione A", "Opzione B", "Opzione C"], correct: "A", image: null },
@@ -316,7 +317,9 @@ function renderCategory(idx) {
           "<label><input type=\"radio\" name=\"cat-type\" value=\"normal\" " + ((!cat.type || cat.type === "normal") && !cat.isRiskio ? "checked" : "") + "> Normale</label>" +
           "<label><input type=\"radio\" name=\"cat-type\" value=\"riskio\" " + (cat.type === "riskio" || cat.isRiskio ? "checked" : "") + "> Riskio!</label>" +
           "<label><input type=\"radio\" name=\"cat-type\" value=\"blind\" " + (cat.type === "blind" ? "checked" : "") + "> Blind</label>" +
+          "<label><input type=\"radio\" name=\"cat-type\" value=\"personal\" " + (cat.type === "personal" || cat.type === "personal-topic" || cat.type === "personalTopic" ? "checked" : "") + "> Personal Topic</label>" +
         "</div>" +
+        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: l'icona della categoria viene mostrata in un circoletto bordato.</div>" +
       "</div>" +
       "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
         "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +

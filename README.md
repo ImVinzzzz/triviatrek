@@ -93,7 +93,9 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 | Evento | Effetto |
 |---|---|
 | Risposta corretta | Giocatore di turno +N punti (N = valore domanda) |
-| Risposta errata | Tutti gli **altri** giocatori +50 punti (+250 se categoria Riskio) |
+| Risposta errata — Normale | Tutti gli **altri** giocatori +50 punti |
+| Risposta errata — Riskio! | Il giocatore di turno -150 punti; tutti gli **altri** +250 punti |
+| Risposta errata — Personal Topic | Il giocatore di turno non perde punti; tutti gli **altri** +N/2 punti |
 
 ### Categoria Blind (Punti Nascosti)
 Le domande di tipo Blind nascondono il proprio valore reale con dei punti interrogativi sul tabellone e sul popup di gioco in base al loro ordine:
@@ -113,6 +115,23 @@ La dinamica dei punteggi per la categoria Blind è la seguente:
 Le domande appartenenti a una categoria di tipo *Riskio!* (con valore esplicito visibile sul tabellone, come ad esempio 200, 500 o 1000 punti) seguono queste regole:
 - **Risposta corretta**: Il giocatore di turno guadagna l'intero valore associato alla domanda (es. +500 punti).
 - **Risposta errata**: Il giocatore di turno perde **150 punti**, mentre tutti gli **altri** giocatori guadagnano **+250 punti** fissi ciascuno (a differenza delle categorie normali dove gli altri giocatori ricevono +50 punti).
+
+### Categoria Personal Topic
+Le domande appartenenti a una categoria di tipo `personal` sono riconoscibili dall'icona della categoria mostrata dentro un circoletto bordato. L'icona si imposta dall'editor nel campo **Icona Materia / Argomento**.
+
+- **Risposta corretta**: il giocatore di turno guadagna l'intero valore della domanda.
+- **Risposta errata**: il giocatore di turno non perde punti; tutti gli altri giocatori guadagnano ciascuno la metà del valore della domanda (per esempio, +125 punti ciascuno su una domanda da 250).
+
+Nel JSON esportato dall'editor il tipo della categoria è indicato così:
+
+```json
+{
+  "type": "personal",
+  "icon": "img_quiz/missione/personal-topic.svg"
+}
+```
+
+L'editor supporta quindi quattro tipologie di categoria: `normal`, `riskio`, `blind` e `personal`.
 
 ### Compensazione Turni a Fine Partita
 Nel caso in cui il numero totale di domande sul tabellone non sia perfettamente divisibile per il numero di giocatori (ad esempio 24 domande e 5 partecipanti), uno o più concorrenti potrebbero rispondere a una domanda in meno rispetto agli altri.

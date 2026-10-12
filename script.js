@@ -286,9 +286,24 @@ function buildCategoriesGrid() {
   });
 }
 
+/* Normalizza il tipo per mantenere compatibilità con i vecchi JSON che
+   usavano ancora il flag booleano isRiskio. */
+function getCategoryType(cat) {
+  if (!cat) return 'normal';
+  if (cat.type === 'blind') return 'blind';
+  if (cat.type === 'personal' || cat.type === 'personal-topic' || cat.type === 'personalTopic') {
+    return 'personal';
+  }
+  if (cat.type === 'riskio' || cat.isRiskio) return 'riskio';
+  return 'normal';
+}
+
 function buildCategoryCard(cat) {
   const card = document.createElement('div');
   card.className = 'cat-card';
+  const categoryType = getCategoryType(cat);
+  const isPersonalTopic = categoryType === 'personal';
+  if (isPersonalTopic) card.classList.add('personal-topic-card');
   card.style.background = `linear-gradient(135deg, ${cat.gradient[0]}, ${cat.gradient[1]})`;
 
   // Header with icon + name
@@ -319,7 +334,7 @@ function buildCategoryCard(cat) {
   const pointsRow = document.createElement('div');
   pointsRow.className = 'cat-points-row';
 
-  const isBlind = cat.type === 'blind';
+  const isBlind = categoryType === 'blind';
 
   cat.questions.forEach((q, idx) => {
     const btn = document.createElement("button");
@@ -356,12 +371,15 @@ function openQuestion(cat, q) {
 
   $('q-category-label').textContent = cat.name;
   
-  const isBlind = cat.type === "blind";
+  const categoryType = getCategoryType(cat);
+  const isBlind = categoryType === "blind";
+  const isPersonalTopic = categoryType === "personal";
   const idx = cat.questions.indexOf(q);
   $("q-points-label").textContent = isBlind ? "?".repeat(idx + 1) : q.points + " PT";
 
   const iconImg = $('q-category-icon');
   if (iconImg) {
+    iconImg.classList.toggle('personal-topic-icon', isPersonalTopic);
     if (cat.icon) {
       iconImg.src = cat.icon;
       iconImg.style.display = 'block';
@@ -427,7 +445,9 @@ function handleAnswer(chosen) {
   const isCorrect = (chosen === correct);
 
   const cat = state.quizData.categories.find(c => c.id === state.currentCatId);
-  const isBlind = cat ? cat.type === 'blind' : false;
+  const categoryType = getCategoryType(cat);
+  const isBlind = categoryType === 'blind';
+  const isPersonalTopic = categoryType === 'personal';
 
   // Mostra il punteggio reale anche se era Blind
   $('q-points-label').textContent = q.points + ' PT';
@@ -461,11 +481,13 @@ function handleAnswer(chosen) {
       awardsText = "Il giocatore " + escHtml(state.players[state.currentIndex].name) + " perde " + Math.abs(state.currentPoints) + " punti";
     }
   } else {
-    const isRiskio = cat ? (cat.isRiskio || cat.type === "riskio") : false;
+    const isRiskio = categoryType === "riskio";
     if (isRiskio && !isBlind) {
       state.players[state.currentIndex].score -= 150;
     }
-    const pts = isBlind ? (state.currentPoints >= 0 ? 150 : -250) : (isRiskio ? 250 : 50);
+    const pts = isBlind
+      ? (state.currentPoints >= 0 ? 150 : -250)
+      : (isPersonalTopic ? state.currentPoints / 2 : (isRiskio ? 250 : 50));
     const winners = [];
     state.players.forEach((p, i) => {
       if (i !== state.currentIndex) {
@@ -478,6 +500,8 @@ function handleAnswer(chosen) {
     if (pts >= 0) {
       if (isRiskio && !isBlind) {
         awardsText = "Il giocatore " + escHtml(state.players[state.currentIndex].name) + " perde 150 punti | +" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
+      } else if (isPersonalTopic) {
+        awardsText = "+" + pts + " PUNTI (metà del valore) <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
       } else {
         awardsText = "+" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
       }

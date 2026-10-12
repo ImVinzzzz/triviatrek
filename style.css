@@ -672,6 +672,29 @@ body::after {
   flex-shrink: 0;
 }
 
+/* Personal Topic: l'immagine della categoria è sempre riconoscibile come
+   un'icona personale grazie al bordo circolare. */
+.personal-topic-card .cat-icon,
+.personal-topic-card .cat-icon-fallback,
+.personal-topic-icon {
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.24);
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.personal-topic-card .cat-icon,
+.cat-icon-mini.personal-topic-icon {
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+
+.personal-topic-card .cat-icon-fallback {
+  color: var(--gold);
+}
+
 .cat-name {
   font-family: var(--font-main);
   font-weight: 700;
@@ -1383,6 +1406,7 @@ body::after {
 .cat-type-container {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 24px;
   font-size: 0.85rem;
   letter-spacing: 1.5px;
@@ -1402,6 +1426,14 @@ body::after {
   height: 18px;
   accent-color: var(--correct);
   cursor: pointer;
+}
+
+.cat-type-help {
+  margin-top: 8px;
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.8px;
+  line-height: 1.35;
 }
 
 /* Evidenziazione popup per domande Blind */
@@ -1698,6 +1730,13 @@ body::after {
   filter: brightness(0) invert(1);
 }
 
+.cat-icon-mini.personal-topic-icon {
+  width: 34px;
+  height: 34px;
+  padding: 4px;
+  border-color: var(--gold);
+}
+
 .gradient-pickers input[type="color"] {
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.05);
@@ -1958,6 +1997,13 @@ body::after {
   border-bottom: 0.0625rem solid rgba(210, 160, 255, 0.1);
 }
 
+.rules-type-card.personal-card {
+  border-left-color: var(--gold);
+  border-top: 0.0625rem solid rgba(255, 215, 0, 0.2);
+  border-right: 0.0625rem solid rgba(255, 215, 0, 0.1);
+  border-bottom: 0.0625rem solid rgba(255, 215, 0, 0.1);
+}
+
 .rules-type-header {
   display: flex;
   align-items: center;
@@ -1995,6 +2041,12 @@ body::after {
   background: rgba(210, 160, 255, 0.15);
   color: var(--lilac);
   border: 0.0625rem solid var(--lilac);
+}
+
+.badge-personal {
+  background: rgba(255, 215, 0, 0.15);
+  color: var(--gold);
+  border: 0.0625rem solid var(--gold);
 }
 
 .rules-type-subtitle {
@@ -2127,4 +2179,3 @@ body::after {
     display: none;
   }
 }
-
