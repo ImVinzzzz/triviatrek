@@ -1,0 +1,128 @@
+{
+  "categories": [
+    {
+      "id": "vulcano",
+      "name": "VULCANO",
+      "icon": "/img_quiz/topic1/vulcano.svg",
+      "gradient": [
+        "#1e3280",
+        "#324696"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Quando?",
+          "options": [
+            "Risposta Aa",
+            "Risposta Bb",
+            "Risposta Cc"
+          ],
+          "correct": "C",
+          "image": "img_quiz/topic1/vulcano1.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Deve?",
+          "options": [
+            "Risposta Aa",
+            "Risposta Bb",
+            "Risposta Cc"
+          ],
+          "correct": "C",
+          "image": "img_quiz/topic1/vulcano2.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Qunado?",
+          "options": [
+            "Risposta Aa",
+            "Risposta Bb",
+            "Risposta Cc"
+          ],
+          "correct": "C",
+          "image": "img_quiz/topic1/vulcano3.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "materia_1791790176437",
+      "name": "TOPIC: FRRUUU",
+      "icon": "https://ussafrodite.vercel.app/images/crew/frruuu_l.jpg",
+      "gradient": [
+        "#008080",
+        "#005f5f"
+      ],
+      "isRiskio": false,
+      "type": "personal",
+      "isNew": true,
+      "questions": [
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Domanda 1T",
+          "options": [
+            "Opzione Aa",
+            "Opzione Bb",
+            "Opzione Cc"
+          ],
+          "correct": "A",
+          "image": "img_quiz/topic1/topic:-frruuu1.jpg"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "Domanda 2T",
+          "options": [
+            "Opzione Aa",
+            "Opzione Bb",
+            "Opzione Cc"
+          ],
+          "correct": "A",
+          "image": "img_quiz/topic1/topic:-frruuu2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "materia_1791790261968",
+      "name": "TOPIC: RENZI",
+      "icon": "https://ussafrodite.vercel.app/images/crew/renzi_l.jpg",
+      "gradient": [
+        "#008080",
+        "#005f5f"
+      ],
+      "isRiskio": false,
+      "type": "normal",
+      "isNew": true,
+      "questions": [
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Ch?",
+          "options": [
+            "Opzione Aa",
+            "Opzione Bb",
+            "Opzione Cc"
+          ],
+          "correct": "A",
+          "image": "img_quiz/topic1/topic:-renzi1.jpg"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "Domanda 2bT",
+          "options": [
+            "Opzione Aa",
+            "Opzione Bb",
+            "Opzione Cc"
+          ],
+          "correct": "A",
+          "image": "img_quiz/topic1/topic:-renzi2.jpg"
+        }
+      ]
+    }
+  ],
+  "title": "Topic1",
+  "imagePrefix": "topic1"
+}
