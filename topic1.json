@@ -85,7 +85,7 @@
       ]
     },
     {
-      "id": "materia_1791790261968",
+      "id": "materia_1791793487471",
       "name": "TOPIC: RENZI",
       "icon": "https://ussafrodite.vercel.app/images/crew/renzi_l.jpg",
       "gradient": [
@@ -93,32 +93,32 @@
         "#005f5f"
       ],
       "isRiskio": false,
-      "type": "normal",
+      "type": "personal",
       "isNew": true,
       "questions": [
         {
-          "points": 500,
+          "points": 100,
           "isRiskio": false,
-          "text": "Ch?",
+          "text": "Chi",
           "options": [
             "Opzione Aa",
             "Opzione Bb",
             "Opzione Cc"
           ],
           "correct": "A",
-          "image": "img_quiz/topic1/topic:-renzi1.jpg"
+          "image": "img_quiz/topic1/nuova-materia1.jpg"
         },
         {
-          "points": 1000,
+          "points": 250,
           "isRiskio": false,
-          "text": "Domanda 2bT",
+          "text": "Perché?",
           "options": [
-            "Opzione Aa",
-            "Opzione Bb",
-            "Opzione Cc"
+            "Opzione A",
+            "Opzione B",
+            "Opzione C"
           ],
           "correct": "A",
-          "image": "img_quiz/topic1/topic:-renzi2.jpg"
+          "image": "img_quiz/topic1/nuova-materia2.jpg"
         }
       ]
     }
