@@ -319,7 +319,7 @@ function renderCategory(idx) {
           "<label><input type=\"radio\" name=\"cat-type\" value=\"blind\" " + (cat.type === "blind" ? "checked" : "") + "> Blind</label>" +
           "<label><input type=\"radio\" name=\"cat-type\" value=\"personal\" " + (cat.type === "personal" || cat.type === "personal-topic" || cat.type === "personalTopic" ? "checked" : "") + "> Personal Topic</label>" +
         "</div>" +
-        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: l'icona della categoria viene mostrata in un circoletto bordato.</div>" +
+        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: l'icona della categoria viene mostrata in un circoletto bordato. In caso di risposta errata il giocatore di turno perde 250 punti e gli avversari guadagnano 500 punti ciascuno, indipendentemente dal valore della domanda.</div>" +
       "</div>" +
       "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
         "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +

@@ -95,7 +95,7 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 | Risposta corretta | Giocatore di turno +N punti (N = valore domanda) |
 | Risposta errata — Normale | Tutti gli **altri** giocatori +50 punti |
 | Risposta errata — Riskio! | Il giocatore di turno -150 punti; tutti gli **altri** +250 punti |
-| Risposta errata — Personal Topic | Il giocatore di turno non perde punti; tutti gli **altri** +N/2 punti |
+| Risposta errata — Personal Topic | Il giocatore di turno -250 punti; tutti gli **altri** +500 punti (indipendentemente dal valore della domanda) |
 
 ### Categoria Blind (Punti Nascosti)
 Le domande di tipo Blind nascondono il proprio valore reale con dei punti interrogativi sul tabellone e sul popup di gioco in base al loro ordine:
@@ -120,7 +120,7 @@ Le domande appartenenti a una categoria di tipo *Riskio!* (con valore esplicito 
 Le domande appartenenti a una categoria di tipo `personal` sono riconoscibili dall'icona della categoria mostrata dentro un circoletto bordato. L'icona si imposta dall'editor nel campo **Icona Materia / Argomento**.
 
 - **Risposta corretta**: il giocatore di turno guadagna l'intero valore della domanda.
-- **Risposta errata**: il giocatore di turno non perde punti; tutti gli altri giocatori guadagnano ciascuno la metà del valore della domanda (per esempio, +125 punti ciascuno su una domanda da 250).
+- **Risposta errata**: il giocatore di turno perde **250 punti**, mentre tutti gli altri giocatori guadagnano **+500 punti** fissi ciascuno, a prescindere dal valore della domanda (per esempio, su una domanda da 100 o da 1000 punti gli avversari ricevono sempre +500 punti e chi ha sbagliato -250).
 
 Nel JSON esportato dall'editor il tipo della categoria è indicato così:
 

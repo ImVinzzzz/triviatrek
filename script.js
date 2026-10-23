@@ -484,10 +484,14 @@ function handleAnswer(chosen) {
     const isRiskio = categoryType === "riskio";
     if (isRiskio && !isBlind) {
       state.players[state.currentIndex].score -= 150;
+    } else if (isPersonalTopic) {
+      // Personal Topic: chi sbaglia perde 250 punti fissi
+      state.players[state.currentIndex].score -= 250;
     }
+    // Personal Topic: gli avversari guadagnano 500 punti fissi, indipendentemente dal valore della domanda
     const pts = isBlind
       ? (state.currentPoints >= 0 ? 150 : -250)
-      : (isPersonalTopic ? state.currentPoints / 2 : (isRiskio ? 250 : 50));
+      : (isPersonalTopic ? 500 : (isRiskio ? 250 : 50));
     const winners = [];
     state.players.forEach((p, i) => {
       if (i !== state.currentIndex) {
@@ -501,7 +505,7 @@ function handleAnswer(chosen) {
       if (isRiskio && !isBlind) {
         awardsText = "Il giocatore " + escHtml(state.players[state.currentIndex].name) + " perde 150 punti | +" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
       } else if (isPersonalTopic) {
-        awardsText = "+" + pts + " PUNTI (metà del valore) <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
+        awardsText = "Il giocatore " + escHtml(state.players[state.currentIndex].name) + " perde 250 punti | +" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
       } else {
         awardsText = "+" + pts + " PUNTI <i class=\"fa-solid fa-angle-right\"></i> " + winners.map(escHtml).join(", ");
       }
