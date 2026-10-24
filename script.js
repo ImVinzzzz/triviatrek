@@ -908,11 +908,11 @@ function showGameOver() {
 
   showScreen('gameover');
 
-  // Stardate: simple fake
+  // Data stellare: "1" + anno (2 cifre) + mese (2 cifre) + "." + giorno (2 cifre)
+  // es. 24 ottobre 2026 -> 12610.24
   const stardateEl = $('go-stardate-val');
   if (stardateEl) {
-    const sd = (2401 + Math.random()).toFixed(4);
-    stardateEl.textContent = sd;
+    stardateEl.textContent = getStardate(new Date());
   }
 
   // Classifica con parimerito
@@ -944,6 +944,14 @@ function showGameOver() {
 }
 
 /* ── UTILS ─────────────────────────────────────────────────── */
+function getStardate(date) {
+  const pad = n => String(n).padStart(2, '0');
+  const yy = pad(date.getFullYear() % 100);
+  const mm = pad(date.getMonth() + 1);
+  const dd = pad(date.getDate());
+  return '1' + yy + mm + '.' + dd;
+}
+
 function escHtml(str) {
   const div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
