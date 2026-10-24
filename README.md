@@ -138,7 +138,7 @@ Se un quiz contiene almeno un Personal Topic la partita si svolge in due fasi:
 4. Le card si susseguono con uno scorrimento laterale **dall'ultimo al primo della classifica provvisoria**: chi era in testa risponde per ultimo. Ogni concorrente risponde solo alle domande della propria card.
 5. Esaurite tutte le card si passa alla classifica definitiva con il podio.
 
-Se nessun nome coincide con un argomento, le card rimaste vengono assegnate in ordine di classifica ai concorrenti ancora senza card (con un avviso nella console del browser). Un quiz senza Personal Topic si gioca come prima, in un'unica fase.
+L'abbinamento è solo per nome: l'ordine degli argomenti nel JSON non conta. Gli argomenti che non corrispondono a nessun concorrente non vengono giocati (prima della partita conviene eliminare quelli dei concorrenti assenti). Se **nessun** titolo coincide con i nomi dei concorrenti (es. nomi lasciati vuoti), la Fase II non c'è e la partita si gioca in un'unica fase con tutte le categorie sul tabellone, Personal Topic compresi. Lo stesso vale per un quiz senza Personal Topic.
 
 - **Risposta corretta**: il giocatore di turno guadagna l'intero valore della domanda.
 - **Risposta errata**: il giocatore di turno perde **250 punti**, mentre tutti gli altri giocatori guadagnano **+500 punti** fissi ciascuno, a prescindere dal valore della domanda (per esempio, su una domanda da 100 o da 1000 punti gli avversari ricevono sempre +500 punti e chi ha sbagliato -250).

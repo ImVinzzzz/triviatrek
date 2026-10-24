@@ -161,7 +161,7 @@ Il punto di partenza più sicuro per la prossima chat è considerare `giuliano.j
 - Se un quiz contiene categorie `personal`, la partita si divide in due fasi. Il tabellone della Fase I esclude i Personal Topic.
 - A fine Fase I viene assegnato il bonus di compensazione (una sola volta, flag `state.bonusApplied`) e compare la schermata `#screen-phase1` con la classifica provvisoria e il pulsante `FASE II >`.
 - `#screen-phase2`: flip d'ingresso, logo `img/fase2-logo.svg`, clic ovunque → il logo ruota e compare la card del primo argomento (foto nel cerchio, titolo, nuovo campo `subtitle`). Le card successive entrano con scorrimento laterale.
-- Ordine: dall'ultimo al primo della classifica provvisoria (a parità di punti gioca prima chi è stato inserito dopo nel setup). Abbinamento concorrente ↔ card per nome normalizzato (maiuscole, accenti, punteggiatura e prefisso `TOPIC:` ignorati), poi per inclusione, infine le card rimaste vanno ai concorrenti senza card (avviso in console).
+- Ordine: dall'ultimo al primo della classifica provvisoria (a parità di punti gioca prima chi è stato inserito dopo nel setup). Abbinamento concorrente ↔ card calcolato all'avvio (`state.topicOwners`) solo per nome identico normalizzato (maiuscole, accenti, punteggiatura e prefisso `TOPIC:` ignorati); argomenti senza concorrente non giocati. Se nessun nome coincide, niente Fase II: tutte le categorie, Personal Topic compresi, vanno sul tabellone unico.
 - In Fase II il turno non ruota: risponde sempre il titolare della card. Esaurite le card → `showGameOver()` con il podio esistente.
 - Senza Personal Topic il gioco resta identico a prima.
 - Corretto anche il doppio avvio del setup dalla splash (flag `state.setupOpened`).

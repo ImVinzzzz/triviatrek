@@ -20,6 +20,7 @@ const state = {
   setupOpened:     false, // evita il doppio avvio del setup dalla splash
   phase:           1,     // 1 = tabellone principale, 2 = Personal Topic
   bonusApplied:    false, // compensazione turni già assegnata
+  topicOwners:     {},    // { indiceGiocatore: categoria Personal Topic con il suo nome }
   phase2Queue:     [],    // [{ cat, playerIndex }] in ordine di classifica provvisoria
   phase2Pos:       -1,    // card Fase II attiva
   phase2Revealed:  false  // logo Fase II già girato
@@ -220,6 +221,8 @@ async function startGame() {
   });
 
   state.players = players;
+  // Fase II solo se almeno un argomento Personal Topic ha il nome di un concorrente
+  state.topicOwners = matchTopicOwners();
   // Random first player
   state.currentIndex = Math.floor(Math.random() * players.length);
 
@@ -304,8 +307,10 @@ function getPersonalCategories() {
   return state.quizData.categories.filter(cat => getCategoryType(cat) === 'personal');
 }
 
+/* La Fase II esiste solo se almeno un concorrente ha un Personal Topic col proprio nome.
+   Altrimenti si gioca in un'unica fase con tutte le categorie sul tabellone. */
 function hasPhase2() {
-  return getPersonalCategories().length > 0;
+  return Object.keys(state.topicOwners || {}).length > 0;
 }
 
 /* Categorie mostrate sul tabellone principale (Fase I) */
@@ -707,50 +712,35 @@ function normalizeTopicName(str) {
     .replace(/[^A-Z0-9]/g, '');
 }
 
-/* Coda della Fase II: dall'ultimo al primo della classifica provvisoria.
-   Ogni card viene associata al concorrente il cui nome coincide con il titolo. */
+/* Abbinamento concorrente -> Personal Topic: il titolo dell'argomento deve coincidere
+   con il nome del concorrente (ignorando maiuscole, accenti, punteggiatura e un
+   eventuale prefisso "TOPIC:"). L'ordine delle categorie nel JSON non conta.
+   Gli argomenti senza concorrente corrispondente non vengono giocati. */
+function matchTopicOwners() {
+  const owners = {};
+  const cats = getPersonalCategories();
+  state.players.forEach((p, i) => {
+    const pName = normalizeTopicName(p.name);
+    if (!pName) return;
+    const cat = cats.find(c => normalizeTopicName(c.name) === pName &&
+      !Object.values(owners).includes(c));
+    if (cat) owners[i] = cat;
+  });
+  const unused = cats.filter(c => !Object.values(owners).includes(c));
+  if (Object.keys(owners).length && unused.length) {
+    console.warn('Fase II: argomenti senza concorrente corrispondente, non giocati:', unused.map(c => c.name));
+  }
+  return owners;
+}
+
+/* Coda della Fase II: dall'ultimo al primo della classifica provvisoria,
+   solo per i concorrenti che hanno un Personal Topic */
 function buildPhase2Queue() {
-  const order = state.players
+  return state.players
     .map((p, index) => ({ index, score: p.score }))
     .sort((a, b) => a.score - b.score || b.index - a.index)
-    .map(p => p.index);
-
-  const freeCats = getPersonalCategories().slice();
-  const assigned = {};
-
-  const takeCat = predicate => {
-    const pos = freeCats.findIndex(predicate);
-    return pos >= 0 ? freeCats.splice(pos, 1)[0] : null;
-  };
-
-  // 1) nome identico (ignorando maiuscole, accenti, punteggiatura e prefisso "TOPIC:")
-  order.forEach(i => {
-    const pName = normalizeTopicName(state.players[i].name);
-    const cat = takeCat(c => normalizeTopicName(c.name) === pName);
-    if (cat) assigned[i] = cat;
-  });
-  // 2) titolo che contiene il nome (o viceversa)
-  order.forEach(i => {
-    if (assigned[i]) return;
-    const pName = normalizeTopicName(state.players[i].name);
-    if (pName.length < 3) return;
-    const cat = takeCat(c => {
-      const cName = normalizeTopicName(c.name);
-      return cName.length >= 3 && (cName.includes(pName) || pName.includes(cName));
-    });
-    if (cat) assigned[i] = cat;
-  });
-  // 3) card rimaste: assegnate in ordine ai concorrenti ancora senza card
-  order.forEach(i => {
-    if (assigned[i] || freeCats.length === 0) return;
-    assigned[i] = freeCats.shift();
-    console.warn(`Fase II: nessun argomento intitolato "${state.players[i].name}", assegnata la card "${assigned[i].name}".`);
-  });
-  if (freeCats.length) {
-    console.warn('Fase II: argomenti senza concorrente, non giocati:', freeCats.map(c => c.name));
-  }
-
-  return order.filter(i => assigned[i]).map(i => ({ cat: assigned[i], playerIndex: i }));
+    .filter(p => state.topicOwners[p.index])
+    .map(p => ({ cat: state.topicOwners[p.index], playerIndex: p.index }));
 }
 
 function buildPhase2PlayersBar() {
