@@ -106,8 +106,8 @@
             "Opzione Bb",
             "Opzione Cc"
           ],
-          "correct": "A",
-          "image": "img_quiz/topic1/topic:-renzi1.jpg"
+          "correct": "B",
+          "image": "https://static.wikia.nocookie.net/stpendragon/images/5/5d/Spock_with_lyre.jpg"
         },
         {
           "points": 1000,
@@ -119,7 +119,31 @@
             "Opzione Cc"
           ],
           "correct": "A",
-          "image": "img_quiz/topic1/topic:-renzi2.jpg"
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/star-trek-animated-young-spock-sehlat.jpg"
+        },
+        {
+          "points": 2000,
+          "isRiskio": false,
+          "text": "Ch?",
+          "options": [
+            "Opzione Aa",
+            "Opzione Bb",
+            "Opzione Cc"
+          ],
+          "correct": "B",
+          "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/06/Star-Trek-Spock-In-The-Squire-Of-Gothos.jpg"
+        },
+        {
+          "points": 3000,
+          "isRiskio": false,
+          "text": "Domanda 2bT",
+          "options": [
+            "Opzione Aa",
+            "Opzione Bb",
+            "Opzione Cc"
+          ],
+          "correct": "A",
+          "image": "https://static0.moviewebimages.com/wordpress/wp-content/uploads/2024/01/spock-does-vulcan-salute-in-star-trek.jpg?q=50&fit=crop&w=825&dpr=1.5"
         }
       ],
       "subtitle": "Spock"
