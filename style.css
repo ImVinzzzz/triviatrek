@@ -2384,7 +2384,7 @@ body::after {
 .topic-card-title {
   font-family: var(--font-main);
   font-weight: 700;
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(1.9rem, 5.2vw, 3.4rem);
   line-height: 1.05;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -2395,11 +2395,13 @@ body::after {
 
 .topic-card-subtitle {
   font-family: var(--font-main);
-  font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.05;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+  overflow-wrap: anywhere;
 }
 
 .topic-card-turn {
