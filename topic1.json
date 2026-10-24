@@ -82,12 +82,13 @@
           "correct": "A",
           "image": "img_quiz/topic1/topic:-frruuu2.jpg"
         }
-      ]
+      ],
+      "subtitle": "Reginald Barkley"
     },
     {
       "id": "materia_1791790261968",
-      "name": "RENZI",
-      "icon": "https://ussafrodite.vercel.app/images/crew/renzi_l.jpg",
+      "name": "T'MIK",
+      "icon": "https://ussafrodite.vercel.app/assets/img/crew/tmik_l.jpg",
       "gradient": [
         "#008080",
         "#005f5f"
@@ -120,7 +121,8 @@
           "correct": "A",
           "image": "img_quiz/topic1/topic:-renzi2.jpg"
         }
-      ]
+      ],
+      "subtitle": "Spock"
     }
   ],
   "title": "Topic1",
