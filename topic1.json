@@ -3,7 +3,7 @@
     {
       "id": "vulcano",
       "name": "VULCANO",
-      "icon": "/img_quiz/topic1/vulcano.svg",
+      "icon": "/img_quiz/icone/vulcano.svg",
       "gradient": [
         "#1e3280",
         "#324696"
@@ -48,7 +48,7 @@
     },
     {
       "id": "materia_1791790176437",
-      "name": "TOPIC: FRRUUU",
+      "name": "FRRUUU",
       "icon": "https://ussafrodite.vercel.app/images/crew/frruuu_l.jpg",
       "gradient": [
         "#008080",
@@ -85,8 +85,8 @@
       ]
     },
     {
-      "id": "materia_1791793487471",
-      "name": "TOPIC: RENZI",
+      "id": "materia_1791790261968",
+      "name": "RENZI",
       "icon": "https://ussafrodite.vercel.app/images/crew/renzi_l.jpg",
       "gradient": [
         "#008080",
@@ -97,28 +97,28 @@
       "isNew": true,
       "questions": [
         {
-          "points": 100,
+          "points": 500,
           "isRiskio": false,
-          "text": "Chi",
+          "text": "Ch?",
           "options": [
             "Opzione Aa",
             "Opzione Bb",
             "Opzione Cc"
           ],
           "correct": "A",
-          "image": "img_quiz/topic1/nuova-materia1.jpg"
+          "image": "img_quiz/topic1/topic:-renzi1.jpg"
         },
         {
-          "points": 250,
+          "points": 1000,
           "isRiskio": false,
-          "text": "Perché?",
+          "text": "Domanda 2bT",
           "options": [
-            "Opzione A",
-            "Opzione B",
-            "Opzione C"
+            "Opzione Aa",
+            "Opzione Bb",
+            "Opzione Cc"
           ],
           "correct": "A",
-          "image": "img_quiz/topic1/nuova-materia2.jpg"
+          "image": "img_quiz/topic1/topic:-renzi2.jpg"
         }
       ]
     }

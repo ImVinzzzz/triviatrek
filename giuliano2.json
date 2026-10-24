@@ -3,7 +3,7 @@
     {
       "id": "comando",
       "name": "COMANDO",
-      "icon": "/img_quiz/giuliano2/comando.svg",
+      "icon": "/img_quiz/icone/comando.svg",
       "gradient": [
         "#b42828",
         "#e61e1e"
@@ -49,7 +49,7 @@
     {
       "id": "scienza",
       "name": "SCIENZA",
-      "icon": "/img_quiz/giuliano2/scienza.svg",
+      "icon": "/img_quiz/icone/scienza.svg",
       "gradient": [
         "#286e64",
         "#008080"
@@ -95,7 +95,7 @@
     {
       "id": "medicina",
       "name": "MEDICINA",
-      "icon": "/img_quiz/giuliano2/medicina.svg",
+      "icon": "/img_quiz/icone/medicina.svg",
       "gradient": [
         "#286e64",
         "#008080"
@@ -141,7 +141,7 @@
     {
       "id": "tattica",
       "name": "TATTICA",
-      "icon": "/img_quiz/giuliano2/tattica.svg",
+      "icon": "/img_quiz/icone/tattica.svg",
       "gradient": [
         "#bebe00",
         "#ffc800"
@@ -187,7 +187,7 @@
     {
       "id": "ingegneria",
       "name": "INGEGNERIA",
-      "icon": "/img_quiz/giuliano2/ingegneria.svg",
+      "icon": "/img_quiz/icone/ingegneria.svg",
       "gradient": [
         "#bebe00",
         "#ffc800"
@@ -233,7 +233,7 @@
     {
       "id": "riskio",
       "name": "ARMI",
-      "icon": "/img_quiz/giuliano2/armi.svg",
+      "icon": "/img_quiz/icone/armi.svg",
       "gradient": [
         "#ffff00",
         "#fdc708"
@@ -279,7 +279,7 @@
     {
       "id": "qonos",
       "name": "QO'NOS",
-      "icon": "/img_quiz/giuliano2/qo'nos.svg",
+      "icon": "/img_quiz/icone/qo-nos.svg",
       "gradient": [
         "#803c64",
         "#b44b82"
@@ -325,7 +325,7 @@
     {
       "id": "romulus",
       "name": "ROMULUS",
-      "icon": "/img_quiz/giuliano2/romulus.svg",
+      "icon": "/img_quiz/icone/romulus.svg",
       "gradient": [
         "#006432",
         "#009646"
@@ -371,7 +371,7 @@
     {
       "id": "vulcano",
       "name": "VULCANO",
-      "icon": "/img_quiz/giuliano2/vulcano.svg",
+      "icon": "/img_quiz/icone/vulcano.svg",
       "gradient": [
         "#1e3280",
         "#324696"
@@ -417,7 +417,7 @@
     {
       "id": "materia_1788731022287",
       "name": "CULTURA GENERALE",
-      "icon": "/img_quiz/giuliano2/cultura-generale.svg",
+      "icon": "/img_quiz/icone/cultura-generale.svg",
       "gradient": [
         "#a8e5ff",
         "#fe58f9"
@@ -467,7 +467,7 @@
     {
       "id": "materia_1788731191746",
       "name": "FERENGINAR",
-      "icon": "/img_quiz/giuliano2/ferenginar.svg",
+      "icon": "/img_quiz/icone/ferenginar.svg",
       "gradient": [
         "#008037",
         "#2bc520"
@@ -517,7 +517,7 @@
     {
       "id": "materia_1788731738613",
       "name": "Q-CONTINUUM",
-      "icon": "/img_quiz/giuliano2/q-continuum.svg",
+      "icon": "/img_quiz/icone/qcontinuum.svg",
       "gradient": [
         "#720303",
         "#ff0026"
@@ -567,7 +567,7 @@
     {
       "id": "materia_1788731844172",
       "name": "IL TRAPPOLONE 1",
-      "icon": "/img_quiz/giuliano2/il-trappolone-1.svg",
+      "icon": "/img_quiz/icone/trappolone-1.svg",
       "gradient": [
         "#0e0458",
         "#0008ff"
@@ -617,7 +617,7 @@
     {
       "id": "materia_1788731978244",
       "name": "IL TRAPPOLONE 2",
-      "icon": "/img_quiz/giuliano2/il-trappolone-2.svg",
+      "icon": "/img_quiz/icone/trappolone-2.svg",
       "gradient": [
         "#ff0026",
         "#61000f"
@@ -667,7 +667,7 @@
     {
       "id": "materia_1788732110261",
       "name": "MIRROR MIRROR",
-      "icon": "/img_quiz/giuliano2/mirror-mirror.svg",
+      "icon": "/img_quiz/icone/mirror-mirror.svg",
       "gradient": [
         "#806f00",
         "#fe4120"
@@ -717,7 +717,7 @@
     {
       "id": "materia_1788732240134",
       "name": "IL DOMINIO",
-      "icon": "/img_quiz/giuliano2/il-dominio.svg",
+      "icon": "/img_quiz/icone/il-dominio.svg",
       "gradient": [
         "#008080",
         "#005f5f"
@@ -767,7 +767,7 @@
     {
       "id": "materia_1788732436475",
       "name": "CULTURA GENERALE 2",
-      "icon": "/img_quiz/giuliano2/cultura-generale-2.svg",
+      "icon": "/img_quiz/icone/cultura-generale.svg",
       "gradient": [
         "#bbcd60",
         "#f2e01c"
@@ -817,7 +817,7 @@
     {
       "id": "materia_1788734130927",
       "name": "NAVI SPAZIALI",
-      "icon": "/img_quiz/giuliano2/navi-spaziali.svg",
+      "icon": "/img_quiz/icone/navispaziali.svg",
       "gradient": [
         "#008080",
         "#005f5f"

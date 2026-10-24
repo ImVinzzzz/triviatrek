@@ -1,5 +1,5 @@
 /* ============================================================
-   TRIVIA TREK v.2.5 — script.js
+   TRIVIA TREK v.2.6 — script.js
    Logica di Gioco
    ============================================================ */
 
@@ -16,7 +16,13 @@ const state = {
   currentPoints:   0,
   currentGradient: [],
   catName:         '',
-  introPlayed:     false
+  introPlayed:     false,
+  setupOpened:     false, // evita il doppio avvio del setup dalla splash
+  phase:           1,     // 1 = tabellone principale, 2 = Personal Topic
+  bonusApplied:    false, // compensazione turni già assegnata
+  phase2Queue:     [],    // [{ cat, playerIndex }] in ordine di classifica provvisoria
+  phase2Pos:       -1,    // card Fase II attiva
+  phase2Revealed:  false  // logo Fase II già girato
 };
 
 /* ── DOM REFS ──────────────────────────────────────────────── */
@@ -24,6 +30,8 @@ const $ = id => document.getElementById(id);
 const screens = {
   splash:   $('screen-splash'),
   game:     $('screen-game'),
+  phase1:   $('screen-phase1'),
+  phase2:   $('screen-phase2'),
   gameover: $('screen-gameover')
 };
 const popups = {
@@ -63,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   setupSplash();
   setupRulesPopup();
+  setupPhase2Controls();
 });
 
 /* ── REGOLAMENTO POPUP ─────────────────────────────────────── */
@@ -122,6 +131,9 @@ function setupSplash() {
 }
 
 function onSplashClick() {
+  // Il click sul logo risale anche al contenitore: apriamo il setup una sola volta
+  if (state.setupOpened) return;
+  state.setupOpened = true;
   if (!state.introPlayed) {
     playAudio('intro');
     state.introPlayed = true;
@@ -233,7 +245,7 @@ function showScreen(name) {
 
   const btnHeaderRules = $('header-rules-btn');
   if (btnHeaderRules) {
-    if (name === 'game' || name === 'gameover') {
+    if (name === 'game' || name === 'gameover' || name === 'phase1' || name === 'phase2') {
       btnHeaderRules.classList.remove('hidden');
     } else {
       btnHeaderRules.classList.add('hidden');
@@ -280,10 +292,27 @@ function buildCategoriesGrid() {
   const grid = $('categories-grid');
   grid.innerHTML = '';
 
-  state.quizData.categories.forEach(cat => {
+  getBoardCategories().forEach(cat => {
     const card = buildCategoryCard(cat);
     grid.appendChild(card);
   });
+}
+
+/* Categorie Personal Topic: se presenti, vengono giocate nella Fase II */
+function getPersonalCategories() {
+  if (!state.quizData || !state.quizData.categories) return [];
+  return state.quizData.categories.filter(cat => getCategoryType(cat) === 'personal');
+}
+
+function hasPhase2() {
+  return getPersonalCategories().length > 0;
+}
+
+/* Categorie mostrate sul tabellone principale (Fase I) */
+function getBoardCategories() {
+  if (!state.quizData || !state.quizData.categories) return [];
+  if (!hasPhase2()) return state.quizData.categories;
+  return state.quizData.categories.filter(cat => getCategoryType(cat) !== 'personal');
 }
 
 /* Normalizza il tipo per mantenere compatibilità con i vecchi JSON che
@@ -537,8 +566,10 @@ function handleAnswer(chosen) {
   const boardBtn = $(`btn-${state.currentCatId}-${state.currentPoints}`);
   if (boardBtn) boardBtn.disabled = true;
 
-  // Advance turn
-  state.currentIndex = (state.currentIndex + 1) % state.players.length;
+  // Advance turn (nella Fase II il turno resta al titolare della card)
+  if (state.phase === 1) {
+    state.currentIndex = (state.currentIndex + 1) % state.players.length;
+  }
 
   // Close popup after delay
   setTimeout(() => {
@@ -548,8 +579,10 @@ function handleAnswer(chosen) {
     updateTurnBanner();
     updatePlayerDisplays();
 
-    if (checkGameOver()) {
-      setTimeout(showGameOver, 1200);
+    if (state.phase === 2) {
+      onPhase2AnswerDone();
+    } else if (checkGameOver()) {
+      setTimeout(hasPhase2() ? showPhase1Summary : showGameOver, 1200);
     }
   }, isBlind ? 4000 : 2500); // Più tempo se è Blind per far leggere ed apprezzare l'evidenziazione
 }
@@ -570,6 +603,12 @@ function updatePlayerDisplays() {
     const mScore = $(`mscore-${i}`);
     if (mCard) mCard.classList.toggle('active-turn', i === state.currentIndex);
     if (mScore) mScore.textContent = p.score.toLocaleString('it-IT');
+
+    // Fase II
+    const p2Card = $(`p2-player-${i}`);
+    const p2Score = $(`p2-score-${i}`);
+    if (p2Card) p2Card.classList.toggle('active-turn', state.phase === 2 && i === state.currentIndex);
+    if (p2Score) p2Score.textContent = p.score.toLocaleString('it-IT');
   });
 }
 
@@ -581,16 +620,20 @@ function updateTurnBanner() {
 }
 
 /* ── GAME OVER ─────────────────────────────────────────────── */
+/* Fine della Fase I: tutte le domande del tabellone principale affrontate */
 function checkGameOver() {
-  const total = state.quizData.categories.reduce((sum, cat) => sum + cat.questions.length, 0);
-  return Object.keys(state.answered).length >= total;
+  const boardCats = getBoardCategories();
+  const total = boardCats.reduce((sum, cat) => sum + cat.questions.length, 0);
+  const answeredOnBoard = boardCats.reduce((sum, cat) =>
+    sum + cat.questions.filter(q => state.answered[`${cat.id}_${q.points}`]).length, 0);
+  return answeredOnBoard >= total;
 }
 
-function showGameOver() {
-  stopAudio('theme');
-  playAudio('winner');
-
-  // Assegnazione automatica del bonus di 250 punti per i concorrenti che hanno risposto a meno domande
+/* Bonus di compensazione: +250 punti per ogni turno mancante rispetto al massimo.
+   Viene calcolato una sola volta, al termine della Fase I (o della partita se non c'è Fase II). */
+function applyCompensationBonus() {
+  if (state.bonusApplied) return;
+  state.bonusApplied = true;
   const maxQuestions = Math.max(...state.players.map(p => p.questionsCount || 0));
   state.players.forEach(p => {
     const missed = maxQuestions - (p.questionsCount || 0);
@@ -599,6 +642,267 @@ function showGameOver() {
       p.bonusMissed = missed * 250;
     }
   });
+}
+
+/* Classifica con gestione dei pari merito */
+function getRankedPlayers() {
+  const sorted = state.players
+    .map((p, index) => ({ ...p, index }))
+    .sort((a, b) => b.score - a.score || a.index - b.index);
+  let currentRank = 1;
+  return sorted.map((p, idx) => {
+    if (idx > 0 && p.score < sorted[idx - 1].score) currentRank = idx + 1;
+    return { ...p, rank: currentRank };
+  });
+}
+
+/* ── FASE I: CLASSIFICA PROVVISORIA ────────────────────────── */
+function showPhase1Summary() {
+  applyCompensationBonus();
+  updatePlayerDisplays();
+
+  const list = $('p1-ranking-list');
+  list.innerHTML = '';
+  getRankedPlayers().forEach(p => {
+    const item = document.createElement('div');
+    item.className = 'go-rank-item' + (p.rank === 1 ? ' p1-leader' : '');
+    const bonus = p.bonusMissed
+      ? `<span class="p1-bonus" title="Compensazione turni mancanti">+${p.bonusMissed.toLocaleString('it-IT')} BONUS</span>`
+      : '';
+    item.innerHTML = `
+      <span class="go-rank-pos">#${p.rank}</span>
+      <span class="go-rank-name">${escHtml(p.name)}</span>
+      ${bonus}
+      <span class="go-rank-score">${p.score.toLocaleString('it-IT')} PT</span>
+    `;
+    list.appendChild(item);
+  });
+
+  const container = screens.phase1.querySelector('.phase1-container');
+  if (container) container.classList.remove('flip-out');
+  showScreen('phase1');
+}
+
+/* ── FASE II: PERSONAL TOPIC ───────────────────────────────── */
+function setupPhase2Controls() {
+  const btn = $('btn-phase2');
+  if (btn) btn.addEventListener('click', startPhase2);
+
+  const stage = $('screen-phase2');
+  if (stage) {
+    stage.addEventListener('click', e => {
+      if (state.phase !== 2 || state.phase2Revealed) return;
+      if (e.target.closest('#header-rules-btn')) return;
+      revealPhase2();
+    });
+  }
+}
+
+/* Normalizza un nome per confrontare concorrente e titolo dell'argomento */
+function normalizeTopicName(str) {
+  return String(str || '')
+    .toUpperCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/^\s*(PERSONAL\s+)?TOPIC\s*[:\-–—]?\s*/, '')
+    .replace(/[^A-Z0-9]/g, '');
+}
+
+/* Coda della Fase II: dall'ultimo al primo della classifica provvisoria.
+   Ogni card viene associata al concorrente il cui nome coincide con il titolo. */
+function buildPhase2Queue() {
+  const order = state.players
+    .map((p, index) => ({ index, score: p.score }))
+    .sort((a, b) => a.score - b.score || b.index - a.index)
+    .map(p => p.index);
+
+  const freeCats = getPersonalCategories().slice();
+  const assigned = {};
+
+  const takeCat = predicate => {
+    const pos = freeCats.findIndex(predicate);
+    return pos >= 0 ? freeCats.splice(pos, 1)[0] : null;
+  };
+
+  // 1) nome identico (ignorando maiuscole, accenti, punteggiatura e prefisso "TOPIC:")
+  order.forEach(i => {
+    const pName = normalizeTopicName(state.players[i].name);
+    const cat = takeCat(c => normalizeTopicName(c.name) === pName);
+    if (cat) assigned[i] = cat;
+  });
+  // 2) titolo che contiene il nome (o viceversa)
+  order.forEach(i => {
+    if (assigned[i]) return;
+    const pName = normalizeTopicName(state.players[i].name);
+    if (pName.length < 3) return;
+    const cat = takeCat(c => {
+      const cName = normalizeTopicName(c.name);
+      return cName.length >= 3 && (cName.includes(pName) || pName.includes(cName));
+    });
+    if (cat) assigned[i] = cat;
+  });
+  // 3) card rimaste: assegnate in ordine ai concorrenti ancora senza card
+  order.forEach(i => {
+    if (assigned[i] || freeCats.length === 0) return;
+    assigned[i] = freeCats.shift();
+    console.warn(`Fase II: nessun argomento intitolato "${state.players[i].name}", assegnata la card "${assigned[i].name}".`);
+  });
+  if (freeCats.length) {
+    console.warn('Fase II: argomenti senza concorrente, non giocati:', freeCats.map(c => c.name));
+  }
+
+  return order.filter(i => assigned[i]).map(i => ({ cat: assigned[i], playerIndex: i }));
+}
+
+function buildPhase2PlayersBar() {
+  const bar = $('phase2-players');
+  if (!bar) return;
+  bar.innerHTML = '';
+  state.players.forEach((p, i) => {
+    const el = document.createElement('div');
+    el.className = 'p2-player';
+    el.id = `p2-player-${i}`;
+    el.innerHTML = `
+      <span class="p2-player-name">${escHtml(p.name)}</span>
+      <span class="p2-player-score" id="p2-score-${i}">${p.score.toLocaleString('it-IT')}</span>
+    `;
+    bar.appendChild(el);
+  });
+}
+
+function startPhase2() {
+  state.phase = 2;
+  state.phase2Queue = buildPhase2Queue();
+  state.phase2Pos = -1;
+  state.phase2Revealed = false;
+
+  if (state.phase2Queue.length === 0) {
+    showGameOver();
+    return;
+  }
+
+  // Reset del flipper (logo fronte, card retro)
+  const flipper = $('phase2-flipper');
+  flipper.classList.remove('flipped');
+  $('phase2-card-viewport').innerHTML = '';
+  $('phase2-hint').classList.remove('hidden');
+  buildPhase2PlayersBar();
+  $('phase2-players').classList.add('hidden');
+
+  // Effetto flip: la classifica provvisoria ruota via, il nuovo tabellone entra ruotando
+  const container = screens.phase1.querySelector('.phase1-container');
+  if (container) container.classList.add('flip-out');
+  setTimeout(() => {
+    showScreen('phase2');
+    const stage = $('phase2-stage');
+    stage.classList.remove('flip-in');
+    void stage.offsetWidth; // riavvia l'animazione
+    stage.classList.add('flip-in');
+  }, 550);
+}
+
+function revealPhase2() {
+  state.phase2Revealed = true;
+  $('phase2-hint').classList.add('hidden');
+  state.phase2Pos = 0;
+  renderPhase2Card(false);
+  $('phase2-flipper').classList.add('flipped');
+  setTimeout(() => $('phase2-players').classList.remove('hidden'), 500);
+}
+
+function renderPhase2Card(animate) {
+  const entry = state.phase2Queue[state.phase2Pos];
+  if (!entry) return;
+  const { cat, playerIndex } = entry;
+  const player = state.players[playerIndex];
+
+  state.currentIndex = playerIndex;
+  updatePlayerDisplays();
+  updateTurnBanner();
+
+  const card = document.createElement('div');
+  card.className = 'topic-card';
+  const g = cat.gradient || ['#8a6d00', '#3d3000'];
+  card.style.background = `linear-gradient(135deg, ${g[0]}, ${g[1]})`;
+
+  const subtitle = cat.subtitle ? `<div class="topic-card-subtitle">${escHtml(cat.subtitle)}</div>` : '';
+  card.innerHTML = `
+    <div class="topic-card-top">
+      <div class="topic-card-photo"></div>
+      <div class="topic-card-heading">
+        <div class="topic-card-kicker">PERSONAL TOPIC &bull; ${state.phase2Pos + 1}/${state.phase2Queue.length}</div>
+        <div class="topic-card-title">${escHtml(cat.name)}</div>
+        ${subtitle}
+      </div>
+    </div>
+    <div class="topic-card-turn"><i class="fa-solid fa-circle-chevron-right"></i> &nbsp;RISPONDE <strong>${escHtml(player.name)}</strong></div>
+    <div class="topic-card-points"></div>
+  `;
+
+  // Foto / icona nel cerchio, con fallback
+  const photo = card.querySelector('.topic-card-photo');
+  if (cat.icon) {
+    const img = document.createElement('img');
+    img.src = cat.icon;
+    img.alt = '';
+    img.onerror = () => { photo.innerHTML = '<i class="fa-solid fa-user-astronaut"></i>'; };
+    photo.appendChild(img);
+  } else {
+    photo.innerHTML = '<i class="fa-solid fa-user-astronaut"></i>';
+  }
+
+  const row = card.querySelector('.topic-card-points');
+  cat.questions.forEach(q => {
+    const btn = document.createElement('button');
+    btn.className = 'point-btn topic-point-btn';
+    btn.textContent = q.points;
+    btn.id = 'btn-' + cat.id + '-' + q.points;
+    btn.disabled = !!state.answered[`${cat.id}_${q.points}`];
+    btn.addEventListener('click', () => {
+      state.currentIndex = playerIndex;
+      openQuestion(cat, q);
+    });
+    row.appendChild(btn);
+  });
+
+  const viewport = $('phase2-card-viewport');
+  const old = viewport.querySelector('.topic-card:not(.slide-out)');
+  if (animate && old) {
+    old.classList.add('slide-out');
+    card.classList.add('slide-in');
+    setTimeout(() => old.remove(), 700);
+  } else {
+    viewport.innerHTML = '';
+  }
+  viewport.appendChild(card);
+}
+
+function onPhase2AnswerDone() {
+  const entry = state.phase2Queue[state.phase2Pos];
+  if (!entry) return;
+  state.currentIndex = entry.playerIndex;
+  updatePlayerDisplays();
+  updateTurnBanner();
+
+  const done = entry.cat.questions.every(q => state.answered[`${entry.cat.id}_${q.points}`]);
+  if (!done) return;
+
+  if (state.phase2Pos < state.phase2Queue.length - 1) {
+    setTimeout(() => {
+      state.phase2Pos++;
+      renderPhase2Card(true);
+    }, 900);
+  } else {
+    setTimeout(showGameOver, 1200);
+  }
+}
+
+function showGameOver() {
+  stopAudio('theme');
+  playAudio('winner');
+
+  // Bonus di compensazione (se non già assegnato a fine Fase I)
+  applyCompensationBonus();
+  state.phase = 3;
 
   updatePlayerDisplays();
 
@@ -611,18 +915,8 @@ function showGameOver() {
     stardateEl.textContent = sd;
   }
 
-  // Sort players
-  const sorted = [...state.players].sort((a, b) => b.score - a.score);
-
-  // Calcola le posizioni considerando i parimerito
-  const rankedPlayers = [];
-  let currentRank = 1;
-  sorted.forEach((p, idx) => {
-    if (idx > 0 && p.score < sorted[idx - 1].score) {
-      currentRank = idx + 1;
-    }
-    rankedPlayers.push({ ...p, rank: currentRank });
-  });
+  // Classifica con parimerito
+  const rankedPlayers = getRankedPlayers();
 
   // Vincitori (tutti quelli con rank 1)
   const winners = rankedPlayers.filter(p => p.rank === 1);

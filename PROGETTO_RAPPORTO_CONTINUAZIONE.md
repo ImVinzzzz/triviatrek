@@ -43,7 +43,9 @@ Lo stato attuale è quello di un prodotto giocabile con editor integrato, ma con
 | `giuliano.json` | missione più completa, 16 categorie e 48 domande |
 | `afrodite-2.json` | missione USS Afrodite, 12 categorie e 35 domande |
 | `topic1.json` | bozza con 3 categorie e 7 domande, non presente nel menu |
-| `img/`, `img_quiz/` | logo, icone e immagini delle domande |
+| `img/` | logo, logo Fase II (`fase2-logo.svg`), favicon |
+| `img_quiz/icone/` | tutte le icone delle materie, condivise tra i quiz |
+| `img_quiz/<quiz>/` | solo le immagini delle domande del singolo quiz |
 | `sfx/` | audio di intro, tema, risposte, vittoria ed engage |
 
 ## 4. Dati e missioni
@@ -152,3 +154,30 @@ Sto continuando il progetto Trivia Trek nella cartella del progetto corrente. Le
 ## 12. Nota di continuità
 
 Il punto di partenza più sicuro per la prossima chat è considerare `giuliano.json` la missione di riferimento più completa, `afrodite-2.json` la missione USS Afrodite attiva, `quiz.json` una demo da completare e `topic1.json` una bozza da decidere. Prima di pubblicare o consegnare il gioco, risolvere i tre problemi ad alta priorità elencati sopra.
+
+## 13. Aggiornamento del 24 ottobre 2026
+
+### Fase II — Personal Topic
+- Se un quiz contiene categorie `personal`, la partita si divide in due fasi. Il tabellone della Fase I esclude i Personal Topic.
+- A fine Fase I viene assegnato il bonus di compensazione (una sola volta, flag `state.bonusApplied`) e compare la schermata `#screen-phase1` con la classifica provvisoria e il pulsante `FASE II >`.
+- `#screen-phase2`: flip d'ingresso, logo `img/fase2-logo.svg`, clic ovunque → il logo ruota e compare la card del primo argomento (foto nel cerchio, titolo, nuovo campo `subtitle`). Le card successive entrano con scorrimento laterale.
+- Ordine: dall'ultimo al primo della classifica provvisoria (a parità di punti gioca prima chi è stato inserito dopo nel setup). Abbinamento concorrente ↔ card per nome normalizzato (maiuscole, accenti, punteggiatura e prefisso `TOPIC:` ignorati), poi per inclusione, infine le card rimaste vanno ai concorrenti senza card (avviso in console).
+- In Fase II il turno non ruota: risponde sempre il titolare della card. Esaurite le card → `showGameOver()` con il podio esistente.
+- Senza Personal Topic il gioco resta identico a prima.
+- Corretto anche il doppio avvio del setup dalla splash (flag `state.setupOpened`).
+
+### Riorganizzazione icone
+- Tutte le icone di categoria sono ora in `img_quiz/icone/` con nomi univoci; eliminate le copie `m1…m12.svg` e i duplicati in `img_quiz/quiz/`, rimossa la cartella vuota `img_quiz/giuliano/`.
+- Rinomine: `afrodite2/m10.svg` → `gossip.svg`, `m11.svg` → `top-secret.svg`, `m12.svg` → `hot.svg`, `quiz/riskio.svg` → `riskio.svg`. Dove esistevano due versioni della stessa icona è stata tenuta quella più recente (ex `giuliano/`).
+- `quiz.json`: la materia MEDICINA puntava al simbolo di divieto (stesso file della TOP SECRET di Afrodite); ora usa `medicina.svg` (caduceo).
+- JSON aggiornati: `quiz.json`, `giuliano.json`, `afrodite-2.json`, `topic1.json` → `"icon": "/img_quiz/icone/<nome>.svg"`.
+
+### Editor
+- Percorso icona di default: `/img_quiz/icone/<materia>.svg` (slug senza accenti/apostrofi), indipendente dal prefisso; anteprima icona con evidenza se il file manca.
+- Nuovo campo "Sottotitolo card Fase II" visibile per i Personal Topic (salvato come `subtitle`).
+- "Resetta tutti i percorsi" mantiene le icone già in `img_quiz/icone/` e le foto dei Personal Topic.
+
+### Ancora aperti
+- `missions.js` punta ancora a `giuliano2.json` (inesistente) e mostra il refuso `Afrotite 2`.
+- `topic1.json`: solo `TOPIC: FRRUUU` è di tipo `personal` (`TOPIC: RENZI` è `normal`); immagini in `img_quiz/topic1/` mancanti.
+- Il progetto non è ancora sotto Git (vedi istruzioni di pubblicazione nel report della sessione).

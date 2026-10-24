@@ -3,7 +3,7 @@
     {
       "id": "comando",
       "name": "COMANDO E NAVIGAZIONE",
-      "icon": "img_quiz/afrodite2/m1.svg",
+      "icon": "/img_quiz/icone/comando.svg",
       "gradient": [
         "#B42828",
         "#E61E1E"
@@ -48,7 +48,7 @@
     {
       "id": "scienza",
       "name": "SCIENZA E MEDICINA",
-      "icon": "img_quiz/afrodite2/m2.svg",
+      "icon": "/img_quiz/icone/scienza.svg",
       "gradient": [
         "#286E64",
         "#008080"
@@ -93,7 +93,7 @@
     {
       "id": "tattica",
       "name": "TATTICA E SICUREZZA",
-      "icon": "img_quiz/afrodite2/m3.svg",
+      "icon": "/img_quiz/icone/tattica.svg",
       "gradient": [
         "#BEBE00",
         "#FFC800"
@@ -138,7 +138,7 @@
     {
       "id": "ingegneria",
       "name": "INGEGNERIA E OPS",
-      "icon": "img_quiz/afrodite2/m4.svg",
+      "icon": "/img_quiz/icone/ingegneria.svg",
       "gradient": [
         "#BEBE00",
         "#FFC800"
@@ -183,7 +183,7 @@
     {
       "id": "riskio",
       "name": "RISKIO!",
-      "icon": "img_quiz/afrodite2/m5.svg",
+      "icon": "/img_quiz/icone/riskio.svg",
       "gradient": [
         "#374137",
         "#647D6E"
@@ -228,7 +228,7 @@
     {
       "id": "afrodite",
       "name": "USS AFRODITE",
-      "icon": "img_quiz/afrodite2/m6.svg",
+      "icon": "/img_quiz/icone/afrodite.svg",
       "gradient": [
         "#BF6500",
         "#FF9900"
@@ -273,7 +273,7 @@
     {
       "id": "qonos",
       "name": "QO'NOS",
-      "icon": "img_quiz/afrodite2/m7.svg",
+      "icon": "/img_quiz/icone/qo-nos.svg",
       "gradient": [
         "#803C64",
         "#B44B82"
@@ -318,7 +318,7 @@
     {
       "id": "romulus",
       "name": "ROMULUS",
-      "icon": "img_quiz/afrodite2/m8.svg",
+      "icon": "/img_quiz/icone/romulus.svg",
       "gradient": [
         "#006432",
         "#009646"
@@ -363,7 +363,7 @@
     {
       "id": "vulcano",
       "name": "VULCANO",
-      "icon": "img_quiz/afrodite2/m9.svg",
+      "icon": "/img_quiz/icone/vulcano.svg",
       "gradient": [
         "#1E3280",
         "#324696"
@@ -408,7 +408,7 @@
     {
       "id": "afrodite-gossip",
       "name": "AFRODITE - GOSSIP",
-      "icon": "img_quiz/afrodite2/m10.svg",
+      "icon": "/img_quiz/icone/gossip.svg",
       "gradient": [
         "#58301D",
         "#F1E1C1"
@@ -453,7 +453,7 @@
     {
       "id": "afrodite-top-secret",
       "name": "AFRODITE - TOP SECRET",
-      "icon": "img_quiz/afrodite2/m11.svg",
+      "icon": "/img_quiz/icone/top-secret.svg",
       "gradient": [
         "#000000",
         "#ffff00"
@@ -498,7 +498,7 @@
     {
       "id": "afrodite-hot",
       "name": "AFRODITE - HOT",
-      "icon": "img_quiz/afrodite2/m12.svg",
+      "icon": "/img_quiz/icone/hot.svg",
       "gradient": [
         "#ff0000",
         "#BF6500"

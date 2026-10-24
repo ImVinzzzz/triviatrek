@@ -25,6 +25,34 @@ const sfxWrong     = document.getElementById("sfx-wrong");
 const quizTitleInput  = document.getElementById("quiz-title");
 const quizPrefixInput = document.getElementById("quiz-prefix");
 
+/* Cartella condivisa delle icone di categoria (una sola copia per tutti i quiz) */
+const ICONS_DIR = "/img_quiz/icone/";
+
+/* Nome file "pulito" a partire dal nome della materia: QO'NOS -> qo-nos */
+function slugify(name) {
+  const clean = String(name || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return clean || "materia";
+}
+
+/* Percorso di default dell'icona di una materia */
+function defaultIconPath(name) {
+  return ICONS_DIR + slugify(name) + ".svg";
+}
+
+/* Percorso consigliato per l'immagine di una domanda (resta nella cartella del quiz) */
+function defaultImagePath(folder, name, qi) {
+  return "img_quiz/" + (folder || "prefisso") + "/" + slugify(name) + (qi + 1) + ".jpg";
+}
+
+function isPersonalType(type) {
+  return type === "personal" || type === "personal-topic" || type === "personalTopic";
+}
+
 /* ── STATE ─────────────────────────────────────────────────── */
 let quizData     = null;   // parsed quiz.json
 let activeCatIdx = 0;
@@ -131,35 +159,18 @@ if (quizPrefixInput) {
       const folder = currentFolder || "prefisso";
       const oldFolder = prevPrefix || "prefisso";
 
-      // Aggiorna l'icona della materia attiva e la label del percorso consigliato
-      const activeCatIconInput = document.getElementById("active-cat-icon");
-      const suggestedIconStrong = document.querySelector(".suggested-icon-str");
+      // Le icone di categoria stanno nella cartella condivisa ICONS_DIR e non
+      // dipendono dal prefisso: qui si aggiornano solo le immagini delle domande.
       const cat = quizData.categories[activeCatIdx];
-      const catNameClean = cat && cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-
-      if (cat) {
-        const newSuggestedIcon = "/img_quiz/" + folder + "/" + catNameClean + ".svg";
-
-        if (suggestedIconStrong) {
-          suggestedIconStrong.textContent = newSuggestedIcon;
-        }
-
-        if (cat.isNew && activeCatIconInput) {
-          const oldSuggestedIcon = "/img_quiz/" + oldFolder + "/" + catNameClean + ".svg";
-          if (activeCatIconInput.value === "" || activeCatIconInput.value === oldSuggestedIcon) {
-            activeCatIconInput.value = newSuggestedIcon;
-            cat.icon = newSuggestedIcon;
-          }
-        }
-      }
+      const catName = cat ? cat.name : "";
 
       const cards = questionsEl.querySelectorAll(".q-form-card");
       cards.forEach((card) => {
         const qi = parseInt(card.dataset.qi, 10);
         const imageInput = card.querySelector(".f-image");
 
-        const oldSuggested = "img_quiz/" + oldFolder + "/" + catNameClean + (qi + 1) + ".jpg";
-        const newSuggested = "img_quiz/" + folder + "/" + catNameClean + (qi + 1) + ".jpg";
+        const oldSuggested = defaultImagePath(oldFolder, catName, qi);
+        const newSuggested = defaultImagePath(folder, catName, qi);
 
         // Se l'input corrisponde al vecchio suggerimento o è vuoto, lo aggiorna dinamicamente
         if (imageInput.value === "" || imageInput.value === oldSuggested) {
@@ -270,14 +281,10 @@ function renderCategory(idx) {
   const settingsCard = document.createElement("div");
   settingsCard.className = "category-settings-card";
 
-  // Calcolo percorso consigliato/attuale per l'icona
-  const currentPrefix = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-  const iconNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-  // Per nuove materie usiamo lo slash iniziale, per quelle esistenti lasciamo la compatibilità
-  const suggestedIconPath = cat.isNew 
-    ? "/img_quiz/" + currentPrefix + "/" + iconNameClean + ".svg"
-    : "img_quiz/" + currentPrefix + "/" + iconNameClean + ".svg";
+  // Percorso consigliato per l'icona: cartella condivisa /img_quiz/icone/<materia>.svg
+  const suggestedIconPath = defaultIconPath(cat.name);
   const iconVal = cat.icon ? cat.icon : suggestedIconPath;
+  const catIsPersonal = isPersonalType(cat.type);
 
   // Valori del gradiente a due colori
   const grad1 = (cat.gradient && cat.gradient[0]) ? cat.gradient[0] : "#008080";
@@ -291,7 +298,10 @@ function renderCategory(idx) {
       "</div>" +
       "<div class=\"form-row\">" +
         "<label>Icona Materia / Argomento (percorso)</label>" +
-        "<input type=\"text\" id=\"active-cat-icon\" value=\"" + escHtml(iconVal) + "\">" +
+        "<div class=\"icon-input-wrap\">" +
+          "<img class=\"icon-preview\" id=\"active-cat-icon-preview\" alt=\"\">" +
+          "<input type=\"text\" id=\"active-cat-icon\" value=\"" + escHtml(iconVal) + "\">" +
+        "</div>" +
         "<div class=\"suggestion-text\">" +
           "<span>Percorso consigliato: <strong class=\"suggested-icon-str\">" + suggestedIconPath + "</strong></span>" +
           "<div>" +
@@ -299,6 +309,10 @@ function renderCategory(idx) {
           "</div>" +
         "</div>" +
       "</div>" +
+    "</div>" +
+    "<div class=\"form-row subtitle-row" + (catIsPersonal ? "" : " hidden") + "\" style=\"margin-top:14px\">" +
+      "<label>Sottotitolo card Fase II (Personal Topic)</label>" +
+      "<input type=\"text\" id=\"active-cat-subtitle\" value=\"" + escHtml(cat.subtitle || "") + "\" placeholder=\"Es: Ufficiale tattico della USS Afrodite\">" +
     "</div>" +
     "<div style=\"margin-top:14px\">" +
       "<div class=\"form-row\">" +
@@ -319,7 +333,7 @@ function renderCategory(idx) {
           "<label><input type=\"radio\" name=\"cat-type\" value=\"blind\" " + (cat.type === "blind" ? "checked" : "") + "> Blind</label>" +
           "<label><input type=\"radio\" name=\"cat-type\" value=\"personal\" " + (cat.type === "personal" || cat.type === "personal-topic" || cat.type === "personalTopic" ? "checked" : "") + "> Personal Topic</label>" +
         "</div>" +
-        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: l'icona della categoria viene mostrata in un circoletto bordato. In caso di risposta errata il giocatore di turno perde 250 punti e gli avversari guadagnano 500 punti ciascuno, indipendentemente dal valore della domanda.</div>" +
+        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: argomenti giocati nella FASE II, uno per concorrente. Il titolo deve coincidere con il nome del concorrente (come verrà digitato a inizio partita); l'immagine (foto o icona) appare in un cerchio bordato e sotto il titolo compare il sottotitolo. In caso di risposta errata il concorrente perde 250 punti e gli avversari guadagnano 500 punti ciascuno, indipendentemente dal valore della domanda.</div>" +
       "</div>" +
       "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
         "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +
@@ -329,7 +343,27 @@ function renderCategory(idx) {
   // Cambiamento dinamico del nome della tab e dell'icona mentre si scrive
   const nameInput = settingsCard.querySelector("#active-cat-name");
   const iconInput = settingsCard.querySelector("#active-cat-icon");
+  const iconPreview = settingsCard.querySelector("#active-cat-icon-preview");
   const resetIconBtn = settingsCard.querySelector(".reset-icon-btn");
+  const subtitleRow = settingsCard.querySelector(".subtitle-row");
+
+  // Anteprima dell'icona: bordo rosso tratteggiato se il file non esiste
+  const refreshIconPreview = () => {
+    const val = iconInput.value.trim();
+    iconPreview.classList.remove("broken");
+    iconPreview.classList.toggle("personal", isPersonalType(cat.type));
+    iconPreview.classList.toggle("svg-icon", !isPersonalType(cat.type) && /\.svg(\?|$)/i.test(val));
+    if (!val) {
+      iconPreview.removeAttribute("src");
+      iconPreview.classList.add("broken");
+      return;
+    }
+    iconPreview.src = val;
+  };
+  iconPreview.addEventListener("error", () => iconPreview.classList.add("broken"));
+  iconPreview.addEventListener("load", () => iconPreview.classList.remove("broken"));
+  iconInput.addEventListener("input", refreshIconPreview);
+  refreshIconPreview();
 
   nameInput.addEventListener("input", () => {
     nameInput.value = nameInput.value.toUpperCase();
@@ -338,9 +372,7 @@ function renderCategory(idx) {
     const activeTab = catTabsEl.querySelector(".cat-tab[data-idx=\"" + idx + "\"]");
     if (activeTab) activeTab.textContent = cat.name;
 
-    const currentPrefixFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-    const newNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-    const newSuggestedIcon = "/img_quiz/" + currentPrefixFolder + "/" + newNameClean + ".svg";
+    const newSuggestedIcon = defaultIconPath(cat.name);
 
     // Aggiorna la label del percorso consigliato
     const suggestedIconStrong = settingsCard.querySelector(".suggested-icon-str");
@@ -352,15 +384,15 @@ function renderCategory(idx) {
     if (cat.isNew) {
       iconInput.value = newSuggestedIcon;
       cat.icon = newSuggestedIcon;
+      refreshIconPreview();
     }
   });
 
   resetIconBtn.addEventListener("click", () => {
-    const currentPrefixFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-    const nameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-    const path = "/img_quiz/" + currentPrefixFolder + "/" + nameClean + ".svg";
+    const path = defaultIconPath(cat.name);
     iconInput.value = path;
     cat.icon = path;
+    refreshIconPreview();
   });
 
   // Gestione del cambio di tipo argomento tramite i nuovi radio-button
@@ -369,6 +401,8 @@ function renderCategory(idx) {
     radio.addEventListener("change", () => {
       cat.type = radio.value;
       cat.isRiskio = (radio.value === "riskio");
+      subtitleRow.classList.toggle("hidden", !isPersonalType(cat.type));
+      refreshIconPreview();
     });
   });
 
@@ -428,9 +462,8 @@ function buildQuestionForm(cat, q, qi, catIdx) {
   const points = q.points !== undefined ? q.points : ((cat.type === "riskio" || cat.isRiskio) ? [200, 500, 1000][qi] : [100, 250, 500][qi]);
 
   // Genera percorso consigliato per l'immagine
-  const catNameClean = cat && cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
   const folder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-  const suggestedPath = "img_quiz/" + folder + "/" + catNameClean + (qi + 1) + ".jpg";
+  const suggestedPath = defaultImagePath(folder, cat ? cat.name : "", qi);
 
   // Pre-popola se q.image non è presente
   const imageVal = q.image ? q.image : suggestedPath;
@@ -490,7 +523,7 @@ function buildQuestionForm(cat, q, qi, catIdx) {
 
   useBtn.addEventListener("click", () => {
     const currentFolder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
-    imageInput.value = "img_quiz/" + currentFolder + "/" + catNameClean + (qi + 1) + ".jpg";
+    imageInput.value = defaultImagePath(currentFolder, cat ? cat.name : "", qi);
   });
 
   delImgBtn.addEventListener("click", () => {
@@ -528,6 +561,11 @@ function saveCategoryFromForm(idx) {
   const activeCatIcon = document.getElementById("active-cat-icon");
   if (activeCatIcon) {
     cat.icon = activeCatIcon.value.trim() || null;
+  }
+  const activeCatSubtitle = document.getElementById("active-cat-subtitle");
+  if (activeCatSubtitle) {
+    const sub = activeCatSubtitle.value.trim();
+    if (sub) cat.subtitle = sub; else delete cat.subtitle;
   }
   const grad1Input = document.getElementById("active-cat-grad1");
   const grad2Input = document.getElementById("active-cat-grad2");
@@ -690,17 +728,19 @@ exportBtn.addEventListener("click", (e) => {
 /* ── RESET ALL PATHS ────────────────────────────────────────── */
 if (resetPathsBtn) {
   resetPathsBtn.addEventListener("click", () => {
-    if (confirm("Sei sicuro di voler resettare tutti i percorsi delle icone delle materie e delle immagini delle domande in base al prefisso delle immagini attuale?")) {
+    if (confirm("Sei sicuro di voler resettare tutti i percorsi?\n\n• Icone materie: " + ICONS_DIR + "<materia>.svg (le icone già presenti nella cartella condivisa e le foto dei Personal Topic vengono mantenute)\n• Immagini domande: img_quiz/<prefisso>/<materia><n>.jpg")) {
       saveCategoryFromForm(activeCatIdx);
       const folder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
 
-      quizData.categories.forEach((cat, catIdx) => {
-        const catNameClean = cat.name ? cat.name.trim().toLowerCase().replace(/\s+/g, "-") : "materia";
-        cat.icon = "/img_quiz/" + folder + "/" + catNameClean + ".svg";
+      quizData.categories.forEach((cat) => {
+        const keepIcon = cat.icon && (cat.icon.indexOf("img_quiz/icone/") !== -1 || (isPersonalType(cat.type) && !isIconDefaultOrInvalid(cat.icon)));
+        if (!keepIcon) {
+          cat.icon = defaultIconPath(cat.name);
+        }
 
         if (cat.questions) {
           cat.questions.forEach((q, qIdx) => {
-            q.image = "img_quiz/" + folder + "/" + catNameClean + (qIdx + 1) + ".jpg";
+            q.image = defaultImagePath(folder, cat.name, qIdx);
           });
         }
       });

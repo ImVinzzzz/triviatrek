@@ -110,6 +110,39 @@
   </div><!-- /screen-game -->
 
   <!-- ═══════════════════════════════════════════════
+       SCREEN 2b — FINE FASE I: CLASSIFICA PROVVISORIA
+       (solo se il quiz contiene categorie Personal Topic)
+  ═══════════════════════════════════════════════ -->
+  <div id="screen-phase1" class="screen hidden">
+    <div class="phase1-container">
+      <h2 class="go-title"><i class="fa-solid fa-flag-checkered"></i> FINE FASE I</h2>
+      <p class="go-stardate">CLASSIFICA PROVVISORIA</p>
+      <div id="p1-ranking-list" class="go-ranking-list"></div>
+      <button id="btn-phase2" class="engage-btn phase2-btn" type="button">
+        FASE II &nbsp;<i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div><!-- /screen-phase1 -->
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN 2c — FASE II: PERSONAL TOPIC
+  ═══════════════════════════════════════════════ -->
+  <div id="screen-phase2" class="screen hidden">
+    <div id="phase2-stage" class="phase2-stage">
+      <div id="phase2-flipper" class="phase2-flipper">
+        <div class="phase2-face phase2-front">
+          <img src="img/fase2-logo.svg" class="phase2-logo" alt="Fase II">
+          <p id="phase2-hint" class="splash-hint phase2-hint">● TAP TO CONTINUE ●</p>
+        </div>
+        <div class="phase2-face phase2-back">
+          <div id="phase2-card-viewport" class="phase2-card-viewport"></div>
+        </div>
+      </div>
+    </div>
+    <div id="phase2-players" class="phase2-players hidden"></div>
+  </div><!-- /screen-phase2 -->
+
+  <!-- ═══════════════════════════════════════════════
        SCREEN 3 — GAME OVER
   ═══════════════════════════════════════════════ -->
   <div id="screen-gameover" class="screen hidden">
@@ -254,7 +287,7 @@
               <div class="rules-step-num">02</div>
               <div class="rules-step-content">
                 <strong>SCELTA DELLA CASELLA</strong>
-                <p>Il giocatore di turno sceglie liberamente qualsiasi casella/doamnda ancora attiva sulla griglia di gioco.</p>
+                <p>Il giocatore di turno sceglie liberamente qualsiasi casella/domanda ancora attiva sulla griglia di gioco.</p>
               </div>
             </div>
             <div class="rules-step-card">
@@ -368,26 +401,59 @@
                 <span class="rules-badge badge-personal">
                   <i class="fa-solid fa-circle-user"></i> PERSONAL TOPIC
                 </span>
-                <span class="rules-type-subtitle">Icona personale in un circoletto bordato</span>
+                <span class="rules-type-subtitle">Foto/icona personale in un circoletto bordato &bull; giocato nella Fase II</span>
               </div>
               <div class="rules-type-rules">
                 <div class="rule-outcome rule-correct">
                   <i class="fa-solid fa-circle-check"></i>
                   <div>
                     <strong>RISPOSTA CORRETTA</strong>
-                    <p>Il giocatore di turno guadagna l'intero valore della domanda.</p>
+                    <p>Il concorrente titolare dell'argomento guadagna l'intero valore della domanda.</p>
                   </div>
                 </div>
                 <div class="rule-outcome rule-wrong">
                   <i class="fa-solid fa-circle-xmark"></i>
                   <div>
                     <strong>RISPOSTA ERRATA</strong>
-                    <p>Il giocatore di turno <strong>perde 250 PT</strong>! Tutti gli <em>altri</em> giocatori guadagnano <strong>+500 PT</strong> ciascuno, indipendentemente dal valore della domanda!</p>
+                    <p>Il concorrente <strong>perde 250 PT</strong>! Tutti gli <em>altri</em> giocatori guadagnano <strong>+500 PT</strong> ciascuno, indipendentemente dal valore della domanda!</p>
                   </div>
                 </div>
               </div>
             </div>
 
+          </div>
+        </section>
+
+        <!-- Phase II -->
+        <section class="rules-section">
+          <h3 class="rules-section-title">
+            <i class="fa-solid fa-user-astronaut"></i> FASE II &bull; PERSONAL TOPIC
+          </h3>
+          <p class="rules-text">
+            Se la missione contiene argomenti <strong>Personal Topic</strong>, la partita si svolge in due fasi. Nella <strong>Fase I</strong> il tabellone mostra tutte le altre materie. Quando l'ultima domanda è stata affrontata (e assegnato l'eventuale bonus di compensazione) compare la <strong>classifica provvisoria</strong> con il pulsante <strong>FASE II &gt;</strong>.
+          </p>
+          <div class="rules-grid-steps">
+            <div class="rules-step-card">
+              <div class="rules-step-num">01</div>
+              <div class="rules-step-content">
+                <strong>UN ARGOMENTO PER CONCORRENTE</strong>
+                <p>Ogni Personal Topic è dedicato a un concorrente: il titolo dell'argomento coincide con il suo nome. Solo lui risponde alle 2 o 3 domande della propria card.</p>
+              </div>
+            </div>
+            <div class="rules-step-card">
+              <div class="rules-step-num">02</div>
+              <div class="rules-step-content">
+                <strong>ORDINE DI GIOCO</strong>
+                <p>Si parte dall'ultimo classificato della Fase I e si risale la classifica: chi era in testa risponde per ultimo.</p>
+              </div>
+            </div>
+            <div class="rules-step-card">
+              <div class="rules-step-num">03</div>
+              <div class="rules-step-content">
+                <strong>PUNTEGGI E PODIO</strong>
+                <p>Valgono le regole Personal Topic. Esaurite tutte le card si passa alla classifica definitiva e al podio.</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -397,7 +463,7 @@
             <i class="fa-solid fa-trophy"></i> COMPLETAMENTO MISSIONE E PODIO
           </h3>
           <p class="rules-text">
-            Quando tutte le domande sono state affrontate, il sistema elabora i punteggi e visualizza la classifica finale. Nel caso in cui uno o piu partecipanti abbiano risposto a una domanda in meno rispetto agli altri, viene loro assegnato a fine partita un bonus automatico di <strong>+250 punti</strong> per ciascun turno mancante a titolo di compensazione. Vengono infine gestiti automaticamente gli eventuali ex-equo al primo posto e proclamati i vincitori della missione.
+            Quando tutte le domande sono state affrontate, il sistema elabora i punteggi e visualizza la classifica finale. Nel caso in cui uno o più partecipanti abbiano risposto a una domanda in meno rispetto agli altri, viene loro assegnato (a fine partita, oppure al termine della Fase I se è prevista la Fase II) un bonus automatico di <strong>+250 punti</strong> per ciascun turno mancante a titolo di compensazione. Vengono infine gestiti automaticamente gli eventuali ex-equo al primo posto e proclamati i vincitori della missione.
           </p>
         </section>
 

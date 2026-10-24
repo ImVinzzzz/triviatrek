@@ -3,7 +3,7 @@
     {
       "id": "comando",
       "name": "COMANDO",
-      "icon": "img_quiz/quiz/comando.svg",
+      "icon": "/img_quiz/icone/comando.svg",
       "gradient": [
         "#B42828",
         "#E61E1E"
@@ -48,7 +48,7 @@
     {
       "id": "scienza",
       "name": "SCIENZA",
-      "icon": "img_quiz/quiz/scienza.svg",
+      "icon": "/img_quiz/icone/scienza.svg",
       "gradient": [
         "#286E64",
         "#008080"
@@ -93,7 +93,7 @@
     {
       "id": "medicina",
       "name": "MEDICINA",
-      "icon": "img_quiz/quiz/medicina.svg",
+      "icon": "/img_quiz/icone/medicina.svg",
       "gradient": [
         "#286E64",
         "#008080"
@@ -138,7 +138,7 @@
     {
       "id": "tattica",
       "name": "TATTICA",
-      "icon": "img_quiz/quiz/tattica.svg",
+      "icon": "/img_quiz/icone/tattica.svg",
       "gradient": [
         "#BEBE00",
         "#FFC800"
@@ -183,7 +183,7 @@
     {
       "id": "ingegneria",
       "name": "INGEGNERIA",
-      "icon": "img_quiz/quiz/ingegneria.svg",
+      "icon": "/img_quiz/icone/ingegneria.svg",
       "gradient": [
         "#BEBE00",
         "#FFC800"
@@ -228,7 +228,7 @@
     {
       "id": "riskio",
       "name": "RISKIO!",
-      "icon": "img_quiz/quiz/riskio.svg",
+      "icon": "/img_quiz/icone/riskio.svg",
       "gradient": [
         "#374137",
         "#647D6E"
@@ -273,7 +273,7 @@
     {
       "id": "qonos",
       "name": "QO'NOS",
-      "icon": "img_quiz/quiz/qonos.svg",
+      "icon": "/img_quiz/icone/qo-nos.svg",
       "gradient": [
         "#803C64",
         "#B44B82"
@@ -318,7 +318,7 @@
     {
       "id": "romulus",
       "name": "ROMULUS",
-      "icon": "img_quiz/quiz/romulus.svg",
+      "icon": "/img_quiz/icone/romulus.svg",
       "gradient": [
         "#006432",
         "#009646"
@@ -353,7 +353,7 @@
     {
       "id": "vulcano",
       "name": "VULCANO",
-      "icon": "img_quiz/quiz/vulcano.svg",
+      "icon": "/img_quiz/icone/vulcano.svg",
       "gradient": [
         "#1E3280",
         "#324696"
