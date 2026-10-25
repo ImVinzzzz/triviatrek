@@ -217,14 +217,59 @@ function buildEditor() {
   updateExportButtonState();
 }
 
+/* ── RIORDINO MATERIE ──────────────────────────────────────────
+   Sposta la materia dalla posizione "from" alla posizione "to".
+   L'ordine dell'array è quello usato dal tabellone di gioco. */
+function moveCategory(from, to) {
+  if (!quizData || !quizData.categories) return;
+  const cats = quizData.categories;
+  if (from < 0 || from >= cats.length) return;
+  to = Math.max(0, Math.min(cats.length - 1, to));
+  if (from === to) return;
+
+  saveCategoryFromForm(activeCatIdx);
+  const activeCat = cats[activeCatIdx];
+  const moved = cats.splice(from, 1)[0];
+  cats.splice(to, 0, moved);
+  // La materia selezionata resta la stessa, anche se ha cambiato posizione
+  activeCatIdx = Math.max(0, cats.indexOf(activeCat));
+
+  buildTabs();
+  renderCategory(activeCatIdx);
+}
+
+let dragFromIdx = null;   // indice della materia che si sta trascinando
+
+function clearDropMarkers() {
+  catTabsEl.querySelectorAll(".drop-before, .drop-after").forEach(el => {
+    el.classList.remove("drop-before", "drop-after");
+  });
+}
+
+// Uscendo dalla barra delle materie durante il trascinamento, toglie l'indicatore
+catTabsEl.addEventListener("dragleave", e => {
+  if (!catTabsEl.contains(e.relatedTarget)) clearDropMarkers();
+});
+
 function buildTabs() {
   catTabsEl.innerHTML = "";
   if (quizData && quizData.categories) {
+    const total = quizData.categories.length;
     quizData.categories.forEach((cat, idx) => {
+      const isActive = idx === activeCatIdx;
+
+      // Contenitore trascinabile: [◀] MATERIA [▶] (frecce solo sulla materia attiva)
+      const wrap = document.createElement("div");
+      wrap.className = "cat-tab-wrap" + (isActive ? " active" : "");
+      wrap.dataset.idx = idx;
+      wrap.draggable = true;
+
       const tab = document.createElement("button");
-      tab.className = "cat-tab" + (idx === activeCatIdx ? " active" : "");
+      tab.type = "button";
+      tab.className = "cat-tab" + (isActive ? " active" : "");
       tab.textContent = cat.name;
       tab.dataset.idx = idx;
+      tab.title = "Clic per modificare • Trascina per riordinare";
       tab.addEventListener("click", () => {
         // Save current before switching
         saveCategoryFromForm(activeCatIdx);
@@ -232,7 +277,66 @@ function buildTabs() {
         buildTabs();
         renderCategory(idx);
       });
-      catTabsEl.appendChild(tab);
+
+      if (isActive && total > 1) {
+        const mkArrow = (dir) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "cat-move-btn cat-move-" + (dir < 0 ? "left" : "right");
+          b.innerHTML = "<i class=\"fa-solid fa-chevron-" + (dir < 0 ? "left" : "right") + "\"></i>";
+          b.title = dir < 0 ? "Sposta a sinistra" : "Sposta a destra";
+          b.setAttribute("aria-label", b.title);
+          b.disabled = dir < 0 ? idx === 0 : idx === total - 1;
+          b.addEventListener("click", () => {
+            moveCategory(idx, idx + dir);
+            // Mantiene il focus sulla freccia per spostamenti ripetuti
+            const again = catTabsEl.querySelector(".cat-move-" + (dir < 0 ? "left" : "right"));
+            if (again && !again.disabled) again.focus();
+          });
+          return b;
+        };
+        wrap.appendChild(mkArrow(-1));
+        wrap.appendChild(tab);
+        wrap.appendChild(mkArrow(1));
+      } else {
+        wrap.appendChild(tab);
+      }
+
+      // ── Drag & drop ──
+      wrap.addEventListener("dragstart", e => {
+        dragFromIdx = idx;
+        wrap.classList.add("dragging");
+        e.dataTransfer.effectAllowed = "move";
+        try { e.dataTransfer.setData("text/plain", String(idx)); } catch (err) {}
+      });
+      wrap.addEventListener("dragend", () => {
+        dragFromIdx = null;
+        wrap.classList.remove("dragging");
+        clearDropMarkers();
+      });
+      wrap.addEventListener("dragover", e => {
+        if (dragFromIdx === null) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        const r = wrap.getBoundingClientRect();
+        const after = e.clientX > r.left + r.width / 2;
+        clearDropMarkers();
+        if (idx !== dragFromIdx) wrap.classList.add(after ? "drop-after" : "drop-before");
+      });
+      wrap.addEventListener("drop", e => {
+        if (dragFromIdx === null) return;
+        e.preventDefault();
+        const r = wrap.getBoundingClientRect();
+        const after = e.clientX > r.left + r.width / 2;
+        let to = idx + (after ? 1 : 0);
+        if (dragFromIdx < to) to -= 1;
+        const from = dragFromIdx;
+        dragFromIdx = null;
+        clearDropMarkers();
+        moveCategory(from, to);
+      });
+
+      catTabsEl.appendChild(wrap);
     });
   }
 
@@ -263,6 +367,23 @@ function buildTabs() {
     activeCatIdx = quizData.categories.length - 1;
     buildTabs();
     renderCategory(activeCatIdx);
+  });
+  // Rilasciare una materia su "Aggiungi Materia" la sposta in fondo
+  addTab.addEventListener("dragover", e => {
+    if (dragFromIdx === null) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    clearDropMarkers();
+    addTab.classList.add("drop-before");
+  });
+  addTab.addEventListener("dragleave", () => addTab.classList.remove("drop-before"));
+  addTab.addEventListener("drop", e => {
+    if (dragFromIdx === null) return;
+    e.preventDefault();
+    const from = dragFromIdx;
+    dragFromIdx = null;
+    clearDropMarkers();
+    moveCategory(from, quizData.categories.length - 1);
   });
   catTabsEl.appendChild(addTab);
   updateExportButtonState();

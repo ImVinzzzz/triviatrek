@@ -1249,6 +1249,49 @@ body::after {
 .cat-tab:hover { border-color: var(--teal); color: var(--text); }
 .cat-tab.active { border-color: var(--teal); background: rgba(0,128,128,0.15); color: var(--teal); }
 
+/* ── Riordino materie (frecce + drag & drop) ── */
+.cat-tab-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+}
+.cat-tab-wrap.dragging { opacity: 0.35; }
+
+/* Materia attiva con frecce: [◀][MATERIA][▶] uniti in un unico blocco */
+.cat-tab-wrap.active .cat-tab { border-radius: 0; }
+.cat-move-btn {
+  padding: 0 9px;
+  border: 1px solid var(--teal);
+  background: rgba(0,128,128,0.08);
+  color: var(--teal);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cat-move-left  { border-radius: 6px 0 0 6px; border-right: none; }
+.cat-move-right { border-radius: 0 6px 6px 0; border-left: none; }
+.cat-move-btn:hover:not(:disabled) { background: var(--teal); color: var(--black); }
+.cat-move-btn:disabled { opacity: 0.3; cursor: default; }
+
+/* Indicatore di rilascio: barra arancione prima/dopo la materia */
+.cat-tab-wrap.drop-before::before,
+.cat-tab-wrap.drop-after::after,
+.cat-tab.add-tab-btn.drop-before::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--orange);
+  box-shadow: 0 0 8px var(--orange);
+  pointer-events: none;
+}
+.cat-tab-wrap.drop-before::before,
+.cat-tab.add-tab-btn.drop-before::before { left: -5px; }
+.cat-tab-wrap.drop-after::after { right: -5px; }
+.cat-tab.add-tab-btn { position: relative; }
+
 .questions-editor {
   display: flex;
   flex-direction: column;
