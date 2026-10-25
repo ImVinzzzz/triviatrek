@@ -53,6 +53,25 @@ function isPersonalType(type) {
   return type === "personal" || type === "personal-topic" || type === "personalTopic";
 }
 
+/* Numero massimo di domande per materia: 4 per i Personal Topic, 3 per le altre */
+const MAX_QUESTIONS        = 3;
+const MAX_QUESTIONS_TOPIC  = 4;
+function maxQuestionsFor(cat) {
+  return cat && isPersonalType(cat.type) ? MAX_QUESTIONS_TOPIC : MAX_QUESTIONS;
+}
+
+/* Punteggio predefinito della domanda n. qi (0-based) di una materia.
+   Il gioco riconosce le domande dal punteggio, quindi il valore proposto
+   non deve coincidere con quello di un'altra domanda della stessa materia. */
+function defaultPointsFor(cat, qi) {
+  const isRiskio = cat && (cat.type === "riskio" || cat.isRiskio);
+  const table = isRiskio ? [200, 500, 1000, 1500] : [100, 250, 500, 1000];
+  let pts = table[qi] !== undefined ? table[qi] : table[table.length - 1];
+  const used = (cat && cat.questions ? cat.questions : []).map(q => q.points);
+  while (used.indexOf(pts) !== -1) pts += 250;
+  return pts;
+}
+
 /* ── STATE ─────────────────────────────────────────────────── */
 let quizData     = null;   // parsed quiz.json
 let activeCatIdx = 0;
@@ -454,7 +473,7 @@ function renderCategory(idx) {
           "<label><input type=\"radio\" name=\"cat-type\" value=\"blind\" " + (cat.type === "blind" ? "checked" : "") + "> Blind</label>" +
           "<label><input type=\"radio\" name=\"cat-type\" value=\"personal\" " + (cat.type === "personal" || cat.type === "personal-topic" || cat.type === "personalTopic" ? "checked" : "") + "> Personal Topic</label>" +
         "</div>" +
-        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: argomenti giocati nella FASE II, uno per concorrente. Il titolo deve coincidere con il nome del concorrente (come verrà digitato a inizio partita); l'immagine (foto o icona) appare in un cerchio bordato e sotto il titolo compare il sottotitolo. In caso di risposta errata il concorrente perde 250 punti e gli avversari guadagnano 500 punti ciascuno, indipendentemente dal valore della domanda.</div>" +
+        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: argomenti giocati nella FASE II, uno per concorrente, con fino a 4 domande (le altre tipologie ne hanno al massimo 3).Il titolo deve coincidere con il nome del concorrente (come verrà digitato a inizio partita); l'immagine (foto o icona) appare in un cerchio bordato e sotto il titolo compare il sottotitolo. In caso di risposta errata il concorrente perde 250 punti e gli avversari guadagnano 500 punti ciascuno, indipendentemente dal valore della domanda.</div>" +
       "</div>" +
       "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
         "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +
@@ -518,12 +537,47 @@ function renderCategory(idx) {
 
   // Gestione del cambio di tipo argomento tramite i nuovi radio-button
   const typeRadios = settingsCard.querySelectorAll("input[name=\"cat-type\"]");
+  const initialRadio = Array.from(typeRadios).find(r => r.checked);
+  let committedType = initialRadio ? initialRadio.value : "normal";
   typeRadios.forEach(radio => {
     radio.addEventListener("change", () => {
+      // Nota: l'evento "input" (gestito da editorApp) ha già copiato il nuovo
+      // tipo in cat.type, quindi il tipo precedente si legge da committedType.
+      const prevType = committedType;
+      const prevMax = maxQuestionsFor({ type: prevType });
+      const newMax = maxQuestionsFor({ type: radio.value });
+
+      // Da Personal Topic (max 4) a un altro tipo (max 3): le domande in più vanno eliminate
+      if (cat.questions.length > newMax) {
+        const extra = cat.questions.length - newMax;
+        const ok = confirm(
+          "Questo tipo di argomento ammette al massimo " + newMax + " domande.\n" +
+          (extra === 1 ? "La domanda " + cat.questions.length + " verrà eliminata."
+                       : "Le domande dalla " + (newMax + 1) + " alla " + cat.questions.length + " verranno eliminate.") +
+          "\n\nContinuare?"
+        );
+        if (!ok) {
+          const prevRadio = Array.from(typeRadios).find(r => r.value === prevType);
+          if (prevRadio) prevRadio.checked = true;
+          cat.type = prevType;
+          cat.isRiskio = (prevType === "riskio");
+          return;
+        }
+        saveCategoryFromForm(idx);
+        cat.questions.splice(newMax);
+      }
+
+      committedType = radio.value;
       cat.type = radio.value;
       cat.isRiskio = (radio.value === "riskio");
       subtitleRow.classList.toggle("hidden", !isPersonalType(cat.type));
       refreshIconPreview();
+
+      // Cambia il numero massimo di domande: ridisegna per mostrare/nascondere "Aggiungi Domanda"
+      if (newMax !== prevMax) {
+        saveCategoryFromForm(idx);
+        renderCategory(idx);
+      }
     });
   });
 
@@ -545,20 +599,24 @@ function renderCategory(idx) {
     questionsEl.appendChild(card);
   });
 
-  // Aggiungi pulsante per aggiungere una domanda se ce ne sono meno di 3
-  if (cat.questions.length < 3) {
+  // Pulsante per aggiungere una domanda finché non si raggiunge il massimo
+  // (3 domande, 4 per i Personal Topic)
+  const maxQ = maxQuestionsFor(cat);
+  if (cat.questions.length < maxQ) {
     const addQDiv = document.createElement("div");
     addQDiv.style.textAlign = "center";
     addQDiv.style.marginTop = "20px";
-    addQDiv.innerHTML = 
+    addQDiv.innerHTML =
       "<button type=\"button\" class=\"ed-btn\" id=\"add-question-btn\" style=\"border-color:var(--teal); color:var(--teal)\">" +
         "<i class=\"fa-solid fa-plus\"></i> &nbsp;Aggiungi Domanda a questo argomento" +
+        " (" + cat.questions.length + "/" + maxQ + ")" +
       "</button>";
     const addQBtn = addQDiv.querySelector("#add-question-btn");
     addQBtn.addEventListener("click", () => {
       saveCategoryFromForm(idx);
       const qi = cat.questions.length;
-      const defPoints = (cat.type === "riskio" || cat.isRiskio) ? [200, 500, 1000][qi] || 500 : [100, 250, 500][qi] || 250;
+      if (qi >= maxQuestionsFor(cat)) return;
+      const defPoints = defaultPointsFor(cat, qi);
       cat.questions.push({
         points: defPoints,
         text: "Domanda " + (qi + 1),
@@ -580,7 +638,7 @@ function buildQuestionForm(cat, q, qi, catIdx) {
   card.className = "q-form-card";
   card.dataset.qi = qi;
 
-  const points = q.points !== undefined ? q.points : ((cat.type === "riskio" || cat.isRiskio) ? [200, 500, 1000][qi] : [100, 250, 500][qi]);
+  const points = q.points !== undefined ? q.points : defaultPointsFor(cat, qi);
 
   // Genera percorso consigliato per l'immagine
   const folder = (quizPrefixInput ? quizPrefixInput.value.trim() : "") || "prefisso";
