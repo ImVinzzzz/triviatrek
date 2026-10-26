@@ -550,13 +550,16 @@ body::after {
 #screen-game {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* Altezza fissa = viewport: il tabellone si adatta allo spazio disponibile */
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
 }
 
 .game-layout {
   display: flex;
   flex: 1;
-  min-height: calc(100vh - var(--header-h));
+  min-height: 0;
 }
 
 /* ── Players Sidebar (desktop) ─────────────────────────────── */
@@ -630,7 +633,11 @@ body::after {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   padding: 12px;
-  align-content: start;
+  /* Le righe si dividono equamente l'altezza disponibile (mai sotto il contenuto) */
+  grid-auto-rows: 1fr;
+  align-content: stretch;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .cat-card {
@@ -1745,6 +1752,10 @@ body::after {
 
   .cat-card { min-height: 120px; }
   .cat-name { font-size: 1rem; }
+
+  /* Su mobile il tabellone torna a scorrere con la pagina */
+  #screen-game { height: auto; min-height: 100vh; }
+  .categories-grid { grid-auto-rows: auto; overflow: visible; }
 
   .lcars-sidebar-left { display: none; }
   .lcars-top-segs     { display: none; }

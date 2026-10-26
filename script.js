@@ -146,6 +146,21 @@ function onSplashClick() {
 /* ── PLAYER SETUP POPUP ────────────────────────────────────── */
 let selectedCount = 2;
 
+/* Nomi predefiniti (capitani dell'Enterprise) usati se il giocatore
+   non personalizza il proprio nome nella fase di imbarco */
+const DEFAULT_PLAYER_NAMES = [
+  'April',
+  'Pike',
+  'Kirk',
+  'Harriman',
+  'Garrett',
+  'Picard'
+];
+
+function defaultPlayerName(i) {
+  return (DEFAULT_PLAYER_NAMES[i] || ('Giocatore ' + (i + 1))).toUpperCase();
+}
+
 function populateMissionSelect() {
   const select = $('mission-select');
   if (!select || typeof MISSIONS === 'undefined') return;
@@ -188,7 +203,7 @@ function buildNameInputs(count) {
     const input = document.createElement('input');
     input.type = 'text';
     input.className = 'player-name-input';
-    input.placeholder = `MEMBRO EQUIPAGGIO ${i + 1}`;
+    input.placeholder = defaultPlayerName(i);
     input.maxLength = 14;
     input.style.textTransform = 'uppercase';
     input.dataset.index = i;
@@ -216,7 +231,7 @@ async function startGame() {
   const inputs = document.querySelectorAll('.player-name-input');
   const players = [];
   inputs.forEach((input, i) => {
-    const name = input.value.trim().toUpperCase() || ("GIOCATORE " + (i + 1));
+    const name = input.value.trim().toUpperCase() || defaultPlayerName(i);
     players.push({ name: name, score: 0, questionsCount: 0 });
   });
 
