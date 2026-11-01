@@ -25,9 +25,9 @@
           "points": 250,
           "text": "In un'operazione segreta con Garak per portare i Romulani in guerra contro il Dominio, Sisko deve convincere un senatore romulano. Chi?",
           "options": [
-            "Vedek Barail",
+            "Vedek",
             "Vreenak",
-            "Bifrǫst"
+            "Bifrost"
           ],
           "correct": "B",
           "image": "https://i.pinimg.com/originals/3a/ee/8d/3aee8dde78c4fd7070eff149245f913d.jpg"
@@ -87,7 +87,7 @@
             "Un reattore a fusione alimentato da trilitio."
           ],
           "correct": "B",
-          "image": "https://www.gamespot.com/wp-content/uploads/original/171/1712892/3626512-9.jpg"
+          "image": "https://artistmonkeys.com/media/cache/sylius_shop_product_large_thumbnail_jpeg/a9/5d/Star-Trek-Romulan-warbird-D_deridex-class-fan-art-2.webp"
         }
       ],
       "type": "normal"
@@ -106,9 +106,9 @@
           "points": 100,
           "text": "In TOS 1x25 (The Devil in the Dark), mentre cura la Horta rattoppandola con del cemento, McCoy protesta: \"Sono un medico, non un…\" cosa?",
           "options": [
-            "uno scultore.",
-            "un meccanico.",
-            "un muratore."
+            "... uno scultore.",
+            "... un meccanico.",
+            "... un muratore."
           ],
           "correct": "C",
           "image": "https://tse1.mm.bing.net/th/id/OIP.Qq-HcZ59dtMb9_POzWauxAHaFg?r=0&w=1200&h=893&rs=1&pid=ImgDetMain&o=7&rm=3"
@@ -197,9 +197,9 @@
           "points": 100,
           "text": "Qual è la valuta più preziosa e ambita dai Ferengi?",
           "options": [
-            "Il latinum in barre d'oro.",
-            "Il romanum di platino liquido.",
-            "Il grecum di palladio ionizzato."
+            "Il latinum (barre d'oro).",
+            "Il romanum (platino liquido).",
+            "Il grecum (tavolette di palladio ionizzato)."
           ],
           "correct": "A",
           "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2024/05/armin-shimerman-as-quark-counts-out-latinum-in-front-of-max-grodenchik-as-rom-ds9-the-homecoming.jpg"
@@ -259,15 +259,15 @@
             "Convince T'Pau a sospendere la sfida."
           ],
           "correct": "A",
-          "image": "https://i.pinimg.com/originals/d9/ce/b1/d9ceb1aa2bdee31dca4c28b951720a59.jpg"
+          "image": "img_quiz/topic1/afrodite1000.jpg"
         },
         {
           "points": 500,
           "text": "Quale antico manufatto, contenente gli insegnamenti originali di Surak, ha un ruolo decisivo nel cambiare il corso della politica vulcaniana?",
           "options": [
-            "L'IDIC",
+            "L'Idic",
             "Il Kir'Shara",
-            "La Red Matter"
+            "Il Ka'tra"
           ],
           "correct": "B",
           "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/screenshot-2023-10-08-at-09-20-51-awakening-2004.jpg"
@@ -446,7 +446,7 @@
             "Geordi La Forge"
           ],
           "correct": "B",
-          "image": "https://www.giantfreakinrobot.com/wp-content/uploads/2023/03/reginald-barclay-star-trek-tng-transporter-dwight-schultz-900x450.jpg"
+          "image": "https://tse2.mm.bing.net/th/id/OIP.penFirD1KRcvOSgV_9DQGwHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
         },
         {
           "points": 1500,
@@ -465,11 +465,11 @@
           "isRiskio": false,
           "text": "Prima del trasferimento sulla Enterprise-D nel 2366, su quale nave prestava servizio Reginald Barclay?",
           "options": [
-            "USS Zhukov NCC-62136",
             "USS Budapest NCC-64923",
+            "USS Zhukov NCC-62136",
             "USS Zapata NCC-33184"
           ],
-          "correct": "A",
+          "correct": "B",
           "image": "https://www.giantfreakinrobot.com/wp-content/uploads/2023/03/reginald-barclay-star-trek-tng-transporter-dwight-schultz-900x450.jpg"
         }
       ],
