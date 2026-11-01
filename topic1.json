@@ -36,11 +36,11 @@
           "points": 500,
           "text": "Chi assume il comando della USS Enterprise-G nel finale di 'Star Trek: Picard'?",
           "options": [
-            "Raffi Musiker",
             "Sette di Nove",
+            "Raffi Musiker",
             "William Riker"
           ],
-          "correct": "B",
+          "correct": "A",
           "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2023/04/enterprise-g-picard-finale.jpg"
         }
       ],
@@ -60,11 +60,11 @@
           "points": 100,
           "text": "Chi ha costruito l'androide Data?",
           "options": [
-            "Bruce Maddox",
             "Noonien Soong",
+            "Bruce Maddox",
             "Geppetto"
           ],
-          "correct": "B",
+          "correct": "A",
           "image": "https://www.slashfilm.com/img/gallery/every-star-trek-character-played-by-brent-spiner-explained/l-intro-1744221687.jpg"
         },
         {
@@ -117,11 +117,11 @@
           "points": 250,
           "text": "Da dove proviene l'emettitore mobile che permette al Dottore di uscire dall'infermeria della Voyager per visite a domicilio... e svago?",
           "options": [
-            "Da tecnologia Borg trafugata.",
             "Dal XXIX secolo.",
+            "Da tecnologia Borg trafugata.",
             "È un regalo di Q."
           ],
-          "correct": "B",
+          "correct": "A",
           "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2018/08/DOCTOR-MOBILE-EMITTER-VOYAGER.jpg"
         },
         {
@@ -174,11 +174,11 @@
           "points": 500,
           "text": "In DS9, S7E25–26 (What You Leave Behind), dove Kai Winn e Dukat tentano di liberare i Pah-wraiths nel finale di Deep Space Nine?",
           "options": [
-            "Nel Tempio Celeste",
             "Nelle Grotte di Fuoco",
+            "Nel Tempio Celeste",
             "Nella camera del Cristallo della Profezia"
           ],
-          "correct": "B"
+          "correct": "A"
         }
       ],
       "type": "normal"
@@ -208,9 +208,9 @@
           "points": 200,
           "text": "Qual è il titolo del leader dell'Alleanza Ferengi?",
           "options": [
-            "Romano Maximus.",
-            "Grande Nagus.",
-            "Liquidatore Supremo."
+            "Romano Maximus",
+            "Grande Nagus",
+            "Liquidatore Supremo"
           ],
           "correct": "B",
           "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/07/grand-nagus-rom-and-leeta-in-star-trek-lower-decks.jpg"
@@ -220,10 +220,10 @@
           "text": "Perché Ishka, la madre di Quark, finisce nei guai con l'Autorità Commerciale Ferengi?",
           "options": [
             "Ha sposato un non Ferengi.",
-            "Ha realizzato profitti.",
-            "Ha rubato lo scettro del Nagus."
+            "Ha rubato lo scettro del Nagus.",
+            "Ha realizzato profitti."
           ],
-          "correct": "B",
+          "correct": "C",
           "image": "https://them0vieblog.com/wp-content/uploads/2017/05/ds9-profitandlace26a.jpg"
         }
       ],
@@ -289,11 +289,11 @@
           "points": 100,
           "text": "Di chi sono questi capelli?",
           "options": [
-            "Puffetta",
             "Janice Rand",
+            "Puffetta",
             "Ma quali capelli... è un cestino di vimini!"
           ],
-          "correct": "B",
+          "correct": "A",
           "image": "img_quiz/topic1/trek-ology100.jpg"
         },
         {
@@ -441,11 +441,11 @@
           "isRiskio": false,
           "text": "Chi gli affibbia il soprannome di \"Broccoli\" sulla Enterprise-D?",
           "options": [
-            "William Riker",
             "Wesley Crusher",
+            "William Riker",
             "Geordi La Forge"
           ],
-          "correct": "B",
+          "correct": "A",
           "image": "https://tse2.mm.bing.net/th/id/OIP.penFirD1KRcvOSgV_9DQGwHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
         },
         {
@@ -516,11 +516,11 @@
           "isRiskio": false,
           "text": "Di che tipo è il sangue di Spock?",
           "options": [
-            "0 positivo",
             "T negativo",
+            "0 positivo",
             "C neutro"
           ],
-          "correct": "B",
+          "correct": "A",
           "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/06/Star-Trek-Spock-In-The-Squire-Of-Gothos.jpg"
         },
         {
