@@ -1,6 +1,235 @@
 {
   "categories": [
     {
+      "id": "comando",
+      "name": "COMANDO",
+      "icon": "/img_quiz/icone/comando.svg",
+      "gradient": [
+        "#b42828",
+        "#e61e1e"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Chi è stato il Capitano della USS Enterprise NCC-1701 dal 2245 al 2250?",
+          "options": [
+            "James T. Kirk",
+            "Christopher Pike",
+            "Robert April"
+          ],
+          "correct": "C",
+          "image": "https://i.pinimg.com/736x/68/f7/13/68f71367e900ac0978de8ad0089832a5--star-trek-original-series-star-ship.jpg"
+        },
+        {
+          "points": 250,
+          "text": "In un'operazione segreta con Garak per portare i Romulani in guerra contro il Dominio, Sisko deve convincere un senatore romulano. Chi?",
+          "options": [
+            "Vedek Barail",
+            "Vreenak",
+            "Bifrǫst"
+          ],
+          "correct": "B",
+          "image": "https://i.pinimg.com/originals/3a/ee/8d/3aee8dde78c4fd7070eff149245f913d.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Chi assume il comando della USS Enterprise-G nel finale di 'Star Trek: Picard'?",
+          "options": [
+            "Raffi Musiker",
+            "Sette di Nove",
+            "William Riker"
+          ],
+          "correct": "B",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2023/04/enterprise-g-picard-finale.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "scienza",
+      "name": "SCIENZA",
+      "icon": "/img_quiz/icone/scienza.svg",
+      "gradient": [
+        "#286e64",
+        "#008080"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Chi ha costruito l'androide Data?",
+          "options": [
+            "Bruce Maddox",
+            "Noonien Soong",
+            "Geppetto"
+          ],
+          "correct": "B",
+          "image": "https://www.slashfilm.com/img/gallery/every-star-trek-character-played-by-brent-spiner-explained/l-intro-1744221687.jpg"
+        },
+        {
+          "points": 250,
+          "text": "In VOY 2x15 (Threshold), Tom Paris subisce una insolita trasformazione dopo aver superato la soglia di curvatura 10. Quale?",
+          "options": [
+            "Trascende in un essere di pura energia.",
+            "Ringiovanisce di 18 anni, 2 mesi e 9 giorni.",
+            "Evolve in una creatura simile a una salamandra."
+          ],
+          "correct": "C",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2024/10/lt-tom-paris-robert-duncan-mcneill-in-star-trek-lower-decks-season-2.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Cosa alimenta il nucleo a curvatura di un warbird romulano di classe D'deridex?",
+          "options": [
+            "La protomateria esotica.",
+            "Una singolarità quantica artificiale.",
+            "Un reattore a fusione alimentato da trilitio."
+          ],
+          "correct": "B",
+          "image": "https://www.gamespot.com/wp-content/uploads/original/171/1712892/3626512-9.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "medicina",
+      "name": "MEDICINA",
+      "icon": "/img_quiz/icone/medicina.svg",
+      "gradient": [
+        "#286e64",
+        "#008080"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "In TOS 1x25 (The Devil in the Dark), mentre cura la Horta rattoppandola con del cemento, McCoy protesta: \"Sono un medico, non un…\" cosa?",
+          "options": [
+            "uno scultore.",
+            "un meccanico.",
+            "un muratore."
+          ],
+          "correct": "C",
+          "image": "https://tse1.mm.bing.net/th/id/OIP.Qq-HcZ59dtMb9_POzWauxAHaFg?r=0&w=1200&h=893&rs=1&pid=ImgDetMain&o=7&rm=3"
+        },
+        {
+          "points": 250,
+          "text": "Da dove proviene l'emettitore mobile che permette al Dottore di uscire dall'infermeria della Voyager per visite a domicilio... e svago?",
+          "options": [
+            "Da tecnologia Borg trafugata.",
+            "Dal XXIX secolo.",
+            "È un regalo di Q."
+          ],
+          "correct": "B",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2018/08/DOCTOR-MOBILE-EMITTER-VOYAGER.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Per curare Worf, paralizzato dopo un incidente, la dottoressa Toby Russell propone una procedura sperimentale. Quale?",
+          "options": [
+            "Un innesto di naniti nel midollo.",
+            "Il trasferimento neurale in un corpo clonato.",
+            "La replicazione genetronica della colonna vertebrale."
+          ],
+          "correct": "C",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/star-trek-tng-season-5-ethics-best-worf-episodes.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "bajor",
+      "name": "BAJOR",
+      "icon": "/img_quiz/icone/bajor.svg",
+      "gradient": [
+        "#8c4b14",
+        "#c87828"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Qual era il nome cardassiano di Deep Space Nine durante l'occupazione di Bajor?",
+          "options": [
+            "Dado Knorr",
+            "Gul Dukat",
+            "Terok Nor"
+          ],
+          "correct": "C",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/05/star-trek-6.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Qual è il titolo della massima autorità spirituale della religione bajoriana?",
+          "options": [
+            "Primo Vedek",
+            "Kai",
+            "Emissario"
+          ],
+          "correct": "B",
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2024/01/star-trek-ds9-hands-of-the-prophets.jpg"
+        },
+        {
+          "points": 500,
+          "text": "In DS9, S7E25–26 (What You Leave Behind), dove Kai Winn e Dukat tentano di liberare i Pah-wraiths nel finale di Deep Space Nine?",
+          "options": [
+            "Nel Tempio Celeste",
+            "Nelle Grotte di Fuoco",
+            "Nella camera del Cristallo della Profezia"
+          ],
+          "correct": "B"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "ferengi",
+      "name": "FERENGI",
+      "icon": "/img_quiz/icone/ferenginar.svg",
+      "gradient": [
+        "#008037",
+        "#2bc520"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Qual è la valuta più preziosa e ambita dai Ferengi?",
+          "options": [
+            "Il latinum in barre d'oro.",
+            "Il romanum di platino liquido.",
+            "Il grecum di palladio ionizzato."
+          ],
+          "correct": "A",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2024/05/armin-shimerman-as-quark-counts-out-latinum-in-front-of-max-grodenchik-as-rom-ds9-the-homecoming.jpg"
+        },
+        {
+          "points": 200,
+          "text": "Qual è il titolo del leader dell'Alleanza Ferengi?",
+          "options": [
+            "Romano Maximus.",
+            "Grande Nagus.",
+            "Liquidatore Supremo."
+          ],
+          "correct": "B",
+          "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/07/grand-nagus-rom-and-leeta-in-star-trek-lower-decks.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Perché Ishka, la madre di Quark, finisce nei guai con l'Autorità Commerciale Ferengi?",
+          "options": [
+            "Ha sposato un non Ferengi.",
+            "Ha realizzato profitti.",
+            "Ha rubato lo scettro del Nagus."
+          ],
+          "correct": "B",
+          "image": "https://them0vieblog.com/wp-content/uploads/2017/05/ds9-profitandlace26a.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
       "id": "vulcano",
       "name": "VULCANO",
       "icon": "/img_quiz/icone/vulcano.svg",
@@ -12,36 +241,173 @@
       "questions": [
         {
           "points": 100,
-          "text": "Quando?",
+          "text": "In ENT 4x7 (The Forge), come si chiama il gruppo di Vulcaniani perseguitato dall'Alto Comando perché segue una particolare interpretazione degli insegnamenti di Surak?",
           "options": [
-            "Risposta Aa",
-            "Risposta Bb",
-            "Risposta Cc"
+            "Tal Shiar",
+            "Syranniti",
+            "Ordine Ossidiano"
           ],
-          "correct": "C",
+          "correct": "B",
+          "image": "https://ent.trekcore.com/gallery/albums/bluray/s4/4x07/the-forge-344.jpg"
+        },
+        {
+          "points": 250,
+          "text": "In TOS 2x01 (\"Amok Time\"), durante il pon farr di Spock, come fa McCoy a salvare Kirk nel duello rituale?",
+          "options": [
+            "Gli inietta un composto che ne simula la morte.",
+            "Interrompe il duello con un colpo di phaser ai piedi dei contendenti.",
+            "Convince T'Pau a sospendere la sfida."
+          ],
+          "correct": "A",
+          "image": "https://i.pinimg.com/originals/d9/ce/b1/d9ceb1aa2bdee31dca4c28b951720a59.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Quale antico manufatto, contenente gli insegnamenti originali di Surak, ha un ruolo decisivo nel cambiare il corso della politica vulcaniana?",
+          "options": [
+            "L'IDIC",
+            "Il Kir'Shara",
+            "La Red Matter"
+          ],
+          "correct": "B",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/screenshot-2023-10-08-at-09-20-51-awakening-2004.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "trek-ology-1",
+      "name": "TREK-OLOGY I",
+      "icon": "/img_quiz/icone/trek-ology.svg",
+      "gradient": [
+        "#4b2882",
+        "#7846c8"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Di chi sono questi capelli?",
+          "options": [
+            "Puffetta",
+            "Janice Rand",
+            "Ma quali capelli... è un cestino di vimini!"
+          ],
+          "correct": "B",
           "image": "img_quiz/topic1/trek-ology100.jpg"
         },
         {
           "points": 250,
-          "text": "Deve?",
+          "text": "Qual è la missione operativa della USS Cerritos?",
           "options": [
-            "Risposta Aa",
-            "Risposta Bb",
-            "Risposta Cc"
+            "Esplorazione dello spazio profondo.",
+            "Scorta di diplomatici federali alle conferenze.",
+            "Missioni di secondo contatto."
           ],
           "correct": "C",
-          "image": "img_quiz/topic1/afrodite1000.jpg"
+          "image": "https://cdn.mos.cms.futurecdn.net/V58JMe5QXZxJ5WULBUrMVE.jpg"
         },
         {
           "points": 500,
-          "text": "Qunado?",
+          "text": "Quanti anni passano tra il varo della USS Enterprise 1701-B e la promozione a tenente comandante di Worf sulla USS Enterprise 1701-D?",
           "options": [
-            "Risposta Aa",
-            "Risposta Bb",
-            "Risposta Cc"
+            "56",
+            "78",
+            "99"
+          ],
+          "correct": "B",
+          "image": "https://static.wikia.nocookie.net/memoryalpha/images/e/e7/USS_Enterprise-B_in_drydock.jpg/revision/latest?cb=20100516214954&path-prefix=en"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "trek-ology-2",
+      "name": "TREK-OLOGY II",
+      "icon": "/img_quiz/icone/trek-ology.svg",
+      "gradient": [
+        "#4b2882",
+        "#7846c8"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "Come si chiamano le due balene che l'equipaggio della ISS Bounty preleva sulla Terra del 1986 per portarle nel XXIII secolo al fine di salvare il pianeta dalla distruzione da parte di una sonda aliena?",
+          "options": [
+            "Fred e Wilma",
+            "George e Louise",
+            "George e Gracie"
           ],
           "correct": "C",
-          "image": "img_quiz/topic1/vulcano3.jpg"
+          "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/06/George-and-Gracie-in-Star-Trek-IV.jpg"
+        },
+        {
+          "points": 250,
+          "text": "Cosa si lascia sfuggire Wesley Crusher durante un esperimento, dando vita a una civiltà microscopica nei computer dell'Enterprise?",
+          "options": [
+            "Naniti",
+            "Exocomp",
+            "Triboli"
+          ],
+          "correct": "A",
+          "image": "https://images.prismic.io/star-trek-untold/ZyQBYa8jQArT0GbY_evolution_hd_012.jpg"
+        },
+        {
+          "points": 500,
+          "text": "In SFA 1x01 “Kids These Days”, chi viene scelto come Cancelliere dell'Accademia della Flotta Stellare?",
+          "options": [
+            "T'Rina",
+            "Nahla Ake",
+            "Il Dottore"
+          ],
+          "correct": "B"
+        }
+      ],
+      "type": "normal"
+    },
+    {
+      "id": "afrodite",
+      "name": "USS AFRODITE",
+      "icon": "/img_quiz/icone/afrodite.svg",
+      "gradient": [
+        "#bf6500",
+        "#ff9900"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 250,
+          "text": "Come si chiama la prima nebula in cui si imbatte la Afrodite in DS 9907.15?",
+          "options": [
+            "Pessaioca",
+            "Balla",
+            "Matilda"
+          ],
+          "correct": "A",
+          "image": "https://www.cloudynights.com/uploads/monthly_10_2019/post-304346-0-02920400-1570556395.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Cosa sono USA e UE su Sigma Iotia II?",
+          "options": [
+            "Unità Scagnozzi Associati / Ufficio Esattori",
+            "Unione Sparatori Anonimi / Usurai Eleganti",
+            "Unione Scassinatori Ambidestri / Unione Estorsori"
+          ],
+          "correct": "C",
+          "image": "https://europe1.discourse-cdn.com/unity/original/4X/6/7/5/675a4ac6eb4088b4c1c551770e6c335df12ed202.jpeg"
+        },
+        {
+          "points": 1000,
+          "text": "Quale strumento di calibrazione è allegato al Manuale Tecnico della nave?",
+          "options": [
+            "Un apriscatole.",
+            "Un cucchiaino.",
+            "Un martello."
+          ],
+          "correct": "B",
+          "image": "img_quiz/topic1/afrodite1000.jpg"
         }
       ],
       "type": "normal"
@@ -61,29 +427,53 @@
         {
           "points": 500,
           "isRiskio": false,
-          "text": "Domanda 1T",
+          "text": "Come si chiama il gatto di Reginald Endicott Barclay III?",
           "options": [
-            "Opzione Aa",
-            "Opzione Bb",
-            "Opzione Cc"
+            "Tuvok",
+            "Neelix",
+            "Hope"
           ],
-          "correct": "A",
-          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/barclay-and-crusher-in-the-realm-of-fear.jpg"
+          "correct": "B",
+          "image": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2023/12/barclay-and-neelix.jpg"
         },
         {
           "points": 1000,
           "isRiskio": false,
-          "text": "Domanda 2T",
+          "text": "Chi gli affibbia il soprannome di \"Broccoli\" sulla Enterprise-D?",
           "options": [
-            "Opzione Aa",
-            "Opzione Bb",
-            "Opzione Cc"
+            "William Riker",
+            "Wesley Crusher",
+            "Geordi La Forge"
+          ],
+          "correct": "B",
+          "image": "https://www.giantfreakinrobot.com/wp-content/uploads/2023/03/reginald-barclay-star-trek-tng-transporter-dwight-schultz-900x450.jpg"
+        },
+        {
+          "points": 1500,
+          "isRiskio": false,
+          "text": "Nel 2370, mentre viene curato per un'influenza urodeleana, una sua cellula T modificata provoca la mutazione di alcuni introni del DNA e, divenuta diffondibile per via aerea, infetta l'equipaggio dell'Enterprise-D. Come viene chiamata questa nuova malattia dalla dottoressa Crusher?",
+          "options": [
+            "Regressione deevolutiva di Barclay.",
+            "Immunodeficienza di Barclay.",
+            "Sindrome protomorfica di Barclay."
+          ],
+          "correct": "C",
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/barclay-and-crusher-in-the-realm-of-fear.jpg"
+        },
+        {
+          "points": 2000,
+          "isRiskio": false,
+          "text": "Prima del trasferimento sulla Enterprise-D nel 2366, su quale nave prestava servizio Reginald Barclay?",
+          "options": [
+            "USS Zhukov NCC-62136",
+            "USS Budapest NCC-64923",
+            "USS Zapata NCC-33184"
           ],
           "correct": "A",
-          "image": "https://images.prismic.io/star-trek-untold/MmNjZjZkYTktYmUyOC00ZTE0LTg5MzgtZTcxYjQ1NzA4MDI2_pdvd_017.jpeg"
+          "image": "https://www.giantfreakinrobot.com/wp-content/uploads/2023/03/reginald-barclay-star-trek-tng-transporter-dwight-schultz-900x450.jpg"
         }
       ],
-      "subtitle": "Reginald Barkley"
+      "subtitle": "Reginald Barclay"
     },
     {
       "id": "materia_1791790261968",
@@ -100,50 +490,50 @@
         {
           "points": 500,
           "isRiskio": false,
-          "text": "Ch?",
+          "text": "Qual è il nome del sehlat che Spock aveva da bambino?",
           "options": [
-            "Opzione Aa",
-            "Opzione Bb",
-            "Opzione Cc"
+            "K'Mer",
+            "T'Lyn",
+            "I-Chaya"
+          ],
+          "correct": "C",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/star-trek-animated-young-spock-sehlat.jpg"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "Chi gli regala la Ka'athyra e in che occasione?",
+          "options": [
+            "T'Pring come pegno di fidanzamento e promessa di matrimonio.",
+            "Il dr. M'Benga come terapia anti stress.",
+            "Sua madre Amanda quando si arruola all'Accademia della Flotta Stellare."
           ],
           "correct": "B",
           "image": "https://static.wikia.nocookie.net/stpendragon/images/5/5d/Spock_with_lyre.jpg"
         },
         {
-          "points": 1000,
+          "points": 1500,
           "isRiskio": false,
-          "text": "Domanda 2bT",
+          "text": "Di che tipo è il sangue di Spock?",
           "options": [
-            "Opzione Aa",
-            "Opzione Bb",
-            "Opzione Cc"
-          ],
-          "correct": "A",
-          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/star-trek-animated-young-spock-sehlat.jpg"
-        },
-        {
-          "points": 2000,
-          "isRiskio": false,
-          "text": "Ch?",
-          "options": [
-            "Opzione Aa",
-            "Opzione Bb",
-            "Opzione Cc"
+            "0 positivo",
+            "T negativo",
+            "C neutro"
           ],
           "correct": "B",
           "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/06/Star-Trek-Spock-In-The-Squire-Of-Gothos.jpg"
         },
         {
-          "points": 3000,
+          "points": 2000,
           "isRiskio": false,
-          "text": "Domanda 2bT",
+          "text": "Come si chiama il suo bisnonno, primo ambasciatore vulcaniano sulla Terra, già capitano dell'astronave che il 5 aprile 2063 atterra nel Montana e stabilisce il 'primo contatto' con i terrestri?",
           "options": [
-            "Opzione Aa",
-            "Opzione Bb",
-            "Opzione Cc"
+            "Sodàr",
+            "Seràk",
+            "Solkar"
           ],
-          "correct": "A",
-          "image": "https://static0.moviewebimages.com/wordpress/wp-content/uploads/2024/01/spock-does-vulcan-salute-in-star-trek.jpg?q=50&fit=crop&w=825&dpr=1.5"
+          "correct": "C",
+          "image": "https://images.prismic.io/star-trek-untold/Z-31HHdAxsiBwP_Y_st-fc-remaster-bluray-2237.jpg"
         }
       ],
       "subtitle": "Spock"
