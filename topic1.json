@@ -516,11 +516,11 @@
           "isRiskio": false,
           "text": "Di che tipo è il sangue di Spock?",
           "options": [
-            "T negativo",
             "0 positivo",
-            "C neutro"
+            "C neutro",
+            "T negativo"
           ],
-          "correct": "A",
+          "correct": "C",
           "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/06/Star-Trek-Spock-In-The-Squire-Of-Gothos.jpg"
         },
         {
@@ -537,6 +537,67 @@
         }
       ],
       "subtitle": "Spock"
+    },
+    {
+      "id": "materia_1793918400000",
+      "name": "VAN BAJARK",
+      "icon": "https://ussafrodite.vercel.app/assets/img/crew/vanbajark_l.jpg",
+      "gradient": [
+        "#008080",
+        "#005f5f"
+      ],
+      "isRiskio": false,
+      "type": "personal",
+      "questions": [
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Di che classe è la USS Prometheus?",
+          "options": [
+            "Apollo",
+            "Prometheus",
+            "Nebula"
+          ],
+          "correct": "B",
+          "image": "https://i0.wp.com/continuingmissionsta.com/wp-content/uploads/2018/11/USS_Prometheus_warp.jpg"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "Qual è il numero di registro della nave?",
+          "options": [
+            "NCC-71201",
+            "NX-65420",
+            "NX-59650"
+          ],
+          "correct": "C",
+          "image": "https://i0.wp.com/continuingmissionsta.com/wp-content/uploads/2018/11/USS_Prometheus_warp.jpg"
+        },
+        {
+          "points": 1500,
+          "isRiskio": false,
+          "text": "Da quali cantieri fu varata?",
+          "options": [
+            "Cantieri navali di Utopia Planitia",
+            "Cantieri navali Beta Antares",
+            "Cantieri navali di 40 Eridani-A"
+          ],
+          "correct": "B"
+        },
+        {
+          "points": 2000,
+          "isRiskio": false,
+          "text": "La Prometheus nasce come prototipo sperimentale progettato per missioni tattiche nello spazio profondo. Tuttavia, nel 2378, su ordine dell'Ammiraglio Owen Paris fu stanziata vicino al sistema Solare con quale missione?",
+          "options": [
+            "Pattugliare l'accesso di un'apertura transwarp Borg vicino alla Terra.",
+            "Difendere il sistema S001 da un'eventuale nuova offensiva del Dominio.",
+            "Collaudare un prototipo di occultamento a sfasamento per Starfleet Intelligence."
+          ],
+          "correct": "A",
+          "image": "https://static.wikia.nocookie.net/memoryalpha/images/e/eb/USS_Prometheus%2C_multi-vector_assault_mode.jpg/revision/latest/scale-to-width-down/1000?cb=20190217081201&path-prefix=en"
+        }
+      ],
+      "subtitle": "USS Prometheus"
     }
   ],
   "title": "Topic1",
