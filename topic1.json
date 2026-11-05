@@ -417,8 +417,8 @@
       "name": "FRRUUU",
       "icon": "https://ussafrodite.vercel.app/images/crew/frruuu_l.jpg",
       "gradient": [
-        "#008080",
-        "#005f5f"
+        "#b42828",
+        "#e61e1e"
       ],
       "isRiskio": false,
       "type": "personal",
@@ -559,7 +559,7 @@
             "Nebula"
           ],
           "correct": "B",
-          "image": "https://i0.wp.com/continuingmissionsta.com/wp-content/uploads/2018/11/USS_Prometheus_warp.jpg"
+          "image": "https://static.wikia.nocookie.net/memoryalpha/images/e/eb/USS_Prometheus%2C_multi-vector_assault_mode.jpg/revision/latest/scale-to-width-down/1000?cb=20190217081201&path-prefix=en"
         },
         {
           "points": 1000,
@@ -571,7 +571,7 @@
             "NX-59650"
           ],
           "correct": "C",
-          "image": "https://i0.wp.com/continuingmissionsta.com/wp-content/uploads/2018/11/USS_Prometheus_warp.jpg"
+          "image": "https://static.wikia.nocookie.net/memoryalpha/images/e/eb/USS_Prometheus%2C_multi-vector_assault_mode.jpg/revision/latest/scale-to-width-down/1000?cb=20190217081201&path-prefix=en"
         },
         {
           "points": 1500,
