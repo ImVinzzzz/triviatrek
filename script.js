@@ -414,7 +414,7 @@ function openQuestion(cat, q) {
   header.style.background = `linear-gradient(90deg, ${cat.gradient[0]}, ${cat.gradient[1]})`;
   header.style.color = '#f8f8ff';
 
-  // Ripristina stili del popup che potrebbero essere stati alterati da Blind
+  // Ripristina stili del popup che potrebbero essere stati alterati da Blind / Personal Topic
   const popupEl = header.parentElement;
   popupEl.classList.remove('blind-correct-popup', 'blind-wrong-popup');
 
@@ -501,9 +501,10 @@ function handleAnswer(chosen) {
   // Mostra il punteggio reale anche se era Blind
   $('q-points-label').textContent = q.points + ' PT';
 
-  // Cambia il colore dell'intero popup se è Blind
+  // Cambia il colore dell'intero popup (verde/rosso) per Blind e Personal Topic
   const popupEl = $('q-popup-header').parentElement;
-  if (isBlind) {
+  const highlightPopup = isBlind || isPersonalTopic;
+  if (highlightPopup) {
     if (isCorrect) {
       popupEl.classList.add('blind-correct-popup');
     } else {
@@ -604,7 +605,7 @@ function handleAnswer(chosen) {
     } else if (checkGameOver()) {
       setTimeout(hasPhase2() ? showPhase1Summary : showGameOver, 1200);
     }
-  }, isBlind ? 4000 : 2500); // Più tempo se è Blind per far leggere ed apprezzare l'evidenziazione
+  }, highlightPopup ? 4000 : 2500); // Più tempo per Blind e Personal Topic per far leggere ed apprezzare l'evidenziazione
 }
 
 /* ── PLAYER DISPLAY ────────────────────────────────────────── */

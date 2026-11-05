@@ -122,13 +122,16 @@ La dinamica dei punteggi per la categoria Blind è la seguente:
   - **Risposta corretta**: Il giocatore di turno perde i punti della domanda (-500).
   - **Risposta errata**: Tutti gli **altri** giocatori perdono **-250 punti** fissi.
 
+### Effetto visivo della risposta (Blind e Personal Topic)
+Quando il giocatore sceglie una risposta nelle domande **Blind** e **Personal Topic**, l'intero popup della domanda diventa **verde** (risposta corretta) o **rosso** (risposta errata), con alone pulsante. Nel caso di risposta errata la risposta giusta resta evidenziata in verde. Il popup rimane visibile **4 secondi** (invece di 2,5 delle altre tipologie) per lasciare il tempo di leggere l'esito. Le categorie `normal` e `riskio` mantengono invece la sola evidenziazione dei pulsanti di risposta.
+
 ### Categoria Riskio!
 Le domande appartenenti a una categoria di tipo *Riskio!* (con valore esplicito visibile sul tabellone, come ad esempio 200, 500 o 1000 punti) seguono queste regole:
 - **Risposta corretta**: Il giocatore di turno guadagna l'intero valore associato alla domanda (es. +500 punti).
 - **Risposta errata**: Il giocatore di turno perde **150 punti**, mentre tutti gli **altri** giocatori guadagnano **+250 punti** fissi ciascuno (a differenza delle categorie normali dove gli altri giocatori ricevono +50 punti).
 
 ### Categoria Personal Topic e FASE II
-Le categorie di tipo `personal` sono argomenti dedicati a un singolo concorrente: **il titolo dell'argomento deve coincidere con il nome del concorrente** (come verrà digitato nel setup; maiuscole, accenti, punteggiatura e un eventuale prefisso `TOPIC:` vengono ignorati nel confronto). L'immagine (foto o icona) si imposta nel campo **Icona Materia / Argomento** e viene mostrata in un cerchio bordato; il campo **Sottotitolo card Fase II** compare nell'editor quando si sceglie la tipologia Personal Topic.
+Le categorie di tipo `personal` sono argomenti dedicati a un singolo concorrente: **il titolo dell'argomento deve coincidere con il nome del concorrente** (come verrà digitato nel setup; maiuscole, accenti, punteggiatura e un eventuale prefisso `TOPIC:` vengono ignorati nel confronto). L'immagine (foto o icona) si imposta nel campo **Icona Materia / Argomento** e viene mostrata in un cerchio bordato; il campo **Sottotitolo card Fase II** compare nell'editor quando si sceglie la tipologia Personal Topic. Un Personal Topic può avere **fino a 4 domande** (le altre tipologie al massimo 3); se nell'editor si cambia la tipologia di un Personal Topic con 4 domande, l'editor chiede conferma prima di eliminare la quarta.
 
 Se un quiz contiene almeno un Personal Topic la partita si svolge in due fasi:
 
