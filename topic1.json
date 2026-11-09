@@ -80,7 +80,7 @@
         },
         {
           "points": 500,
-          "text": "Cosa alimenta il nucleo a curvatura di un warbird romulano di classe D'deridex?",
+          "text": "Cosa alimenta il nucleo a curvatura di un warbird romulano?",
           "options": [
             "La protomateria esotica.",
             "Una singolarità quantica artificiale.",
@@ -599,6 +599,68 @@
         }
       ],
       "subtitle": "USS Prometheus"
+    },
+    {
+      "id": "materia_1794233580000",
+      "name": "RAEL",
+      "icon": "https://ussafrodite.vercel.app/assets/img/crew/rael_l.jpg",
+      "gradient": [
+        "#008080",
+        "#005f5f"
+      ],
+      "isRiskio": false,
+      "type": "personal",
+      "questions": [
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "Qual è la denominazione della celebre classe di incrociatori da battaglia romulani, caratterizzata da dimensioni imponenti e da un potente dispositivo di occultamento, incontrata dall'Enterprise-D?",
+          "options": [
+            "classe Valdore",
+            "classe D'deridex",
+            "classe Mogai"
+          ],
+          "correct": "B",
+          "image": "https://artistmonkeys.com/media/cache/sylius_shop_product_large_thumbnail_jpeg/a9/5d/Star-Trek-Romulan-warbird-D_deridex-class-fan-art-2.webp"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "Quali due organizzazioni di intelligence collaborano per organizzare un attacco preventivo contro il Dominio, nella speranza di distruggere i Fondatori?",
+          "options": [
+            "Tal Shiar e Ordine Ossidiano",
+            "Tal Shiar e Sezione 31",
+            "Ordine Ossidiano e Ordine Pretoriano"
+          ],
+          "correct": "A",
+          "image": "https://i0.wp.com/www.trekbrasilis.org/tbweblog/wp-content/uploads/2023/02/11-dieiscast.jpg"
+        },
+        {
+          "points": 1500,
+          "isRiskio": false,
+          "text": "In “Face of the Enemy”, quale identità assume Deanna Troi dopo essere stata modificata chirurgicamente per infiltrarsi in un'operazione romulana?",
+          "options": [
+            "Senatrice Kimara Cretak.",
+            "Comandante Donatra della Marina Romulana.",
+            "Maggiore Rakal della Tal Shiar."
+          ],
+          "correct": "C",
+          "image": "https://www.letswatchstartrek.com/wp-content/uploads/2020/09/20-1024x767.jpg"
+        },
+        {
+          "points": 2000,
+          "isRiskio": false,
+          "text": "In Star Trek: Picard, quale scoperta contenuta nell'antico manufatto romulano chiamato Admonition è all'origine della missione segreta della Zhat Vash?",
+          "options": [
+            "La posizione di una flotta Borg nascosta nel Quadrante Beta.",
+            "La profezia della distruzione provocata dalle forme di vita sintetiche.",
+            "La prova che i Vulcaniani hanno manipolato geneticamente i Romulani."
+          ],
+          "correct": "B",
+          "image": "https://trekkingwithdennis.com/wp-content/uploads/2020/03/lunchtimebrokpie.jpg"
+        }
+      ],
+      "subtitle": "Romulus"
     }
   ],
   "title": "Topic1",
