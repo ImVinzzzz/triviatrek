@@ -1,5 +1,6 @@
 // missions.js
 // Aggiungi o rimuovi le missioni in questo elenco per caricarle nel menu iniziale del gioco.
+
 const MISSIONS = [
   { name: "Generico", file: "quiz.json" },
   { name: "Topic #1", file: "topic1.json" },
