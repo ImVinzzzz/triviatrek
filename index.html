@@ -213,7 +213,13 @@
         <span id="q-points-label" style="font-family:var(--font-score);font-size:1.3rem">000</span>
       </div>
       <div class="popup-body">
-        <div id="q-turn-indicator" class="q-turn-indicator"></div>
+        <div class="q-top-row">
+          <div id="q-turn-indicator" class="q-turn-indicator"></div>
+          <button id="q-joker-btn" class="q-joker-btn" type="button">
+            <i class="fa-solid fa-bell-concierge"></i>
+            <span>Jolly</span>
+          </button>
+        </div>
         <div id="q-result-msg" class="q-result-msg hidden" style="display:none"></div>
         <div id="q-points-awarded" class="q-points-awarded" style="display:none"></div>
         <img id="q-image" class="q-image" src="" alt="" style="display:none">
@@ -420,6 +426,39 @@
               </div>
             </div>
 
+          </div>
+        </section>
+
+        <!-- Jolly -->
+        <section class="rules-section">
+          <h3 class="rules-section-title">
+            <i class="fa-solid fa-bell-concierge"></i> JOLLY &bull; ELIMINA UNA RISPOSTA
+          </h3>
+          <p class="rules-text">
+            Nella <strong>Fase I</strong> ogni giocatore ha a disposizione <strong>un solo jolly</strong>, da usare nel momento più critico della partita. Il pulsante <strong>JOLLY</strong> si trova nel popup della domanda.
+          </p>
+          <div class="rules-grid-steps">
+            <div class="rules-step-card">
+              <div class="rules-step-num">01</div>
+              <div class="rules-step-content">
+                <strong>UNO A TESTA</strong>
+                <p>Ogni giocatore dispone di un jolly per tutta la Fase I. Una volta usato, il pulsante resta disattivato e non può essere riutilizzato.</p>
+              </div>
+            </div>
+            <div class="rules-step-card">
+              <div class="rules-step-num">02</div>
+              <div class="rules-step-content">
+                <strong>COME FUNZIONA</strong>
+                <p>Il giocatore di turno, prima di rispondere, può premere <strong>JOLLY</strong>: il computer di bordo elimina a caso una delle due risposte sbagliate, lasciando soltanto due opzioni tra cui scegliere.</p>
+              </div>
+            </div>
+            <div class="rules-step-card">
+              <div class="rules-step-num">03</div>
+              <div class="rules-step-content">
+                <strong>PUNTEGGI INVARIATI</strong>
+                <p>Il jolly non modifica i punti in palio: valgono le regole della tipologia di domanda. Non è utilizzabile nella Fase II (Personal Topic).</p>
+              </div>
+            </div>
           </div>
         </section>
 

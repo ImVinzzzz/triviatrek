@@ -6,7 +6,7 @@
 ## DESCRIZIONE DEL GIOCO
 **Trivia Trek** è un gioco a quiz interattivo a tema Star Trek, appositamente personalizzato per la ciurma degli **"Afrodisiaci"** a bordo della mitica *USS Afrodite*.
 
-Il gioco si presenta con una splendida interfaccia in stile **LCARS** (l'iconico sistema operativo dei computer della Flotta Stellare), completa di effetti sonori e una colonna sonora orchestrale in sottofondo. I giocatori si sfidano a turni rispondendo a domande divise in categorie su un tabellone di gioco, accumulando punti o assegnando penalità agli avversari in caso di risposte errate, fino a decretare il vincitore finale.
+Il gioco si presenta con una splendida interfaccia in stile **LCARS** (l'iconico sistema operativo dei computer della Flotta Stellare), completa di effetti sonori e una colonna sonora orchestrale in sottofondo. I giocatori si sfidano a turni rispondendo a domande divise in categorie su un tabellone di gioco, accumulando punti o assegnando penalità agli avversari in caso di risposte errate, fino a decretare il vincitore finale. Nella Fase I ogni giocatore può inoltre contare su un **Jolly** che elimina una delle risposte sbagliate.
 
 ---
 
@@ -108,6 +108,17 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 | Risposta errata — Riskio! | Il giocatore di turno -150 punti; tutti gli **altri** +250 punti |
 | Risposta errata — Personal Topic | Il giocatore di turno -250 punti; tutti gli **altri** +500 punti (indipendentemente dal valore della domanda) |
 
+### Jolly (solo Fase I)
+Ogni giocatore ha a disposizione **un solo jolly per partita**, utilizzabile nella **Fase I** (se il quiz non prevede la Fase II, in tutta la partita).
+
+- Nel popup della domanda, accanto all'indicazione del turno, c'è il pulsante **JOLLY** (icona `fa-bell-concierge`).
+- Premendolo, il giocatore di turno **elimina a caso una delle due risposte sbagliate**: la risposta eliminata appare barrata e non è più selezionabile, quindi restano due sole opzioni (quella giusta e una sbagliata).
+- Il pulsante è **attivo solo se il giocatore di turno non ha già usato il proprio jolly**; una volta usato resta disattivato per il resto della partita. Ogni giocatore ha il proprio jolly, indipendente da quello degli altri.
+- Il jolly va usato **prima** di rispondere e **non modifica i punteggi**: valgono le regole della tipologia di domanda (Normale, Riskio!, Blind, ecc.).
+- Nella **Fase II** (Personal Topic) il pulsante non è disponibile.
+
+Implementazione: il flag `jollyUsed` è salvato su ogni giocatore in `state.players` (`script.js`, funzioni `setupJoker()`, `updateJokerButton()` e `useJoker()`); il pulsante `#q-joker-btn` è in `index.html` e gli stili `.q-joker-btn` / `.q-answer-btn.eliminated` in `style.css`.
+
 ### Categoria Blind (Punti Nascosti)
 Le domande di tipo Blind nascondono il proprio valore reale con dei punti interrogativi sul tabellone e sul popup di gioco in base al loro ordine:
 - Prima domanda: `?`
@@ -135,7 +146,7 @@ Le categorie di tipo `personal` sono argomenti dedicati a un singolo concorrente
 
 Se un quiz contiene almeno un Personal Topic la partita si svolge in due fasi:
 
-1. **Fase I** — il tabellone mostra tutte le categorie tranne i Personal Topic.
+1. **Fase I** — il tabellone mostra tutte le categorie tranne i Personal Topic. In questa fase ogni giocatore può usare il proprio **Jolly** (vedi sopra).
 2. Dopo l'ultima domanda (e l'eventuale bonus di compensazione) appare la **classifica provvisoria** con il pulsante **FASE II >**.
 3. Il pulsante apre, con effetto flip, uno schermo nero con il logo `img/fase2-logo.svg`; un clic in qualunque punto fa girare il logo e compare la **card** del primo argomento: foto in alto a sinistra, titolo in alto a destra e sottotitolo sotto.
 4. Le card si susseguono con uno scorrimento laterale **dall'ultimo al primo della classifica provvisoria**: chi era in testa risponde per ultimo. Ogni concorrente risponde solo alle domande della propria card.

@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSplash();
   setupRulesPopup();
   setupPhase2Controls();
+  setupJoker();
 });
 
 /* ── REGOLAMENTO POPUP ─────────────────────────────────────── */
@@ -232,7 +233,7 @@ async function startGame() {
   const players = [];
   inputs.forEach((input, i) => {
     const name = input.value.trim().toUpperCase() || defaultPlayerName(i);
-    players.push({ name: name, score: 0, questionsCount: 0 });
+    players.push({ name: name, score: 0, questionsCount: 0, jollyUsed: false });
   });
 
   state.players = players;
@@ -464,7 +465,7 @@ function openQuestion(cat, q) {
   // Reset buttons
   const answerBtns = document.querySelectorAll('.q-answer-btn');
   answerBtns.forEach(btn => {
-    btn.classList.remove('correct', 'wrong');
+    btn.classList.remove('correct', 'wrong', 'eliminated');
     btn.disabled = false;
   });
 
@@ -485,7 +486,51 @@ function openQuestion(cat, q) {
   $('q-ans-b').textContent = q.options[1];
   $('q-ans-c').textContent = q.options[2];
 
+  updateJokerButton();
+
   popups.question.classList.remove('hidden');
+}
+
+/* ── JOLLY (Fase I) ────────────────────────────────────────── */
+/* Ogni giocatore ha un solo jolly, utilizzabile in Fase I: elimina una
+   delle risposte sbagliate della domanda in corso. */
+function setupJoker() {
+  const btn = $('q-joker-btn');
+  if (btn) btn.addEventListener('click', useJoker);
+}
+
+/* Mostra/abilita il pulsante: attivo solo in Fase I e solo se il giocatore
+   di turno non ha già usato il suo jolly. */
+function updateJokerButton() {
+  const btn = $('q-joker-btn');
+  if (!btn) return;
+  const player = state.players[state.currentIndex];
+  const inPhase1 = state.phase === 1;
+  btn.classList.toggle('hidden', !inPhase1);
+  const used = !!(player && player.jollyUsed);
+  btn.disabled = used;
+  btn.title = used
+    ? 'Jolly già utilizzato'
+    : 'Elimina una risposta sbagliata (una sola volta per partita)';
+  btn.setAttribute('aria-label', btn.title);
+}
+
+function useJoker() {
+  const player = state.players[state.currentIndex];
+  const q = state.currentQ;
+  if (!player || !q || player.jollyUsed || state.phase !== 1) return;
+
+  // Candidate: risposte sbagliate ancora attive (non già eliminate né bloccate)
+  const candidates = Array.from(document.querySelectorAll('.q-answer-btn'))
+    .filter(btn => btn.dataset.ans !== q.correct && !btn.disabled);
+  if (candidates.length === 0) return;
+
+  const target = candidates[Math.floor(Math.random() * candidates.length)];
+  target.classList.add('eliminated');
+  target.disabled = true;
+
+  player.jollyUsed = true;
+  updateJokerButton();
 }
 
 function handleAnswer(chosen) {
@@ -511,6 +556,10 @@ function handleAnswer(chosen) {
       popupEl.classList.add('blind-wrong-popup');
     }
   }
+
+  // La domanda è chiusa: il jolly non è più utilizzabile
+  const jokerBtn = $('q-joker-btn');
+  if (jokerBtn) jokerBtn.disabled = true;
 
   // Disable all buttons
   document.querySelectorAll('.q-answer-btn').forEach(btn => {

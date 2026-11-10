@@ -815,6 +815,68 @@ body::after {
   font-weight: 700;
 }
 
+/* Riga superiore del popup: turno a sinistra, jolly a destra */
+.q-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.q-top-row .q-turn-indicator { margin-bottom: 0; }
+
+/* Pulsante Jolly (elimina una risposta sbagliata, una volta per giocatore in Fase I) */
+.q-joker-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  padding: 0.4rem 0.95rem;
+  background: var(--orange-dark);
+  color: var(--text);
+  border: 0.125rem solid var(--orange);
+  border-radius: 1.25rem;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0.625rem rgba(255, 150, 0, 0.35);
+}
+
+.q-joker-btn i {
+  font-size: 1rem;
+  color: var(--gold);
+  transition: transform 0.2s ease;
+}
+
+.q-joker-btn:hover:not(:disabled) {
+  background: var(--orange);
+  color: var(--black);
+  box-shadow: 0 0 1rem rgba(255, 150, 0, 0.65);
+}
+
+.q-joker-btn:hover:not(:disabled) i {
+  color: var(--black);
+  transform: rotate(-12deg) scale(1.15);
+}
+
+.q-joker-btn:disabled {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-dim);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.q-joker-btn:disabled i { color: var(--text-dim); }
+
+.q-joker-btn.hidden { display: none; }
+
 .q-image {
   width: 100%;
   aspect-ratio: 21/9;
@@ -860,6 +922,22 @@ body::after {
 }
 
 .q-answer-btn:disabled { cursor: not-allowed; }
+
+/* Risposta eliminata dal Jolly */
+.q-answer-btn.eliminated {
+  opacity: 0.3;
+  text-decoration: line-through;
+  border-style: dashed;
+  animation: jokerEliminate 0.45s ease;
+}
+
+.q-answer-btn.eliminated .ans-label { background: rgba(255, 255, 255, 0.25); }
+
+@keyframes jokerEliminate {
+  0%   { opacity: 1;   transform: scale(1); }
+  35%  { opacity: 0.8; transform: translateX(-6px) scale(1.02); }
+  100% { opacity: 0.3; transform: translateX(0) scale(1); }
+}
 
 .q-answer-btn.correct {
   background: rgba(0,200,100,0.2);
@@ -1767,6 +1845,8 @@ body::after {
   .splash-logo   { width: 90%; }
 
   .q-text { font-size: 1.05rem; }
+
+  .q-joker-btn { padding: 0.35rem 0.75rem; font-size: 0.85rem; }
 }
 
 @media (max-width: 420px) {

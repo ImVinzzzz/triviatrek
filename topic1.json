@@ -605,8 +605,8 @@
       "name": "RAEL",
       "icon": "https://ussafrodite.vercel.app/assets/img/crew/rael_l.jpg",
       "gradient": [
-        "#008080",
-        "#005f5f"
+        "#BEBE00",
+        "#FFC800"
       ],
       "isRiskio": false,
       "type": "personal",
