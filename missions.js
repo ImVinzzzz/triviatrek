@@ -2,8 +2,8 @@
 // Aggiungi o rimuovi le missioni in questo elenco per caricarle nel menu iniziale del gioco.
 const MISSIONS = [
   { name: "Generico", file: "quiz.json" },
+  // { name: "Topic", file: "topic1.json" }
   { name: "Giuliano 2 - la Vendemmia", file: "giuliano2.json" },
   { name: "Giuliano", file: "giuliano.json" },
-  { name: "Afrotite 2", file: "afrodite-2.json" },
-  { name: "Demo Topic", file: "topic1.json" }
+  { name: "Afrotite 2", file: "afrodite-2.json" }
 ];
