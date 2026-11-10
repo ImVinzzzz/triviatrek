@@ -453,7 +453,7 @@
           "isRiskio": false,
           "text": "Nel 2370, mentre viene curato per un'influenza urodeleana, una sua cellula T modificata provoca la mutazione di alcuni introni del DNA e, divenuta diffondibile per via aerea, infetta l'equipaggio dell'Enterprise-D. Come viene chiamata questa nuova malattia dalla dottoressa Crusher?",
           "options": [
-            "Regressione deevolutiva di Barclay.",
+            "Regressione involutiva di Barclay.",
             "Immunodeficienza di Barclay.",
             "Sindrome protomorfica di Barclay."
           ],
@@ -474,6 +474,68 @@
         }
       ],
       "subtitle": "Reginald Barclay"
+    },
+    {
+      "id": "materia_1794326100000",
+      "name": "RENZI",
+      "icon": "https://ussafrodite.vercel.app/assets/img/crew/renzi_l.jpg",
+      "gradient": [
+        "#008080",
+        "#005f5f"
+      ],
+      "isRiskio": false,
+      "type": "personal",
+      "questions": [
+        {
+          "points": 500,
+          "isRiskio": false,
+          "text": "In quale località terrestre è nato William T. Riker?",
+          "options": [
+            "San Francisco, California",
+            "Valdez, Alaska",
+            "Stevensville, Montana"
+          ],
+          "correct": "B",
+          "image": "https://static0.moviewebimages.com/wordpress/wp-content/uploads/2023/09/riker-star-trek-tng.jpg"
+        },
+        {
+          "points": 1000,
+          "isRiskio": false,
+          "text": "Su quale nave Riker prestava servizio prima di essere assegnato come primo ufficiale all'Enterprise-D?",
+          "options": [
+            "USS Drake",
+            "USS Potemkin",
+            "USS Hood"
+          ],
+          "correct": "C",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/11/star-trek-tng-commander-riker-no-beard.jpg"
+        },
+        {
+          "points": 1500,
+          "isRiskio": false,
+          "text": "Come si chiama il figlio di William Riker e Deanna Troi, morto prematuramente a causa di una rara malattia?",
+          "options": [
+            "Thaddeus",
+            "Kyle",
+            "Eugene"
+          ],
+          "correct": "A",
+          "image": "https://1.bp.blogspot.com/-HJnxG4JI3z4/XmhXnKwWgvI/AAAAAAAAF-Y/Vup3uX_1rY4phA2Dz4QTE_TjjAL-ZWQSgCLcBGAsYHQ/s1600/vlcsnap-2020-03-11-04h04m08s205.jpg"
+        },
+        {
+          "points": 2000,
+          "isRiskio": false,
+          "text": "Nel finale della prima stagione di 'Star Trek: Picard', Riker arriva con una potente flotta della Federazione per affrontare le forze romulane. Quale nave comanda in quell'occasione?",
+          "options": [
+            "USS Titan",
+            "USS Enterprise-E",
+            "USS Zheng He"
+          ],
+          "correct": "C",
+          "image": "https://scifiempire.net/wordpress/wp-content/uploads/2020/03/Star-Trek-Picard-S01E10-Et-in-Arcadia-Ego-Part-2-Review-Jonathan-Frakes-as-William-Riker.jpg"
+        }
+      ],
+      "subtitle": "William T. Riker"
     },
     {
       "id": "materia_1791790261968",
