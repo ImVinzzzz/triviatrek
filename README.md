@@ -114,10 +114,11 @@ Ogni giocatore ha a disposizione **un solo jolly per partita**, utilizzabile nel
 - Nel popup della domanda, accanto all'indicazione del turno, c'è il pulsante **JOLLY** (icona `fa-bell-concierge`).
 - Premendolo, il giocatore di turno **elimina a caso una delle due risposte sbagliate**: la risposta eliminata appare barrata e non è più selezionabile, quindi restano due sole opzioni (quella giusta e una sbagliata).
 - Il pulsante è **attivo solo se il giocatore di turno non ha già usato il proprio jolly**; una volta usato resta disattivato per il resto della partita. Ogni giocatore ha il proprio jolly, indipendente da quello degli altri.
+- Nella **barra dei punteggi** ogni giocatore mostra lo stato del proprio jolly: icona + etichetta "Jolly" nella versione desktop, solo icona nella versione mobile. Se il jolly è ancora disponibile l'indicatore è pieno, se è già stato usato diventa sbiadito e barrato.
 - Il jolly va usato **prima** di rispondere e **non modifica i punteggi**: valgono le regole della tipologia di domanda (Normale, Riskio!, Blind, ecc.).
 - Nella **Fase II** (Personal Topic) il pulsante non è disponibile.
 
-Implementazione: il flag `jollyUsed` è salvato su ogni giocatore in `state.players` (`script.js`, funzioni `setupJoker()`, `updateJokerButton()` e `useJoker()`); il pulsante `#q-joker-btn` è in `index.html` e gli stili `.q-joker-btn` / `.q-answer-btn.eliminated` in `style.css`.
+Implementazione: il flag `jollyUsed` è salvato su ogni giocatore in `state.players` (`script.js`, funzioni `setupJoker()`, `updateJokerButton()` e `useJoker()`); il pulsante `#q-joker-btn` è in `index.html`; gli stili `.q-joker-btn`, `.q-answer-btn.eliminated` e `.joker-ind` (indicatore nella barra punteggi, aggiornato in `updatePlayerDisplays()`) sono in `style.css`.
 
 ### Categoria Blind (Punti Nascosti)
 Le domande di tipo Blind nascondono il proprio valore reale con dei punti interrogativi sul tabellone e sul popup di gioco in base al loro ordine:

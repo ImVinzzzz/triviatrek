@@ -626,6 +626,64 @@ body::after {
   text-shadow: 0 1px 0 rgba(255,255,255,0.2);
 }
 
+/* ── Indicatore Jolly nella barra punteggi ─────────────────── */
+.joker-ind {
+  color: rgba(0,0,0,0.8);
+  transition: opacity 0.3s;
+}
+
+.joker-ind i {
+  position: relative;
+  display: inline-block;
+}
+
+/* Jolly già usato: sbiadito e barrato */
+.joker-ind.used { opacity: 0.35; }
+
+.joker-ind.used i::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: 50%;
+  height: 2px;
+  background: currentColor;
+  transform: rotate(-35deg);
+}
+
+/* Desktop: icona + etichetta */
+.p-joker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: -2px;
+  padding: 1px 10px;
+  border: 1px solid rgba(0,0,0,0.35);
+  border-radius: 12px;
+  background: rgba(0,0,0,0.1);
+  font-family: var(--font-main);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.p-joker.used span { text-decoration: line-through; }
+
+/* Mobile: solo icona, accanto al nome */
+.p-card-mobile .pm-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.p-card-mobile .pm-joker { font-size: 0.85rem; }
+
+/* Schermi molto bassi: card dei giocatori più compatte, così l'indicatore Jolly non viene tagliato */
+@media (min-width: 681px) and (max-height: 650px) {
+  .player-card { padding: 6px 10px; gap: 3px; }
+}
+
 /* ── Categories Grid ───────────────────────────────────────── */
 .categories-grid {
   flex: 1;

@@ -292,6 +292,7 @@ function buildPlayersColumn() {
     card.innerHTML = `
       <div class="p-name">${escHtml(p.name)}</div>
       <div class="p-score" id="score-${i}">0</div>
+      <div class="joker-ind p-joker" id="joker-${i}"><i class="fa-solid fa-bell-concierge"></i><span>Jolly</span></div>
     `;
     sidebar.appendChild(card);
 
@@ -300,7 +301,10 @@ function buildPlayersColumn() {
     mCard.className = 'p-card-mobile';
     mCard.id = `player-mobile-${i}`;
     mCard.innerHTML = `
-      <span class="pm-name">${escHtml(p.name)}</span>
+      <span class="pm-left">
+        <span class="pm-name">${escHtml(p.name)}</span>
+        <span class="joker-ind pm-joker" id="mjoker-${i}"><i class="fa-solid fa-bell-concierge"></i></span>
+      </span>
       <span class="pm-score" id="mscore-${i}">0</span>
     `;
     mobileBar.appendChild(mCard);
@@ -531,6 +535,7 @@ function useJoker() {
 
   player.jollyUsed = true;
   updateJokerButton();
+  updatePlayerDisplays();
 }
 
 function handleAnswer(chosen) {
@@ -673,6 +678,15 @@ function updatePlayerDisplays() {
     const mScore = $(`mscore-${i}`);
     if (mCard) mCard.classList.toggle('active-turn', i === state.currentIndex);
     if (mScore) mScore.textContent = p.score.toLocaleString('it-IT');
+
+    // Jolly: disponibile / già usato
+    const jollyTip = p.jollyUsed ? 'Jolly già utilizzato' : 'Jolly disponibile';
+    [$(`joker-${i}`), $(`mjoker-${i}`)].forEach(el => {
+      if (!el) return;
+      el.classList.toggle('used', !!p.jollyUsed);
+      el.title = jollyTip;
+      el.setAttribute('aria-label', jollyTip);
+    });
 
     // Fase II
     const p2Card = $(`p2-player-${i}`);
