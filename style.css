@@ -1072,7 +1072,7 @@ body::after {
 
 .gameover-container {
   width: 90%;
-  max-width: 700px;
+  max-width: 1040px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -1142,6 +1142,63 @@ body::after {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* Corpo: box vincitore + classifica a sinistra, trofeo a destra */
+.go-body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.go-main {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Trofeo: la data è posizionata in % sulla base, scala con la larghezza dell'immagine */
+.go-trophy {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(240px, 32vw, 360px);
+  container-type: inline-size;
+}
+
+.go-trophy-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 28px rgba(255,200,0,0.35));
+}
+
+.go-trophy-date {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 88.4%;
+  transform: translateY(-50%);
+  text-align: center;
+  white-space: nowrap;
+  font-family: var(--font-num);
+  font-size: 3.2cqw;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: #3a2108;
+  text-shadow: 0 1px 0 rgba(255,235,170,0.55);
+}
+
+@media (max-width: 800px) {
+  .go-body { flex-direction: column; gap: 24px; }
+  .go-main { width: 100%; }
+  .go-trophy { width: clamp(220px, 60vw, 320px); }
 }
 
 .go-rank-item {

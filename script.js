@@ -983,6 +983,11 @@ function showGameOver() {
   if (stardateEl) {
     stardateEl.textContent = getStardate(new Date());
   }
+  // Stessa data stellare incisa sulla base del trofeo
+  const trophyDateEl = $('go-trophy-date');
+  if (trophyDateEl) {
+    trophyDateEl.textContent = getStardate(new Date());
+  }
 
   // Classifica con parimerito
   const rankedPlayers = getRankedPlayers();

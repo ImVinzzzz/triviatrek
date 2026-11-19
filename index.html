@@ -149,12 +149,20 @@
     <div class="gameover-container">
       <h2 class="go-title"><i class="fa-solid fa-trophy"></i> MISSIONE COMPLETATA</h2>
       <p class="go-stardate">DATA STELLARE: <span id="go-stardate-val"></span></p>
-      <div id="go-winner-box" class="go-winner-box">
-        <div class="go-winner-label">★ WINNER ★</div>
-        <div id="go-winner-name" class="go-winner-name"></div>
-        <div id="go-winner-score" class="go-winner-score"></div>
+      <div class="go-body">
+        <div class="go-trophy">
+          <img src="img/trofeo.png" class="go-trophy-img" alt="Trofeo Trivia Trek">
+          <span id="go-trophy-date" class="go-trophy-date"></span>
+        </div>
+        <div class="go-main">
+          <div id="go-winner-box" class="go-winner-box">
+            <div class="go-winner-label">★ WINNER ★</div>
+            <div id="go-winner-name" class="go-winner-name"></div>
+            <div id="go-winner-score" class="go-winner-score"></div>
+          </div>
+          <div id="go-ranking-list" class="go-ranking-list"></div>
+        </div>
       </div>
-      <div id="go-ranking-list" class="go-ranking-list"></div>
       <button class="go-play-again" onclick="location.reload()">
         <i class="fa-solid fa-rotate-right -fa-spin"></i> NUOVA PARTITA
       </button>

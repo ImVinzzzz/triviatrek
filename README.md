@@ -25,6 +25,7 @@ triviatrek/
 ├── img/
 │   ├── logo.svg            ← Logo principale (usato nell'header E nella splash)
 │   ├── fase2-logo.svg      ← Logo mostrato all'avvio della Fase II
+│   ├── trofeo.png          ← Trofeo mostrato nella schermata finale (PNG trasparente 432×578)
 │   ├── favicon.png         ← Favicon 32×32
 │   ├── favicon.svg         ← Favicon SVG
 │   └── apple-touch-icon.png← Favicon Apple 180×180
@@ -92,6 +93,11 @@ Icone disponibili: `afrodite`, `armi`, `comando`, `cultura-generale`, `ferengina
 ### Cambiare il logo
 Sostituisci `img/logo.svg` con il tuo logo. Viene usato sia nell'header fisso
 che nella schermata splash ingrandito.
+
+### Trofeo della schermata finale
+Nella schermata **MISSIONE COMPLETATA** il trofeo `img/trofeo.png` compare a sinistra del box del vincitore e della classifica (su schermi stretti, sopra di essi). Sulla targhetta dorata, subito sotto il logo del quiz, viene scritta in automatico la **data stellare** della partita (es. `12611.19` per il 19 novembre 2026), calcolata con lo stesso formato della riga «DATA STELLARE» in alto: `1` + anno a 2 cifre + mese + `.` + giorno.
+
+Per sostituire il trofeo basta sovrascrivere `img/trofeo.png`. Se la targhetta cambia posizione, regola `top` (e `font-size`) della classe `.go-trophy-date` in `style.css`: la scritta è posizionata in percentuale sull'altezza dell'immagine e scala con la sua larghezza.
 
 ### Aggiungere audio
 Inserisci i file MP3 nella cartella `sfx/` con i nomi indicati sopra.
