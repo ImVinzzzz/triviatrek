@@ -139,6 +139,52 @@
       "type": "normal"
     },
     {
+      "id": "vulcano",
+      "name": "VULCANO",
+      "icon": "/img_quiz/icone/vulcano.svg",
+      "gradient": [
+        "#1e3280",
+        "#324696"
+      ],
+      "isRiskio": false,
+      "questions": [
+        {
+          "points": 100,
+          "text": "In ENT 4x7 (The Forge), come si chiama il gruppo di Vulcaniani perseguitato dall'Alto Comando perché segue una particolare interpretazione degli insegnamenti di Surak?",
+          "options": [
+            "Tal Shiar",
+            "Syranniti",
+            "Zhat Vash"
+          ],
+          "correct": "B",
+          "image": "https://ent.trekcore.com/gallery/albums/bluray/s4/4x07/the-forge-344.jpg"
+        },
+        {
+          "points": 250,
+          "text": "In TOS 2x01 (\"Amok Time\"), durante il pon farr di Spock, come fa McCoy a salvare Kirk nel duello rituale?",
+          "options": [
+            "Gli inietta un composto che ne simula la morte.",
+            "Interrompe il duello con un colpo di phaser ai piedi dei contendenti.",
+            "Convince T'Pau a sospendere la sfida."
+          ],
+          "correct": "A",
+          "image": "img_quiz/topic1/vulcano250.jpg"
+        },
+        {
+          "points": 500,
+          "text": "Quale antico manufatto, contenente gli insegnamenti originali di Surak, ha un ruolo decisivo nel cambiare il corso della politica vulcaniana?",
+          "options": [
+            "L'Idic",
+            "Il Kir'Shara",
+            "Il Ka'tra"
+          ],
+          "correct": "B",
+          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/screenshot-2023-10-08-at-09-20-51-awakening-2004.jpg"
+        }
+      ],
+      "type": "normal"
+    },
+    {
       "id": "bajor",
       "name": "BAJOR",
       "icon": "/img_quiz/icone/bajor.svg",
@@ -225,52 +271,6 @@
           ],
           "correct": "C",
           "image": "https://them0vieblog.com/wp-content/uploads/2017/05/ds9-profitandlace26a.jpg"
-        }
-      ],
-      "type": "normal"
-    },
-    {
-      "id": "vulcano",
-      "name": "VULCANO",
-      "icon": "/img_quiz/icone/vulcano.svg",
-      "gradient": [
-        "#1e3280",
-        "#324696"
-      ],
-      "isRiskio": false,
-      "questions": [
-        {
-          "points": 100,
-          "text": "In ENT 4x7 (The Forge), come si chiama il gruppo di Vulcaniani perseguitato dall'Alto Comando perché segue una particolare interpretazione degli insegnamenti di Surak?",
-          "options": [
-            "Tal Shiar",
-            "Syranniti",
-            "Zhat Vash"
-          ],
-          "correct": "B",
-          "image": "https://ent.trekcore.com/gallery/albums/bluray/s4/4x07/the-forge-344.jpg"
-        },
-        {
-          "points": 250,
-          "text": "In TOS 2x01 (\"Amok Time\"), durante il pon farr di Spock, come fa McCoy a salvare Kirk nel duello rituale?",
-          "options": [
-            "Gli inietta un composto che ne simula la morte.",
-            "Interrompe il duello con un colpo di phaser ai piedi dei contendenti.",
-            "Convince T'Pau a sospendere la sfida."
-          ],
-          "correct": "A",
-          "image": "img_quiz/topic1/vulcano250.jpg"
-        },
-        {
-          "points": 500,
-          "text": "Quale antico manufatto, contenente gli insegnamenti originali di Surak, ha un ruolo decisivo nel cambiare il corso della politica vulcaniana?",
-          "options": [
-            "L'Idic",
-            "Il Kir'Shara",
-            "Il Ka'tra"
-          ],
-          "correct": "B",
-          "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/screenshot-2023-10-08-at-09-20-51-awakening-2004.jpg"
         }
       ],
       "type": "normal"
