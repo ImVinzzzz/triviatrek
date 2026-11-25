@@ -2748,3 +2748,35 @@ body::after {
 .icon-preview.broken { opacity: 0.25; border: 2px dashed var(--wrong); }
 
 .subtitle-row.hidden { display: none; }
+
+/* ── BONUS FASE II: 4 risposte corrette su 4 ── */
+.phase2-bonus-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 600;
+  max-width: min(520px, 90vw);
+  padding: 28px 34px;
+  text-align: center;
+  border-radius: 20px;
+  border: 2px solid var(--gold);
+  background: rgba(10, 10, 20, 0.94);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.45);
+  font-family: var(--font-main);
+  animation: p2bIn 0.45s ease;
+  pointer-events: none;
+}
+
+.phase2-bonus-toast.p2b-out { opacity: 0; transition: opacity 0.5s ease; }
+
+.p2b-title { font-size: 1.3rem; font-weight: 700; letter-spacing: 4px; color: var(--gold); }
+
+.p2b-text { margin: 12px 0; font-size: 1rem; letter-spacing: 1px; color: #fff; }
+
+.p2b-points { font-family: var(--font-score); font-size: 2.4rem; color: var(--teal); }
+
+@keyframes p2bIn {
+  from { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+  to   { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
+}

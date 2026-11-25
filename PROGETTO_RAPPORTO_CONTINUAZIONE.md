@@ -181,3 +181,12 @@ Il punto di partenza più sicuro per la prossima chat è considerare `giuliano.j
 - `missions.js` punta ancora a `giuliano2.json` (inesistente) e mostra il refuso `Afrotite 2`.
 - `topic1.json`: solo `TOPIC: FRRUUU` è di tipo `personal` (`TOPIC: RENZI` è `normal`); immagini in `img_quiz/topic1/` mancanti.
 - Il progetto non è ancora sotto Git (vedi istruzioni di pubblicazione nel report della sessione).
+
+## 14. Aggiornamento del 25 novembre 2026
+
+### Bonus perfetto in Fase II
+- Nuova regola: il concorrente che risponde correttamente a tutte e 4 le domande del proprio Personal Topic guadagna 500 punti extra.
+- Si applica solo ai Personal Topic con esattamente 4 domande; una sola risposta errata annulla il bonus. Assegnato una sola volta per concorrente (`state.phase2Perfect`).
+- `script.js`: contatore `p2Correct` su ogni giocatore (incrementato in `handleAnswer()` quando `state.phase === 2`), funzioni `applyPhase2PerfectBonus()` e `showPhase2BonusToast()`, costanti `PHASE2_PERFECT_QUESTIONS` e `PHASE2_PERFECT_BONUS`. Il passaggio alla card successiva (o alla classifica finale) è ritardato di circa 3 secondi quando il bonus scatta.
+- `style.css`: stile del messaggio `.phase2-bonus-toast`.
+- `index.html` (popup regolamento) e `README.md` aggiornati.

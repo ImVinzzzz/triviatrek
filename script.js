@@ -23,8 +23,14 @@ const state = {
   topicOwners:     {},    // { indiceGiocatore: categoria Personal Topic con il suo nome }
   phase2Queue:     [],    // [{ cat, playerIndex }] in ordine di classifica provvisoria
   phase2Pos:       -1,    // card Fase II attiva
-  phase2Revealed:  false  // logo Fase II già girato
+  phase2Revealed:  false, // logo Fase II già girato
+  phase2Perfect:   {}     // { indiceGiocatore: true } bonus "en plein" Fase II già assegnato
 };
+
+/* Bonus Fase II: chi risponde correttamente a tutte e 4 le domande del proprio
+   Personal Topic guadagna 500 punti extra. */
+const PHASE2_PERFECT_QUESTIONS = 4;
+const PHASE2_PERFECT_BONUS     = 500;
 
 /* ── DOM REFS ──────────────────────────────────────────────── */
 const $ = id => document.getElementById(id);
@@ -233,7 +239,7 @@ async function startGame() {
   const players = [];
   inputs.forEach((input, i) => {
     const name = input.value.trim().toUpperCase() || defaultPlayerName(i);
-    players.push({ name: name, score: 0, questionsCount: 0, jollyUsed: false });
+    players.push({ name: name, score: 0, questionsCount: 0, jollyUsed: false, p2Correct: 0, p2Bonus: 0 });
   });
 
   state.players = players;
@@ -577,6 +583,10 @@ function handleAnswer(chosen) {
   let resultText, awardsText;
   if (isCorrect) {
     state.players[state.currentIndex].score += state.currentPoints;
+    // Fase II: conta le risposte corrette del titolare della card (bonus se 4 su 4)
+    if (state.phase === 2) {
+      state.players[state.currentIndex].p2Correct = (state.players[state.currentIndex].p2Correct || 0) + 1;
+    }
     playAudio("ok");
     resultText = "<i class=\"fa-solid fa-circle-check\"></i> RIGHT!";
     if (state.currentPoints >= 0) {
@@ -955,14 +965,51 @@ function onPhase2AnswerDone() {
   const done = entry.cat.questions.every(q => state.answered[`${entry.cat.id}_${q.points}`]);
   if (!done) return;
 
+  // Bonus "en plein": 4 domande su 4 corrette nel proprio Personal Topic
+  const perfect = applyPhase2PerfectBonus(entry);
+  const extraDelay = perfect ? 3200 : 0; // tempo per leggere il messaggio del bonus
+
   if (state.phase2Pos < state.phase2Queue.length - 1) {
     setTimeout(() => {
       state.phase2Pos++;
       renderPhase2Card(true);
-    }, 900);
+    }, 900 + extraDelay);
   } else {
-    setTimeout(showGameOver, 1200);
+    setTimeout(showGameOver, 1200 + extraDelay);
   }
+}
+
+/* Assegna +500 punti al titolare della card se ha risposto correttamente a tutte
+   e 4 le domande del proprio Personal Topic. Restituisce true se il bonus è stato assegnato. */
+function applyPhase2PerfectBonus(entry) {
+  const { cat, playerIndex } = entry;
+  const player = state.players[playerIndex];
+  if (!player || state.phase2Perfect[playerIndex]) return false;
+  if (cat.questions.length !== PHASE2_PERFECT_QUESTIONS) return false;
+  if ((player.p2Correct || 0) !== PHASE2_PERFECT_QUESTIONS) return false;
+
+  state.phase2Perfect[playerIndex] = true;
+  player.score += PHASE2_PERFECT_BONUS;
+  player.p2Bonus = PHASE2_PERFECT_BONUS;
+  updatePlayerDisplays();
+  playAudio('ok');
+  showPhase2BonusToast(player.name);
+  return true;
+}
+
+function showPhase2BonusToast(playerName) {
+  const stage = $('screen-phase2');
+  if (!stage) return;
+  const toast = document.createElement('div');
+  toast.className = 'phase2-bonus-toast';
+  toast.innerHTML = `
+    <div class="p2b-title"><i class="fa-solid fa-star"></i> BONUS PERFETTO <i class="fa-solid fa-star"></i></div>
+    <div class="p2b-text">${escHtml(playerName)} ha risposto correttamente a tutte e ${PHASE2_PERFECT_QUESTIONS} le domande!</div>
+    <div class="p2b-points">+${PHASE2_PERFECT_BONUS.toLocaleString('it-IT')} PUNTI</div>
+  `;
+  stage.appendChild(toast);
+  setTimeout(() => toast.classList.add('p2b-out'), 2700);
+  setTimeout(() => toast.remove(), 3200);
 }
 
 function showGameOver() {

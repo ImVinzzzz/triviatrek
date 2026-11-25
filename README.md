@@ -113,6 +113,7 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 | Risposta errata — Normale | Tutti gli **altri** giocatori +50 punti |
 | Risposta errata — Riskio! | Il giocatore di turno -150 punti; tutti gli **altri** +250 punti |
 | Risposta errata — Personal Topic | Il giocatore di turno -250 punti; tutti gli **altri** +500 punti (indipendentemente dal valore della domanda) |
+| Fase II — 4 risposte corrette su 4 nel proprio Personal Topic | Il titolare della card guadagna **+500 punti** di bonus (una sola volta) |
 
 ### Jolly (solo Fase I)
 Ogni giocatore ha a disposizione **un solo jolly per partita**, utilizzabile nella **Fase I** (se il quiz non prevede la Fase II, in tutta la partita).
@@ -158,6 +159,10 @@ Se un quiz contiene almeno un Personal Topic la partita si svolge in due fasi:
 3. Il pulsante apre, con effetto flip, uno schermo nero con il logo `img/fase2-logo.svg`; un clic in qualunque punto fa girare il logo e compare la **card** del primo argomento: foto in alto a sinistra, titolo in alto a destra e sottotitolo sotto.
 4. Le card si susseguono con uno scorrimento laterale **dall'ultimo al primo della classifica provvisoria**: chi era in testa risponde per ultimo. Ogni concorrente risponde solo alle domande della propria card.
 5. Esaurite tutte le card si passa alla classifica definitiva con il podio.
+
+**Bonus perfetto (Fase II)**: il concorrente che risponde correttamente a **tutte e 4 le domande** della propria card guadagna **+500 punti extra**. Il bonus si somma ai punti delle singole risposte, viene assegnato subito dopo l'ultima risposta della card (con un messaggio a schermo che resta visibile circa 3 secondi prima di passare alla card successiva) ed è assegnato una sola volta per concorrente. Vale solo per i Personal Topic con esattamente 4 domande: con 2 o 3 domande non è previsto. Basta una sola risposta errata per perderlo.
+
+Implementazione: `script.js` conta le risposte corrette in Fase II nel campo `p2Correct` di ogni giocatore; al termine della card `onPhase2AnswerDone()` chiama `applyPhase2PerfectBonus()`. I valori sono nelle costanti `PHASE2_PERFECT_QUESTIONS` (4) e `PHASE2_PERFECT_BONUS` (500) in cima al file; lo stile del messaggio (`.phase2-bonus-toast`) è in `style.css`.
 
 L'abbinamento è solo per nome: l'ordine degli argomenti nel JSON non conta. Gli argomenti che non corrispondono a nessun concorrente non vengono giocati (prima della partita conviene eliminare quelli dei concorrenti assenti). Se **nessun** titolo coincide con i nomi dei concorrenti (es. nomi lasciati vuoti), la Fase II non c'è e la partita si gioca in un'unica fase con tutte le categorie sul tabellone, Personal Topic compresi. Lo stesso vale per un quiz senza Personal Topic.
 
