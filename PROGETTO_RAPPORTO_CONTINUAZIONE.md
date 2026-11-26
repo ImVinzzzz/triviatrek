@@ -71,7 +71,7 @@ Lo stato attuale è quello di un prodotto giocabile con editor integrato, ma con
 - Risposta corretta: il giocatore di turno riceve il valore della domanda, positivo o negativo.
 - Risposta errata normale: gli altri giocatori ricevono 50 punti.
 - Risposta errata `riskio`: il giocatore di turno perde 150 punti e gli altri ricevono 250 punti.
-- Risposta errata `personal`: il giocatore di turno perde 250 punti e gli altri ricevono 500 punti ciascuno, a prescindere dal valore della domanda (regola aggiornata il 23 ottobre 2026; in precedenza gli altri ricevevano metà del valore e chi sbagliava non perdeva punti).
+- Risposta errata `personal`: il giocatore di turno non perde punti e gli altri ricevono 250 punti ciascuno, a prescindere dal valore della domanda (regola aggiornata il 27 novembre 2026; dal 23 ottobre 2026 chi sbagliava perdeva 250 punti e gli altri ne ricevevano 500; in origine gli altri ricevevano metà del valore e chi sbagliava non perdeva punti).
 - Categoria `blind`: il tabellone mostra `?`, `??` e `???`; il valore reale viene mostrato dopo la risposta. Se il valore è positivo, l'errore assegna 150 punti agli altri; se è negativo, l'errore sottrae 250 punti agli altri.
 - A fine partita viene calcolato il massimo numero di domande affrontate da un giocatore. Chi ne ha affrontate meno riceve 250 punti per ciascun turno mancante.
 - In caso di parità al primo posto, vengono mostrati tutti i vincitori.
@@ -190,3 +190,11 @@ Il punto di partenza più sicuro per la prossima chat è considerare `giuliano.j
 - `script.js`: contatore `p2Correct` su ogni giocatore (incrementato in `handleAnswer()` quando `state.phase === 2`), funzioni `applyPhase2PerfectBonus()` e `showPhase2BonusToast()`, costanti `PHASE2_PERFECT_QUESTIONS` e `PHASE2_PERFECT_BONUS`. Il passaggio alla card successiva (o alla classifica finale) è ritardato di circa 3 secondi quando il bonus scatta.
 - `style.css`: stile del messaggio `.phase2-bonus-toast`.
 - `index.html` (popup regolamento) e `README.md` aggiornati.
+
+## 15. Aggiornamento del 27 novembre 2026
+
+### Punteggi risposta errata nei Personal Topic (Fase II)
+- Nuova regola: chi risponde in modo errato **non subisce decurtazioni**; ogni avversario guadagna **+250 punti** fissi (prima: -250 a chi sbagliava e +500 agli avversari).
+- `script.js`: in `handleAnswer()` rimossa la sottrazione dei 250 punti al giocatore di turno, `pts` per `personal` portato a 250 e messaggio a schermo ora uguale a quello delle categorie normali ("+250 PUNTI > avversari").
+- `index.html` (popup regolamento), `editor.js` (testo di aiuto della tipologia Personal Topic) e `README.md` aggiornati.
+- Il bonus perfetto di 500 punti per 4 risposte corrette su 4 resta invariato.

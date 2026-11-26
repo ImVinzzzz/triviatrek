@@ -112,7 +112,7 @@ Senza i file audio il gioco funziona ugualmente (gli errori vengono soppressi).
 | Risposta corretta | Giocatore di turno +N punti (N = valore domanda) |
 | Risposta errata — Normale | Tutti gli **altri** giocatori +50 punti |
 | Risposta errata — Riskio! | Il giocatore di turno -150 punti; tutti gli **altri** +250 punti |
-| Risposta errata — Personal Topic | Il giocatore di turno -250 punti; tutti gli **altri** +500 punti (indipendentemente dal valore della domanda) |
+| Risposta errata — Personal Topic | Nessuna penalità per il giocatore di turno; tutti gli **altri** +250 punti (indipendentemente dal valore della domanda) |
 | Fase II — 4 risposte corrette su 4 nel proprio Personal Topic | Il titolare della card guadagna **+500 punti** di bonus (una sola volta) |
 
 ### Jolly (solo Fase I)
@@ -167,7 +167,7 @@ Implementazione: `script.js` conta le risposte corrette in Fase II nel campo `p2
 L'abbinamento è solo per nome: l'ordine degli argomenti nel JSON non conta. Gli argomenti che non corrispondono a nessun concorrente non vengono giocati (prima della partita conviene eliminare quelli dei concorrenti assenti). Se **nessun** titolo coincide con i nomi dei concorrenti (es. nomi lasciati vuoti), la Fase II non c'è e la partita si gioca in un'unica fase con tutte le categorie sul tabellone, Personal Topic compresi. Lo stesso vale per un quiz senza Personal Topic.
 
 - **Risposta corretta**: il giocatore di turno guadagna l'intero valore della domanda.
-- **Risposta errata**: il giocatore di turno perde **250 punti**, mentre tutti gli altri giocatori guadagnano **+500 punti** fissi ciascuno, a prescindere dal valore della domanda (per esempio, su una domanda da 100 o da 1000 punti gli avversari ricevono sempre +500 punti e chi ha sbagliato -250).
+- **Risposta errata**: il giocatore di turno **non perde punti**, mentre tutti gli altri giocatori guadagnano **+250 punti** fissi ciascuno, a prescindere dal valore della domanda (per esempio, su una domanda da 100 o da 1000 punti gli avversari ricevono sempre +250 punti e chi ha sbagliato non perde nulla).
 
 Nel JSON esportato dall'editor il tipo della categoria è indicato così:
 

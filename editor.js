@@ -473,7 +473,7 @@ function renderCategory(idx) {
           "<label><input type=\"radio\" name=\"cat-type\" value=\"blind\" " + (cat.type === "blind" ? "checked" : "") + "> Blind</label>" +
           "<label><input type=\"radio\" name=\"cat-type\" value=\"personal\" " + (cat.type === "personal" || cat.type === "personal-topic" || cat.type === "personalTopic" ? "checked" : "") + "> Personal Topic</label>" +
         "</div>" +
-        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: argomenti giocati nella FASE II, uno per concorrente, con fino a 4 domande (le altre tipologie ne hanno al massimo 3).Il titolo deve coincidere con il nome del concorrente (come verrà digitato a inizio partita); l'immagine (foto o icona) appare in un cerchio bordato e sotto il titolo compare il sottotitolo. In caso di risposta errata il concorrente perde 250 punti e gli avversari guadagnano 500 punti ciascuno, indipendentemente dal valore della domanda.</div>" +
+        "<div class=\"cat-type-help\"><i class=\"fa-solid fa-circle-user\"></i> Personal Topic: argomenti giocati nella FASE II, uno per concorrente, con fino a 4 domande (le altre tipologie ne hanno al massimo 3).Il titolo deve coincidere con il nome del concorrente (come verrà digitato a inizio partita); l'immagine (foto o icona) appare in un cerchio bordato e sotto il titolo compare il sottotitolo. In caso di risposta errata il concorrente non perde punti e gli avversari guadagnano 250 punti ciascuno, indipendentemente dal valore della domanda.</div>" +
       "</div>" +
       "<button type=\"button\" class=\"delete-cat-btn\" id=\"delete-cat-btn\">" +
         "<i class=\"fa-solid fa-trash\"></i> &nbsp;Elimina questo argomento" +
